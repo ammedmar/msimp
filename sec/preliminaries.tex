@@ -14,14 +14,14 @@ A Cartesian category $(\mathsf{A}, \times, \mathbb{1})$ is equipped with natural
 Recall that a category is said to be \textit{small} if its objects and morphisms form sets.
 We denote the Cartesian category of small categories by $\Cat$.
 
-Given categories $\mathsf{B}$ and $\C$ we denote their associated \textit{functor category} by $\Fun(\mathsf{B}, \C)$.
+Given categories $\sB$ and $\sC$ we denote their associated \textit{functor category} by $\Fun(\sB, \sC)$.
 
 A category is said to be \textit{cocomplete} if any functor to it from a small category has a colimit.
-If $\mathsf{A}$ is small and $\mathsf{C}$ cocomplete, then the (left) \textit{Kan extension of $g$ along $f$} exists for any pair of functors $f$ and $g$ in the diagram below, and it is the initial object in $\Fun(\mathsf{B}, \mathsf{C})$ making
+If $\mathsf{A}$ is small and $\mathsf{C}$ cocomplete, then the (left) \textit{Kan extension of $g$ along $f$} exists for any pair of functors $f$ and $g$ in the diagram below, and it is the initial object in $\Fun(\sB, \mathsf{C})$ making
 \begin{equation*}
 \begin{tikzcd}[column sep=normal, row sep=normal]
 \mathsf{A} \arrow[d, "f"'] \arrow[r, "g"] & \mathsf{C} \\
-\mathsf{B} \arrow[dashed, ur, bend right] & \quad
+\sB \arrow[dashed, ur, bend right] & \quad
 \end{tikzcd}
 \end{equation*}
 commute.

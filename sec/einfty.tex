@@ -15,13 +15,13 @@ Let $\S$ be the category whose objects are the natural numbers and whose set of 
 A \textit{left $\S$-module} (resp. \textit{right} $\S$-\textit{module} or $\S$-\textit{bimodule}) is a functor from $\S$ (resp. $\S^\op$ or $\S \times \S^\op$) to $\Ch$.
 In this paper we prioritize left module structures over their right counterparts.
 As usual, taking inverses makes both perspectives equivalent.
-We respectively denote by $\smod$ and $\sbimod$ the categories of left $\S$-modules and of $\S$-bimodules with morphisms given by natural transformations.
+We respectively denote by $\Smod$ and $\Sbimod$ the categories of left $\S$-modules and of $\S$-bimodules with morphisms given by natural transformations.
 
 The group homomorphisms $\S_n \to \S_n \times \S_1$ induce a forgetful functor
 \[
-\forget \colon \sbimod \to \smod,
+\forget \colon \Sbimod \to \Smod,
 \]
-given explicitly by $\forget(\P)(r) = \P(1, r)$ for $r \in \N$.
+given explicitly by $\forget(\cP)(r) = \cP(1, r)$ for $r \in \N$.
 The similarly defined forgetful functor to right $\S$-modules will not be used.
 
 \subsection{Composition structures}
@@ -29,7 +29,7 @@ The similarly defined forgetful functor to right $\S$-modules will not be used.
 We can define \textit{operads} and \textit{props} by enriching $\S$-modules and $\S$-bimodules with certain composition structures.
 For a complete presentation of these concepts we refer to Definition~11 and 54 of \cite{markl2008props}.
 Intuitively, using examples defined in the next subsection, operads and props can be understood by abstracting the composition structure naturally present in the left $\S$-module $\End^C$ (or right $\S$-module $\End_C$), naturally an operad, and the $\S$-bimodule $\End^C_C$, naturally a prop.
-We remark that the prop structure on $\P$ restricts to an operad structure on $\forget(\P)$.
+We remark that the prop structure on $\cP$ restricts to an operad structure on $\forget(\cP)$.
 
 \subsection{Representations}
 
@@ -42,8 +42,8 @@ Given a chain complex $C$ define
 with their natural operad and prop structures respectively.
 We remark that the forgetful functor $\forget$ sends $\End^C_C$ to $\End^C$.
 
-Let $C$ be a chain complex, $\O$ an operad, and $\P$ a prop.
-An $\O$-\textit{coalgebra} (resp. $\O$-\textit{algebra} or $\P$-\textit{bialgebra}) structure on $C$ is a structure preserving morphism $\O \to \End^C$ (resp. $\O \to \End_C$ or $\P \to \End_C^C$).
+Let $C$ be a chain complex, $\cO$ an operad, and $\cP$ a prop.
+An $\cO$-\textit{coalgebra} (resp. $\cO$-\textit{algebra} or $\cP$-\textit{bialgebra}) structure on $C$ is a structure preserving morphism $\cO \to \End^C$ (resp. $\cO \to \End_C$ or $\cP \to \End_C^C$).
 
 \subsection{\pdfEinfty-operads}
 
@@ -127,18 +127,18 @@ So far we have consider operad and props over the category $\Ch$ but, since $\co
 That is to say, demand that all defining chain complexes be coalgebras and all compositions be morphisms of these.
 We refer to operads and props over $\coAlg$ as \textit{Hopf operads} and \textit{props} respectively.
 
-If $\O$ is a Hopf operad, the category $\coAlg_\O$ is monoidal.
-The structure maps of a product of $\O$-coalgebras $C \otimes C^\prime$ are given by
+If $\cO$ is a Hopf operad, the category $\coAlg_\cO$ is monoidal.
+The structure maps of a product of $\cO$-coalgebras $C \otimes C^\prime$ are given by
 \[
 \begin{tikzcd} [column sep = normal, row sep=normal]
-\O(r) \otimes (C \otimes C^\prime) \arrow[r, "\Delta_\O \otimes \id"] &[10 pt]
-\O(r) \otimes \O(r) \otimes (C \otimes C^\prime) \arrow[d, "Sh"'] & \\ &
-\big(\O(r) \otimes C \big) \otimes \big( \O(r) \otimes C \big) \arrow[r] &
+\cO(r) \otimes (C \otimes C^\prime) \arrow[r, "\Delta_\cO \otimes \id"] &[10 pt]
+\cO(r) \otimes \cO(r) \otimes (C \otimes C^\prime) \arrow[d, "Sh"'] & \\ &
+\big(\cO(r) \otimes C \big) \otimes \big( \cO(r) \otimes C \big) \arrow[r] &
 C^{\otimes r} \otimes C^{\prime\, \otimes r} \arrow[d, "Sh"] & \\ & &
 (C \otimes C^\prime)^{\otimes r}.
 \end{tikzcd}
 \]
-Similarly, if $\P$ is a Hopf prop then its category of representations is also monoidal.
+Similarly, if $\cP$ is a Hopf prop then its category of representations is also monoidal.
 
 \subsection{Hopf structure on $\M$} \label{ss:hopf prop M}
 
