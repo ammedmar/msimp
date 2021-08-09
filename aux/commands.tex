@@ -18,20 +18,15 @@
 \newcommand{\UM}{{\forget(\M)}}
 \newcommand{\SL}{{\mathcal{M}_{sl}}}
 \newcommand{\USL}{{\forget(\mathcal{M}_{sl})}}
-\newcommand{\scube}[1]{(\triangle^{\!1})^{\times #1}}
-
-\newcommand{\Sl}{\mathcal{S}u\ell}
 
 % sets
 \newcommand{\N}{\amsmathbb{N}}
 \newcommand{\Z}{\amsmathbb{Z}}
 \renewcommand{\k}{\Bbbk}
+\newcommand{\Fp}{{\mathbb{F}_p}}
+\newcommand{\Cp}{{\mathrm{C}_p}}
 \newcommand{\graphs}{\mathfrak{G}}
-\newcommand{\gcube}{\bm{\mathbb{I}}}
 \newcommand{\gsimplex}{\mathbb{\Delta}}
-\newcommand{\zero}{[\,\bar{0}\,]}
-\newcommand{\one}{[\,\bar{1}\,]}
-\newcommand{\interval}{[\,\bar 0, \bar 1\,]}
 
 % categories
 \newcommand{\Cat}{\mathsf{Cat}}
@@ -45,7 +40,7 @@
 \newcommand{\cube}{\square}
 \newcommand{\simplex}{\triangle}
 \newcommand{\stspx}[1]{\simplex^{\!#1}}
-\newcommand{\msimplex}[1]{\simplex^{\! \times #1}}
+\newcommand{\msimplex}[1]{\simplex^{\!\times\mathit{#1}}}
 \newcommand{\Set}{\mathsf{Set}}
 \newcommand{\sSet}{\mathsf{sSet}}
 \newcommand{\msSet}{\mathsf{msSet}}
@@ -61,21 +56,17 @@
 % functions and functors
 \newcommand{\yoneda}{\mathcal{Y}}
 \DeclareMathOperator{\chains}{N}
-\DeclareMathOperator{\cochains}{N^\bullet}
 \DeclareMathOperator{\schains}{N^{\simplex}}
 \DeclareMathOperator{\schainsUM}{N^{\simplex}_{\UM}}
 \DeclareMathOperator{\gchains}{C}
+\DeclareMathOperator{\mchainsk}{\chains^{\msimplex{k}}}
+\DeclareMathOperator{\mchainskUM}{\chains^{\msimplex{k}}_{\UM}}
 \DeclareMathOperator{\sSing}{sSing^\simplex}
 \DeclareMathOperator{\cSing}{cSing}
 \DeclareMathOperator{\forget}{U}
 \DeclareMathOperator{\free}{F}
-\DeclareMathOperator{\loops}{\Omega}
-\DeclareMathOperator{\cobar}{\mathbf{\Omega}}
-\DeclareMathOperator{\CS}{\zeta}
 \DeclareMathOperator{\projection}{\pi}
 \DeclareMathOperator{\inclusion}{\iota}
-\DeclareMathOperator{\triangulate}{\mathcal{T}}
-\DeclareMathOperator{\cubify}{\mathcal{U}}
 
 % other
 \renewcommand{\th}{\mathrm{th}}

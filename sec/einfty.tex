@@ -1,10 +1,13 @@
 
-\section{The prop \texorpdfstring{$\M$}{M}} \label{s:operads and props}
+\section{\pdfEinfty-structures} \label{s:operads and props}
 
-We now review the definition of the finitely presented prop $\M$ introduced in \cite{medina2020prop1} and whose associated operad is a model for the  $E_\infty$-operad.
-Given its small number of generators and relations, is well suited to define $E_\infty$-structures.
-In the next section we use this model to define natural $E_\infty$-structures on cubical chains and cochains.
-We start by reviewing the basic material in the theory of operads and props, referring the reader to, for example, \cite{markl2008props} for a more complete treatment.
+The goal of this section is to define an explicit $E_\infty$-algebra structure on multisimplicial cochains.
+That is to say, a product descending to the ring structure on cohomology together with a coherent family of homotopies correcting its lack of commutativity at the cochain level.
+
+We begin by reviewing basic material concerning the theory of operads and props, referring the reader to, for example, \cite{markl2008props} for a more complete treatment.
+We then recall the definition of the finitely presented prop $\M$ introduced in \cite{medina2020prop1} and whose associated operad is a model for the $E_\infty$-operad.
+Given its small number of generators and relations, $\M$ is well suited to define $E_\infty$-structures.
+We recall from the same source one such structure on simplicial cochains, which we monoidally extend to achieve our stated goal.
 
 \subsection{Symmetric modules and bimodules}
 
@@ -118,11 +121,11 @@ As proven in \cite[Theorem 3.3]{medina2020prop1} we have the following.
 
 We remark that, as proven in \cite{medina2018prop2}, this prop is obtained from applying the functor of cellular chains to a finitely presented prop over the category of CW-complexes.
 
-\subsection{Hopf operads and $E_\infty$-bialgebras}
+\subsection{Hopf operads and props}
 
 So far we have consider operad and props over the category $\Ch$ but, since $\coAlg$ is also a symmetric monoidal category, we can consider them over $\coAlg$.
 That is to say, demand that all defining chain complexes be coalgebras and all compositions be morphisms of these.
-We refer to operads and props over $\coAlg$ as \textit{Hopf operads and props} respectively.
+We refer to operads and props over $\coAlg$ as \textit{Hopf operads} and \textit{props} respectively.
 
 If $\O$ is a Hopf operad, the category $\coAlg_\O$ is monoidal.
 The structure maps of a product of $\O$-coalgebras $C \otimes C^\prime$ are given by
@@ -145,7 +148,7 @@ As proven in \cite{medina2021cobar}, the prop $\M$ is Hopf with coproduct $\Delt
 \coproduct & \mapsto 1, \\
 \counit \ & \mapsto \ \counit \ \otimes \ \counit \,, &
 \counit \ & \mapsto 1, \\
-\product & \mapsto \rightboundary \otimes \product + \product \otimes \leftboundary \,, &
+\product & \mapsto \rightboundary \ \otimes \product + \product \otimes \ \leftboundary \,, &
 \coproduct & \mapsto 0.
 \end{align*}
 It follows from the previous subsection that $\coAlg_\UM$ is a monoidal category.
@@ -160,21 +163,21 @@ An $\M$-structure is specified by three linear maps, the images of the generator
 \counit, \quad \coproduct, \quad \product,
 \]
 satisfying the relations in the presentation of $\mathcal M$.
-For the chains on standard simplices, the first two generators are send respectively to the counit and coproduct of the Alexander--Whitney coalgebra as defined in \cref{ss:aw coalgebra}, and the third generator to an algebraic version of the join $\ast \colon \chains(\simplex^n)^{\otimes 2} \to \chains(\simplex^n)$ defined by
+For the chains on standard simplices, the first two generators are send respectively to the counit and coproduct of the Alexander--Whitney coalgebra, and the third generator to an algebraic version of the join $\ast \colon \chains(\simplex^n)^{\otimes 2} \to \chains(\simplex^n)$ defined by
 \[
 \left[v_0, \dots, v_p \right] \ast \left[v_{p+1}, \dots, v_q\right] = \begin{cases} (-1)^{p+|\pi|} \left[ v_{\pi(0)}, \dots, v_{\pi(q)} \right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
 0 & \text{ otherwise}, \end{cases}
 \]
 where $\pi$ is the permutation that orders the totally ordered set of vertices, and $(-1)^{|\pi|}$ its sign.
 
-The same proof given in \cite[Theorem 4.2]{medina2020prop1} establishes the following.
+From \cite{medina2020prop1} we have the following result.
 
 \begin{proposition} \label{p:simplicial chain bialgebra}
 	For every $n \in \mathbb{N}$, the assignment
 	\[
 	\counit \mapsto \epsilon, \quad \coproduct \mapsto \Delta, \quad \product \mapsto \ast,
 	\]
-	defines a natural $\mathcal M$-structure on $\chains(\simplex^n)$ extending the Alexander--Whitney coalgebra.
+	defines a natural $\mathcal M$-structure on $\chains(\simplex^n)$.
 \end{proposition}
 
 The chains on general simplicial sets are not equipped with an $\M$-structure, but using the forgetful functor from $\biAlg_{\M}$ to the cocomplete category $\coAlg_\UM$ allows us to Yoneda extend the induced natural $\UM$-structures on standard simplices to all simplicial sets.
@@ -183,22 +186,74 @@ Specifically, we obtain an extension of the Alexander--Whitney coalgebra in the 
 \begin{tikzcd}[column sep=normal, row sep=small]
 & \coAlg_\UM \arrow[d] \\
 \sSet \arrow[r, "\schains"]
-\arrow[ur, "\schainsUM", out=60, in=180]
+\arrow[ur, "\schainsUM", out=60, in=180, near start, dashed]
 & \Ch.
 \end{tikzcd}
 \]
+
+A similar argument using the duality functor provides simplicial cochains with a $\UM$-algebra structure.
 
 \subsection{Multisimplicial \pdfEinfty-structure}
 
-Since $\coAlg_\UM$ is monoidal we have a canonical functor $\coAlg_\UM^{\otimes k} \to \coAlg_\UM$ that we use to define a lift of the functor of multisimplicial chains to the category of $\UM$-coalgebras fitting in the following commutative diagram
+We use the monoidal structure on $\coAlg_\UM$ to define a lift of the functor of multisimplicial chains to the category of $\UM$-coalgebras
 \[
-\begin{tikzcd}[column sep=huge, row sep=small]
-& \coAlg_\UM^{\otimes k} \arrow[d] \\
+\mchainskUM \defeq \Big(\schainsUM\Big)^{\otimes k}
+\]
+fitting in the following commutative diagram:
+\[
+\begin{tikzcd}[column sep=normal, row sep=small]
 & \coAlg_\UM \arrow[d] \\
-\arrow[uur, "\schainsUM^{\otimes k}", out=90, in=180]
-\arrow[ur, "\chains^{\msimplex{k}_\UM}", out=45, in=180, near end, dashed]
-\sSet^k \arrow[r, "\schains"]
+\arrow[ur, "\mchainskUM", out=60, in=180, near start, dashed]
+\sSet^k \arrow[r, "\mchainsk"]
 & \Ch.
 \end{tikzcd}
 \]
 
+As before, a similar construction provides multisimplicial cochains with a $\UM$-algebra structure.
+
+\subsection{Explicit description}
+
+We now introduce linear maps on the chains of representable multisimplicial sets defining a natural $\M$-structure on each of them.
+These forget to natural $\UM$-structures defining, via Yoneda extension, the functor $\mchainskUM$ from the previous subsection.
+The case $k = 1$ reduces to the $\M$-structure on simplicial chains, which we monoidally extend for $k > 1$.
+
+Let $C$ denote $\mchainsk(\simplex^{n_1} \times \dots \times \simplex^{n_k})$ and consider basis elements $x = x_1 \otimes \dots \otimes x_k$ and $y = y_1 \otimes \dots \otimes y_k$ in $C$.
+
+The \textit{multisimplicial counit} $\varepsilon \colon C \to \k$ is defined by
+\[
+\varepsilon(x) = \varepsilon(x_1) \dotsm \varepsilon(x_k).
+\]
+
+The \textit{multisimplicial coproduct} $\Delta \colon C \to C \otimes C$ is defined by
+\[
+\Delta (x_1 \otimes \dots \otimes x_n) =
+\sum \pm \left( x_1^{(1)} \otimes \dots \otimes x_n^{(1)} \right) \otimes
+\left( x_1^{(2)} \otimes \dots \otimes x_n^{(2)} \right),
+\]
+where the sign is determined using the Koszul convention, and we are using Sweedler's notation
+\[
+\Delta(x_i) = \sum x_i^{(1)} \otimes x_i^{(2)}
+\]
+for the coproduct $\Delta \colon \chains(\simplex^{n_i}) \to \chains(\simplex^{n_i})^{\otimes 2}$.
+
+The \textit{multisimplicial join} $\ast \colon C \otimes C \to C$ is defined by
+\begin{align*}
+(x_1 \otimes \dots \otimes x_n) \ast (y_1 \otimes \dots \otimes y_n) =
+(-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i}) \, y_{>i},
+\end{align*}
+where
+\begin{align*}
+x_{<i} & = x_1 \otimes \dots \otimes x_{i-1}, &
+y_{<i} & = y_1 \otimes \dots \otimes y_{i-1}, \\
+x_{>i} & = x_{i+1} \otimes \dots \otimes x_n, &
+y_{>i} & = y_{i+1} \otimes \dots \otimes y_n,
+\end{align*}
+with the convention
+\[
+x_{<1} = y_{<1} = x_{>n} = y_{>n} = 1 \in \Z,
+\]
+and $x_i \ast y_i$ is the join in $\chains(\simplex^{n_i})$.
+
+\subsection{Steenrod operations}
+
+TBW

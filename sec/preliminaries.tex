@@ -3,16 +3,21 @@
 
 \subsection{Chain complexes }
 
-Throughout this article $\k$ denotes a commutative and unital ring and we work over its associated closed symmetric monoidal category of homological graded chain complexes $(\Ch, \otimes, \k)$, where we denote by $\Hom(C, C^\prime)$ the chain complex of $\k$-linear maps between the chain complexes $C$ and $C^\prime$, and refer to the functor $\Hom(-, \k)$ as \textit{linear duality}.
+Throughout this article $\k$ denotes a commutative and unital ring and we work over its associated closed symmetric monoidal category of differential (homological) graded $\k$-modules $(\Ch, \otimes, \k)$.
+We refer to the objects and morphisms of this category as \textit{chain complexes} and \textit{chain maps} respectively. We denote by $\Hom(C, C^\prime)$ the chain complex of $\k$-linear maps between chain complexes $C$ and $C^\prime$, and refer to the functor $\Hom(-, \k)$ as \textit{linear duality}.
 
 \subsection{Category theory}
 
-Given categories $\mathsf{B}$ and $\C$ we denote their associated \textit{functor category} by $\Fun(\mathsf{B}, \C)$.
+A category is said to be \textit{Cartesian} if is a monoidal category whose monoidal structure is given by the category-theoretic product and whose unit is a terminal object.
+A Cartesian category $(\mathsf{A}, \times, \mathbb{1})$ is equipped with natural diagonal and augmentation maps $\Delta_a \colon a \to a \times a$ and $\varepsilon_a \colon a \to \mathbb{1}$.
+
 Recall that a category is said to be \textit{small} if its objects and morphisms form sets.
-We denote the Cartesian monoidal category of small categories by $(\Cat, \times, \mathbb{1})$.
+We denote the Cartesian category of small categories by $\Cat$.
+
+Given categories $\mathsf{B}$ and $\C$ we denote their associated \textit{functor category} by $\Fun(\mathsf{B}, \C)$.
 
 A category is said to be \textit{cocomplete} if any functor to it from a small category has a colimit.
-If $\mathsf{A}$ is small and $\mathsf{C}$ cocomplete, then the \textit{(left) Kan extension of $g$ along $f$} exists for any pair of functors $f$ and $g$ in the diagram below, and it is the initial object in $\Fun(\mathsf{B}, \mathsf{C})$ making
+If $\mathsf{A}$ is small and $\mathsf{C}$ cocomplete, then the (left) \textit{Kan extension of $g$ along $f$} exists for any pair of functors $f$ and $g$ in the diagram below, and it is the initial object in $\Fun(\mathsf{B}, \mathsf{C})$ making
 \begin{equation*}
 \begin{tikzcd}[column sep=normal, row sep=normal]
 \mathsf{A} \arrow[d, "f"'] \arrow[r, "g"] & \mathsf{C} \\
@@ -20,23 +25,27 @@ If $\mathsf{A}$ is small and $\mathsf{C}$ cocomplete, then the \textit{(left) Ka
 \end{tikzcd}
 \end{equation*}
 commute.
-Recall the \textit{Yoneda embedding}, the functor $\yoneda \colon \mathsf{A} \to \Fun(\mathsf{A}^\op, \Set)$ induced by the assignment
+A Kan extension along the \textit{Yoneda embedding}, i.e., the functor
 \[
-a \mapsto \big( a^\prime \mapsto \mathsf{A}(a^\prime, a) \big).
+\yoneda \colon \mathsf{A} \to \Fun(\mathsf{A}^\op, \Set)
 \]
-A Kan extension along the Yoneda embedding is referred to as a \textit{Yoneda extension}.
+induced by the assignment
+\[
+a \mapsto \big( a^\prime \mapsto \mathsf{A}(a^\prime, a) \big),
+\]
+is referred to as a \textit{Yoneda extension}.
+We refer to the objects in $\Fun(\mathsf{A}^\op, \Set)$ as \textit{presheaves on $\mathsf{A}$} and to those in the image of the Yoneda embedding as \textit{representable presheaves}.
 
 \subsection{Simplicial chains}
 
-We denote the \textit{simplex category} by $\simplex$, the category of \textit{simplicial sets} by $\sSet = \Fun(\stspx{n}\op, \Set)$ and the standard $n$-simplex by $\stspx{n}$.
-As usual, we denote an element in $\stspx{n}_m$ by a non-decreasing tuples $[v_0, \dots, v_m]$ with $v_i \in \{0, \dots, n\}$.
+We denote the \textit{simplex category} by $\simplex$, the category of \textit{simplicial sets} by $\sSet = \Fun(\simplex^\op, \Set)$ and the \textit{standard $n$-simplex} $\yoneda\big([n]\big)$ by $\stspx{n}$.
+As usual, we denote an element in $\stspx{n}[m]$ by a non-decreasing tuples $[v_0, \dots, v_m]$ with $v_i \in \{0, \dots, n\}$.
 The \textit{Cartesian product} of simplicial sets is defined ...
 
+We denote the functor of (normalized) \textit{chains} by $\schains \colon \sSet \to \Ch$.
+We omit the superscript $\simplex$ from the notation if no confusion may result from doing so.
 
-We denote the functor of \textit{(normalized) chains} by $\schains \colon \sSet \to \Ch$.
-We omit the superscript $\simplex$ from either of these if no confusion may result from doing so.
-
-The \textit{Alexander--Whitney coalgebra} functor is defined by a Kan extension argument based on the following natural maps.
+The \textit{Alexander--Whitney coalgebra} functor is defined by a Yoneda extension based on the following natural maps.
 For any $n \in \N$, define $\epsilon \colon \chains(\stspx{n}) \to \k$ by
 \[
 \epsilon \big( [v_0, \dots, v_q] \big) = \begin{cases} 1 & \text{ if } q = 0, \\ 0 & \text{ if } q>0, \end{cases}
@@ -56,14 +65,16 @@ This notation is justified by the isomorphism
 \Fun \big( (\msimplex{k})^\op,\, \Set \big) \cong
 \Fun(\simplex^\op,\, \Set)^{\times k}.
 \]
+Furthermore, the representable multisimplicial sets are given by Cartesian products of representable simplicial sets.
+
 The functor of \textit{multisimplicial chains}
 \[
-\chains^{\msimplex{k}} \colon \sSet^k \to \Ch
+\mchainsk \colon \sSet^k \to \Ch
 \]
 is defined as the $k^\th$ tensor product of the functor of simplicial chains.
 Explicitly,
 \[
-\chains^{\msimplex{k}} \defeq \big( \schains \big)^{\otimes k}.
+\mchainsk \defeq \big( \schains \big)^{\otimes k}.
 \]
-
+We denote the elements in the basis of $\mchainsk(\simplex^{n_1} \times \dots \times \simplex^{n_k})$ by $x_1 \otimes \dots \otimes x_k$ with $x_i \in \chains(\simplex^{n_i})$.
 
