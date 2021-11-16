@@ -1,0 +1,90 @@
+% !TEX root = ../msimplicial.tex
+
+\section{Multisimplicial chains}
+
+\subsection{Multisimplicial sets}
+
+Let us consider an arbitrary non-negative integer~$k$.
+The \textit{$k$-fold multisimplex category} $\msimplex{k}$ is the $k$-fold Cartesian product of the simplex category $\simplex$.
+We denote the category of presheaves $\Fun(\msimplex{k}, \Set)$ by $\mSetk$ and refer to its objects as \textit{$k$-fold multisimplicial sets}.
+The representable $k$-fold multisimplicial sets are denoted by
+\[
+\simplex^{n_1, \dots, n_k} = \yoneda \big( [n_1] \times \cdots \times [n_k] \big)
+\]
+and we have
+\[
+\simplex^{n_1, \dots, n_k}_{m_1, \dots, m_k} =
+\simplex^{n_1, \dots, n_k} \big( [m_1] \times \cdots \times [m_k] \big) \cong
+\simplex^{n_1}_{m_1} \times \dots \times \simplex^{n_k}_{m_k}.
+\]
+
+\subsection{Simplicial subdivision}
+
+Given a $k$-fold multisimplicial set $X$, there is a naturally associated simplicial set $X^{\diag}$ defined by
+\[
+X^{\diag} \big( [n] \big) = X \big( [n] \times \dots \times [n] \big).
+\]
+The functor $(-)^{\diag} \colon \mSetk \to \sSet$ is on representable objects given by
+\[
+\big( \simplex^{n_1, \dots, n_k} \big)^{\diag} \cong
+\simplex^{n_1} \times \dots \times \simplex^{n_k}.
+\]
+Its right adjoint $\cU \colon \sSet \to \mSetk$ is defined on a simplicial set $Y$ by
+\[
+\cU(Y)_{m_1, \dots, m_k} =
+\sSet\big( \simplex^{m_1} \times \dots \times \simplex^{m_k}, \, Y \big).
+\]
+Although we do not use it in this work we remark that these define a Quillen equivalence.
+
+\subsection{Multisimplicial chains}
+
+The functor of \textit{$k$-fold multisimplicial chains}
+\[
+\mchainsk \colon \mSetk \to \Ch
+\]
+is defined as the Yoneda extension of the functor defined on representable objects by
+\[
+\mchainsk \big( \simplex^{n_1, \dots, n_k} \big) =
+\chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k}).
+\]
+We omit the superscript $\simplex^{\times k}$ from $\mchainsk$ when no confusion may arise from doing so.
+
+The functor of \textit{$k$-fold multisimplicial cochains} is defined using the linear duality functor.
+
+For any $k$-fold multisimplicial set $X$, the Eilenberg--Zilber map defines a quasi-isomorphism from the chains on a multisimplicial set and those of its simplicial subdivision:
+\begin{equation} \label{e:ez comparison}
+\begin{split}
+\mchainsk(X) \ &\xra{\cong}
+\colim_{\simplex^{n_1, \dots, n_k} \to X} \chains (\simplex^{n_1, \dots, n_k}) \\ &\xra{=}
+\colim_{\simplex^{n_1, \dots, n_k} \to X} \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k}) \\ &\xra{\EZ}
+\colim_{\simplex^{n_1, \dots, n_k} \to X} \chains(\simplex^{n_1} \times \dots \times \simplex^{n_k}) \\ &\xra{\cong}
+\schains(X^{\diag}).
+\end{split}
+\end{equation}
+We abuse terminology and notation referring to this map also as Eilenberg--Zilber and denoting it $\EZ$.
+The chain homotopy inverse induced by the $\AW$ map is defined similarly and referred to as Alexander--Whitney map.
+
+\subsection{Cup product}
+
+Given two coalgebras $(C, \Delta, \varepsilon)$ and $(C^\prime, \Delta^\prime, \varepsilon^\prime)$, their tensor product is naturally a coalgebra with
+\[
+\begin{split}
+c \ot c^\prime &\mapsto (23) \ \Delta(c) \otimes \Delta^\prime(c^\prime), \\
+c \ot c^\prime &\mapsto \varepsilon(c) \, \varepsilon^\prime(c^\prime),
+\end{split}
+\]
+where $(23) \in \S_4$ acts on $C \otimes C \otimes C^\prime \otimes C^\prime$ by transposing the second an third factors.
+
+Let $\coAlg$ be the category of coalgebras in $\Ch$ with the monoidal structure described above.
+The functor of multisimplicial chains lifts to $\coAlg$ with coalgebra structure on representable objects induced monoidally from the Alexander--Whitney coalgebra structure.
+Explicitly, ...
+
+We refer to the product induced on cochains as \textit{multisimplicial cup product}.
+
+\subsection{Coalgebra comparison}
+
+Since $\EZ \colon \chains(\simplex^{n_1} \times \simplex^{n_2}) \to \chains(\simplex^{n_1}) \ot \chains(\simplex^{n_2})$ is a coalgebra map, the Eilenberg-Zilber comparison map \eqref{e:ez comparison} is a quasi-isomorphism of coalgebras
+\[
+\EZ \colon \mchainsk(X) \to \schains(X^{\diag})
+\]
+for any multisimplicial set $X$.

@@ -1,3 +1,4 @@
+% !TEX root = ../msimplicial.tex
 
 \section{\pdfEinfty-structures} \label{s:operads and props}
 
@@ -35,9 +36,9 @@ We remark that the prop structure on $\cP$ restricts to an operad structure on $
 
 Given a chain complex $C$ define
 \begin{gather*}
-\End^C(r) = \Hom(C, C^{\otimes r}), \qquad
-\End_C(r) = \Hom(C^{\otimes r}, C), \\
-\End^C_C(r, s) = \Hom(C^{\otimes r}, C^{\otimes s}),
+\End^C(r) = \Hom(C, C^{\ot r}), \qquad
+\End_C(r) = \Hom(C^{\ot r}, C), \\
+\End^C_C(r, s) = \Hom(C^{\ot r}, C^{\ot s}),
 \end{gather*}
 with their natural operad and prop structures respectively.
 We remark that the forgetful functor $\forget$ sends $\End^C_C$ to $\End^C$.
@@ -83,7 +84,7 @@ We use graphs immersed in the plane to represent elements in $\graphs(m,n)$, ple
 We consider the right action of $\S_n$ and the left action of $\S_m$ on a $(n,m)$-graph given respectively by permuting the labels of $in(\Gamma)$ and $out(\Gamma)$.
 This action defines the $\S$-bimodule structure on the free prop
 \begin{equation} \label{e:free prop}
-\free(M)(m,n) \ = \bigoplus_{\Gamma \in \graphs(m,n)} \bigotimes_{v \in Vert(\Gamma)} out(v) \otimes_{\S_q} M(p, q) \otimes_{\S_p} in(v),
+\free(M)(m,n) \ = \bigoplus_{\Gamma \in \graphs(m,n)} \bigotimes_{v \in Vert(\Gamma)} out(v) \ot_{\S_q} M(p, q) \ot_{\S_p} in(v),
 \end{equation}
 where we simplified the notation writing $p$ and $q$ for $\overline{|in(v)|}$ and $\overline{|out(v)|}$ respectively.
 The composition structure is defined by (relabeled) grafting and disjoint union.
@@ -128,14 +129,14 @@ That is to say, demand that all defining chain complexes be coalgebras and all c
 We refer to operads and props over $\coAlg$ as \textit{Hopf operads} and \textit{props} respectively.
 
 If $\cO$ is a Hopf operad, the category $\coAlg_\cO$ is monoidal.
-The structure maps of a product of $\cO$-coalgebras $C \otimes C^\prime$ are given by
+The structure maps of a product of $\cO$-coalgebras $C \ot C^\prime$ are given by
 \[
 \begin{tikzcd} [column sep = normal, row sep=normal]
-\cO(r) \otimes (C \otimes C^\prime) \arrow[r, "\Delta_\cO \otimes \id"] &[10 pt]
-\cO(r) \otimes \cO(r) \otimes (C \otimes C^\prime) \arrow[d, "Sh"'] & \\ &
-\big(\cO(r) \otimes C \big) \otimes \big( \cO(r) \otimes C \big) \arrow[r] &
-C^{\otimes r} \otimes C^{\prime\, \otimes r} \arrow[d, "Sh"] & \\ & &
-(C \otimes C^\prime)^{\otimes r}.
+\cO(r) \ot (C \ot C^\prime) \arrow[r, "\Delta_\cO \ot \id"] &[10 pt]
+\cO(r) \ot \cO(r) \ot (C \ot C^\prime) \arrow[d, "Sh"'] & \\ &
+\big(\cO(r) \ot C \big) \ot \big( \cO(r) \ot C \big) \arrow[r] &
+C^{\ot r} \ot C^{\prime\, \ot r} \arrow[d, "Sh"] & \\ & &
+(C \ot C^\prime)^{\ot r}.
 \end{tikzcd}
 \]
 Similarly, if $\cP$ is a Hopf prop then its category of representations is also monoidal.
@@ -144,11 +145,11 @@ Similarly, if $\cP$ is a Hopf prop then its category of representations is also 
 
 As proven in \cite{medina2021cobar}, the prop $\M$ is Hopf with coproduct $\Delta_\M$ and counit $\varepsilon_\M$ induced by
 \begin{align*}
-\coproduct & \mapsto \coproduct \otimes \coproduct \,, &
+\coproduct & \mapsto \coproduct \ot \coproduct \,, &
 \coproduct & \mapsto 1, \\
-\counit \ & \mapsto \ \counit \ \otimes \ \counit \,, &
+\counit \ & \mapsto \ \counit \ \ot \ \counit \,, &
 \counit \ & \mapsto 1, \\
-\product & \mapsto \rightboundary \ \otimes \product + \product \otimes \ \leftboundary \,, &
+\product & \mapsto \rightboundary \ \ot \product + \product \ot \ \leftboundary \,, &
 \coproduct & \mapsto 0.
 \end{align*}
 It follows from the previous subsection that $\coAlg_\UM$ is a monoidal category.
@@ -163,7 +164,7 @@ An $\M$-structure is specified by three linear maps, the images of the generator
 \counit, \quad \coproduct, \quad \product,
 \]
 satisfying the relations in the presentation of $\mathcal M$.
-For the chains on standard simplices, the first two generators are send respectively to the counit and coproduct of the Alexander--Whitney coalgebra, and the third generator to an algebraic version of the join $\ast \colon \chains(\simplex^n)^{\otimes 2} \to \chains(\simplex^n)$ defined by
+For the chains on standard simplices, the first two generators are send respectively to the counit and coproduct of the Alexander--Whitney coalgebra, and the third generator to an algebraic version of the join $\ast \colon \chains(\simplex^n)^{\ot 2} \to \chains(\simplex^n)$ defined by
 \[
 \left[v_0, \dots, v_p \right] \ast \left[v_{p+1}, \dots, v_q\right] = \begin{cases} (-1)^{p+|\pi|} \left[ v_{\pi(0)}, \dots, v_{\pi(q)} \right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
 0 & \text{ otherwise}, \end{cases}
@@ -197,7 +198,7 @@ A similar argument using the duality functor provides simplicial cochains with a
 
 We use the monoidal structure on $\coAlg_\UM$ to define a lift of the functor of multisimplicial chains to the category of $\UM$-coalgebras
 \[
-\mchainskUM \defeq \Big(\schainsUM\Big)^{\otimes k}
+\mchainskUM \defeq \Big(\schainsUM\Big)^{\ot k}
 \]
 fitting in the following commutative diagram:
 \[
@@ -217,36 +218,36 @@ We now introduce linear maps on the chains of representable multisimplicial sets
 These forget to natural $\UM$-structures defining, via Yoneda extension, the functor $\mchainskUM$ from the previous subsection.
 The case $k = 1$ reduces to the $\M$-structure on simplicial chains, which we monoidally extend for $k > 1$.
 
-Let $C$ denote $\mchainsk(\simplex^{n_1} \times \dots \times \simplex^{n_k})$ and consider basis elements $x = x_1 \otimes \dots \otimes x_k$ and $y = y_1 \otimes \dots \otimes y_k$ in $C$.
+Let $C$ denote $\mchainsk(\simplex^{n_1} \times \dots \times \simplex^{n_k})$ and consider basis elements $x = x_1 \ot \dots \ot x_k$ and $y = y_1 \ot \dots \ot y_k$ in $C$.
 
 The \textit{multisimplicial counit} $\varepsilon \colon C \to \k$ is defined by
 \[
 \varepsilon(x) = \varepsilon(x_1) \dotsm \varepsilon(x_k).
 \]
 
-The \textit{multisimplicial coproduct} $\Delta \colon C \to C \otimes C$ is defined by
+The \textit{multisimplicial coproduct} $\Delta \colon C \to C \ot C$ is defined by
 \[
-\Delta (x_1 \otimes \dots \otimes x_n) =
-\sum \pm \left( x_1^{(1)} \otimes \dots \otimes x_n^{(1)} \right) \otimes
-\left( x_1^{(2)} \otimes \dots \otimes x_n^{(2)} \right),
+\Delta (x_1 \ot \dots \ot x_n) =
+\sum \pm \left( x_1^{(1)} \ot \dots \ot x_n^{(1)} \right) \ot
+\left( x_1^{(2)} \ot \dots \ot x_n^{(2)} \right),
 \]
 where the sign is determined using the Koszul convention, and we are using Sweedler's notation
 \[
-\Delta(x_i) = \sum x_i^{(1)} \otimes x_i^{(2)}
+\Delta(x_i) = \sum x_i^{(1)} \ot x_i^{(2)}
 \]
-for the coproduct $\Delta \colon \chains(\simplex^{n_i}) \to \chains(\simplex^{n_i})^{\otimes 2}$.
+for the coproduct $\Delta \colon \chains(\simplex^{n_i}) \to \chains(\simplex^{n_i})^{\ot 2}$.
 
-The \textit{multisimplicial join} $\ast \colon C \otimes C \to C$ is defined by
+The \textit{multisimplicial join} $\ast \colon C \ot C \to C$ is defined by
 \begin{align*}
-(x_1 \otimes \dots \otimes x_n) \ast (y_1 \otimes \dots \otimes y_n) =
-(-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i}) \, y_{>i},
+(x_1 \ot \dots \ot x_n) \ast (y_1 \ot \dots \ot y_n) =
+(-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i},
 \end{align*}
 where
 \begin{align*}
-x_{<i} & = x_1 \otimes \dots \otimes x_{i-1}, &
-y_{<i} & = y_1 \otimes \dots \otimes y_{i-1}, \\
-x_{>i} & = x_{i+1} \otimes \dots \otimes x_n, &
-y_{>i} & = y_{i+1} \otimes \dots \otimes y_n,
+x_{<i} & = x_1 \ot \dots \ot x_{i-1}, &
+y_{<i} & = y_1 \ot \dots \ot y_{i-1}, \\
+x_{>i} & = x_{i+1} \ot \dots \ot x_n, &
+y_{>i} & = y_{i+1} \ot \dots \ot y_n,
 \end{align*}
 with the convention
 \[
@@ -275,12 +276,12 @@ P_s \colon H^\vee_\bullet(A; \bbF_2) \to H^\vee_{\bullet + s}(A; \bbF_2)
 \end{equation*}
 is defined by sending the class represented by a cocycle $\alpha \in \cochains(X; \bbF_2)$ of degree $q$ to the class represented by the cochain
 \[
-c \mapsto (\alpha \otimes \alpha) \, \psi^{\msimplex{k}}(e_{s-q})(c).
+c \mapsto (\alpha \ot \alpha) \, \psi^{\msimplex{k}}(e_{s-q})(c).
 \]
 
 We remark that \textit{Steenrod $(2,i)$-products}, usually referred to as cup-$i$ products, are given by
 \begin{equation} \label{e:cup-i products}
-(\alpha \smallsmile_i \beta)(c) = (\alpha \otimes \beta) \, \psi^{\msimplex{k}}(e_{i})(c).
+(\alpha \smallsmile_i \beta)(c) = (\alpha \ot \beta) \, \psi^{\msimplex{k}}(e_{i})(c).
 \end{equation}
 
 If $p$ is an odd prime and $s$ an integer, the \textit{Steenrod operations}
@@ -294,13 +295,13 @@ and
 are defined by sending the class represented by a cocycle $\alpha \in \cochains(X; \Fp)$ of degree $q$ to the classes represented respectively for $\varepsilon \in \{0,1\}$ by
 \[
 c \mapsto
-\Big( \alpha^{\otimes p} \, (-1)^p \, \nu(q) \, \psi^{\msimplex{k}}(e_{(2s-q)(p-1)-\varepsilon})(c) \Big)
+\Big( \alpha^{\ot p} \, (-1)^p \, \nu(q) \, \psi^{\msimplex{k}}(e_{(2s-q)(p-1)-\varepsilon})(c) \Big)
 \]
 where $\nu(q) = (-1)^{q(q-1)m/2}(m!)^q$ and $m = (p-1)/2$.
 
 Generalizing \eqref{e:cup-i products} we have \textit{Steenrod $(p,i)$-products} defined by
 \[
-(\alpha_1 \otimes \dots \otimes \alpha_p) \mapsto \Big( c \mapsto (\alpha_1 \otimes \dots \otimes \alpha_p) \, \psi^{\msimplex{k}}(e_{i})(c) \Big).
+(\alpha_1 \ot \dots \ot \alpha_p) \mapsto \Big( c \mapsto (\alpha_1 \ot \dots \ot \alpha_p) \, \psi^{\msimplex{k}}(e_{i})(c) \Big).
 \]
 
 In similar effective manner, for the mod 2 case, explicit Cartan and Adem coboundaries \cite{medina2020cartan, medina2020adem} can be described for the cochain level Steenrod squares of multisimplicial sets.

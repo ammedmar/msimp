@@ -1,15 +1,20 @@
+% !TEX root = ../msimplicial.tex
 
 \section{Conventions and preliminaries} \label{s:preliminaries}
 
 \subsection{Chain complexes }
 
-Throughout this article $\k$ denotes a commutative and unital ring and we work over its associated closed symmetric monoidal category of differential (homologically) graded $\k$-modules $(\Ch, \otimes, \k)$.
+Throughout this article $\k$ denotes a commutative and unital ring and we work over its associated closed symmetric monoidal category of differential (homologically) graded $\k$-modules $(\Ch, \ot, \k)$.
 We refer to the objects and morphisms of this category as \textit{chain complexes} and \textit{chain maps} respectively. We denote by $\Hom(C, C^\prime)$ the chain complex of $\k$-linear maps between chain complexes $C$ and $C^\prime$, and refer to the functor $\Hom(-, \k)$ as \textit{linear duality}.
+
+\anibal{Be more explicit about tensor product and the closed monoidal property}
 
 \subsection{Category theory}
 
-A category is said to be \textit{Cartesian} if is a monoidal category whose monoidal structure is given by the category-theoretic product and whose unit is a terminal object.
-A Cartesian category $(\mathsf{A}, \times, \mathbb{1})$ is equipped with natural diagonal and augmentation maps $\Delta_a \colon a \to a \times a$ and $\varepsilon_a \colon a \to \mathbb{1}$.
+%A category is said to be \textit{Cartesian} if is a monoidal category whose monoidal structure is given by the category-theoretic product and whose unit is a terminal object.
+%A Cartesian category $(\mathsf{A}, \times, \mathbb{1})$ is equipped with natural diagonal and augmentation maps $\Delta_a \colon a \to a \times a$ and $\varepsilon_a \colon a \to \mathbb{1}$.
+%
+%\anibal{maybe this notion is not needed}
 
 Recall that a category is said to be \textit{small} if its objects and morphisms form sets.
 We denote the Cartesian category of small categories by $\Cat$.
@@ -36,40 +41,83 @@ a \mapsto \big( a^\prime \mapsto \mathsf{A}(a^\prime, a) \big),
 is referred to as a \textit{Yoneda extension}.
 We refer to the objects in $\Fun(\mathsf{A}^\op, \Set)$ as \textit{presheaves on $\mathsf{A}$} and to those in the image of the Yoneda embedding as \textit{representable presheaves}.
 
+\subsection{Simplicial sets}
+
+We denote the \textit{simplex category} by $\simplex$, the category of \textit{simplicial sets} by $\sSet = \Fun(\simplex^\op, \Set)$ and the \textit{standard $n$-simplex} by
+\[
+\simplex^n = \yoneda \big( [n] \big)
+\qquad \text{with} \qquad
+\simplex^n_m = \simplex^n \big( [m] \big).
+\]
+As usual, we denote an element in $\stspx{n}_m$ by a non-decreasing tuple $[v_0, \dots, v_m]$ with $v_i \in \{0, \dots, n\}$ with \textit{face} and \textit{degenerate maps} denoted by
+\begin{align*}
+\face_i [v_0, \dots, v_m] & = [v_0, \dots, \widehat v_i, \dots, v_m], \\
+\dege_i [v_0, \dots, v_m] & = [v_0, \dots, v_i, v_i, \dots, v_m].
+\end{align*}
+
+The \textit{Cartesian product} $X \times Y$ of simplicial sets is defined using the diagonal in small categories $\simplex \to \simplex \times \simplex$.
+It makes $\sSet$ into a symmetric monoidal category.
+
 \subsection{Simplicial chains}
 
-We denote the \textit{simplex category} by $\simplex$, the category of \textit{simplicial sets} by $\sSet = \Fun(\simplex^\op, \Set)$ and the \textit{standard $n$-simplex} $\yoneda\big([n]\big)$ by $\stspx{n}$.
-As usual, we denote an element in $\stspx{n}[m]$ by a non-decreasing tuples $[v_0, \dots, v_m]$ with $v_i \in \{0, \dots, n\}$.
-The \textit{Cartesian product} of simplicial sets is defined ...
+The functor of (normalized) \textit{chains}
+\[
+\schains \colon \sSet \to \Ch,
+\]
+is defined as the Yoneda extension of the functor defined on representable simplicial sets by
+\[
+\schains(\simplex^n)_m =
+\frac{\k\{\simplex^n_m\}}{\bigoplus \k\{\mathrm{img}(\dege_i)\}},
+\qquad
+\bd = \sum (-1)^i \face_i.
+\]
+We omit the superscript $\simplex$ from the notation $\schains$ if no confusion may result from doing so.
 
-We denote the functor of (normalized) \textit{chains} by $\schains \colon \sSet \to \Ch$.
-We omit the superscript $\simplex$ from the notation if no confusion may result from doing so.
+The functor of \textit{simplicial cochains} is defined through linear duality.
 
-The \textit{Alexander--Whitney coalgebra} functor is defined by a Yoneda extension based on the following natural maps.
-For any $n \in \N$, define $\epsilon \colon \chains(\stspx{n}) \to \k$ by
+\subsection{EZ-AW contraction}
+
+The functor of chains is not monoidal in general, but
+it is bilax monoidal with natural transformations
+\[
+\begin{split}
+\EZ & \colon \chains(X) \ot \chains(Y) \to \chains(X \times Y), \\
+\AW & \colon \chains(X \times Y) \to \chains(X) \ot \chains(Y),
+\end{split}
+\]
+known respectively as \textit{Eilenberg--Zilber} and \textit{Alexander--Whitney maps}.
+These satisfy that $\EZ \circ \AW = \id$ and that $\AW \circ \EZ$ is naturally chain homotopic to the identity.
+Furthermore, they satisfy forms of associativity that make the extensions to maps
+\[
+\begin{split}
+\EZ & \colon \chains(X_1) \ot \dotsb \ot \chains(X_k) \to \chains(X_1 \times \dotsb \times X_k), \\
+\AW & \colon \chains(X_1 \times \dotsb \times X_k) \to \chains(X_1) \ot \dotsb \ot \chains(X_k).
+\end{split}
+\]
+unambiguously defined.
+%\begin{align*}
+%\EZ \circ (\EZ \ot \, \id) &= \EZ \circ (\id \ot \EZ) \\
+%(\AW \ot \, \id) \circ \AW &= (\id \ot \AW) \circ \AW
+%\end{align*}
+For future reference we give an explicit description of these maps.
+
+\anibal{include the formulas}
+
+\subsection{Alexander--Whitney coalgebra}
+
+The \textit{Alexander--Whitney coalgebra} structure is defined by the following natural maps.
+For any $n \in \N$, define $\epsilon \colon \chains(\triangle^n) \to \k$ by
 \[
 \epsilon \big( [v_0, \dots, v_q] \big) = \begin{cases} 1 & \text{ if } q = 0, \\ 0 & \text{ if } q>0, \end{cases}
 \]
-and $\Delta \colon \chains(\stspx{n}) \to \chains(\stspx{n})^{\otimes2}$ by
+and $\Delta \colon \chains(\triangle^n) \to \chains(\triangle^n) \ot \chains(\triangle^n)$ by
 \[
-\Delta \big( [v_0, \dots, v_q] \big) = \sum_{i=0}^q [v_0, \dots, v_i] \otimes [v_i, \dots, v_q].
+\chains(\simplex^n) \xra{\chains(\diag)} \chains(\simplex^n \times \simplex^n) \xra{\AW} \chains(\simplex^n) \ot \chains(\simplex^n)
 \]
-
-\subsection{Multisimplicial chains}
-
-Let us consider an arbitrary non-negative integer~$k$.
-The \textit{multisimplex category} $\msimplex{k}$ is the $k$-fold Cartesian product of the simplex category $\simplex$.
-We denote the category of presheaves over $\msimplex{k}$ by $\sSet^{\times k}$ and refer to its objects as \textit{$k$-fold multisimplicial sets}.
-The representable multisimplicial sets are given by Cartesian products of representable simplicial sets.
-
-The functor of \textit{multisimplicial chains}
-\[
-\mchainsk \colon \sSet^k \to \Ch
-\]
-is defined as the $k^\th$ tensor product of the functor of simplicial chains.
+where $\diag$ is the diagonal in $\sSet$.
 Explicitly,
 \[
-\mchainsk \defeq \big( \schains \big)^{\otimes k}.
+\Delta \big( [v_0, \dots, v_q] \big) =
+\sum_{i=0}^q \, [v_0, \dots, v_i] \ot [v_i, \dots, v_q].
 \]
-We denote the elements in the basis of $\mchainsk(\simplex^{n_1} \times \dots \times \simplex^{n_k})$ by $x_1 \otimes \dots \otimes x_k$ with $x_i \in \chains(\simplex^{n_i})$.
-
+The product induced on cochains is referred to as \textit{simplicial cup product}.
