@@ -81,13 +81,13 @@ The functor of chains is not monoidal in general, but
 it is bilax monoidal with natural transformations
 \[
 \begin{split}
-\EZ & \colon \chains(X) \ot \chains(Y) \to \chains(X \times Y), \\
-\AW & \colon \chains(X \times Y) \to \chains(X) \ot \chains(Y),
+\EZ & \colon \chains(X_1) \ot \chains(X_2) \to \chains(X_1 \times X_2), \\
+\AW & \colon \chains(X_1 \times X_2) \to \chains(X_1) \ot \chains(X_2),
 \end{split}
 \]
 known respectively as \textit{Eilenberg--Zilber} and \textit{Alexander--Whitney maps}.
-These satisfy that $\EZ \circ \AW = \id$ and that $\AW \circ \EZ$ is naturally chain homotopic to the identity.
-Furthermore, they satisfy forms of associativity that make the extensions to maps
+These satisfy that $\EZ \circ \AW$ is the identity and that $\AW \circ \EZ$ is naturally chain homotopic to the identity.
+Furthermore, they forms of associativity that make the extensions to maps
 \[
 \begin{split}
 \EZ & \colon \chains(X_1) \ot \dotsb \ot \chains(X_k) \to \chains(X_1 \times \dotsb \times X_k), \\

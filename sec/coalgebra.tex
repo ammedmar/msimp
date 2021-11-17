@@ -18,23 +18,41 @@ and we have
 \simplex^{n_1}_{m_1} \times \dots \times \simplex^{n_k}_{m_k}.
 \]
 
-\subsection{Simplicial subdivision}
+\subsection{Simplicial subdivision} \label{ss:simplicial subdivision}
 
 Given a $k$-fold multisimplicial set $X$, there is a naturally associated simplicial set $X^{\diag}$ defined by
 \[
 X^{\diag} \big( [n] \big) = X \big( [n] \times \dots \times [n] \big).
 \]
-The functor $(-)^{\diag} \colon \mSetk \to \sSet$ is on representable objects given by
+The functor $(-)^{\diag} \colon \mSetk \to \sSet$, referred to as \textit{simplicial subdivision}, is given on representable objects by
 \[
 \big( \simplex^{n_1, \dots, n_k} \big)^{\diag} \cong
 \simplex^{n_1} \times \dots \times \simplex^{n_k}.
 \]
-Its right adjoint $\cU \colon \sSet \to \mSetk$ is defined on a simplicial set $Y$ by
+The simplicial inclusions $\simplex^{n_1 + \dots + n_k} \to \simplex^{n_1} \times \dots \times \simplex^{n_k}$ are parameterized by \anibal{partitions and paths}, compare with the $\EZ$ map.
+We make a choice of a canonical such inclusion.
+The \textit{fundamental simplex} of $\simplex^{n_1} \times \dots \times \simplex^{n_k}$. \anibal{Choose one canonically}
+\begin{lemma}
+	The inclusion of the fundamental simplex induces a final functor of over-categories
+	\[
+	(\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow Y) \to (\simplex^n \downarrow Y)
+	\]
+	for any simplicial set $Y$.
+\end{lemma}
+
+The simplicial subdivision functor admits a right adjoint $\cU \colon \sSet \to \mSetk$, which is defined on a simplicial set $Y$ by
 \[
-\cU(Y)_{m_1, \dots, m_k} =
-\sSet\big( \simplex^{m_1} \times \dots \times \simplex^{m_k}, \, Y \big).
+\cU(Y)_{n_1, \dots, n_k} =
+\sSet\big( \simplex^{n_1} \times \dots \times \simplex^{n_k}, \, Y \big).
 \]
-Although we do not use it in this work we remark that these define a Quillen equivalence.
+%By precomposing with the inclusion of the fundamental simplex defines a map
+%\[
+%\cU(Y)_{n_1, \dots, n_k} \to Y_{n_1 + \dots + n_k} \cong \sSet(\simplex^{n_1 + \dots + n_k}, Y)
+%\]
+
+\begin{remark}
+	Although we do not use it in this work, we mention that $(-)^{\diag}$ and $\cU$ define a Quillen equivalence between simplicial and $k$-fold multisimplicial sets.
+\end{remark}
 
 \subsection{Multisimplicial chains}
 
@@ -49,7 +67,9 @@ is defined as the Yoneda extension of the functor defined on representable objec
 \]
 We omit the superscript $\simplex^{\times k}$ from $\mchainsk$ when no confusion may arise from doing so.
 
-The functor of \textit{$k$-fold multisimplicial cochains} is defined using the linear duality functor.
+The functor of \textit{$k$-fold multisimplicial cochains} is defined using linear duality.
+
+\subsection{Comparison maps}
 
 For any $k$-fold multisimplicial set $X$, the Eilenberg--Zilber map defines a quasi-isomorphism from the chains on a multisimplicial set and those of its simplicial subdivision:
 \begin{equation} \label{e:ez comparison}
@@ -61,8 +81,11 @@ For any $k$-fold multisimplicial set $X$, the Eilenberg--Zilber map defines a qu
 \schains(X^{\diag}).
 \end{split}
 \end{equation}
-We abuse terminology and notation referring to this map also as Eilenberg--Zilber and denoting it $\EZ$.
-The chain homotopy inverse induced by the $\AW$ map is defined similarly and referred to as Alexander--Whitney map.
+We refer to this map as \textit{Eilenberg--Zilber comparison} and abusively denote it $\EZ$.
+The chain homotopy inverse induced by the Alexander--Whitney map is defined similarly and referred to as \textit{Alexander--Whitney comparison}.
+As before, we abuse notation and denote it $\AW$.
+
+Let $Y$ be a simplicial set and consider the $k$-fold multisimplicial set $\cU(Y)$ defined in \cref{ss:simplicial subdivision}.
 
 \subsection{Cup product}
 
@@ -85,6 +108,11 @@ We refer to the product induced on cochains as \textit{multisimplicial cup produ
 
 Since $\EZ \colon \chains(\simplex^{n_1} \times \simplex^{n_2}) \to \chains(\simplex^{n_1}) \ot \chains(\simplex^{n_2})$ is a coalgebra map, the Eilenberg-Zilber comparison map \eqref{e:ez comparison} is a quasi-isomorphism of coalgebras
 \[
-\EZ \colon \mchainsk(X) \to \schains(X^{\diag})
+\EZ \colon \chains(X) \to \chains(X^{\diag})
 \]
 for any multisimplicial set $X$.
+We remark that the Alexander--Whitney comparison
+\[
+\AW \colon \chains(X^{\diag}) \to \chains(X),
+\]
+is not a coalgebra map.
