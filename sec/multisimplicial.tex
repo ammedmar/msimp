@@ -25,6 +25,8 @@ Explicitly, $k$-fold multisimplicial set consists of ...
 	For the rest of this work we consider a fix but unspecified value of $k$, leave the adjective ``$k$-fold'' implicit, and write $\mSet$ instead of $\mSet^{(k)}$.
 \end{convention}
 
+\anibal{Maybe work on the category $\mSet = \coprod_k \mSet^{(k)}$?}
+
 \subsection{Diagonal simplicial set} \label{ss:diagonal simplicial set}
 
 Precomposing with the diagonal functor
@@ -104,6 +106,7 @@ The natural composition
 \end{equation}
 is a cellular map whose underlying continuous map is a homeomorphism.
 In fact, it can be thought of as the amalgamation map of a subdivision.
+We refer to this extension of $\ez$ as \textit{Eilenberg--Zilber comparison} and use the same notation for it.
 
 \subsection{Cartan--Serre map and the fundamental simplex}
 
@@ -129,7 +132,7 @@ The image of the Cartan--Serre map is referred to as the \textit{fundamental sim
 %We make a choice of a canonical such inclusion.
 %The \textit{fundamental simplex} of $\simplex^{n_1} \times \dots \times \simplex^{n_k}$. \anibal{Choose one canonically}
 
-In terms of shuffles, the fundamental simplex corresponds to \anibal{...}
+In terms of shuffles, the fundamental simplex corresponds to \anibal{Andrea?}
 So we have an inclusion of simplicial sets
 \[
 \simplex^n \to \simplex^{n_1} \times \dots \times \simplex^{n_k}
@@ -177,93 +180,91 @@ We refer to this natural cellular map as the \textit{Cartan--Serre comparison ma
 
 \subsection{Multisimplicial chains}
 
-The functor of \textit{multisimplicial chains}
+The functor of \textit{multisimplicial chains} is the composition
 \[
-\chains \colon \mSet \to \Ch
+\chains \colon \mSet \xra{\bars{-}} \CW \xra{\gchains} \Ch
 \]
-is defined as the Yoneda extension of the functor defined on representable objects by
+of the geometric realization and cellular chains functor.
+It can also be described as the Yoneda extension of the functor defined on representable objects by
 \[
 \chains \big( \simplex^{n_1, \dots, n_k} \big) =
 \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k}).
 \]
-We omit the superscript $\simplex^{\times k}$ from $\chains$ when no confusion may arise from doing so.
-
-The cellular chains of the geometric realization of a multisimplicial set $X$ are isomorphic to $\chains(X)$.
-
 The functor of \textit{multisimplicial cochains} is defined using linear duality.
 
-\subsection{Comparing $\chains(X)$ and $\chains(X^{\diag})$}
+\subsection{Comparison chain maps} \label{ss:comparison chain maps}
 
-The Eilenberg--Zilber map defines a quasi-isomorphism from the chains on a multisimplicial set $X$ and the chains of its simplicial subdivision:
-\begin{equation} \label{e:ez comparison}
-\begin{split}
-\chains(X) \ &\xra{\cong}
-\colim_{\simplex^{n_1, \dots, n_k} \to X} \chains (\simplex^{n_1, \dots, n_k}) \\ &\xra{=}
-\colim_{\simplex^{n_1, \dots, n_k} \to X} \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k}) \\ &\xra{\EZ}
-\colim_{\simplex^{n_1, \dots, n_k} \to X} \chains(\simplex^{n_1} \times \dots \times \simplex^{n_k}) \\ &\xra{\cong}
-\chains(X^{\diag}).
-\end{split}
-\end{equation}
-We refer to this map as \textit{Eilenberg--Zilber comparison} and abusively denote it $\EZ$.
-The chain homotopy inverse induced by the Alexander--Whitney map is defined similarly and referred to as \textit{Alexander--Whitney comparison}.
-As before, we abuse notation and denote it $\AW$.
-
-\subsection{Cartan--Serre chain map}
-
-We refer to the induced chain map
+Let $X$ be a multisimplicial set and $Y$ a simplicial set.
+The Eilenberg--Zilber and Cartan--Serre comparison maps induce, by passing to cellular chains, natural quasi-isomorphism:
 \[
+\begin{split}
+\ez &\colon \chains(X) \to \chains(X^{\diag}), \\
+\cs &\colon \chains(\fM Y) \to \chains(Y), \\
+\end{split}
+\]
+referred to as \textit{Eilenberg--Zilber} and \textit{Cartan--Serre comparison chain maps} respectively.
+Notice that we are referring to the cellular map and its induced chain map by the same symbol.
+
+\subsection{Coalgebras} \label{ss:coalgebras}
+
+A \textit{coalgebra} consists of a chain complex $C$ and chain maps $\Delta \colon C \to C \otimes C$ and $\varepsilon \colon C \to \k$ satisfying the usual coassociativity and counitality relations.
+This notion is equivalent to that of a comonoid in $\Ch$.
+Denote by $\coAlg$ the cocomplete category of coalgebras with morphisms being structure preserving chain maps.
+The category $\coAlg$ is symmetric monoidal, with braiding induced from $\Ch$ and structure maps of a product $C \otimes C^\prime$ given by
+\begin{gather*}
+C \otimes C^\prime \xra{\Delta \otimes \Delta^\prime}
+(C \otimes C) \otimes (C^\prime \otimes C^\prime) \xra{(23)}
+(C \otimes C^\prime) \otimes (C \otimes C^\prime), \\
+C \otimes C^\prime \xra{\varepsilon \otimes \varepsilon^\prime}
+\k \otimes \k \xra{\cong} \k.
+\end{gather*}
+
+\subsection{Multisimplicial Alexander--Whitney coalgebra} \label{ss:alexander-whitney coalgebras}
+
+Recall that $\chains(\simplex^n)$ is naturally a coalgebra with
+\[
+\begin{split}
+\Delta \big( [v_0, \dots, v_m] \big) &=
+\sum_{i=0}^m \, [v_0, \dots, v_i] \ot [v_i, \dots, v_m], \\
+\epsilon \big( [v_0, \dots, v_q] \big) &=
+\begin{cases} 1 & \text{ if } q = 0, \\ 0 & \text{ if } q>0. \end{cases}
+\end{split}
+\]
+Using the monoidal stucture on $\coAlg$ we have natural coalgebra structures on
+\[
+\chains \big( \simplex^{n_1, \dots, n_k} \big) \cong
 \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k})
-\to \chains(\simplex^{n_1 + \dots + n_k})
 \]
-as the \textit{Cartan--Serre chain map}.
+and therefore a natural coalgebra structure on any multisimplicial set $X$, which we refer to as the \textit{Alexander--Whitney coalgebra} structure.
 
-For any simplicial set $Y$ the Cartan--Serre map defines a natural transformation making the following diagram commute
+\anibal{Explicitly}
 
-\subsection{Comparing $\chains(Y)$ and $\chains(\fM Y)$}
-%Let $Y$ be a simplicial set and consider the multisimplicial set $\fM(Y)$ defined in \cref{ss:diagonal simplicial set}.
-
-We will now describe a natural comparison $\chains(Y) \to \chains(\fM Y)$ map for any simplicial set $Y$.
-Consider the final functor
-\[
-\iota \colon (\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow Y) \to (\simplex^{n} \downarrow Y)
-\]
-from \cref{ss:diagonal simplicial set}.
-Consider two functors
-\[
-(\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow Y) \to \Ch
-\]
-given by $\chains^{\ot k}$ and $\chains \circ \, \iota$, where we have left implicit the canonical forgetful functor from the over-categories to $\sSet$.
-
-\subsection{Coalgebra structure}
-
-Recall that the category of coalgebras $\coAlg$ is cocomplete and monoidal.
-Given two coalgebras $(C, \Delta, \varepsilon)$ and $(C^\prime, \Delta^\prime, \varepsilon^\prime)$, their tensor product is naturally a coalgebra with
-\[
-\begin{split}
-c \ot c^\prime &\mapsto (23) \ \Delta(c) \otimes \Delta^\prime(c^\prime), \\
-c \ot c^\prime &\mapsto \varepsilon(c) \, \varepsilon^\prime(c^\prime),
-\end{split}
-\]
-where $(23) \in \S_4$ acts on $C \otimes C \otimes C^\prime \otimes C^\prime$ by transposing the second an third factors.
-
-The functor of multisimplicial chains lifts to $\coAlg$.
-For any multisimplicial set $X$,
-\[
-\chains(X) \cong \colim_{\simplex^{n_1, \dots, n_k} \downarrow X} \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k})
-\]
-with the coalgebra structure induced from that on representable objects monoidally obtained from the Alexander--Whitney coalgebra structure \cref{ss:aw coalgebra}.
-
-We refer to the product induced on cochains as \textit{multisimplicial cup product}.
+The product induced on cochains is referred to as \textit{multisimplicial cup product}.
 
 \subsection{Coalgebra comparison}
 
-Since $\EZ \colon \chains(\simplex^{n_1} \times \simplex^{n_2}) \to \chains(\simplex^{n_1}) \ot \chains(\simplex^{n_2})$ is a coalgebra map, the Eilenberg-Zilber comparison map \eqref{e:ez comparison} is a quasi-isomorphism of coalgebras
-\[
-\EZ \colon \chains(X) \to \chains(X^{\diag})
-\]
-for any multisimplicial set $X$.
-We remark that the Alexander--Whitney comparison
-\[
-\AW \colon \chains(X^{\diag}) \to \chains(X),
-\]
-is not a coalgebra map.
+We now show that, with respect to the Alexander--Whitney coalgebra structures of \cref{ss:alexander-whitney coalgebras}, the Eilenberg--Zilber and Cartan--Serre comparison chain maps of \cref{ss:comparison chain maps} are quasi-isomorphisms of coalgebras.
+
+\begin{theorem}
+	For any multisimplicial set $X$
+	\[
+	\ez \colon \chains(X) \to \chains(X^{\diag})
+	\]
+	is a quasi-isomorphism of coalgebras.
+\end{theorem}
+
+\begin{proof}
+	TBW \anibal{Formally follows from the Eilenberg--Zilber map inducing a coalgebra map}
+\end{proof}
+
+\begin{theorem}
+	For any simplicial set $Y$
+	\[
+	\cs \colon \chains(\fM Y) \to \chains(Y)
+	\]
+	is a quasi-isomorphism of coalgebras.
+\end{theorem}
+
+\begin{proof}
+	TBW \anibal{Formally follows from the Cartan--Serre map inducing a coalgebra map}
+\end{proof}
