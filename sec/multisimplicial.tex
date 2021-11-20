@@ -1,0 +1,269 @@
+% !TEX root = ../msimplicial.tex
+
+\section{Multisimplicial sets}
+
+\subsection{$k$-fold multisimplicial sets}
+
+Let us consider an arbitrary non-negative integer~$k$.
+The \textit{$k$-fold multisimplex category} $\msimplex{k}$ is the $k$-fold Cartesian product of the simplex category $\simplex$.
+We denote the category of presheaves $\Fun(\msimplex{k}, \Set)$ by $\mSet^{(k)}$ and refer to its objects as \textit{$k$-fold multisimplicial sets}.
+The representable $k$-fold multisimplicial sets are denoted by
+\[
+\simplex^{n_1, \dots, n_k} = \yoneda \big( [n_1] \times \cdots \times [n_k] \big)
+\]
+and we have
+\[
+\simplex^{n_1, \dots, n_k}_{m_1, \dots, m_k} =
+\simplex^{n_1, \dots, n_k} \big( [m_1] \times \cdots \times [m_k] \big) \cong
+\simplex^{n_1}_{m_1} \times \dots \times \simplex^{n_k}_{m_k}.
+\]
+Explicitly, $k$-fold multisimplicial set consists of ...
+
+\anibal{add if desired}
+
+\begin{convention}
+	For the rest of this work we consider a fix but unspecified value of $k$, leave the adjective ``$k$-fold'' implicit, and write $\mSet$ instead of $\mSet^{(k)}$.
+\end{convention}
+
+\subsection{Diagonal simplicial set} \label{ss:diagonal simplicial set}
+
+Precomposing with the diagonal functor
+\[
+\simplex^\op \xra{\diag}
+(\simplex^\op)^{\times k} \xra{\cong}
+(\simplex^{\times k})^{\op}
+\]
+defines a functor
+\[
+(-)^{\diag} \colon \mSet \to \sSet
+\]
+explicitly defined on a multisimplicial set $X$ by
+\[
+X^{\diag} \big( [n] \big) = X \big( [n] \times \dots \times [n] \big).
+\]
+It is straightforward to verify that
+\[
+\big( \simplex^{n_1, \dots, n_k} \big)^{\diag} \cong
+\simplex^{n_1} \times \dots \times \simplex^{n_k}
+\]
+as simplicial sets.
+
+This functor admits a right adjoint $\fM \colon \sSet \to \mSet$ which is defined on a simplicial set $Y$ by
+\[
+\fM(Y)_{n_1, \dots, n_k} =
+\sSet\big( \simplex^{n_1} \times \dots \times \simplex^{n_k}, \, Y \big).
+\]
+
+%Although we do not use it in this work, we mention that $(-)^{\diag}$ and $\fM$ define a Quillen equivalence between simplicial and multisimplicial sets.
+
+\subsection{Geometric realization}
+
+The \textit{geometric realization} functor
+\[
+\bars{-} \colon \mSet \to \Top
+\]
+is defined as the Yoneda extension of the functor defined on representable objects by
+\[
+\bars{\simplex^{n_1, \dots, n_k}} =
+\gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}
+\]
+where
+\[
+\gsimplex^n = \{x \in [0,1]^n \mid x_1 \geq \dots \geq x_n\}.
+\]
+Explicitly, ... \anibal{add if desired}
+
+\subsection{Simplicial subdivision}
+
+Consider the geometric realization $\gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}$ of a representable multisimplex and the geometric realization of its diagonal simplicial set $\bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}}$.
+The later can be thought of as a subdivision of the former with top dimensional cells in canonical bijection with $(n_1, \dots, n_k)$-shuffles.
+
+This are ... \anibal{add}
+The bijection is defined in analogy to \anibal{See Greg Friedman's appendix.}
+
+We refer to the natural cellular map
+\[
+\ez \colon
+\gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} \to
+\bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}}
+\]
+as the \textit{Eilenberg--Zilber map}.
+
+\subsection{Comparing $\bars{X}$ and $\bars{X^{\diag}}$}
+
+Let $X$ be a multisimplicial set.
+The natural composition
+\begin{equation} \label{e:ez comparison}
+\begin{split}
+\bars{X} \ &\xra{\cong}
+\colim_{(\simplex^{n_1, \dots, n_k} \downarrow X)} \bars{\simplex^{n_1, \dots, n_k}} \\ &\xra{=}
+\colim_{(\simplex^{n_1, \dots, n_k} \downarrow X)} \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} \\ &\xra{\ez}
+\colim_{(\simplex^{n_1, \dots, n_k} \downarrow X)} \bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}} \\ &\xra{\cong}
+\bars{X^{\diag}}
+\end{split}
+\end{equation}
+is a cellular map whose underlying continuous map is a homeomorphism.
+In fact, it can be thought of as the amalgamation map of a subdivision.
+
+\subsection{Cartan--Serre map and the fundamental simplex}
+
+The \textit{Cartan--Serre map} is the composition
+\[
+\cs \colon
+\gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} \to
+[0,1]^{n_1 + \dots + n_k} \to
+\gsimplex^{n_1 + \dots + n_k}
+\]
+where the first map is the canonical inclusion and the second is the projection defined by
+\[
+(x_1, \dots, x_{n_1 + \dots + n_k}) \mapsto (x_1, x_1x_2, \dots, x_1x_2 \dots x_{n_1 + \dots + n_k}).
+\]
+
+\anibal{This should induce a cellular homotopy inverse to the map in the previous section}
+
+The image of the Cartan--Serre map is referred to as the \textit{fundamental simplex}. \anibal{Write this better.}
+
+\subsection{Two important over-categories in $\sSet$}
+
+%The simplicial inclusions $\simplex^{n_1 + \dots + n_k} \to \simplex^{n_1} \times \dots \times \simplex^{n_k}$ are parameterized by \anibal{partitions and paths}, compare with the $\EZ$ map.
+%We make a choice of a canonical such inclusion.
+%The \textit{fundamental simplex} of $\simplex^{n_1} \times \dots \times \simplex^{n_k}$. \anibal{Choose one canonically}
+
+In terms of shuffles, the fundamental simplex corresponds to \anibal{...}
+So we have an inclusion of simplicial sets
+\[
+\simplex^n \to \simplex^{n_1} \times \dots \times \simplex^{n_k}
+\]
+These inclusion maps induces a functor
+\[
+\inclusion \colon (\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow Y) \to (\simplex^n \downarrow Y)
+\]
+of over-categories in $\sSet$ for any simplicial set $Y$ which satisfies the following property.
+
+\begin{lemma} \label{l:final functor}
+	For all categories $\sC$ and all functors $F \colon (\simplex^n \downarrow Y) \to \sC$ the natural morphism between colimits
+	\[
+	\colim F \circ \inclusion \to \colim F
+	\]
+	is an isomorphism for any simplicial set $Y$.
+\end{lemma}
+
+\begin{proof}
+	TBW
+\end{proof}
+
+\subsection{Comparing $\bars{\fM Y}$ and $\bars{Y}$}
+
+Let $Y$ be a simplicial set.
+We have a map
+\[
+\begin{split}
+\bars{\fM Y} & \xra{\cong}
+\colim_{(\simplex^{n_1, \dots, n_k} \downarrow \, \fM Y)} \gsimplex^{n_1} \times \cdots \times \gsimplex^{n_k} \\ & \xra{\cong}
+\colim_{(\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow \, Y)} \gsimplex^{n_1} \times \cdots \times \gsimplex^{n_k} \\ & \xra{\cs}
+\colim_{(\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow \, Y)} \gsimplex^{n_1 + \dots + n_k} \\ & \xra{\cong}
+\colim_{(\simplex^{n} \downarrow \, Y)} \gsimplex^{n} \\ & \xra{\cong}
+\bars{Y}
+\end{split}
+\]
+where the third map is induced by regarding $\cs$ as a natural transformation and the fourth is defined by \cref{l:final functor}.
+
+\anibal{make sure this map is a homotopy equivalence}
+
+We refer to this natural cellular map as the \textit{Cartan--Serre comparison map}
+\[
+\cs \colon \bars{\fM Y} \to \bars{Y}.
+\]
+
+\subsection{Multisimplicial chains}
+
+The functor of \textit{multisimplicial chains}
+\[
+\chains \colon \mSet \to \Ch
+\]
+is defined as the Yoneda extension of the functor defined on representable objects by
+\[
+\chains \big( \simplex^{n_1, \dots, n_k} \big) =
+\chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k}).
+\]
+We omit the superscript $\simplex^{\times k}$ from $\chains$ when no confusion may arise from doing so.
+
+The cellular chains of the geometric realization of a multisimplicial set $X$ are isomorphic to $\chains(X)$.
+
+The functor of \textit{multisimplicial cochains} is defined using linear duality.
+
+\subsection{Comparing $\chains(X)$ and $\chains(X^{\diag})$}
+
+The Eilenberg--Zilber map defines a quasi-isomorphism from the chains on a multisimplicial set $X$ and the chains of its simplicial subdivision:
+\begin{equation} \label{e:ez comparison}
+\begin{split}
+\chains(X) \ &\xra{\cong}
+\colim_{\simplex^{n_1, \dots, n_k} \to X} \chains (\simplex^{n_1, \dots, n_k}) \\ &\xra{=}
+\colim_{\simplex^{n_1, \dots, n_k} \to X} \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k}) \\ &\xra{\EZ}
+\colim_{\simplex^{n_1, \dots, n_k} \to X} \chains(\simplex^{n_1} \times \dots \times \simplex^{n_k}) \\ &\xra{\cong}
+\chains(X^{\diag}).
+\end{split}
+\end{equation}
+We refer to this map as \textit{Eilenberg--Zilber comparison} and abusively denote it $\EZ$.
+The chain homotopy inverse induced by the Alexander--Whitney map is defined similarly and referred to as \textit{Alexander--Whitney comparison}.
+As before, we abuse notation and denote it $\AW$.
+
+\subsection{Cartan--Serre chain map}
+
+We refer to the induced chain map
+\[
+\chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k})
+\to \chains(\simplex^{n_1 + \dots + n_k})
+\]
+as the \textit{Cartan--Serre chain map}.
+
+For any simplicial set $Y$ the Cartan--Serre map defines a natural transformation making the following diagram commute
+
+\subsection{Comparing $\chains(Y)$ and $\chains(\fM Y)$}
+%Let $Y$ be a simplicial set and consider the multisimplicial set $\fM(Y)$ defined in \cref{ss:diagonal simplicial set}.
+
+We will now describe a natural comparison $\chains(Y) \to \chains(\fM Y)$ map for any simplicial set $Y$.
+Consider the final functor
+\[
+\iota \colon (\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow Y) \to (\simplex^{n} \downarrow Y)
+\]
+from \cref{ss:diagonal simplicial set}.
+Consider two functors
+\[
+(\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow Y) \to \Ch
+\]
+given by $\chains^{\ot k}$ and $\chains \circ \, \iota$, where we have left implicit the canonical forgetful functor from the over-categories to $\sSet$.
+
+\subsection{Coalgebra structure}
+
+Recall that the category of coalgebras $\coAlg$ is cocomplete and monoidal.
+Given two coalgebras $(C, \Delta, \varepsilon)$ and $(C^\prime, \Delta^\prime, \varepsilon^\prime)$, their tensor product is naturally a coalgebra with
+\[
+\begin{split}
+c \ot c^\prime &\mapsto (23) \ \Delta(c) \otimes \Delta^\prime(c^\prime), \\
+c \ot c^\prime &\mapsto \varepsilon(c) \, \varepsilon^\prime(c^\prime),
+\end{split}
+\]
+where $(23) \in \S_4$ acts on $C \otimes C \otimes C^\prime \otimes C^\prime$ by transposing the second an third factors.
+
+The functor of multisimplicial chains lifts to $\coAlg$.
+For any multisimplicial set $X$,
+\[
+\chains(X) \cong \colim_{\simplex^{n_1, \dots, n_k} \downarrow X} \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k})
+\]
+with the coalgebra structure induced from that on representable objects monoidally obtained from the Alexander--Whitney coalgebra structure \cref{ss:aw coalgebra}.
+
+We refer to the product induced on cochains as \textit{multisimplicial cup product}.
+
+\subsection{Coalgebra comparison}
+
+Since $\EZ \colon \chains(\simplex^{n_1} \times \simplex^{n_2}) \to \chains(\simplex^{n_1}) \ot \chains(\simplex^{n_2})$ is a coalgebra map, the Eilenberg-Zilber comparison map \eqref{e:ez comparison} is a quasi-isomorphism of coalgebras
+\[
+\EZ \colon \chains(X) \to \chains(X^{\diag})
+\]
+for any multisimplicial set $X$.
+We remark that the Alexander--Whitney comparison
+\[
+\AW \colon \chains(X^{\diag}) \to \chains(X),
+\]
+is not a coalgebra map.
