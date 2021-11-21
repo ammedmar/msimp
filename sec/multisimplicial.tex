@@ -1,6 +1,6 @@
 % !TEX root = ../msimplicial.tex
 
-\section{Multisimplicial sets}
+\section{Multisimplicial sets and geometric realization}
 
 \subsection{$k$-fold multisimplicial sets}
 
@@ -126,7 +126,7 @@ where the first map is the canonical inclusion and the second is the projection 
 
 The image of the Cartan--Serre map is referred to as the \textit{fundamental simplex}. \anibal{Write this better.}
 
-\subsection{Two important over-categories in $\sSet$}
+\subsection{Two important over-categories}
 
 %The simplicial inclusions $\simplex^{n_1 + \dots + n_k} \to \simplex^{n_1} \times \dots \times \simplex^{n_k}$ are parameterized by \anibal{partitions and paths}, compare with the $\EZ$ map.
 %We make a choice of a canonical such inclusion.
@@ -137,16 +137,16 @@ So we have an inclusion of simplicial sets
 \[
 \simplex^n \to \simplex^{n_1} \times \dots \times \simplex^{n_k}
 \]
-These inclusion maps induces a functor
+These simplicial inclusions induce a functor
 \[
-\inclusion \colon (\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow Y) \to (\simplex^n \downarrow Y)
+\incl \colon (\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow Y) \to (\simplex^n \downarrow Y)
 \]
-of over-categories in $\sSet$ for any simplicial set $Y$ which satisfies the following property.
+of over-categories in $\sSet$ for any simplicial set $Y$, which satisfies the following property.
 
 \begin{lemma} \label{l:final functor}
 	For all categories $\sC$ and all functors $F \colon (\simplex^n \downarrow Y) \to \sC$ the natural morphism between colimits
 	\[
-	\colim F \circ \inclusion \to \colim F
+	\colim F \circ \incl \to \colim F
 	\]
 	is an isomorphism for any simplicial set $Y$.
 \end{lemma}
@@ -178,13 +178,15 @@ We refer to this natural cellular map as the \textit{Cartan--Serre comparison ma
 \cs \colon \bars{\fM Y} \to \bars{Y}.
 \]
 
-\subsection{Multisimplicial chains}
+\section{Multisimplicial chains and algebraic structures}
+
+\subsection{Chains}
 
 The functor of \textit{multisimplicial chains} is the composition
 \[
 \chains \colon \mSet \xra{\bars{-}} \CW \xra{\gchains} \Ch
 \]
-of the geometric realization and cellular chains functor.
+of the geometric realization and functor of cellular chains.
 It can also be described as the Yoneda extension of the functor defined on representable objects by
 \[
 \chains \big( \simplex^{n_1, \dots, n_k} \big) =
@@ -192,7 +194,7 @@ It can also be described as the Yoneda extension of the functor defined on repre
 \]
 The functor of \textit{multisimplicial cochains} is defined using linear duality.
 
-\subsection{Comparison chain maps} \label{ss:comparison chain maps}
+\subsection{Chain comparison maps} \label{ss:comparison chain maps}
 
 Let $X$ be a multisimplicial set and $Y$ a simplicial set.
 The Eilenberg--Zilber and Cartan--Serre comparison maps induce, by passing to cellular chains, natural quasi-isomorphism:
@@ -207,30 +209,30 @@ Notice that we are referring to the cellular map and its induced chain map by th
 
 \subsection{Coalgebras} \label{ss:coalgebras}
 
-A \textit{coalgebra} consists of a chain complex $C$ and chain maps $\Delta \colon C \to C \otimes C$ and $\varepsilon \colon C \to \k$ satisfying the usual coassociativity and counitality relations.
+A \textit{coalgebra} consists of a chain complex $C$ and chain maps $\copr \colon C \to C \otimes C$ and $\aug \colon C \to \k$ satisfying the usual coassociativity and counitality relations.
 This notion is equivalent to that of a comonoid in $\Ch$.
 Denote by $\coAlg$ the cocomplete category of coalgebras with morphisms being structure preserving chain maps.
 The category $\coAlg$ is symmetric monoidal, with braiding induced from $\Ch$ and structure maps of a product $C \otimes C^\prime$ given by
 \begin{gather*}
-C \otimes C^\prime \xra{\Delta \otimes \Delta^\prime}
+C \otimes C^\prime \xra{\copr \otimes \copr^\prime}
 (C \otimes C) \otimes (C^\prime \otimes C^\prime) \xra{(23)}
 (C \otimes C^\prime) \otimes (C \otimes C^\prime), \\
-C \otimes C^\prime \xra{\varepsilon \otimes \varepsilon^\prime}
+C \otimes C^\prime \xra{\aug \otimes \aug^\prime}
 \k \otimes \k \xra{\cong} \k.
 \end{gather*}
 
-\subsection{Multisimplicial Alexander--Whitney coalgebra} \label{ss:alexander-whitney coalgebras}
+\subsection{Alexander--Whitney coalgebra} \label{ss:alexander-whitney coalgebras}
 
 Recall that $\chains(\simplex^n)$ is naturally a coalgebra with
 \[
 \begin{split}
-\Delta \big( [v_0, \dots, v_m] \big) &=
+\copr \big( [v_0, \dots, v_m] \big) &=
 \sum_{i=0}^m \, [v_0, \dots, v_i] \ot [v_i, \dots, v_m], \\
-\epsilon \big( [v_0, \dots, v_q] \big) &=
+\aug \big( [v_0, \dots, v_q] \big) &=
 \begin{cases} 1 & \text{ if } q = 0, \\ 0 & \text{ if } q>0. \end{cases}
 \end{split}
 \]
-Using the monoidal stucture on $\coAlg$ we have natural coalgebra structures on
+Using the monoidal structure on $\coAlg$ we have natural coalgebra structures on
 \[
 \chains \big( \simplex^{n_1, \dots, n_k} \big) \cong
 \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k})
@@ -241,7 +243,7 @@ and therefore a natural coalgebra structure on any multisimplicial set $X$, whic
 
 The product induced on cochains is referred to as \textit{multisimplicial cup product}.
 
-\subsection{Coalgebra comparison}
+\subsection{Coalgebra comparisons}
 
 We now show that, with respect to the Alexander--Whitney coalgebra structures of \cref{ss:alexander-whitney coalgebras}, the Eilenberg--Zilber and Cartan--Serre comparison chain maps of \cref{ss:comparison chain maps} are quasi-isomorphisms of coalgebras.
 
@@ -268,3 +270,41 @@ We now show that, with respect to the Alexander--Whitney coalgebra structures of
 \begin{proof}
 	TBW \anibal{Formally follows from the Cartan--Serre map inducing a coalgebra map}
 \end{proof}
+
+\subsection{$\Med$-bialgebras}
+
+An \textit{$\Med$-bialgebra} is a coalgebra $(C, \copr, \aug)$ together with a degree $1$ linear map $\pr \colon C \ot C \to C$, referred to as \textit{product}, whose boundary is $(\aug \ot \id) - (\id \ot \aug)$ and such that $\aug \circ \pr = 0$.
+Let $\biAlg_\Med$ be the category of $\Med$-bialgebras with structure preserving morphisms.
+The forgetful functor $\biAlg_\Med \to \coAlg$ is monoidal, where the composition
+\[
+(C \otimes C^\prime) \otimes (C \otimes C^\prime) \xra{(23)}
+C \otimes C \otimes C^\prime \otimes C^\prime
+\xra{\aug \otimes \id \otimes \pr + \pr \otimes \id \otimes \aug}
+C \otimes C^\prime
+\]
+defines the product map.
+
+As proven in \cite{medina2020prop1}, $\Med$-bialgebras are special cases of $E_\infty$-coalgebras.
+
+\subsection{Multisimplicial join}
+
+The \textit{join product} $\ast \colon \chains(\simplex^n)^{\ot 2} \to \chains(\simplex^n)$ is the natural degree~$1$ linear map defined by
+\begin{multline}
+\ast \big(\left[v_0, \dots, v_p \right] \ot \left[v_{p+1}, \dots, v_q\right]\big) = \\
+\begin{cases} (-1)^{p} \sign(\pi) \left[v_{\pi(0)}, \dots, v_{\pi(q)}\right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
+\hfil 0 & \text{ if not}, \end{cases}
+\end{multline}
+where $\pi$ is the permutation that orders the vertices.
+It is an algebraic version of the usual join of faces in a simplex, please consult \cref{f:join of faces} for an example.
+
+The Alexander--Whitney coalgebra structure together with the join product define a natural $\Med$-bialgebra structure on $\chains(\simplex^n)$. This extends monoidally to a natural $\Med$-bialgebra structure on
+\[
+\chains(\simplex^{n_1, \dots, n_k}) \cong
+\chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k}).
+\]
+
+\begin{figure}
+	\input{aux/join}
+	\caption{Geometric representation of the join product of two basis elements. It depicts the identity $\pr \big( [0] \otimes [1,2] \big) = [0,1,2]$.}
+	\label{f:join of faces}
+\end{figure}
