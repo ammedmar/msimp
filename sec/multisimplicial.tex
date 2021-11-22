@@ -2,30 +2,42 @@
 
 \section{Multisimplicial sets and geometric realization}
 
-\subsection{$k$-fold multisimplicial sets}
+\anibal{say something here}
+
+\subsection{Multisimplicial sets}
 
 Let us consider an arbitrary non-negative integer~$k$.
 The \textit{$k$-fold multisimplex category} $\msimplex{k}$ is the $k$-fold Cartesian product of the simplex category $\simplex$.
-We denote the category of presheaves $\Fun(\msimplex{k}, \Set)$ by $\mSet^{(k)}$ and refer to its objects as \textit{$k$-fold multisimplicial sets}.
+We denote the category of presheaves $\Fun((\msimplex{k})^\op, \Set)$ by $\mSet^{(k)}$ and refer to its objects as \textit{$k$-fold multisimplicial sets}.
 The representable $k$-fold multisimplicial sets are denoted by
 \[
 \simplex^{n_1, \dots, n_k} = \yoneda \big( [n_1] \times \cdots \times [n_k] \big)
 \]
 and we have
 \[
-\simplex^{n_1, \dots, n_k}_{m_1, \dots, m_k} =
 \simplex^{n_1, \dots, n_k} \big( [m_1] \times \cdots \times [m_k] \big) \cong
 \simplex^{n_1}_{m_1} \times \dots \times \simplex^{n_k}_{m_k}.
 \]
-Explicitly, $k$-fold multisimplicial set consists of ...
+Explicitly, a $k$-fold multisimplicial set $X$ consists of a collection of sets
+\[
+X_{m_1, \dots, m_k} = X\big( [m_1] \times \cdots \times [m_k] \big)
+\]
+indexed by tuples of non-negative integers $(m_1, \dots, m_k)$ together with \textit{face maps}
+\[
+\face_i^j \colon
+X_{m_1, \dots, m_j, \dots, m_k} \to
+X_{m_1, \dots, m_j-1, \dots, m_k}
+\]
+and \textit{degeneracy map}
+\[
+\dege^j_i \colon X_{m_1, \dots, m_l, \dots, m_k} \to X_{m_1, \dots, m_j+1, \dots, m_k}
+\]
+for $1 \leq j \leq k$ and $0 \leq i \leq m_j$ such that, referring to $j$ as the \textit{direction} of these maps, two of them satisfy the simplicial identities when they have the same direction and commute when they do not.
 
-\anibal{add if desired}
-
-\begin{convention}
-	For the rest of this work we consider a fix but unspecified value of $k$, leave the adjective ``$k$-fold'' implicit, and write $\mSet$ instead of $\mSet^{(k)}$.
-\end{convention}
-
-\anibal{Maybe work on the category $\mSet = \coprod_k \mSet^{(k)}$?}
+The category of \textit{multisimplicial sets} is the coproduct
+\[
+\mSet = \coprod_{k \in \N} \mSet^{(k)}.
+\]
 
 \subsection{Diagonal simplicial set} \label{ss:diagonal simplicial set}
 
@@ -33,7 +45,7 @@ Precomposing with the diagonal functor
 \[
 \simplex^\op \xra{\diag}
 (\simplex^\op)^{\times k} \xra{\cong}
-(\simplex^{\times k})^{\op}
+(\msimplex{k})^{\op}
 \]
 defines a functor
 \[
@@ -52,8 +64,8 @@ as simplicial sets.
 
 This functor admits a right adjoint $\fM \colon \sSet \to \mSet$ which is defined on a simplicial set $Y$ by
 \[
-\fM(Y)_{n_1, \dots, n_k} =
-\sSet\big( \simplex^{n_1} \times \dots \times \simplex^{n_k}, \, Y \big).
+\fM(Y)_{m_1, \dots, m_k} =
+\sSet\big( \simplex^{m_1} \times \dots \times \simplex^{m_k}, \, Y \big).
 \]
 
 %Although we do not use it in this work, we mention that $(-)^{\diag}$ and $\fM$ define a Quillen equivalence between simplicial and multisimplicial sets.
@@ -69,15 +81,42 @@ is defined as the Yoneda extension of the functor defined on representable objec
 \bars{\simplex^{n_1, \dots, n_k}} =
 \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}
 \]
+where we use the model
+\[
+\gsimplex^n = \big\{
+(t_1, \dots, t_n) \in [0,1]^n \mid t_1 \geq \dots \geq t_n
+\big\}
+\]
+with
+\[
+\delta_i(t_1, \dots, t_n) = \begin{cases}
+(1, t_1, \dots, t_n) & i = 0, \\
+(t_1, \dots, t_i, t_i, \dots, t_n) & 0 < i < n, \\
+(1, t_1, \dots, t_n) & i = n,
+\end{cases}
+\]
+and
+\[
+\sigma_i(t_1, \dots, t_n) = (t_1, \dots, \widehat t_i, \dots, t_n).
+\]
+Explicitly,
+\[
+\bars{X} =
+\coprod X_{i_1,\dots,i_k} \times \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} /\sim
+\]
 where
 \[
-\gsimplex^n = \{x \in [0,1]^n \mid x_1 \geq \dots \geq x_n\}.
+\begin{split}
+(\face_i^j(x), t_1, \dots, t_j, \dots, t_k) &\sim (x, t_1, \dots, \delta_i(t_j), \dots, t_k), \\
+(\dege^j_i(x), t_1, \dots, t_j, \dots, t_k) &\sim (x, t_1, \dots, \sigma_i(t_j), \dots, t_k).
+\end{split}
 \]
-Explicitly, ... \anibal{add if desired}
+
+The restriction of the geometric realization functor to the subcategory of $1$-fold multisimplicial sets recovers the usual geometric realization of simplicial sets up to natural equivalence.
 
 \subsection{Simplicial subdivision}
 
-Consider the geometric realization $\gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}$ of a representable multisimplex and the geometric realization of its diagonal simplicial set $\bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}}$.
+Consider the geometric realization $\gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}$ of a representable multisimplicial set $\simplex^{n_1, \dots, n_k}$ and the geometric realization of its diagonal simplicial set $\bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}}$.
 The later can be thought of as a subdivision of the former with top dimensional cells in canonical bijection with $(n_1, \dots, n_k)$-shuffles.
 
 This are ... \anibal{add}
@@ -107,6 +146,8 @@ The natural composition
 is a cellular map whose underlying continuous map is a homeomorphism.
 In fact, it can be thought of as the amalgamation map of a subdivision.
 We refer to this extension of $\ez$ as \textit{Eilenberg--Zilber comparison} and use the same notation for it.
+
+\anibal{Reference Quillen's proof.}
 
 \subsection{Cartan--Serre map and the fundamental simplex}
 
@@ -178,21 +219,27 @@ We refer to this natural cellular map as the \textit{Cartan--Serre comparison ma
 \cs \colon \bars{\fM Y} \to \bars{Y}.
 \]
 
+\subsection{Quillen equivalence}
+
+\anibal{Reference or prove that $(-)^{\diag} \dashv \fM$ forms a Quillen equivalence.}
+
 \section{Multisimplicial chains and algebraic structures}
 
 \subsection{Chains}
 
-The functor of \textit{multisimplicial chains} is the composition
+The functor of \textit{chains} is the composition
 \[
 \chains \colon \mSet \xra{\bars{-}} \CW \xra{\gchains} \Ch
 \]
 of the geometric realization and functor of cellular chains.
-It can also be described as the Yoneda extension of the functor defined on representable objects by
+It can also be described up to natural equivalence as the Yoneda extension of the functor defined on representable objects by
 \[
 \chains \big( \simplex^{n_1, \dots, n_k} \big) =
 \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k}).
 \]
-The functor of \textit{multisimplicial cochains} is defined using linear duality.
+Explicitly, \anibal{Add}
+
+The functor of \textit{cochains} is defined using linear duality.
 
 \subsection{Chain comparison maps} \label{ss:comparison chain maps}
 
@@ -207,12 +254,16 @@ The Eilenberg--Zilber and Cartan--Serre comparison maps induce, by passing to ce
 referred to as \textit{Eilenberg--Zilber} and \textit{Cartan--Serre comparison chain maps} respectively.
 Notice that we are referring to the cellular map and its induced chain map by the same symbol.
 
-\subsection{Coalgebras} \label{ss:coalgebras}
+\subsection{Counital coalgebras} \label{ss:coalgebras}
 
-A \textit{coalgebra} consists of a chain complex $C$ and chain maps $\copr \colon C \to C \otimes C$ and $\aug \colon C \to \k$ satisfying the usual coassociativity and counitality relations.
-This notion is equivalent to that of a comonoid in $\Ch$.
-Denote by $\coAlg$ the cocomplete category of coalgebras with morphisms being structure preserving chain maps.
-The category $\coAlg$ is symmetric monoidal, with braiding induced from $\Ch$ and structure maps of a product $C \otimes C^\prime$ given by
+A \textit{counital coalgebra} consists of a chain complex $C$ and chain maps $\copr \colon C \to C \otimes C$ and $\aug \colon C \to \k$ satisfying
+\[
+(\id \otimes \aug) \circ \copr =
+\id =
+(\aug \otimes \copr) \circ \copr
+\]
+Denote by $\coAlg$ the category of coalgebras with morphisms being structure preserving chain maps.
+The forgetful functor $\coAlg \to \Ch$ is symmetric monoidal with structure maps on $C \otimes C^\prime$ given by
 \begin{gather*}
 C \otimes C^\prime \xra{\copr \otimes \copr^\prime}
 (C \otimes C) \otimes (C^\prime \otimes C^\prime) \xra{(23)}
@@ -221,9 +272,9 @@ C \otimes C^\prime \xra{\aug \otimes \aug^\prime}
 \k \otimes \k \xra{\cong} \k.
 \end{gather*}
 
-\subsection{Alexander--Whitney coalgebra} \label{ss:alexander-whitney coalgebras}
+\subsection{Alexander--Whitney structure} \label{ss:alexander-whitney coalgebras}
 
-Recall that $\chains(\simplex^n)$ is naturally a coalgebra with
+Recall that $\chains(\simplex^n)$ is naturally a counital coalgebra with
 \[
 \begin{split}
 \copr \big( [v_0, \dots, v_m] \big) &=
@@ -237,7 +288,7 @@ Using the monoidal structure on $\coAlg$ we have natural coalgebra structures on
 \chains \big( \simplex^{n_1, \dots, n_k} \big) \cong
 \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k})
 \]
-and therefore a natural coalgebra structure on any multisimplicial set $X$, which we refer to as the \textit{Alexander--Whitney coalgebra} structure.
+and therefore a natural counital coalgebra structure on any multisimplicial set $X$, which we refer to as the \textit{Alexander--Whitney structure}.
 
 \anibal{Explicitly}
 
@@ -275,14 +326,15 @@ We now show that, with respect to the Alexander--Whitney coalgebra structures of
 
 An \textit{$\Med$-bialgebra} is a coalgebra $(C, \copr, \aug)$ together with a degree $1$ linear map $\pr \colon C \ot C \to C$, referred to as \textit{product}, whose boundary is $(\aug \ot \id) - (\id \ot \aug)$ and such that $\aug \circ \pr = 0$.
 Let $\biAlg_\Med$ be the category of $\Med$-bialgebras with structure preserving morphisms.
-The forgetful functor $\biAlg_\Med \to \coAlg$ is monoidal, where the composition
+The forgetful functor $\biAlg_\Med \to \coAlg$ is monoidal, with structure map on $C \otimes C^\prime$ given by
 \[
 (C \otimes C^\prime) \otimes (C \otimes C^\prime) \xra{(23)}
 C \otimes C \otimes C^\prime \otimes C^\prime
 \xra{\aug \otimes \id \otimes \pr + \pr \otimes \id \otimes \aug}
-C \otimes C^\prime
+C \otimes C^\prime.
 \]
-defines the product map.
+
+\anibal{Flesh the $E_\infty$ stuff out}
 
 As proven in \cite{medina2020prop1}, $\Med$-bialgebras are special cases of $E_\infty$-coalgebras.
 
