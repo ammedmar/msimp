@@ -324,7 +324,7 @@ We now show that, with respect to the Alexander--Whitney coalgebra structures of
 
 \subsection{$\Med$-bialgebras}
 
-An \textit{$\Med$-bialgebra} is a coalgebra $(C, \copr, \aug)$ together with a degree $1$ linear map $\pr \colon C \ot C \to C$, referred to as \textit{product}, whose boundary is $(\aug \ot \id) - (\id \ot \aug)$ and such that $\aug \circ \pr = 0$.
+An \textit{$\Med$-bialgebra} is a counital coalgebra $(C, \copr, \aug)$ together with a degree $1$ linear map $\pr \colon C \ot C \to C$, referred to as \textit{product}, whose boundary is $(\aug \ot \id) - (\id \ot \aug)$ and such that $\aug \circ \pr = 0$.
 Let $\biAlg_\Med$ be the category of $\Med$-bialgebras with structure preserving morphisms.
 The forgetful functor $\biAlg_\Med \to \coAlg$ is monoidal, with structure map on $C \otimes C^\prime$ given by
 \[
@@ -333,10 +333,6 @@ C \otimes C \otimes C^\prime \otimes C^\prime
 \xra{\aug \otimes \id \otimes \pr + \pr \otimes \id \otimes \aug}
 C \otimes C^\prime.
 \]
-
-\anibal{Flesh the $E_\infty$ stuff out}
-
-As proven in \cite{medina2020prop1}, $\Med$-bialgebras are special cases of $E_\infty$-coalgebras.
 
 \subsection{Multisimplicial join}
 
@@ -349,7 +345,7 @@ The \textit{join product} $\ast \colon \chains(\simplex^n)^{\ot 2} \to \chains(\
 where $\pi$ is the permutation that orders the vertices.
 It is an algebraic version of the usual join of faces in a simplex, please consult \cref{f:join of faces} for an example.
 
-The Alexander--Whitney coalgebra structure together with the join product define a natural $\Med$-bialgebra structure on $\chains(\simplex^n)$. This extends monoidally to a natural $\Med$-bialgebra structure on
+The Alexander--Whitney counital coalgebra structure together with the join product define a natural $\Med$-bialgebra structure on $\chains(\simplex^n)$. This extends monoidally to a natural $\Med$-bialgebra structure on
 \[
 \chains(\simplex^{n_1, \dots, n_k}) \cong
 \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k}).
@@ -360,3 +356,12 @@ The Alexander--Whitney coalgebra structure together with the join product define
 	\caption{Geometric representation of the join product of two basis elements. It depicts the identity $\pr \big( [0] \otimes [1,2] \big) = [0,1,2]$.}
 	\label{f:join of faces}
 \end{figure}
+
+\subsection{\pdfEinfty-coalgebras}
+
+The importance of $\Med$-bialgebras is that they provide a very manageable class of examples of $E_\infty$-coalgebras \cite{medina2020prop1}.
+Recall that an $E_\infty$-coalgebra $C$ is a chain complex together with an operad morphism
+\[
+\cO \to \coEnd_C
+\]
+where $\cO(r)$ is a free resolution of $\k$ as a (left) $\k[\Sym_r]$-module.
