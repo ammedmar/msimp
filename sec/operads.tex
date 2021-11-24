@@ -1,0 +1,349 @@
+% !TEX root = ../msimplicial.tex
+
+\section{McClure-Smith and Barratt-Eccles  complexes } 
+%We study an important example that will help us to understand how to prove our main 
+%theorem.
+
+In this section we introduce and compare a  multisimplicial and a simplicial  models of euclidean configuration spaces,
+related respectively to the surjection operad by McClure-Smith and the Barratt-Eccles operad.
+
+\begin{definition}
+Let $Sur(k)$  be the $k$-fold multisimplicial set that has 
+as $(i_1,\dots,i_k)$-multisimplexes
+the surjective maps $$f:\{1,\dots,i_1+\dots+i_k+k\} \to  \{1,\dots,k\}$$ such that
+the cardinality of $f^{-1}(l)$ is $i_l$, for $l=1,\dots,k$. We represent such maps by the sequence
+$$f(1) \dots f(i_1+\dots+i_k+k)$$
+The face map
+$d^l_j$ removes the $(j+1)$-th occurrence of $l$ in a sequence, and the degeneracy map
+$s^l_j$ doubles the $(j+1)$-th occurrence of $l$ in a sequence. 
+So for example 
+\begin{align*}d^2_0(12321)=1321 \\ d^2_1(12321)=1231 \\ s^1_0(121)=1121
+\end{align*}
+Degenerate multisimplices are exactly the sequences containing two equal adjacent terms.
+
+The front  (resp. back) $(i_1,\dots,i_k)$-face of a sequence is the subsequence containing only the first (resp. last) 
+$(i_l+1)$-values of $l$, for each
+$l=1,\dots,k$.
+\end{definition}
+
+
+The (normalized) chain complexes 
+of $Sur(k)$  $$\chi(k):=N(Sur(k))$$
+were considered by McClure and Smith
+\cite{MS},
+who constructed an operad structure
+on the collections of these complexes, the {\it surjection operad} $\chi$.
+
+
+Also the geometric realizations 
+$$\mathcal{F}(k)=\bars{Sur(k)}$$ appear in the work by McClure-Smith \cite{MS}, as explained in the appendix of \cite{Deligne}.   
+
+The $k$-fold  $Sur(k)$ is filtered
+by a nested family of $k$-fold multisimplicial sets
+$$Sur_1(k) \subset Sur_2(k)  \subset \dots $$ such that $Sur(k) = {\rm colim}_n Sur_n(k)$. 
+
+%A surjection belongs to $Sur_i(k)$
+%if it does not contain an ordered %subsequence $ijij\dots$ with $i \neq j$ with more than $i+2$ values.
+
+The collection of chain complexes 
+$$\chi_n(k)=N(Sur_n(k))$$ 
+gives a filtration of the surjection operad by suboperads
+
+$$\chi_1 \subset \chi_2 \dots $$
+
+
+
+
+%\begin{Remark}
+%There is an interesting connection %between $Sur$ and t
+
+We recall that the Barratt-Eccles simplicial sets $\mathcal{W}\Sigma_k$, where  $\Sigma_k$ is the symmetric group of permutations of $\{1,\dots,k\}$, is defined levelwise by
+$\mathcal({W}\Sigma_k)_i=(\Sigma_k)^{i+1}$. The face $d_{j}$ removes the $(j+1)$-st permutation, and the degeneracy $s_j$ doubles the $(j+1)$-st permutation. There is an operad structure on the collection $W\Sigma_k$.
+The (normalized) chain complex of $\mathcal{W}\Sigma_k$ is the Barratt-Eccles chain complex $$BE(k):=N(\mathcal{W}\Sigma_k)$$
+and these complexes form an operad.
+Berger and Fresse construct in \cite{BFsmall} 
+  an operad map $TR:BE \to \chi$
+and a collection of
+chain maps $TC(k):\chi(k) \to BE(k)$
+that are right inverses of $TR(k)$ and do not form an operad map.
+
+We claim that $TC$ is induced by a map of simplicial sets
+$$tc: Sur(k)^D \to \mathcal{W}\Sigma_k$$ that we define. 
+\begin{definition}
+Let $s$ be an $i$-simplex  of the diagonal $Sur(k)^D$, i.e. a sequence containing any value in $\{1,\dots,k\}$ exactly $i+1$ times. 
+Then $tc(s):=(\sigma_0,\dots,\sigma_i)$ is a sequence of permutations where each $\sigma_j$ is the subsequence of $s$ containing the $(j+1)$-st occurrence of each value in $\{1,\dots,k\}$.
+ \end{definition}
+
+ For example 
+ $$tc(122333112)=(123,231,312)$$
+
+\begin{proposition} 
+The homomorphism $TC$ by Berger-Fresse satisfies
+$$TC=N(tc) \circ \ez$$ where
+$$\ez: \chi(k) = N(Sur(k)) \to N(Sur(k)^D)$$ and $$N(tc):N(Sur(k)^D) \to N(\mathcal{W}\Sigma_k)=BE(k)$$
+\end{proposition}
+
+\begin{proof}
+By inspection of the definition in \cite{BFsmall}. %more? signs? which convention?
+\end{proof}
+
+Also $\mathcal{W}$ is filtered \cite{BFsmall}, i.e.
+there is a family of nested simplicial sets $$\mathcal{W}_1\Sigma_k \subset \mathcal{W}_2 \Sigma_k
+ \subset \dots $$ such that 
+$\mathcal{W}\Sigma_k={\rm colim}_d \mathcal{W}_d\Sigma_k$, that form a filtration by operads 
+$$\mathcal{W}_1 subset \mathcal{W}_2 \subset \dots \mathcal{W}$$
+
+
+The normalized chain functor defines 
+$$BE_d(k):=N(\mathcal{W}_d \Sigma_k)$$ so that the operads $BE_d$  
+form a filtration of $BE$.
+
+%We observe that the simplicial map %$tc$ respects the filtration, sending 
+%$\mathcal{W}_d\Sigma_k$ to %$Sur_d(k)^D$. 
+
+%inserire mini-dimostrazione della filtrazione su grafi completi
+
+
+
+%The geometric realizations satisfy 
+%$$|Sur_d(k)| \simeq |\mathcal{W}_d\Sigma_k| \simeq F_k(\R^{d})$$
+%where $F_k(\R^{d})$ is the ordered configuration space of $k$-tuples of points in  $\R^{d}$. 
+We stress that the number of generators in $\chi_d(k)$, corresponding to non-degenerate surjections,
+is much smaller than the corresponding number of generators in $BE_d(k)$. 
+Let us consider the generating polynomial functions counting the generators
+$$PB_d^k(x) = \sum_i rank(BE_d(k)_i) x^i $$ $$P\chi_d^k(x)=
+\sum_i rank(\chi_d(k)_i) x^i$$   
+Then for example 
+\begin{align*}
+& PB_2^4(x)=24(1+23x+104x^2+196x^3+184x^4+86x^5+16x^6)\\
+& P\chi_2^4(x)=24(1+6x+10x^2+5x^3) \\
+& \\
+& PB_3^3(x) = 6(1+5x+25x^2+60x^3+70x^4+38x^5+8x^6 ) \\
+&  P\chi_3^3(x)= 6(1+3x+7x^2+9x^3+6x^4+x^5)
+\end{align*} 
+Therefore the multisimplicial approach using $\chi$ is much more efficient than the simplicial
+approach using $BE$, when performing computations as in \cite{formality}. 
+
+
+%part by Andrea
+
+	Both $\mathcal{W}$ and $Sur$ are filtered, i.e.
+	there is a family of nested simplicial sets $$\mathcal{W}_1\Sigma_k \subset \mathcal{W}_2 \Sigma_k
+	\subset \mathcal{W}_3 \Sigma_k
+	\subset \dots $$ such that 
+	$\mathcal{W}\Sigma_k={\rm colim}_d \mathcal{W}_d\Sigma_k$, and a family of nested $k$-fold simplicial sets
+	$$Sur_1(k) \subset Sur_2(k)  \subset Sur_3(k)  \subset\dots $$ such that $Sur(k) = {\rm colim}_d Sur_d(k)$.
+	
+	\begin{remark}[Complete graphs]
+		A complete graph is a weighted graph where for any couple of vertices (unordered) exists a unique edge of specified orientation.  For example:
+\begin{equation*}
+	\begin{tikzcd}
+		\ & 2 & \  \\
+		1 \arrow[ur,"2"] \arrow[rr] \arrow[dr,"3"']& \arrow[r,"1"] \arrow[u,"2"] & 3 \arrow[ul,"1"']  \\
+		\ & 4 \arrow[ur,"4"'] \arrow[uu] & \
+	\end{tikzcd}
+\end{equation*}
+Denote the set of complete graphs with $k$ vertices as $\mathcal{CG}(k)$.
+Elements of $\mathcal{CG}(k)$ are representable as a pair $(\mu,\sigma)$, where $\mu$ is a collection of non-negative integers $\mu_{ij}\in\mathbb{N}$, $i,j\in \left\lbrace 1,\dots, k \right\rbrace $
+% associeted to the correspondent pair of vertices,
+  and $\sigma$ is a permutation in $\Sigma_{k}$ giving orientation of edges as the order of appearance of $i$ and $j$ in that permutation.
+%   $\sigma=(\sigma(1)\sigma(2)\dots \sigma(k))$, the 'arrow' goes from the first appearing, to the second. It is easier if we define the permutation $\sigma_{ij}$ obtained omitting all occurrences of number different from $i$ and $j$ in the permutation, and then see the order. This notation is useful in what will follow.
+For example the permutation correspondent to the figure is $(1432)$ .
+$\sigma_{ij}$ will denote the permutation obtained omitting all elements different from $i$ and $j$.
+	\end{remark}
+
+\begin{remark}[Complete graphs form a poset]
+	$\mathcal{CG}(k)$ has a poset structure as follow: 
+	\begin{equation*}
+		(\mu,\sigma)\le (\nu,\tau) \ \ \text{ if and only if } \ \ (\mu_{ij}<\nu_{ij}) \ \ \text{ or } \ \ (\mu_{ij},\sigma_{ij})= (\nu_{ij},\tau_{ij}) 
+	\end{equation*}
+	for each pair $\left\lbrace i,j\right\rbrace \subset\left\lbrace 1,\dots,k  \right\rbrace $.
+\end{remark}	
+
+%In both cases of multisimplicial set $Sur$ and simplicial set of Barratt-Eccles (We can call them just $X$ for now) we need to give a way to find certain subsets of elements using complete graphs. In particular we want to define what means to belong to the subset $X_{(\mu,\sigma)}\subseteq X$ and then define 
+%\begin{equation}
+%	\label{def}
+%	X_{n}=\bigsqcup_{\mu_{ij}\le n} X_{(\mu,\sigma)}
+%\end{equation}
+
+	\begin{definition}[Filtration of the surjection multisimplicial set $Sur$]
+		Fix a surjection $f\in Sur(k)_{i_{1},\dots,i_{k}}$. For any pair $(i,j)$ with $i< j$, $f_{ij}$ is the subsequence of $f(1) \dots f(i_1+\dots+i_k+k)$ obtained omitting all the occurrences of elements different from $i$ and $j$. 
+%		For example, let $31231 \in Sur(3)_{2,1,2}$, we have $(31231)_{12}=121$, $(31231)_{23}=323$ and $(31231)_{13}=3131$.
+		The surjection $f$ belongs to $Sur_{(\mu,\sigma)}(k)\subseteq Sur(k)$ if for all pairs $(i,j)$, $i< j$ either the sequence $f_{ij}$ has strictly less than $\mu_{ij}$ variation number
+%		, that is the amount of times that the order of $i$ and $j$ change ,
+		 or the sequence $f_{ij}$ has exactly $\mu_{ij}$ as variation number and the permutation formed by the first occurences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$. Accordingly to this $f$ belongs to $Sur_{n}(k)\subseteq Sur(k)$ if and only if for all pairs $(i,j)$, $i< j$ the sequence $f_{ij}$ has strictly less than $n$ variation number. This means:
+		 \begin{equation*}
+		 	\label{def}
+		 	Sur_{n}(k)=\bigsqcup_{\mu_{ij}< n} Sur_{(\mu,\sigma)}(k)
+		 \end{equation*}
+%		\\
+%		\\
+%		Returning to the example above we have $\mu_{12}(31231)=1$, $\mu_{23}(31231)=1$ and $\mu_{13}(31231)=2$ so that $31231\in Sur_{(\mu,\sigma)}(3)_{2,1,2}$  
+%		\begin{itemize}
+%		\item if $\mu_{12}>1$, $\mu_{23}>1$ and $\mu_{13}>2$ and any $\sigma\in \Sigma_{3}$;
+%		\item if some $\mu_{ij}=\mu(f)_{ij}$ and the first occurences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
+%		\end{itemize}
+%	    In our example we obtain that, by equation \ref{def},
+%	    $31231\in Sur_{3}(k)_{2,1,2}$
+%	    \\
+%	    \\
+	    We have obtained the filtration $$Sur_1(k) \subset Sur_2(k)  \subset Sur_3(k)  \subset \dots $$
+	    that induces the filtration of the correspondent diagonal simplicial set 
+	    $$Sur_1(k)^{D} \subset Sur_2(k)^{D}  \subset Sur_3(k)^{D}  \subset\dots $$
+	    
+	\end{definition}
+
+	\begin{definition}[Filtration of the Barratt-Eccles simplicial set $\mathcal{W}\Sigma_k$]
+	Fix an element  $w\in (\mathcal{W}\Sigma_k)_{d}$, $w=(w_{1},\dots , w_{d})$ with $w_{h}\in \Sigma_k$. For any pair $(i,j)$ with $i< j$, denote $w_{ij}=(w_{1,ij},\dots , w_{d,ij})$ where $w_{h,ij}$ is the subsequence of $w_{h}$ obtained omitting all the occurrences of elements different from $i$ and $j$. 
+%	For example, let $(123,231,312) \in (\mathcal{W}\Sigma_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
+	The element $w$ belongs to $\mathcal{W}_{(\mu,\sigma)}\Sigma_k\subseteq \mathcal{W}\Sigma_k$ if for all pairs $(i,j)$, $i< j$ either the sequence $f_{ij}$ has strictly less than $\mu_{ij}$ variation number
+%	, that is, as before,  the amount of times that the order of $i$ and $j$ change ,
+	 or the sequence $w_{ij}$ has exactly $\mu_{ij}$ as variation number with the first permutation equal to $\sigma_{ij}$. Accordingly to this $w$ belongs to $\mathcal{W}_{n}\Sigma_k\subseteq \mathcal{W}\Sigma_k$ if and only if for all pairs $(i,j)$, $i< j$ the sequence $w_{ij}$ has strictly less than $n$ variation number. This means:
+	  \begin{equation*}
+	 	\label{def}
+	 	\mathcal{W}_{n}\Sigma_k=\bigsqcup_{\mu_{ij}< n} \mathcal{W}_{(\mu,\sigma)}\Sigma_{k}
+	 \end{equation*}
+	\\
+	\\
+%	Returning to the example above we have $\mu_{12}(123,231,312)=2$, $\mu_{23}(123,231,312)=1$ and $\mu_{13}(123,231,312)=1$ so that $(123,231,312)\in (\mathcal{W}_{(\mu,\sigma)}\Sigma_3)_{3}$
+%	\begin{itemize}
+%		\item if $\mu_{12}>2$, $\mu_{23}>1$ and $\mu_{13}>1$ and any $\sigma\in \Sigma_{3}$;
+%		\item if some $\mu_{ij}=\mu_{ij}(w)$ and the first permutation of $w$ is equal to $\sigma_{ij}$.
+%	\end{itemize}
+%	In our example we obtain that, by equation \ref{def},
+%	$(123,231,312)\in (\mathcal{W}_{3}\Sigma_3)_{3}$
+%	\\
+%	\\
+	We have obtained the filtration $$\mathcal{W}_1\Sigma_k \subset \mathcal{W}_2 \Sigma_k
+	\subset \mathcal{W}_3 \Sigma_k
+	\subset \dots $$ 
+%	that is the other one we need in $tc$ definition.
+	
+\end{definition}
+ 
+% In both cases, to see even the role of permutations we'll use always pairs $(\mu,\sigma)$ with $\mu$ exactly the collection of variation numbers obtained from the initial element so that the permutation is uniquely determined, and $(\mu,\sigma)$ is minimal in the poset.
+% \\
+% In our examples 
+% \begin{itemize}
+% 	\item $31231\in Sur_{(\mu,\sigma)}(3)_{2,1,2} \subseteq Sur_{3}(3)_{2,1,2}$ with $(\mu_{12},\mu_{13},\mu_{23})=(1,2,1)$ and $\sigma=(312)$
+% 	\item $(123,231,312)\in (\mathcal{W}_{(\mu,\sigma)}\Sigma_3)_{3} \subset (\mathcal{W}_{3}\Sigma_3)_{3}$ with $(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$ and $\sigma=(123)$
+% \end{itemize}
+%	We observe that the simplicial map $tc$ respects the filtration, sending 
+%	$Sur_d(k)^D$ to $\mathcal{W}_d\Sigma_k$ 
+%	\\
+%	\begin{example}
+%	We are givine some example of the compatibility of $tc$ to visualize why it works in general.
+%	Let $122333112 \in Sur(3)^{D} $
+%	\begin{itemize}
+%		\item $(122333112)_{12}=122112\rightarrow \mu_{12}=2$
+%		\item $(122333112)_{13}=133311\rightarrow \mu_{13}=1$
+%		\item $(122333112)_{23}=223332\rightarrow \mu_{23}=1$
+%	\end{itemize}
+%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
+%and the first occurrences of $1,2,3$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $122333112 \in Sur_{((2,1,1),(123))}(3)^{D}$ $\Rightarrow$ $122333112 \in Sur_{3}(3)^{D}$.
+%Now applying $tc$ we obtain $tc(122333112)=(123,231,312)\in (\mathcal{W}\Sigma_3)_{3} $
+%\begin{itemize}
+%\item $(123,231,312)_{12}=(12,21,12)\rightarrow \mu_{12}=2$
+%\item $(123,231,312)_{13}=(13,31,31)\rightarrow \mu_{13}=1$
+%\item $(123,231,312)_{23}=(23,23,32)\rightarrow \mu_{23}=1$
+%\end{itemize}
+%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
+%and the first permutation in $(123,231,312)$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $(123,231,312) \in (\mathcal{W}_{((2,1,1),(123))}\Sigma_{3})_{3}$ $\Rightarrow$ $(123,231,312) \in (\mathcal{W}_{3}\Sigma_{3})_{3}$.
+%
+%
+%
+%	\end{example}
+
+\begin{lemma}[Compatibility of $tc$]
+	We have that the map $tc:Sur(k)^{D}\rightarrow \mathcal{W}\Sigma_{k}$ is compatible with the filtrations, in the sense that 
+	$$tc(Sur_{n}(k)^{D})\subseteq \mathcal{W}_{n}\Sigma_{k}$$
+	
+	In particular 
+	$$tc(Sur_{(\mu,\sigma)}(k)^{D})\subseteq \mathcal{W}_{(\mu,\sigma)}\Sigma_{k}$$
+\end{lemma}
+\begin{proof}
+Let  $f\in Sur_{n}(k)^{D}$ be an $m$-simplex and denote 
+%This means $f$ is a sequence  $f(1)f(2)\dots f(km+m)$ containing any value in $\left\lbrace 1,\dots,k\right\rbrace $ exactly $m+1$ times and so 
+$tc(f)=w=(w_{1},\dots,w_{m+1})\in (\mathcal{W}\Sigma_{k})_{m+1}$. We suppose the variation numbers of $f$ are $\mu_{ij}$, and claim that $w$ has no more than these as variation numbers.  Let us denote variation numbers of $w$ as $\mu_{ij}'$. 
+Let us consider just the subsequence of including only indices $(i,j)$, $f_{ij}$. If $f^{-1}(i)=\left\lbrace i_{1}<i_{2}<\dots<i_{m+1}\right\rbrace $ and $f^{-1}(j)=\left\lbrace j_{1}<j_{2}<\dots<j_{m+1}\right\rbrace $ then $f^{-1}(i)\cap f^{-1}(j)=\emptyset$ and we can express the above mentioned subsequence as follow:
+\begin{equation*}
+\begin{split}
+f_{ij}=&f(i_{1})f(i_{2})\dots f(i_{k})f(j_{1})\dots f(j_{l})f(i_{k+1})\dots f(i_{k+t})f(j_{l+1})\dots f(j_{l+s})\dots \dots \dots  \\
+&\dots \dots \dots  f(j_{h})\dots f(j_{m+1})f(i_{r})\dots f(j_{m+1})
+\end{split}
+\end{equation*}
+We are assuming $i$ appears first, so the starting order of $f_{ij}$ and $w_{ij}$ is $(i,j)$ (the argument is indipendent of this choice and it is in fact the same in the inverse case).
+%We can arrange the sequence $f_{ij}$ in a table 
+%\begin{equation*}
+%\left|  \ \ \ \begin{split}
+%	&f(i_{1})\dots f(i_{k})\\
+%	&f(j_{1})\dots f(j_{l}) \\
+%	&f(i_{k+1})\dots f(i_{k+t}) \\
+%	&f(j_{l+1})\dots f(j_{l+s}) \\
+%	&\dots \dots \dots  \\
+%	&f(j_{h})\dots f(j_{m+1})\\
+%	&f(i_{r})\dots f(j_{m+1})
+%\end{split}
+%\right. 
+%\end{equation*}
+%and the variation number associeted $\mu_{ij}$ will be the number of lines minus $1$. This because we're starting with a specific order of indices (in this case $(i,j)$)  and we count $+1$ every time the index change from this moment. 
+
+
+
+We arrange the sequence in a table as follow: (it is important to note that columns of this table will be exactly elements $(w_{1},\dots, w_{m+1})$)
+\begin{enumerate}
+	\item [-] Write the first subsequences of $i$ and $j$ as first and second row of the table;
+\begin{equation*}
+\begin{split}
+		&f(i_{1})\dots f(i_{k}) \\
+		&f(j_{1})\dots f(j_{l}) \\
+	\end{split}
+\end{equation*}
+	\item If the second row is longer (not equal), then write the following subsequence (of the appearing index) starting from under the element $f(j_{\_+1})$ or $f(i_{\_+1})$
+\begin{equation*}
+	\begin{split}
+		&f(i_{1})\dots f(i_{k}) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \mu_{ij}=\mu_{ij}+1\\
+		&f(j_{1})\dots f(j_{k})f(j_{k+1})\dots f(j_{l})\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mu_{ij}'=\mu_{ij}'+1 \\
+		& \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f(i_{k+1})\dots f(i_{k+t})
+	\end{split}
+\end{equation*}
+%Because adding a line here means we have a change of order in $tc(f)_{ij}$ the variation number increase by one.
+\item If the second row is shorter equal, then write the following subsequence (of the appearing index) continuing from the correspondent element $f(i_{\_})$ or $f(j_{\_})$
+\begin{equation*}
+	\begin{split}
+		&f(i_{1})\dots f(i_{l})f(i_{l+1})f(i_{k})f(i_{k+1})\dots f(i_{k+t}) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mu_{ij}=\mu_{ij}+1\\
+		&f(j_{1})\dots f(j_{l}) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \mu_{ij}'=\mu_{ij}'\\
+	\end{split}
+\end{equation*}
+%Because the number of lines does not change we haven't a change of order and so the variation number do not increase.
+\item [-] If we consider now the last two rows of the table obtained as a new first and second, we can continue studying cases $1$ and $2$, obtaining a finite algorithm.
+\end{enumerate}
+We finally obtain $\mu_{ij}'\le \mu_{ij}$.\\
+Moreover $tc$ respects permutations, because if we have certain variation numbers associated to $f$, we can associate a specific permutation formed by the first occurreces of each value in $\left\lbrace 1,\dots, k \right\rbrace $, that is exactly $w_{1}$.
+Both assertions follow.
+\end{proof}
+
+\begin{corollary}
+	The map $tc_{n}:Sur_{n}(k)^{D}\rightarrow \mathcal{W}_{n}\Sigma_{k}$ is a weak equivalence.
+\end{corollary}
+
+\begin{proof}
+	Follow from the commutative diagram below build up with all weak equivalences
+	\begin{equation*}
+		\begin{tikzcd}
+			colim_{(\mu,\sigma)}Sur_{(\mu,\sigma)}(k)^{D} \arrow[r,"tc_{(\mu,\sigma)}"] \arrow[d]& colim_{(\mu,\sigma)}\mathcal{W}_{(\mu,\sigma)}\Sigma_{k} \arrow[d] \\
+			Sur_{n}(k)^{D}\arrow[r] & \mathcal{W}_{n}\Sigma_{k}& 
+		\end{tikzcd}
+	\end{equation*}
+\end{proof}
+
+Let  $F_k(\R^{d})$ be the ordered configuration space of $k$-tuples of points in  $\R^{d}$. 
+
+\begin{proposition}
+The geometric realizations satisfy 
+$$|Sur_d(k)| \simeq |W_d(k)|  \simeq F_k(\R^{d})$$
+\end{proposition}
+
+\begin{proof}
+The configuration space is a homotopy colimit of contractible spaces along the same poset.
+\end{proof}
