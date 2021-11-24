@@ -4,22 +4,18 @@
 
 \anibal{Say something here}
 
-\subsection{Cellular Topology}
-
-TBW
-
 \subsection{Chain complexes}
 
 Throughout this article $\k$ denotes a commutative and unital ring and we work over its associated closed symmetric monoidal category of differential (homologically) graded $\k$-modules $(\Ch, \ot, \k)$.
 We refer to the objects and morphisms of this category as \textit{chain complexes} and \textit{chain maps} respectively. We denote by $\Hom(C, C^\prime)$ the chain complex of $\k$-linear maps between chain complexes $C$ and $C^\prime$, and refer to the functor $\Hom(-, \k)$ as \textit{linear duality}.
 
+\subsection{Cellular Topology}
+
+TBW
+
 \subsection{Category theory}
 
 Given categories $\sB$ and $\sC$ we denote their associated \textit{functor category} by $\Fun(\sB, \sC)$.
-%A category is said to be \textit{Cartesian} if is a monoidal category whose monoidal structure is given by the category-theoretic product and whose unit is a terminal object.
-%A Cartesian category $(\mathsf{A}, \times, \mathbb{1})$ is equipped with natural diagonal and augmentation maps $\Delta_a \colon a \to a \times a$ and $\varepsilon_a \colon a \to \mathbb{1}$.
-%
-%\anibal{maybe this notion is not needed}
 Recall that a category is said to be \textit{small} if its objects and morphisms form sets.
 We denote the category of small categories by $\Cat$.
 A category is said to be \textit{cocomplete} if any functor to it from a small category has a colimit.
@@ -46,84 +42,3 @@ For any object $X$ of $\Fun(\mathsf{A}^\op, \Set)$ we have
 X \cong \colim_{\yoneda(a) \downarrow X} \yoneda(a)
 \]
 where ${\yoneda(a) \downarrow X}$ is the over-category of $X$ in $\Fun(\mathsf{A}^\op, \Set)$.
-
-%\subsection{Simplicial sets}
-%
-%We denote the \textit{simplex category} by $\simplex$, the category of \textit{simplicial sets} by $\sSet = \Fun(\simplex^\op, \Set)$ and the \textit{standard $n$-simplex} by
-%\[
-%\simplex^n = \yoneda \big( [n] \big)
-%\qquad \text{with} \qquad
-%\simplex^n_m = \simplex^n \big( [m] \big).
-%\]
-%As usual, we denote an element in $\stspx{n}_m$ by a non-decreasing tuple $[v_0, \dots, v_m]$ with $v_i \in \{0, \dots, n\}$ with \textit{face} and \textit{degenerate maps} denoted by
-%\begin{align*}
-%\face_i [v_0, \dots, v_m] & = [v_0, \dots, \widehat v_i, \dots, v_m], \\
-%\dege_i [v_0, \dots, v_m] & = [v_0, \dots, v_i, v_i, \dots, v_m].
-%\end{align*}
-%
-%The \textit{Cartesian product} $X \times Y$ of simplicial sets is defined using the diagonal in small categories $\simplex \to \simplex \times \simplex$.
-%It makes $\sSet$ into a symmetric monoidal category.
-%
-%\subsection{Simplicial chains}
-%
-%The functor of (normalized) \textit{chains}
-%\[
-%\chains \colon \sSet \to \Ch,
-%\]
-%is defined as the Yoneda extension of the functor defined on representable simplicial sets by
-%\[
-%\chains(\simplex^n)_m =
-%\frac{\k\{\simplex^n_m\}}{\bigoplus \k\{\mathrm{img}(\dege_i)\}},
-%\qquad
-%\bd = \sum (-1)^i \face_i.
-%\]
-%We omit the superscript $\simplex$ from the notation $\chains$ if no confusion may result from doing so.
-%
-%The functor of \textit{simplicial cochains} is defined through linear duality.
-%
-%\subsection{EZ-AW contraction}
-%
-%The functor of chains is not monoidal in general, but there are natural transformations
-%\[
-%\begin{split}
-%\EZ & \colon \chains(X_1) \ot \chains(X_2) \to \chains(X_1 \times X_2), \\
-%\AW & \colon \chains(X_1 \times X_2) \to \chains(X_1) \ot \chains(X_2),
-%\end{split}
-%\]
-%known respectively as \textit{Eilenberg--Zilber} and \textit{Alexander--Whitney maps}.
-%These satisfy that $\EZ \circ \AW$ is the identity and that $\AW \circ \EZ$ is naturally chain homotopic to the identity.
-%Furthermore, they forms of associativity that make the extensions to maps
-%\[
-%\begin{split}
-%\EZ & \colon \chains(X_1) \ot \dotsb \ot \chains(X_k) \to \chains(X_1 \times \dotsb \times X_k), \\
-%\AW & \colon \chains(X_1 \times \dotsb \times X_k) \to \chains(X_1) \ot \dotsb \ot \chains(X_k).
-%\end{split}
-%\]
-%unambiguously defined.
-%\begin{align*}
-%\EZ \circ (\EZ \ot \, \id) &= \EZ \circ (\id \ot \EZ) \\
-%(\AW \ot \, \id) \circ \AW &= (\id \ot \AW) \circ \AW
-%\end{align*}
-%For future reference we give an explicit description of these maps.
-
-%\anibal{include the formulas}
-%
-%\subsection{Alexander--Whitney coalgebra} \label{ss:aw coalgebra}
-%
-%The \textit{Alexander--Whitney coalgebra} structure is defined by the following natural maps.
-%For any $n \in \N$, define $\epsilon \colon \chains(\triangle^n) \to \k$ by
-%\[
-%\epsilon \big( [v_0, \dots, v_q] \big) = \begin{cases} 1 & \text{ if } q = 0, \\ 0 & \text{ if } q>0, \end{cases}
-%\]
-%and $\Delta \colon \chains(\triangle^n) \to \chains(\triangle^n) \ot \chains(\triangle^n)$ by
-%\[
-%\chains(\simplex^n) \xra{\chains(\diag)} \chains(\simplex^n \times \simplex^n) \xra{\AW} \chains(\simplex^n) \ot \chains(\simplex^n)
-%\]
-%where $\diag$ is the diagonal in $\sSet$.
-%Explicitly,
-%\[
-%\Delta \big( [v_0, \dots, v_q] \big) =
-%\sum_{i=0}^q \, [v_0, \dots, v_i] \ot [v_i, \dots, v_q].
-%\]
-%
-%The product induced on cochains is referred to as \textit{simplicial cup product}.
