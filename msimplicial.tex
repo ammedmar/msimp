@@ -1,6 +1,16 @@
 \documentclass{amsart}
 \input{aux/style}
+\input{aux/usualcmds}
+\input{aux/figures}
+\addbibresource{aux/usualpapers.bib}
+\addbibresource{aux/mypapers.bib}
+%%%%%%%%%%%
+
+% Modify the following files if desired
 \input{aux/commands}
+\addbibresource{aux/bibliography.bib}
+
+%%%%%%%%%%%
 
 \title[Short title]{Multisimplicial cochain operations}
 
@@ -9,27 +19,24 @@
 \email{\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}}
 
 \author[A. Pizzi]{Andrea Pizzi}
-\address{Dipartimento di Matematica "Giuseppe Peano", Universit\`a degli studi di Torino} 
+\address{Dipartimento di Matematica "Giuseppe Peano", Universit\`a degli studi di Torino}
 \email{andrea.pizzi@edu.unito.it}
 
 \author[P. Salvatore]{Paolo Salvatore}
-\address{Dipartimento di Matematica, Universit\`a di Roma Tor Vergata} 
+\address{Dipartimento di Matematica, Universit\`a di Roma Tor Vergata}
 \email{salvator@mat.uniroma2.it}
 
 \date{\today}
 \subjclass[2020]{.}
 \keywords{.}
 
-\include{aux/figures}
-
 \begin{document}
-	\input{aux/abstract}
+	\input{sec/abstract}
 	\maketitle
 	\input{sec/introduction}
-	\input{aux/acknowledgment}
+	\input{sec/acknowledgment}
 	\input{sec/preliminaries}
 	\input{sec/multisimplicial}
-	\input{sec/operads}
-%	\input{sec/einfty}
+	\sloppy
 	\printbibliography
 \end{document}

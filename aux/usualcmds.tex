@@ -3,15 +3,28 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
+
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
+\newtheorem*{definition*}{Definition}
 \newtheorem{remark}[theorem]{Remark}
-\newtheorem*{convention}{Convention}
+\newtheorem*{remark*}{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{example*}{Example}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem*{convention*}{Convention}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem*{notation*}{Notation}
+\newtheorem{question}[theorem]{Question}
+\newtheorem*{question*}{Question}
 
 % hyphenation
 \hyphenation{co-chain}
+\hyphenation{co-chains}
+\hyphenation{co-al-ge-bra}
 \hyphenation{co-al-ge-bras}
+\hyphenation{co-bound-ary}
+\hyphenation{co-bound-aries}
 
 % basics
 \DeclareMathOperator{\face}{d}
@@ -29,9 +42,9 @@
 % elements
 \newcommand{\id}{\mathsf{id}}
 \newcommand{\Med}{\cM}
-\newcommand{\UM}{{\forget(\M)}}
-\newcommand{\MSL}{{\M_{sl}}}
-\newcommand{\USL}{{\forget(\M_{sl})}}
+\newcommand{\UM}{{\forget(\Med)}}
+\newcommand{\MSL}{{\Med_{sl}}}
+\newcommand{\USL}{{\forget(\Med_{sl})}}
 \newcommand{\Surj}{\cX}
 \newcommand{\BE}{\cE}
 
@@ -144,8 +157,10 @@
 \newcommand{\cZ}{\mathcal{Z}}
 
 \newcommand{\rB}{\mathrm{B}}
+\newcommand{\rD}{\mathrm{D}}
 \newcommand{\rH}{\mathrm{H}}
 \newcommand{\rP}{\mathrm{P}}
+\newcommand{\rW}{\mathrm{W}}
 
 \newcommand{\bbF}{\mathbb{F}}
 
