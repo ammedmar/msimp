@@ -298,12 +298,12 @@ Using the monoidal structure on $\coAlg$ we have natural coalgebra structures on
 \]
 and therefore a natural counital coalgebra structure on the chains of any multisimplicial set $X$, which we refer to as the \textit{Alexander--Whitney structure}.
 
-Explicitly, for an $(m_1, \dots, m_k)$-multisimplex $x$ the Alexander--Whitney coproduct is given by
+Explicitly, for an $(m_1, \dots, m_k)$-multisimplex $x$, given the family of multi-indices $\mathfrak{I}_{k,x}=\left\lbrace \; (i_{1},\dots,i_{k}) \; \left| \; 0\le i_{j} \le m_{j} \; , \;  \forall \; j=1,\dots,k \; \right.  \right\rbrace $,  the Alexander--Whitney coproduct is given by
 \[
 \copr(x) =
-\sum_{j=1}^k \sum_{i_{j}=0}^{m_{j}} \;  
+\sum_{I\in \mathfrak{I}_{k,x}} \;  
 (-1)^{\sum_{1 \leq l<h \leq k} i_h (m_l-i_l) } \
-x \rfloor_{(i_{1},\dots,i_{k})} \ot 
+x \rfloor_{(i_{1},\dots,i_{k})} \otimes
 \!\,_{(m_{1}-i_{1}, \dots, m_{k}-i_{k})} \lfloor x
 \]
 where the \textit{front $(i_1, \dots, i_k)$-face} of $x$ is the multisimplex
