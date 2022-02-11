@@ -7,8 +7,8 @@
 \subsection{Multisimplicial sets}
 
 Let us consider an arbitrary non-negative integer~$k$.
-The \textit{$k$-fold multisimplex category} $\msimplex{k}$ is the $k$-fold Cartesian product of the simplex category $\simplex$.
-We denote the category of presheaves $\Fun((\msimplex{k})^\op, \Set)$ by $\mSet^{(k)}$ and refer to its objects as \textit{$k$-fold multisimplicial sets}.
+The \textit{$k$-fold multisimplex category} $\msimplex{k}$ is the $k$-fold Cartesian product of the simplex category $\simplex$ , with the convention that for $k = 0$ this is the trivial category.
+We denote the category of presheaves $\Fun \big( (\msimplex{k})^\op, \Set \big)$ by $\mSet^{(k)}$ and refer to its objects as \textit{$k$-fold multisimplicial sets}.
 The categories $\mSet^{(0)}$ and $\mSet^{(1)}$ are naturally equivalent to $\Set$ and $\sSet$ respectively.
 The representable $k$-fold multisimplicial sets are denoted by
 \[
@@ -45,7 +45,7 @@ The category of \textit{multisimplicial sets} is the coproduct
 
 \subsection{Diagonal simplicial set} \label{ss:diagonal simplicial set}
 
-Composing with the diagonal functor
+The composition with the diagonal functor
 \[
 \simplex^\op \xra{\diag}
 (\simplex^\op)^{\times k} \xra{\cong}
@@ -301,7 +301,7 @@ and therefore a natural counital coalgebra structure on the chains of any multis
 Explicitly, for an $(m_1, \dots, m_k)$-multisimplex $x$, given the family of multi-indices $\mathfrak{I}_{k,x}=\left\lbrace \; (i_{1},\dots,i_{k}) \; \left| \; 0\le i_{j} \le m_{j} \; , \;  \forall \; j=1,\dots,k \; \right.  \right\rbrace $,  the Alexander--Whitney coproduct is given by
 \[
 \copr(x) =
-\sum_{I\in \mathfrak{I}_{k,x}} \;  
+\sum_{I\in \mathfrak{I}_{k,x}} \;
 (-1)^{\sum_{1 \leq l<h \leq k} i_h (m_l-i_l) } \
 x \rfloor_{(i_{1},\dots,i_{k})} \otimes
 \!\,_{(m_{1}-i_{1}, \dots, m_{k}-i_{k})} \lfloor x
