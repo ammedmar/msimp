@@ -1,18 +1,19 @@
 % !TEX root = ../msimplicial.tex
 
-\section{Multisimplicial sets and geometric realization}
+\section{Multisimplicial topology}
 
 \anibal{say something here}
 
 \subsection{Multisimplicial sets}
 
 Let us consider an arbitrary non-negative integer~$k$.
-The \textit{$k$-fold multisimplex category} $\msimplex{k}$ is the $k$-fold Cartesian product of the simplex category $\simplex$ , with the convention that for $k = 0$ this is the trivial category.
+The \textit{$k$-fold multisimplex category} $\msimplex{k}$ is the $k$-fold Cartesian product of the simplex category $\simplex$, with the convention that for $k = 0$ this is the trivial category.
 We denote the category of presheaves $\Fun \big( (\msimplex{k})^\op, \Set \big)$ by $\mSet^{(k)}$ and refer to its objects as \textit{$k$-fold multisimplicial sets}.
 The categories $\mSet^{(0)}$ and $\mSet^{(1)}$ are naturally equivalent to $\Set$ and $\sSet$ respectively.
 The representable $k$-fold multisimplicial sets are denoted by
 \[
-\simplex^{n_1, \dots, n_k} = \yoneda \big( [n_1] \times \cdots \times [n_k] \big)
+\simplex^{n_1, \dots, n_k} =
+\yoneda \big( [n_1] \times \cdots \times [n_k] \big)
 \]
 and we have
 \[
@@ -21,7 +22,8 @@ and we have
 \]
 Explicitly, a $k$-fold multisimplicial set $X$ consists of a collection of sets
 \[
-X_{m_1, \dots, m_k} = X\big( [m_1] \times \cdots \times [m_k] \big)
+X_{m_1, \dots, m_k} =
+X \big( [m_1] \times \cdots \times [m_k] \big)
 \]
 indexed by tuples of non-negative integers $(m_1, \dots, m_k)$ together with \textit{face maps}
 \[
@@ -31,7 +33,7 @@ X_{m_1, \dots, m_j-1, \dots, m_k}
 \]
 and \textit{degeneracy map}
 \[
-\dege^j_i \colon X_{m_1, \dots, m_l, \dots, m_k} \to X_{m_1, \dots, m_j+1, \dots, m_k}
+\dege^j_i \colon X_{m_1, \dots, m_j, \dots, m_k} \to X_{m_1, \dots, m_j+1, \dots, m_k}
 \]
 for $1 \leq j \leq k$ and $0 \leq i \leq m_j$ such that, referring to $j$ as the \textit{direction} of these maps, two of them satisfy the simplicial identities when they have the same direction and commute when they do not.
 An element of $X_{m_1, \dots, m_k}$ is called
@@ -56,9 +58,13 @@ defines a functor
 (-)^{\diag} \colon \mSet \to \sSet
 \]
 explicitly defined on a multisimplicial set $X$ by
-\[
-X^{\diag} \big( [n] \big) = X \big( [n] \times \dots \times [n] \big).
-\]
+\begin{gather*}
+X^{\diag}_m = X_{m, \dots, m},
+\qquad
+\face_i = \face_i^1 \circ \dots \circ \face_i^k,
+\qquad
+\dege_i = \dege_i^1 \circ \dots \circ \dege_i^k,
+\end{gather*}
 It is straightforward to verify that
 \[
 \big( \simplex^{n_1, \dots, n_k} \big)^{\diag} \cong
@@ -66,11 +72,43 @@ It is straightforward to verify that
 \]
 as simplicial sets.
 
-This functor admits a right adjoint $\fM \colon \sSet \to \mSet$ which is defined on a simplicial set $Y$ by
+\subsection{The functor $\fM$}
+
+The functor $(-)^\diag \colon \mSet \to \sSet$ admits a right adjoint $\fM \colon \sSet \to \mSet$.
+It is defined on a simplicial set $Y$ by
 \[
 \fM(Y)_{m_1, \dots, m_k} =
 \sSet\big( \simplex^{m_1} \times \dots \times \simplex^{m_k}, \, Y \big).
 \]
+
+\subsection{Shuffles and the fundamental simplex}
+
+Let $n = n_1 + \dots + n_k$.
+An \textit{$(n_1, \dots, n_k)$-shuffle} $\sigma$ is an automorphism of $\set{0 + \dots + n-1}$ satisfying
+\begin{gather*}
+	\sigma(0) < \dots < \sigma(n_1-1), \\
+	\sigma(n_1) < \dots < \sigma(n_1+n_2-1), \\
+	\vdots \\
+	\sigma(n_1+\dots+n_{k-1}) < \dots < \sigma(n_1+\dots+n_k-1).
+\end{gather*}
+The set of all of these, which we denote $\sh(n_1, \dots, n_k)$, serves to parameterize the set of non-degenerate $n$-simplices of $\simplex^{n_1} \times \dots \times \simplex^{n_k}$ via the inclusion
+\[
+\begin{tikzcd}[column sep=tiny, row sep=0]
+	\cI \colon &[-10pt]
+	\sh(n_1, \dots, n_k) \arrow[r] &
+	\big(\simplex^{n_1} \times \dots \times \simplex^{n_k}\big)_n \\ &
+	\sigma \arrow[r, mapsto] &
+	s_{V_1} [n_1] \times \dots \times s_{V_k} [n_k]
+\end{tikzcd}
+\]
+where $s_{V_j} = s_{v_{n-n_j}^j} \dotsb \ s_{v_1^j}$ for $V_j = \set{v_1^j < \dots < v_{n-n_j}^j}$ and
+\begin{gather*}
+	V_1 = \set{0,\dots,n-1} \setminus \sigma^{-1} \set{0,\dots,n_1-1} \\
+	V_2 = \set{0,\dots,n-1} \setminus \sigma^{-1} \set{n_1, \dots, n_1+n_2-1} \\
+	\vdots \\
+	V_k = \set{0,\dots,n-1} \setminus \sigma^{-1} \set{n_1+\dots+n_{k-1}, \dots, n_1+\dots+n_k-1}.
+\end{gather*}
+The $n$-simplex associated to the identity shuffle is referred to as the \textit{fundamental simplex} of $\simplex^{n_1} \times \dots \times \simplex^{n_k}$.
 
 \subsection{Geometric realization}
 
@@ -91,7 +129,8 @@ where we use the model
 \]
 with
 \[
-\delta_i(t_1, \dots, t_n) = \begin{cases}
+\delta_i(t_1, \dots, t_n) =
+\begin{cases}
 (1, t_1, \dots, t_n) & i = 0, \\
 (t_1, \dots, t_i, t_i, \dots, t_n) & 0 < i < n, \\
 (t_1, \dots, t_n, 0) & i = n,
@@ -104,24 +143,24 @@ and
 Explicitly,
 \[
 \bars{X} =
-\coprod X_{i_1,\dots,i_k} \times \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} /\sim
+\coprod X_{n_1,\dots,n_k} \times \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} /\sim
 \]
 where
 \[
 \begin{split}
-(\face_i^j(x), t_1, \dots, t_j, \dots, t_k) &\sim (x, t_1, \dots, \delta_i(t_j), \dots, t_k), \\
+(\dege_i^j(x), t_1, \dots, t_j, \dots, t_k) &\sim (x, t_1, \dots, \delta_i(t_j), \dots, t_k), \\
 (\dege^j_i(x), t_1, \dots, t_j, \dots, t_k) &\sim (x, t_1, \dots, \sigma_i(t_j), \dots, t_k).
 \end{split}
 \]
 
 The restriction of the geometric realization functor to the subcategory of $1$-fold multisimplicial sets recovers the usual geometric realization of simplicial sets up to natural equivalence.
 
-\subsection{Simplicial subdivision}
+\subsection{Subdivision}
 
 Consider the geometric realization $\gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}$ of a representable multisimplicial set $\simplex^{n_1, \dots, n_k}$ and the geometric realization of its diagonal simplicial set $\bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}}$.
 The later can be thought of as a subdivision of the former with top dimensional cells in canonical bijection with $(n_1, \dots, n_k)$-shuffles.
 
-This are ... \anibal{add}
+Explicitly ... \anibal{add}
 The bijection is defined in analogy to \anibal{See Greg Friedman's appendix.}
 
 We refer to the natural cellular map
@@ -131,6 +170,7 @@ We refer to the natural cellular map
 \bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}}
 \]
 as the \textit{Eilenberg--Zilber map}.
+Notice that the underlying map of topological spaces is the identity.
 
 \subsection{Comparing $\bars{X}$ and $\bars{X^{\diag}}$}
 
@@ -146,13 +186,12 @@ The natural composition
 \end{split}
 \end{equation}
 is a cellular map whose underlying continuous map is a homeomorphism.
-In fact, it can be thought of as the amalgamation
-map of a subdivision.
+In fact, it is the amalgamation map of a subdivision.
 We refer to this extension of $\ez$ as \textit{Eilenberg--Zilber comparison} and use the same notation for it.
 
 \anibal{Reference Quillen's proof.}
 
-\subsection{Cartan--Serre map and the fundamental simplex}
+\subsection{Cartan--Serre map}
 
 The \textit{Cartan--Serre map} is the composition
 \[
@@ -161,14 +200,18 @@ The \textit{Cartan--Serre map} is the composition
 [0,1]^{n_1 + \dots + n_k} \to
 \gsimplex^{n_1 + \dots + n_k}
 \]
-where the first map is the canonical inclusion and the second is the projection defined by
+where the first map is the canonical inclusion and the second is the projection
 \[
 (x_1, \dots, x_{n_1 + \dots + n_k}) \mapsto (x_1, x_1x_2, \dots, x_1x_2 \dots x_{n_1 + \dots + n_k}).
 \]
 
 \anibal{This should induce a cellular homotopy inverse to the map in the previous section}
 
-The image of the Cartan--Serre map is referred to as the \textit{fundamental simplex}. \anibal{Write this better.}
+The image of the Cartan--Serre map is referred to as the \textit{fundamental simplex}.
+
+\subsection{Fundamental simplex}
+
+The simplex ...
 
 \subsection{Two important over-categories}
 
@@ -384,7 +427,7 @@ The Alexander--Whitney counital coalgebra structure together with the join produ
 	\label{f:join of faces}
 \end{figure}
 
-\subsection{\pdfEinfty-coalgebras}
+\subsection{\texorpdfstring{${E_\infty}$}{E-infty}-coalgebras}
 
 The importance of $\Med$-bialgebras is that they provide a very manageable class of examples of $E_\infty$-coalgebras \cite{medina2020prop1}.
 Recall that an $E_\infty$-coalgebra $C$ is a chain complex together with an operad morphism
