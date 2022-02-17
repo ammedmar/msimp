@@ -147,10 +147,11 @@ is defined as the Yoneda extension of the functor defined on representable objec
 \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}
 \]
 Explicitly,
-\[
-\bars{X} =
-\coprod X_{n_1,\dots,n_k} \times \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} /_\sim
-\]
+\begin{align*}
+	\bars{X} &=
+	\colim_{\cramped{\simplex^{n_1, \dots, n_k} \downarrow X}} \, \bars{\simplex^{n_1, \dots, n_k}} \\ &=
+	\coprod X_{n_1,\dots,n_k} \times \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} /_\sim
+\end{align*}
 where
 \[
 \begin{split}
@@ -179,6 +180,8 @@ The inverse of this map
 \]
 is cellular and we refer to it as the \textit{Eilenberg--Zilber subdivision}.
 
+We use this homeomorphism to identify $\gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}$ and $\bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}}$ as topological spaces.
+
 \subsection{Comparing $\bars{X}$ and $\bars{X^{\diag}}$}
 
 Let $X$ be a multisimplicial set.
@@ -193,9 +196,9 @@ The natural composition
 is a cellular map whose underlying continuous map is a homeomorphism.
 We refer to this extension of $\ez$ as also as \textit{Eilenberg--Zilber subdivision} and use the same notation for it.
 
-\subsection{Cartan--Serre map} \label{ss:cartan-serre map}
+\subsection{Cartan--Serre projection} \label{ss:cartan-serre map}
 
-The \textit{Cartan--Serre map} is the composition
+The \textit{Cartan--Serre projection} is the composition
 \[
 \cs \colon
 \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} \to
@@ -206,35 +209,38 @@ where the first map is the canonical inclusion and the second is the projection
 \[
 (x_1, \dots, x_{n_1 + \dots + n_k}) \mapsto (x_1, x_1x_2, \dots, x_1x_2 \dots x_{n_1 + \dots + n_k}).
 \]
-
-\anibal{This should induce a cellular homotopy inverse to the map in the previous section}
-
-The image of the Cartan--Serre map is referred to as the \textit{fundamental simplex}.
-
-\subsection{Two important over-categories}
-
-In terms of shuffles, the fundamental simplex corresponds to \anibal{Andrea?}
-So we have an inclusion of simplicial sets
+We remark that the inclusion of the fundamental simplex
 \[
-\simplex^{n_1+\dots+n_k} \to \simplex^{n_1} \times \dots \times \simplex^{n_k}
+\gsimplex^{n_1 + \dots + n_k} \to \bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}}
 \]
-These simplicial inclusions induce a functor
-\[
-\incl \colon (\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow Y) \to (\simplex^{n_1+\dots+n_k} \downarrow Y)
-\]
-of over-categories in $\sSet$ for any simplicial set $Y$, which satisfies the following property.
+defines a cellular section of the Cartan--Serre projection using the identification of $\gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}$ and $\bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}}$.
 
-\begin{lemma} \label{l:final functor}
-	For all categories $\sC$ and all functors $F \colon (\simplex^n \downarrow Y) \to \sC$ the natural morphism between colimits
-	\[
-	\colim F \circ \incl \to \colim F
-	\]
-	is an isomorphism for any simplicial set $Y$.
-\end{lemma}
+\subsection{A useful lemma} \label{ss:useful lemma}
+
+Consider the inclusion of simplicial sets
+\[
+\incl \colon
+\simplex^{n_1+\dots+n_k} \to
+\simplex^{n_1} \times \dots \times \simplex^{n_k}
+\]
+induced by the fundamental simplex, and the associated functor
+\[
+\incl_{\downarrow Y} \colon (\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow Y) \to (\simplex^{n_1+\dots+n_k} \downarrow Y)
+\]
+of over-categories in $\sSet$ for any simplicial set $Y$.
+Then, for any cocomplete category $\sC$ and functor $F \colon (\simplex^{n_1+\dots+n_k} \downarrow Y) \to \sC$ the natural morphism between colimits
+\[
+\colim F \circ \incl_{\downarrow Y} \to \colim F
+\]
+is an isomorphism.
 
 \begin{proof}
-	TBW
+	As explained for example in \cite[\subsectionSymbol8.3]{riehl2014categorical}, this is equivalent to the slice category $\incl_{\downarrow Y} / f$ being non-empty and connected for every $f \colon \simplex^{n_1+\dots+n_k} \to Y$.
+	These properties follow from $\incl_{\downarrow Y} / f$ having an initial object $f \circ \proj \colon \simplex^{n_1} \times \dots \times \simplex^{n_k} \to Y$.
 \end{proof}
+
+
+\anibal{define $\proj \colon \simplex^{n_1} \times \dots \times \simplex^{n_k} \to \simplex^{n_1+\dots+n_k}$ with the fundamental simplex inclusion being a section. I.e. a categorical version of the $cs$ projection.}
 
 \subsection{Comparing $\bars{\fM Y}$ and $\bars{Y}$}
 
@@ -243,14 +249,18 @@ We have a map
 \[
 \begin{split}
 \bars{\fM Y} & \xra{\cong}
-\colim_{(\simplex^{n_1, \dots, n_k} \downarrow \, \fM Y)} \gsimplex^{n_1} \times \cdots \times \gsimplex^{n_k} \\ & \xra{\cong}
-\colim_{(\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow \, Y)} \gsimplex^{n_1} \times \cdots \times \gsimplex^{n_k} \\ & \xra{\cs}
-\colim_{(\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow \, Y)} \gsimplex^{n_1 + \dots + n_k} \\ & \xra{\cong}
-\colim_{(\simplex^{n} \downarrow \, Y)} \gsimplex^{n} \\ & \xra{\cong}
+\colim_{\simplex^{n_1, \dots, n_k} \downarrow \, \fM Y} \
+\gsimplex^{n_1} \times \cdots \times \gsimplex^{n_k} \\ & \xra{\cong}
+\colim_{\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow \, Y} \
+\gsimplex^{n_1} \times \cdots \times \gsimplex^{n_k} \\ & \xra{\cs}
+\colim_{\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow \, Y} \
+\gsimplex^{n_1 + \dots + n_k} \\ & \xra{\cong}
+\colim_{\simplex^{n} \downarrow \, Y} \,
+\gsimplex^{n} \\ & \xra{\cong}
 \bars{Y}
 \end{split}
 \]
-where the third map is induced by regarding $\cs$ as a natural transformation and the fourth is defined by \cref{l:final functor}.
+where the third map is induced by regarding $\cs$ as a natural transformation and the fourth is a homeomorphism by \cref{ss:useful lemma}.
 
 \anibal{make sure this map is a homotopy equivalence}
 
