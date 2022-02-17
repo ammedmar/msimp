@@ -112,33 +112,41 @@ where $s_{V_j} = s_{v_{n-n_j}^j} \dotsb \ s_{v_1^j}$ for $V_j = \set{v_1^j < \do
 The $n$-simplex associated to the identity shuffle is referred to as the \textit{fundamental simplex} of $\simplex^{n_1} \times \dots \times \simplex^{n_k}$.
 We refer to the simplicial map
 \[
-\incl \colon \simplex^{n_1+\dots+n_k} \to \simplex^{n_1} \times \dots \times \simplex^{n_k}
-\]
-defined by this simplex as the \textit{fundamental inclusion}.
-\anibal{Define the fundamental projection $\proj$.}
-
-\subsection{A finality lemma} \label{ss:useful lemma}
-
-Consider the inclusion of simplicial sets
-\[
 \incl \colon
 \simplex^{n_1+\dots+n_k} \to
 \simplex^{n_1} \times \dots \times \simplex^{n_k}
 \]
-induced by the fundamental simplex, and the associated functor
+defined by this simplex as the \textit{fundamental inclusion}, and to a left inverse of it
+\[
+\proj \colon
+\simplex^{n_1} \times \dots \times \simplex^{n_k} \to
+\simplex^{n_1+\dots+n_k}
+\]
+as a fundamental projection. \anibal{can we give a formula for $\pi$?}
+
+%The vertices of $\simplex^{n_1} \times \dots \times \simplex^{n_k}$ are parameterized by
+%\[
+%\set[\big]{(v_1, \dots, v_n) \mid v_j \in \set{0,\dots,n_j}}
+%\]
+%and those in the fundamental simplex are those satisfying $v_i > \dots > v_k$.
+
+\subsection{A finality lemma} \label{ss:finality}
+
+Let $Y$ be a simplicial set.
+Consider the functor
 \[
 \incl_{\downarrow Y} \colon (\simplex^{n_1} \times \dots \times \simplex^{n_k} \downarrow Y) \to (\simplex^{n_1+\dots+n_k} \downarrow Y)
 \]
-of over-categories in $\sSet$ for any simplicial set $Y$.
-Then, for any cocomplete category $\sC$ and functor $F \colon (\simplex^{n_1+\dots+n_k} \downarrow Y) \to \sC$ the natural morphism between colimits
+defined by the fundamental inclusion.
+For any cocomplete category $\sC$ and functor $F \colon (\simplex^{n_1+\dots+n_k} \downarrow Y) \to \sC$ the natural morphism between colimits
 \[
 \colim F \circ \incl_{\downarrow Y} \to \colim F
 \]
 is an isomorphism.
 
 \begin{proof}
-	As explained for example in \cite[\subsectionSymbol8.3]{riehl2014categorical}, this is equivalent to the slice category $\incl_{\downarrow Y} / f$ being non-empty and connected for every $f \colon \simplex^{n_1+\dots+n_k} \to Y$.
-	These properties follow from $\incl_{\downarrow Y} / f$ having an initial object $f \circ \proj \colon \simplex^{n_1} \times \dots \times \simplex^{n_k} \to Y$.
+	As explained for example in \cite[\subsectionSymbol8.3]{riehl2014categorical}, this is equivalent to category $(\incl_{\downarrow Y} \downarrow f)$ being non-empty and connected for every $f \colon \simplex^{n_1+\dots+n_k} \to Y$.
+	These properties follow from $(\incl_{\downarrow Y} \downarrow f)$ having an initial object $f \circ \proj \colon \simplex^{n_1} \times \dots \times \simplex^{n_k} \to Y$.
 \end{proof}
 
 \subsection{Topological simplex and geometric realization}
@@ -162,9 +170,8 @@ and
 \[
 \sigma_i(t_1, \dots, t_n) = (t_1, \dots, \widehat t_i, \dots, t_n).
 \]
-\anibal{write the following better:}
-We will later use the fundamental simplex (\cref{ss:shuffles and fundamental simplex}) and the Cartan-Serre map (\cref{ss:cartan-serre map}) to justify the choice of non-increasing coordinates, perhaps less common that the non-decreasing alternative.
-
+%\anibal{write the following better:}
+%We will later use the fundamental simplex (\cref{ss:shuffles and fundamental simplex}) and the Cartan-Serre map (\cref{ss:cartan-serre map}) to justify the choice of non-increasing coordinates, perhaps less common that the non-decreasing alternative.
 The \textit{geometric realization} functor
 \[
 \bars{-} \colon \mSet \to \Top
@@ -242,7 +249,7 @@ We remark that the inclusion of the fundamental simplex
 defines a cellular section of the Cartan--Serre collapse using the identification of $\gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}$ and $\bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}}$.
 
 Let $Y$ be a simplicial set.
-We have a map
+We have the following cellular homotopy equivalence also referred to as Cartan--Serre collapse and denoted by the same symbol:
 \[
 \begin{split}
 \bars{\fM Y} & \xra{\cong}
@@ -257,14 +264,7 @@ We have a map
 \bars{Y}
 \end{split}
 \]
-where the third map is induced by regarding $\cs$ as a natural transformation and the fourth is a homeomorphism by \cref{ss:useful lemma}.
-
-\anibal{make sure this map is a homotopy equivalence}
-
-We refer to this natural cellular map as the \textit{Cartan--Serre comparison map}
-\[
-\cs \colon \bars{\fM Y} \to \bars{Y}.
-\]
+where the third map is induced by regarding $\cs$ as a natural transformation and the fourth is a homeomorphism by \cref{ss:finality}.
 
 \subsection{Quillen equivalence}
 

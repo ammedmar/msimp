@@ -19,26 +19,30 @@ Given categories $\sB$ and $\sC$ we denote their associated \textit{functor cate
 Recall that a category is said to be \textit{small} if its objects and morphisms form sets.
 We denote the category of small categories by $\Cat$.
 A category is said to be \textit{cocomplete} if any functor to it from a small category has a colimit.
-If $\mathsf{A}$ is small and $\mathsf{C}$ cocomplete, then the (left) \textit{Kan extension of $g$ along $f$} exists for any pair of functors $f$ and $g$ in the diagram below, and it is the initial object in $\Fun(\sB, \mathsf{C})$ making
+If $\sA$ is small and $\sC$ cocomplete, then the (left) \textit{Kan extension of $g$ along $f$} exists for any pair of functors $f$ and $g$ in the diagram below, and it is the initial object in $\Fun(\sB, \sC)$ making
 \begin{equation*}
 \begin{tikzcd}[column sep=normal, row sep=normal]
-\mathsf{A} \arrow[d, "f"'] \arrow[r, "g"] & \mathsf{C} \\
+\sA \arrow[d, "f"'] \arrow[r, "g"] & \sC \\
 \sB \arrow[dashed, ur, bend right] & \quad
 \end{tikzcd}
 \end{equation*}
 commute.
 A Kan extension along the \textit{Yoneda embedding}, i.e., the functor
 \[
-\yoneda \colon \mathsf{A} \to \Fun(\mathsf{A}^\op, \Set)
+\yoneda \colon \sA \to \Fun(\sA^\op, \Set)
 \]
 induced by the assignment
 \[
-a \mapsto \big( a^\prime \mapsto \mathsf{A}(a^\prime, a) \big),
+a \mapsto \big( a^\prime \mapsto \sA(a^\prime, a) \big),
 \]
 is referred to as a \textit{Yoneda extension}.
-Objects in the image of the Yoneda embedding as are called \textit{representable}.
-For any object $X$ of $\Fun(\mathsf{A}^\op, \Set)$ we have
+Objects in the image of the Yoneda embedding as are said to be \textit{representable}.
+
+\anibal{introduce the notation for over categories and slice categories $F \downarrow \cC$}
+
+
+For any object $X$ of $\Fun(\sA^\op, \Set)$ we have
 \[
 X \cong \colim_{\yoneda(a) \downarrow X} \yoneda(a)
 \]
-where ${\yoneda(a) \downarrow X}$ is the over-category of $X$ in $\Fun(\mathsf{A}^\op, \Set)$.
+where ${\yoneda(a) \downarrow X}$ is the over-category of $X$ in $\Fun(\sA^\op, \Set)$.
