@@ -78,10 +78,11 @@ The functor $(-)^\diag \colon \mSet \to \sSet$ admits a right adjoint $\fM \colo
 It is defined on a simplicial set $Y$ by
 \[
 \fM(Y)_{m_1, \dots, m_k} =
-\sSet\big( \simplex^{m_1} \times \dots \times \simplex^{m_k}, \, Y \big).
+\sSet\big( \simplex^{m_1} \times \dots \times \simplex^{m_k}, \, Y \big)
 \]
+and on simplicial maps by composition.
 
-\subsection{Shuffles and the fundamental simplex}
+\subsection{Shuffles and the fundamental simplex} \label{ss:shuffles and fundamental simplex}
 
 Let $n = n_1 + \dots + n_k$.
 An \textit{$(n_1, \dots, n_k)$-shuffle} $\sigma$ is an automorphism of $\set{0 + \dots + n-1}$ satisfying
@@ -91,7 +92,7 @@ An \textit{$(n_1, \dots, n_k)$-shuffle} $\sigma$ is an automorphism of $\set{0 +
 	\vdots \\
 	\sigma(n_1+\dots+n_{k-1}) < \dots < \sigma(n_1+\dots+n_k-1).
 \end{gather*}
-The set of all of these, which we denote $\sh(n_1, \dots, n_k)$, serves to parameterize the set of non-degenerate $n$-simplices of $\simplex^{n_1} \times \dots \times \simplex^{n_k}$ via the inclusion
+The set of all of these -- which we denote $\sh(n_1, \dots, n_k)$ -- serves to parameterize the set of non-degenerate $n$-simplices of $\simplex^{n_1} \times \dots \times \simplex^{n_k}$ via the inclusion
 \[
 \begin{tikzcd}[column sep=tiny, row sep=0]
 	\cI \colon &[-10pt]
@@ -110,6 +111,30 @@ where $s_{V_j} = s_{v_{n-n_j}^j} \dotsb \ s_{v_1^j}$ for $V_j = \set{v_1^j < \do
 \end{gather*}
 The $n$-simplex associated to the identity shuffle is referred to as the \textit{fundamental simplex} of $\simplex^{n_1} \times \dots \times \simplex^{n_k}$.
 
+\subsection{Topological simplex}
+
+We will use the following model of the topological simplex:
+\[
+\gsimplex^n = \big\{
+(t_1, \dots, t_n) \in [0,1]^n \mid t_1 \geq \dots \geq t_n
+\big\}
+\]
+with
+\[
+\delta_i(t_1, \dots, t_n) =
+\begin{cases}
+	(1, t_1, \dots, t_n) & i = 0, \\
+	(t_1, \dots, t_i, t_i, \dots, t_n) & 0 < i < n, \\
+	(t_1, \dots, t_n, 0) & i = n,
+\end{cases}
+\]
+and
+\[
+\sigma_i(t_1, \dots, t_n) = (t_1, \dots, \widehat t_i, \dots, t_n).
+\]
+
+We will justify the choice of non-increasing coordinates, perhaps less common that the non-decreasing version, using the fundamental simplex (\cref{ss:shuffles and fundamental simplex}) and the Cartan-Serre map (\cref{ss:cartan-serre map}).
+
 \subsection{Geometric realization}
 
 The \textit{geometric realization} functor
@@ -121,29 +146,10 @@ is defined as the Yoneda extension of the functor defined on representable objec
 \bars{\simplex^{n_1, \dots, n_k}} =
 \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}
 \]
-where we use the model
-\[
-\gsimplex^n = \big\{
-(t_1, \dots, t_n) \in [0,1]^n \mid t_1 \geq \dots \geq t_n
-\big\}
-\]
-with
-\[
-\delta_i(t_1, \dots, t_n) =
-\begin{cases}
-(1, t_1, \dots, t_n) & i = 0, \\
-(t_1, \dots, t_i, t_i, \dots, t_n) & 0 < i < n, \\
-(t_1, \dots, t_n, 0) & i = n,
-\end{cases}
-\]
-and
-\[
-\sigma_i(t_1, \dots, t_n) = (t_1, \dots, \widehat t_i, \dots, t_n).
-\]
 Explicitly,
 \[
 \bars{X} =
-\coprod X_{n_1,\dots,n_k} \times \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} /\sim
+\coprod X_{n_1,\dots,n_k} \times \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} /_\sim
 \]
 where
 \[
@@ -152,46 +158,42 @@ where
 (\dege^j_i(x), t_1, \dots, t_j, \dots, t_k) &\sim (x, t_1, \dots, \sigma_i(t_j), \dots, t_k).
 \end{split}
 \]
+As expected, the restriction of the geometric realization functor to the subcategory of $1$-fold multisimplicial sets recovers the usual geometric realization of simplicial sets up to natural equivalence.
 
-The restriction of the geometric realization functor to the subcategory of $1$-fold multisimplicial sets recovers the usual geometric realization of simplicial sets up to natural equivalence.
+\subsection{Eilenberg--Zilber subdivision}
 
-\subsection{Subdivision}
-
-Consider the geometric realization $\gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}$ of a representable multisimplicial set $\simplex^{n_1, \dots, n_k}$ and the geometric realization of its diagonal simplicial set $\bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}}$.
-The later can be thought of as a subdivision of the former with top dimensional cells in canonical bijection with $(n_1, \dots, n_k)$-shuffles.
-
-Explicitly ... \anibal{add}
-The bijection is defined in analogy to \anibal{See Greg Friedman's appendix.}
-
-We refer to the natural cellular map
+We can think of $\bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}}$ as a simplicial subdivision of $\gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}$ as follows.
+Let $n = n_1 + \dots + n_k$ and consider $(n_1, \dots, n_k)$-shuffles as automorphisms of $\set{1, \dots, n}$ instead of $\set{0, \dots, n-1}$.
+The map
+\[
+\bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}} =
+\sh(n_1, \dots, n_k) \times \gsimplex^n /_\sim \ \longrightarrow \
+\gsimplex^{n_1} \times \dots \times \gsimplex^{n_k}
+\]
+determined by $(\sigma, x_1, \dots, x_n) \mapsto (x_{\sigma(1)}, \dots, x_{\sigma(n)})$ is a well defined homeomorphism.
+The inverse of this map
 \[
 \ez \colon
 \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} \to
 \bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}}
 \]
-as the \textit{Eilenberg--Zilber map}.
-Notice that the underlying map of topological spaces is the identity.
+is cellular and we refer to it as the \textit{Eilenberg--Zilber subdivision}.
 
 \subsection{Comparing $\bars{X}$ and $\bars{X^{\diag}}$}
 
 Let $X$ be a multisimplicial set.
 The natural composition
-\begin{equation} \label{e:ez comparison}
-\begin{split}
-\bars{X} \ &\xra{\cong}
-\colim_{(\simplex^{n_1, \dots, n_k} \downarrow X)} \bars{\simplex^{n_1, \dots, n_k}} \\ &\xra{=}
-\colim_{(\simplex^{n_1, \dots, n_k} \downarrow X)} \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} \\ &\xra{\ez}
-\colim_{(\simplex^{n_1, \dots, n_k} \downarrow X)} \bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}} \\ &\xra{\cong}
-\bars{X^{\diag}}
-\end{split}
-\end{equation}
+\begin{align*}
+	\bars{X} \ &\xra{\cong}
+	\colim_{(\simplex^{n_1, \dots, n_k} \downarrow X)} \bars{\simplex^{n_1, \dots, n_k}} \\ &\xra{=}
+	\colim_{(\simplex^{n_1, \dots, n_k} \downarrow X)} \gsimplex^{n_1} \times \dots \times \gsimplex^{n_k} \\ &\xra{\ez}
+	\colim_{(\simplex^{n_1, \dots, n_k} \downarrow X)} \bars{\simplex^{n_1} \times \dots \times \simplex^{n_k}} \\ &\xra{\cong}
+	\bars{X^{\diag}}
+\end{align*}
 is a cellular map whose underlying continuous map is a homeomorphism.
-In fact, it is the amalgamation map of a subdivision.
-We refer to this extension of $\ez$ as \textit{Eilenberg--Zilber comparison} and use the same notation for it.
+We refer to this extension of $\ez$ as also as \textit{Eilenberg--Zilber subdivision} and use the same notation for it.
 
-\anibal{Reference Quillen's proof.}
-
-\subsection{Cartan--Serre map}
+\subsection{Cartan--Serre map} \label{ss:cartan-serre map}
 
 The \textit{Cartan--Serre map} is the composition
 \[
@@ -208,10 +210,6 @@ where the first map is the canonical inclusion and the second is the projection
 \anibal{This should induce a cellular homotopy inverse to the map in the previous section}
 
 The image of the Cartan--Serre map is referred to as the \textit{fundamental simplex}.
-
-\subsection{Fundamental simplex}
-
-The simplex ...
 
 \subsection{Two important over-categories}
 
