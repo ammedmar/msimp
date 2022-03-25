@@ -2,24 +2,19 @@
 
 \section{Conventions and preliminaries} \label{s:preliminaries}
 
-\anibal{Say something here}
-
 \subsection{Chain complexes}
 
 Throughout this article $\k$ denotes a commutative and unital ring and we work over its associated closed symmetric monoidal category of differential (homologically) graded $\k$-modules $(\Ch, \ot, \k)$.
-We refer to the objects and morphisms of this category as \textit{chain complexes} and \textit{chain maps} respectively. We denote by $\Hom(C, C^\prime)$ the chain complex of $\k$-linear maps between chain complexes $C$ and $C^\prime$, and refer to the functor $\Hom(-, \k)$ as \textit{linear duality}.
+We refer to the objects and morphisms of this category as \textit{chain complexes} and \textit{chain maps} respectively.
+We denote by $\Hom(C, C^\prime)$ the chain complex of $\k$-linear maps between chain complexes $C$ and $C^\prime$, and refer to the functor $\Hom(-, \k)$ as \textit{linear duality}.
 
-\subsection{Cellular Topology}
+\subsection{Presheaves}
 
-TBW
-
-\subsection{Category theory}
-
-Given categories $\sB$ and $\sC$ we denote their associated \textit{functor category} by $\Fun(\sB, \sC)$.
 Recall that a category is said to be \textit{small} if its objects and morphisms form sets.
 We denote the category of small categories by $\Cat$.
+Given categories $\sB$ and $\sC$ with $\sB$ small we denote their associated \textit{functor category} by $\Fun(\sB, \sC)$.
 A category is said to be \textit{cocomplete} if any functor to it from a small category has a colimit.
-If $\sA$ is small and $\sC$ cocomplete, then the (left) \textit{Kan extension of $g$ along $f$} exists for any pair of functors $f$ and $g$ in the diagram below, and it is the initial object in $\Fun(\sB, \sC)$ making
+If $\sA$ is small and $\sC$ cocomplete, then the (\textit{left}) \textit{Kan extension of $g$ along $f$} exists for any pair of functors $f$ and $g$ in the diagram below, and it is the initial object in $\Fun(\sB, \sC)$ making
 \begin{equation*}
 \begin{tikzcd}[column sep=normal, row sep=normal]
 \sA \arrow[d, "f"'] \arrow[r, "g"] & \sC \\
