@@ -75,7 +75,7 @@ Using the monoidal structure on $\coAlg$ we have natural coalgebra structures on
 \]
 and therefore a natural coalgebra structure on the chains of any multisimplicial set $X$, which we refer to as the \textit{Alexander--Whitney coalgebra structure}.
 
-Explicitly, for an $(m_1, \dots, m_k)$-multisimplex $x$, given the family of multi-indices $\mathfrak{I}_{k,x}=\left\lbrace \; (i_{1},\dots,i_{k}) \; \left| \; 0\le i_{j} \le m_{j} \; , \;  \forall \; j=1,\dots,k \; \right.  \right\rbrace $,  the Alexander--Whitney coproduct is given by
+Explicitly, for an $(m_1, \dots, m_k)$-multisimplex $x$, given the family of multi-indices $\mathfrak{I}_{k,x}=\left\lbrace \; (i_{1},\dots,i_{k}) \; \left| \; 0\le i_{j} \le m_{j} \; , \; \forall \; j=1,\dots,k \; \right. \right\rbrace $, the Alexander--Whitney coproduct is given by
 \[
 \copr(x) =
 \sum_{I\in \mathfrak{I}_{k,x}} \;
@@ -126,11 +126,11 @@ We now show that, the Eilenberg--Zilber and Cartan--Serre quasi-isomorphisms pre
 	TBW \anibal{Formally follows from the Cartan--Serre map inducing a coalgebra map}
 \end{proof}
 
-\subsection{$\Med$-bialgebras}
+\subsection{$\cM$-bialgebras}
 
-An \textit{$\Med$-bialgebra} is a coalgebra $(C, \copr, \aug)$ together with a degree $1$ linear map $\pr \colon C \ot C \to C$, referred to as \textit{product}, whose boundary is $(\aug \ot \id) - (\id \ot \aug)$ and such that $\aug \circ \pr = 0$.
-Let $\biAlg_\Med$ be the category of $\Med$-bialgebras with structure preserving morphisms.
-The forgetful functor $\biAlg_\Med \to \coAlg$ is monoidal, with product on $C \ot C^\prime$ given by
+An \textit{$\cM$-bialgebra} is a coalgebra $(C, \copr, \aug)$ together with a degree $1$ linear map $\pr \colon C \ot C \to C$, referred to as \textit{product}, whose boundary is $(\aug \ot \id) - (\id \ot \aug)$ and such that $\aug \circ \pr = 0$.
+Let $\biAlg_\cM$ be the category of $\cM$-bialgebras with structure preserving morphisms.
+The forgetful functor $\biAlg_\cM \to \coAlg$ is monoidal, with product on $C \ot C^\prime$ given by
 \[
 (C \ot C^\prime) \ot (C \ot C^\prime) \xra{(23)}
 C \ot C \ot C^\prime \ot C^\prime
@@ -149,7 +149,7 @@ The \textit{join product} $\ast \colon \chains(\simplex^n)^{\ot 2} \to \chains(\
 where $\pi$ is the permutation that orders the vertices.
 It is an algebraic version of the usual join of faces in a simplex (\cref{f:join of faces}).
 
-The Alexander--Whitney coalgebra structure together with the join product define a natural $\Med$-bialgebra structure on $\chains(\simplex^n)$. This extends monoidally to a natural $\Med$-bialgebra structure on
+The Alexander--Whitney coalgebra structure together with the join product define a natural $\cM$-bialgebra structure on $\chains(\simplex^n)$. This extends monoidally to a natural $\cM$-bialgebra structure on
 \[
 \chains(\simplex^{n_1, \dots, n_k}) \cong
 \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k}).
@@ -163,9 +163,9 @@ The Alexander--Whitney coalgebra structure together with the join product define
 
 \subsection{\texorpdfstring{${E_\infty}$}{E-infty}-coalgebras}
 
-The importance of $\Med$-bialgebras is that they provide a very manageable class of examples of $E_\infty$-coalgebras \cite{medina2020prop1}.
+The importance of $\cM$-bialgebras is that they provide a very manageable class of examples of $E_\infty$-coalgebras \cite{medina2020prop1}.
 Recall that an $E_\infty$-coalgebra structure on $C$ an operad morphism
 \[
 \cO \to \coEnd_C
 \]
-where for $r > 0$ the chain complex $\cO(r)$ is a projective resolution of $\k$ as a (left) $\k[\Sym_r]$-module.
+where for $r > 0$ the chain complex $\cO(r)$ is a projective resolution of $\k$ as a (left) $\k[\sym_r]$-module.
