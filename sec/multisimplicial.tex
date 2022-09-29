@@ -87,9 +87,9 @@ where
 \]
 As expected, the restriction of the geometric realization functor to the subcategory of $1$-fold multisimplicial sets recovers the usual geometric realization of simplicial sets up to natural equivalence.
 
-\anibal{singular complex, and Quillen equivalence}
+\todo{@everyone: singular complex, and Quillen equivalence}
 
-\subsection{Multisimplicial chains}
+\subsection{Algebraic realization}
 
 The functor of \textit{chains}
 \[
@@ -118,7 +118,73 @@ d(x) = \sum_{j=1}^k \sum_{\ell_j=1}^{n_j}
 	A slight generalization of the classical normalization theorem by MacLane \cite{MacLane} shows that the natural projection between these is a natural chain homotopy equivalence.
 \end{remark*}
 
-\subsection{Comparison with simplicial sets} \label{ss:diagonal simplicial set}
+\subsection{Coalgebra structure}
+
+Recall that $\chains(\simplex^n)$ is naturally a coalgebra with structure maps given by:
+\[
+\begin{split}
+	\copr \big( [v_0, \dots, v_m] \big) &=
+	\sum_{i=0}^m \, [v_0, \dots, v_i] \ot [v_i, \dots, v_m], \\
+	\aug \big( [v_0, \dots, v_q] \big) &=
+	\begin{cases} 1 & \text{ if } q = 0, \\ 0 & \text{ if } q>0. \end{cases}
+\end{split}
+\]
+
+Recall that the tensor product of two coalgebras $C$ and $C'$ is a coalgebra with structure maps defined by the compositions:
+\begin{gather*}
+	C \ot C^\prime \xra{\copr \ot \copr^\prime}
+	(C \ot C) \ot (C^\prime \ot C^\prime) \xra{(23)}
+	(C \ot C^\prime) \ot (C \ot C^\prime), \\
+	C \ot C^\prime \xra{\aug \ot \aug^\prime}
+	\k \ot \k \xra{\cong} \k.
+\end{gather*}
+
+These constructions induce natural coalgebra structures on the chains of representable multisimplicial sets using the isomorphism
+\[
+\chains \big( \simplex^{n_1, \dots, n_k} \big) \cong
+\chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k}).
+\]
+
+The natural coalgebra structure induced on the chains of any multisimplicial set $X$ is explicitly described as follows.
+For an $(m_1,\dots,m_k)$-multisimplex $x$ consider the set
+\[
+\fI_{m_1,\dots,m_k} = \set[\big]{(i_{1},\dots,i_{k}) \mid 0 \le i_j \le m_j,\ \forall j = 1,\dots,k},
+\]
+then
+\[
+\copr(x) =
+\sum_{I\in \mathfrak{I}_{k,x}} \;
+(-1)^{\sum_{1 \leq l<h \leq k} i_h (m_l-i_l) } \
+x \rfloor_{(i_{1},\dots,i_{k})} \ot
+\!\,_{(m_{1}-i_{1}, \dots, m_{k}-i_{k})} \lfloor x
+\]
+where the \textit{front $(i_1,\dots,i_k)$-face} of $x$ is the multisimplex
+\[
+x \rfloor_{(i_{1}, \dots, i_{k})} =
+X(F_{i_1}, \dots, F_{i_k})(x) \in X_{i_1,\dots,i_k}
+\]
+with
+$F_{i_j} \colon [i_j] \to [n_j]$ defined by $F_{i_j}(h)=h$, and the \textit{back $(i_1,\dots,i_k)$-face} of $x$ is the multisimplex
+\[
+\,_{(i_{1}, \dots, i_{k})} \lfloor x =
+X(B_{i_1}, \dots, B_{i_k})(x) \in X_{i_1,\dots,i_k}
+\]
+with $B_{i_j} \colon [i_j] \to [n_j]$ defined by $B_j(h) = h+m_j-i_j$.
+
+\subsection{\pdfEinfty-extension}
+
+The \textit{join product} $\ast \colon \chains(\simplex^n)^{\ot 2} \to \chains(\simplex^n)$ is the natural degree~$1$ linear map defined by
+\begin{multline}
+	\ast \big(\left[v_0, \dots, v_p \right] \ot \left[v_{p+1}, \dots, v_q\right]\big) = \\
+	\begin{cases} (-1)^{p} \sign(\pi) \left[v_{\pi(0)}, \dots, v_{\pi(q)}\right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
+		\hfil 0 & \text{ if not}, \end{cases}
+\end{multline}
+where $\pi$ is the permutation that orders the vertices.
+It is an algebraic version of the usual join of faces in a simplex (\cref{f:join of faces}).
+
+\todo{@anibal: finish this}
+
+\subsection{Diagonal simplicial set} \label{ss:diagonal simplicial set}
 
 The composition with the diagonal functor
 \[
@@ -150,7 +216,7 @@ The functor $(-)^\diag \colon \mSet \to \sSet$ admits a right adjoint $\radj \co
 \radj(Y)_{m_1,\dots,m_k} =
 \sSet\big( \simplex^{m_1} \times \dots \times \simplex^{m_k}, \, Y \big).
 \]
-\todo{We need a reference or a proof that they form a Quillen equivalence. This result is used for the zig-zag of $E_\infty$-q-iso. I would simply put a reference to the bisimplicial case in a remark like the one in the previous subsection, saying something similar.}
+\todo{@everyone: we need a reference or a proof that they form a Quillen equivalence. This result is used for the zig-zag of $E_\infty$-q-iso. I would simply put a reference to the bisimplicial case in a remark like the one in the previous subsection, saying something similar.}
 
 \subsection{Eilenberg--Zilber map}
 
@@ -184,7 +250,7 @@ whose induced chain map
 agrees, under the natural identifications, with the traditional Eilenberg--Zilber map.
 For a multisimplicial set $X$, the induced chain map $\EZ \colon \chains(X) \to \chains(X^\diag)$ is defined on an $(n_1,\dots,n_k)$-multisimplex $x$ by
 \[
-\EZ(x) = \sum_{\sigma \in \sh_{n_1,\dots,n_k}} \sign(\sigma) \, X(\sigma_1 ,\dots, \sigma_k)(x) \todo{@Anibal: Use mathtools to fix display}
+\EZ(x) = \sum_{\sigma \in \sh_{n_1,\dots,n_k}} \sign(\sigma) \, X(\sigma_1 ,\dots, \sigma_k)(x) \todo{@anibal: use mathtools to fix display}
 \]
 %\[
 %\EZ \big( [n_1] \times\dots\times [n_k] \big) =
@@ -192,7 +258,15 @@ For a multisimplicial set $X$, the induced chain map $\EZ \colon \chains(X) \to 
 %\]
 where, for $\ell \in \set{1,\dots,k}$, the morphisms $\sigma_\ell \colon [n] \to [n_\ell]$ are defined by the following property: For
 each $j \in \set{1,\dots,n}$ there is exactly one $\ell \in \set{1,\dots,k}$ such that $\sigma_\ell(j+1) = \sigma_\ell(j)+1$ and $\sigma_i(j+1) = \sigma_i(j)$ for all $i \neq \ell$.
-\todo{This is off, unfortunately. @Andres could you please fix it?}
+\todo{@andrea: this is off, unfortunately. Could you please fix it?}
+
+\begin{lemma}
+	The map $\EZ$ is a coalgebra quasi-isomorphism. \todo{@anibal: finish this}
+\end{lemma}
+
+\begin{remark}
+	But not a morphisms of $E_\infty$-coalgebras. \todo{@anibal: finish this}
+\end{remark}
 
 \subsection{Canonical inclusion}
 
@@ -205,4 +279,29 @@ These functions induce a chain map
 \[
 \In \colon \chains(Y) \to \chains(\cU Y)
 \]
-which we now prove is a quasi-isomorphism.
+and we have the following.
+
+\begin{lemma*}
+	The canonical inclusion $\In \colon \chains(Y) \to \chains(\cU Y)$ is a quasi-isomorphism of $E_\infty$-coalgebras for any simplicial set $Y$.
+\end{lemma*}
+
+\begin{proof}
+	The structure preserving properties of this map are immediate.
+	It remains to be shown that it induces a homology isomorphism.
+	Consider the composition
+	\[
+	\chains(\cU Y) \xra{\EZ}
+	\chains\big((\cU Y)^\diag\big) \to
+	\chains(Y)
+	\]
+	where the second map is induced by the counit of the adjunction.
+	This composition is a quasi-isomorphism by ?? and ??.
+	We will now verify that it is left inverse to $\In$.
+	Consider a simplex $y$ with characteristic map $\zeta \colon \simplex^n \to Y$.
+	The multisimplex $\In(y)$ is given by the simplicial map $\simplex^n \times \msimplex{0}{0} \xra{\pi_1} \simplex^n \xra{\zeta} Y$.
+	Since the only $(n,0,\dots,0)$-shuffle is the identity, the simplex $\EZ \circ \In (y)$ is the simplicial map
+	\[
+	\zeta \circ \pi_1 \colon \simplex^n \times \msimplex{n}{n} \to Y.
+	\]
+	Finally, the image of this simplex under the counit is the evaluation of $[n] \times\dots\times [n]$ on $\zeta \circ \pi_1$ which gives $\zeta[n] = y$ as claimed.\todo{@anibal: add missing references.}
+\end{proof}

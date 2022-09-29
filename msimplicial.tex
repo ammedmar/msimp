@@ -1,44 +1,45 @@
 \documentclass{amsart}
 \input{aux/style}
 \input{aux/usualcmds}
-\input{aux/figures}
 \addbibresource{aux/usualpapers.bib}
-\addbibresource{aux/mypapers.bib}
-%%%%%%%%%%%
 
-% Modify the following files if desired
+%%%%%%%%%%% Modify the following files if desired
+
 \input{aux/commands}
 \addbibresource{aux/bibliography.bib}
+\input{aux/figures}
+\usepackage{todo}
 
 %%%%%%%%%%%
 
-\title[Short title]{Multisimplicial cochain operations}
+\title[Short title]{Multisimplicial chains and $E_\infty$-models of configuration spaces}
 
-\author[A. Medina-Mardones]{Anibal M. Medina-Mardones}
-\address{A.M-M., Max Planck Institute for Mathematics \and University of Notre Dame}
-\email{\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}}
-
-\author[A. Pizzi]{Andrea Pizzi}
-\address{Dipartimento di Matematica ``Giuseppe Peano'', Universit\`a degli studi di Torino}
-\email{andrea.pizzi@edu.unito.it}
-
-\author[P. Salvatore]{Paolo Salvatore}
-\address{Dipartimento di Matematica, Universit\`a di Roma Tor Vergata}
-\email{salvator@mat.uniroma2.it}
+%\author[A. Medina-Mardones]{Anibal M. Medina-Mardones}
+%\address{A.M-M., Max Planck Institute for Mathematics \and University of Notre Dame}
+%\email{\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}}
+%
+%\author[A. Pizzi]{Andrea Pizzi}
+%\address{Dipartimento di Matematica ``Giuseppe Peano'', Universit\`a degli studi di Torino}
+%\email{andrea.pizzi@edu.unito.it}
+%
+%\author[P. Salvatore]{Paolo Salvatore}
+%\address{Dipartimento di Matematica, Universit\`a di Roma Tor Vergata}
+%\email{salvator@mat.uniroma2.it}
 
 \date{\today}
-\subjclass[2020]{.}
-\keywords{.}
+\subjclass[2020]{TBW}
+\keywords{TBW}
 
 \begin{document}
-%	\input{sec/abstract}
+	\input{sec/abstract}
 	\maketitle
-%	\input{sec/introduction}
+	\input{sec/introduction}
 	\input{sec/acknowledgment}
 	\input{sec/preliminaries}
-	\input{sec/topology}
-	\input{sec/algebra}
-%	\input{sec/operads}
+	\input{sec/multisimplicial}
+	\input{sec/configuration}
 	\sloppy
 	\printbibliography
+	\todos
+%	\input{sec/legacy}
 \end{document}
