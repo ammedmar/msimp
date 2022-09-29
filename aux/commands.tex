@@ -2,21 +2,30 @@
 
 \newcommand{\mSet}{\mathsf{mSet}}
 \newcommand{\stspx}[1]{\simplex^{\!#1}}
-\newcommand{\msimplex}[1]{\simplex^{\!\times\mathit{#1}}}
+%\newcommand{\msimplex}[1]{\simplex^{\!\times\mathit{#1}}}
 \newcommand{\dsimplex}{\simplex^{n_1} \times \dots \times \simplex^{n_k}}
 \newcommand{\diag}{\rD}
+\newcommand{\msimplex}[2]{\simplex^{#1}\times\dots\times\simplex^{#2}}
+\newcommand{\gmsimplex}[2]{\gsimplex^{#1}\times\dots\times\gsimplex^{#2}}
+\DeclareMathOperator{\gi}{\mathfrak{i}}
+\DeclareMathOperator{\ci}{\mathsf{i}}
+\DeclareMathOperator{\ccs}{\mathsf{cs}}
+\DeclareMathOperator{\coface}{\delta}
+\newcommand{\scube}[1]{(\triangle^{\!1})^{\times #1}}
+\DeclareMathOperator{\radj}{\cU}
 
 \DeclareMathOperator{\cs}{\mathfrak{cs}}
 \DeclareMathOperator{\ez}{\mathfrak{ez}}
 \DeclareMathOperator{\CS}{CS}
+\DeclareMathOperator{\In}{I}
 
 \DeclareMathOperator{\schainsUM}{N^{\simplex}_{\UM}}
-\DeclareMathOperator{\mchainsk}{\chains^{\msimplex{k}}}
-\DeclareMathOperator{\mchainskUM}{\chains^{\msimplex{k}}_{\UM}}
+\DeclareMathOperator{\mchainsk}{\chains^{\simplex^{\times k}}}
+\DeclareMathOperator{\mchainskUM}{\chains^{\simplex^{\times k}}_{\UM}}
 \DeclareMathOperator{\copr}{\Delta}
 \DeclareMathOperator{\aug}{\epsilon}
 \DeclareMathOperator{\pr}{\ast}
-\DeclareMathOperator{\sh}{\mathfrak{sh}}
+\DeclareMathOperator{\sh}{\mathbb{S}}
 
 \newcommand{\paolo}[1]{\textcolor{green}{\underline{Paolo}: #1}}
 \newcommand{\andrea}[1]{\textcolor{yellow}{\underline{Andrea}: #1}}
