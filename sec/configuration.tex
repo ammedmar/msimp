@@ -4,10 +4,23 @@
 %We study an important example that will help us to understand how to prove our main
 %theorem.
 
-In this section we introduce and compare   multisimplicial and  simplicial  models of euclidean configuration spaces,
+In this section we introduce and compare multisimplicial and  simplicial  models of euclidean configuration spaces,
 related respectively to the surjection operad by McClure-Smith and the Barratt-Eccles operad.
 
+We are interested in the homotopy type of individual configuration spaces. Let $F_k(\R^{d})$ denote the configuration space of $k$-tuples of pairwise disjoint vectors in $\R^{d}$. This space is equipped with a free action of the symmetric group $\Sigma_k$  of permutations of $\{1,\dots,k\}$ swapping elements of a $k$-tuple.
+
+
 \subsection{Surjection complexes}
+We define a family of multisimplicial sets  
+$Sur(k)$ due essentially to McClure and Smith \cite{MS}.
+These have an increasing filtration by multisimplicial subsets 
+$Sur_d(k)$ such that the geometric realization 
+$\bars{Sur_d(k)}$ is homotopy equivalent to the configuration space
+$F_k(\R^d)$.
+
+
+%Also the geometric realizations
+%$$\mathcal{F}(k)=\bars{Sur(k)}$$ appear in the work by %McClure-Smith \cite{MS}, as explained in the appendix of %\cite{Deligne}.
 
 \begin{definition}
 Let $Sur(k)$  be the $k$-fold multisimplicial set that has
@@ -28,99 +41,140 @@ $(i_l+1)$-values of $l$, for each
 $l=1,\dots,k$.
 \end{definition}
 
+The $k$-fold multisimplicial set $Sur(k)$ is filtered
+by a nested family of $k$-fold multisimplicial subsets
+$$Sur_0(k) \subset Sur_1(k) \subset Sur_2(k)  \subset \dots \subset Sur(k)$$
+% such that $Sur(k) = {\rm colim}_n Sur_n(k)$.
+
+A surjection belongs to $Sur_d(k)$
+if any ordered subsequence with two distinct alternating values has length at most $d+1$.
+For example $x=12132 \in Sur_3(3)$ but $x \notin Sur_2(3)$ because the subsequence $1212$ has length 4. 
+
+The symmetric group $\Sigma_k$ acts on $Sur(k)$ and the action preserves the filtration. 
+
+\begin{proposition} \label{sur-real}
+There is a $\Sigma_k$-equivariant homotopy equivalence 
+$\bars{Sur_d(k)} \simeq F_k(\R^d)$
+\end{proposition}
+
+\begin{proof}
+The geometric realization $\bars{Sur_d(k)}$ appears in section 13 of \cite{MS} where it is denoted $Z_0^k$. 
+McClure and Smith define for each $d$ a topological operads $\mathcal{D}_d$ such that $\mathcal{D}_d(k)$ is $\Sigma_k$-homeomorphic to $\bars{Sur_d(k)} \times Tot(\Delta^*)$, where $Tot(\Delta^*)$ is  contractible and equipped with trivial $\Sigma_k$-action. This is explained in the appendix of \cite{cyclic} where the realization is constructed as a CW complex and denoted $\mathcal{F}_d(k)$. 
+McClure and Smith proceed to constructing a zig-zag of weak equivalences of operads between $\mathcal{D}_d$ and the little $d$-cubes operad
+$\mathcal{C}_d$, that in particular gives a levelwise $\Sigma_k$-equivariant equivalence $\mathcal{D}_d(k) \simeq \mathcal{C}_d(k)$ for each $k$. It is well known that $\mathcal{C}_d(k)$ is $\Sigma_k$-equivariantly homotopy equivalent to $F_k(\R^d)$ and this concludes the proof.
+\end{proof}
+
+
+
 
 The (normalized) chain complexes
 of $Sur(k)$  $$\chi(k):=N(Sur(k))$$
 were considered by McClure and Smith
-\cite{MS},
+\cite{MS}, %actually other paper
 who constructed an operad structure
 on the collections of these complexes, the {\it surjection operad} $\chi$.
 
 
-Also the geometric realizations
-$$\mathcal{F}(k)=\bars{Sur(k)}$$ appear in the work by McClure-Smith \cite{MS}, as explained in the appendix of \cite{Deligne}.
-
-The $k$-fold multisimplicial set $Sur(k)$ is filtered
-by a nested family of $k$-fold multisimplicial sets
-$$Sur_1(k) \subset Sur_2(k)  \subset \dots $$ such that $Sur(k) = {\rm colim}_n Sur_n(k)$.
-
-%A surjection belongs to $Sur_i(k)$
-%if it does not contain an ordered %subsequence $ijij\dots$ with $i \neq j$ with more than $i+2$ values.
-
 The collection of chain complexes
-$$\chi_n(k):=N(Sur_n(k))$$
+$$\chi_d(k):=N(Sur_d(k))$$
 gives a filtration of the surjection operad by suboperads
 
-$$\chi_1 \subset \chi_2 \subset  \dots $$
+$$\chi_0 \subset \chi_1 \subset \chi_2 \subset  \dots \subset \chi$$
 
+\begin{proposition}\label{sur-model}
+$\chi_d(k)$ and $S^{(1)}{F_k(\R^d)}$ are $\Sigma_k$-equivariantly quasi-isomorphic $E_\infty$-coalgebras 
+\end{proposition}
+\begin{proof}
+The $\Sigma_k$-equivariant homotopy equivalence of proposition \ref{sur-real} induces a $\Sigma_k$-equivariant  quasi-isomorphism of $E_{\infty}$-coalgebras  
+$$S^{(k)}(\bars{Sur_d(k)}) \simeq S^{(k)}(F_k(\R^d))$$.   The weak equivalence %say that it is Quillen adjunction
+$Sur_d(k) \to Sing^{(k)}(\bars{Sur_d(k)})$ induces on the chain level a $\Sigma_k$-equivariant  quasi-isomorphism of 
+$E_\infty$-coalgebras
+between $\chi_d(k)$
+and $S^{(k)}(\bars{Sur_d(k)})$. Finally the map of lemma \ref{} gives a $\Sigma_k$-equivariant quasi-isomorphism $S^{(1)}(F_k(\R^d)) \to S^{(k)}(F_k(\R^d))$ of $E_\infty$-coalgebras.
+\end{proof}
 
 
 \subsection{Barratt-Eccles complexes}
 
-We recall that the Barratt-Eccles simplicial sets $\mathcal{W}\Sigma_k$, where  $\Sigma_k$ is the symmetric group of permutations of $\{1,\dots,k\}$, is defined levelwise by
-$\mathcal({W}\Sigma_k)_i=(\Sigma_k)^{i+1}$. The face $d_{j}$ removes the $(j+1)$-st permutation, and the degeneracy $s_j$ doubles the $(j+1)$-st permutation. There is an operad structure on the collection $\mathcal{W} \Sigma_k$.
-The (normalized) chain complex of $\mathcal{W}\Sigma_k$ is the Barratt-Eccles chain complex $$BE(k):=N(\mathcal{W}\Sigma_k)$$
-and these complexes form an operad.
+We recall that the Barratt-Eccles simplicial sets $\mathcal{W}\Sigma_k$ is defined levelwise by
+$\mathcal({W}\Sigma_k)_i=(\Sigma_k)^{i+1}$. The face $d_{j}$ removes the $(j+1)$-st permutation, and the degeneracy $s_j$ doubles the $(j+1)$-st permutation. There is an operad structure on the collection $\mathcal{W} \Sigma_k$. 
+
+There is a filtration of the $W \Sigma_k$ by simplicial subsets
+$W_d \Sigma_k$. Let us write elements of $\Sigma_k$ as a string containing all numbers from $1$ to $k$. Then 
+$(w_0,\dots,w_i) \in W_d \Sigma_k$ if for any pair of indices their order of appearance in a string swaps at most $d-1$ times, as we proceed from $w_0$ to $w_i$. for example $y=(123,213,312) \in 
+\mathcal{W}_3 \Sigma_3$ but $y \notin \mathcal{W}_2 \Sigma_3$
+because the position of $1$ and $2$ swaps two times.
+
+The symmetric group $\Sigma_k$ acts on 
+$\mathcal{W} \Sigma_k$ by diagonal action and the action preserves the filtration.
+
+
+The following is well known, see for example \cite{BF}
+\begin{proposition} \ref{be-real}
+The geometric realization $\bars{\mathcal{W}_d \Sigma_k}$ is $\Sigma_k$-equivariantly homotopy equivalent to $F_d(\R^k)$.
+\end{proposition}
+
+
+The (normalized) chain complex of $\mathcal{W}_d\Sigma_k$ is called the Barratt-Eccles chain complex $$BE_d(k):=N(\mathcal{W}_d\Sigma_k)$$
+the collection of these complexes forms the Barratt-Eccles operad $BE_d$. \cite{BF}
+There is a filtration 
+$$BE_0 \subset BE_1 \subset BE_2 \dots \subset BE$$
+
+Similarly as for proposition \ref{sur-model} we have the following.
+\begin{proposition}
+There is a  $\Sigma_k$-equivariant quasi-isomorphism
+of $E_\infty$-coalgebras between $BE_d(k)$ and
+$S^{(1)}(F_k(\R^d))$.
+\end{proposition}
+
+\begin{proof} \label{be-model}
+The required quasi-isomorphism follows from proposition \ref{be-real} and the equivariant quasi-isomorphism $BE_d(k) \simeq S^{(1)}(|W_d\Sigma_k|)$.  %counit of quillen adjunction
+\end{proof}
+
 
 \subsection{A comparison morphism}
 
-Berger and Fresse construct in \cite{BFsmall}
-  an operad map $TR:BE \to \chi$
-and a collection of
-chain maps $TC(k):\chi(k) \to BE(k)$
-that are right inverses of $TR(k)$ and do not form an operad map.
+In this section we construct an explicit combinatorial map between the surjection complex and the Barratt-Eccles complex, that respects filtrations, inducing weak equivalences of subcomplexes. Furthermore it upgrades a map previously defined on the chain level by Berger and Fresse: they constructed in \cite{BFsmall}
+  an operad map $TR:BE \to \chi$ preserving the filtrations and a collection of $\Sigma_k$-equivariant
+chain maps $TC(k):\chi(k) \to BE(k)$ preserving filtrations
+that are right inverses of $TR(k)$ but do not form an operad map. We warn the reader that neither $TR$ nor $TC$ preserve the $E_\infty$-coalgebra structure, but 
+$TC$ preserves the $E_1$-coalgebra structure.
 
 We claim that $TC$ is induced by a map of simplicial sets
 $$tc: Sur(k)^D \to \mathcal{W}\Sigma_k$$ that we define.
 \begin{definition}
 Let $s$ be an $i$-simplex  of the diagonal $Sur(k)^D$, i.e. a sequence containing any value in $\{1,\dots,k\}$ exactly $i+1$ times.
-Then $tc(s):=(\sigma_0,\dots,\sigma_i)$ is a sequence of permutations where each $\sigma_j$ is the subsequence of $s$ containing the $(j+1)$-st occurrence of each value in $\{1,\dots,k\}$.
+Then $tc(s):=(\sigma_0,\dots,\sigma_i)$ is a sequence of permutations where $\sigma_j$ is the subsequence of $s$ containing the $(j+1)$-st occurrence of each value in $\{1,\dots,k\}$.
  \end{definition}
 
  For example
  $$tc(122333112)=(123,231,312)$$
 
 \begin{proposition}
-The homomorphism $TC$ by Berger-Fresse satisfies
-$$TC=N(tc) \circ \ez$$ where
+The homomorphism $TC:\chi(k) \to BE(k)$ by Berger-Fresse satisfies
+$$TC=N(tc) \circ \ez$$ where $\ez:N(Sur(k)) \to 
+N(Sur(k)^D)$ is the Eilenberg-Zilber map.
 \end{proposition}
 
 \begin{proof}
 By inspection of the definition in \cite{BFsmall}. %more? signs? which convention?
 \end{proof}
 
-Also $\mathcal{W}$ is filtered \cite{BFsmall}, i.e.
-there is a family of nested simplicial sets $$\mathcal{W}_1\Sigma_k \subset \mathcal{W}_2 \Sigma_k
- \subset \dots $$ such that
-$\mathcal{W}\Sigma_k={\rm colim}_d \mathcal{W}_d\Sigma_k$, that form a filtration by operads
-$$\mathcal{W}_1 \subset \mathcal{W}_2 \subset \dots \mathcal{W}$$
+%Also $\mathcal{W}$ is filtered \cite{BFsmall}, i.e.
+%there is a family of nested simplicial sets %$$\mathcal{W}_1\Sigma_k \subset \mathcal{W}_2 %\Sigma_k
+% \subset \dots $$ such that
+%$\mathcal{W}\Sigma_k={\rm colim}_d %\mathcal{W}_d\Sigma_k$, that form a filtration by %operads
+%$$\mathcal{W}_1 \subset \mathcal{W}_2 \subset \dots %\mathcal{W}$$
 
 
-The normalized chain functor defines
-$$BE_d(k):=N(\mathcal{W}_d \Sigma_k)$$ so that the operads $BE_d$
-form a filtration of $BE$.
-
-\subsection{Counting  generators}
-
-We stress that the number of generators in $\chi_d(k)$, corresponding to non-degenerate surjections,
-is much smaller than the corresponding number of generators in $BE_d(k)$.
-Let us consider the generating polynomial functions counting the generators
-$$PB_d^k(x) = \sum_i rank(BE_d(k)_i) x^i $$ $$P\chi_d^k(x)=
-\sum_i rank(\chi_d(k)_i) x^i$$
-Then for example
-\begin{align*}
-& PB_2^4(x)=24(1+23x+104x^2+196x^3+184x^4+86x^5+16x^6)\\
-& P\chi_2^4(x)=24(1+6x+10x^2+5x^3) \\
-& \\
-& PB_3^3(x) = 6(1+5x+25x^2+60x^3+70x^4+38x^5+8x^6 ) \\
-&  P\chi_3^3(x)= 6(1+3x+7x^2+9x^3+6x^4+x^5)
-\end{align*}
-Therefore the multisimplicial approach using $\chi$ is much more efficient than the simplicial
-approach using $BE$, when performing computations as in \cite{formality}.
+%The normalized chain functor defines
+%$$BE_d(k):=N(\mathcal{W}_d \Sigma_k)$$ so that the %operads $BE_d$
+%form a filtration of $BE$.
 
 
-%part by Andrea
 \subsection{Filtrations by complete graphs}
+In this section we refine the filtrations of McClure-Smith and Barratt-Eccles in order to show that $tc$ induces equivariant weak equivalence on the filtation terms.
+
 \begin{definition}[Complete graphs]
 		A \textit{complete graph} on $k$ vertices is
 		a pair $(\mu,\sigma)$, where $\mu$ is a collection of non-negative integers $\mu_{ij}\in\mathbb{N}$, $1 \leq i < j \leq k$
@@ -157,7 +211,7 @@ We write $\sigma_{ij}$ for the restriction of the ordering $\sigma$ to the set $
 %		For example, let $31231 \in Sur(3)_{2,1,2}$, we have $(31231)_{12}=121$, $(31231)_{23}=323$ and $(31231)_{13}=3131$.
 		The surjection $f$ belongs to $Sur_{(\mu,\sigma)}(k)\subseteq Sur(k)$ if for any pair $(i,j)$ with $i< j$, either in the sequence $f_{ij}$ $i$ and $j$ alternate strictly less than $\mu_{ij}$ times,
 %		, that is the amount of times that the order of $i$ and $j$ change ,
-		 or $i$ and $j$ alternate in the sequence $f_{ij}$  exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$. We also define \begin{equation*}
+		 or $i$ and $j$ alternate in the sequence $f_{ij}$  exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$. Notice that \begin{equation*}
 		 	\label{def}
 		 	Sur_{n}(k)=\bigcup_{\max_{i<j}(\mu_{ij})< n} Sur_{(\mu,\sigma)}(k)
 		 \end{equation*}
@@ -172,9 +226,9 @@ We write $\sigma_{ij}$ for the restriction of the ordering $\sigma$ to the set $
 %	    $31231\in Sur_{3}(k)_{2,1,2}$
 %	    \\
 %	    \\
-	    We have obtained the filtration $$Sur_1(k) \subset Sur_2(k)  \subset Sur_3(k)  \subset \dots $$
-	    that induces the filtration of the correspondent diagonal simplicial set
-	    $$Sur_1(k)^{D} \subset Sur_2(k)^{D}  \subset Sur_3(k)^{D}  \subset\dots $$
+	   % We have obtained the filtration $$Sur_1(k) \subset Sur_2(k)  \subset Sur_3(k)  \subset \dots $$
+	   % that induces the filtration of the correspondent diagonal simplici%al set
+%	    $$Sur_1(k)^{D} \subset Sur_2(k)^{D}  \subset Sur_3(k)^{D}  \subset\dots $$
 
 	\end{definition}
 
@@ -183,7 +237,7 @@ We write $\sigma_{ij}$ for the restriction of the ordering $\sigma$ to the set $
 %	For example, let $(123,231,312) \in (\mathcal{W}\Sigma_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
 	The element $w$ belongs to $\mathcal{W}_{(\mu,\sigma)}\Sigma_k\subseteq \mathcal{W}\Sigma_k$ if for all pairs $(i,j)$, $i< j$ either along the sequence $w_{ij}$ $i$ and $j$ swap less than $\mu_{ij}$ times,
 %	, that is, as before,  the amount of times that the order of $i$ and $j$ change ,
-	 or they swap exactly $\mu_{ij}$ times and the first permutation $w_{1,ij}$ is equal to $\sigma_{ij}$. We also define
+	 or they swap exactly $\mu_{ij}$ times and the first permutation $w_{1,ij}$ is equal to $\sigma_{ij}$. Notice that
 	  \begin{equation*}
 	 	\label{def}
 	 	\mathcal{W}_{n}\Sigma_k=\bigcup_{\max_{i<j} (\mu_{ij})< n} \mathcal{W}_{(\mu,\sigma)}\Sigma_{k}
@@ -199,9 +253,9 @@ We write $\sigma_{ij}$ for the restriction of the ordering $\sigma$ to the set $
 %	$(123,231,312)\in (\mathcal{W}_{3}\Sigma_3)_{3}$
 %	\\
 %	\\
-	We have obtained the filtration $$\mathcal{W}_1\Sigma_k \subset \mathcal{W}_2 \Sigma_k
-	\subset \mathcal{W}_3 \Sigma_k
-	\subset \dots $$
+%	We have obtained the filtration $$\mathcal{W}_1\Sigma_k \subset \mathcal{W}_2 \Sigma_k
+%	\subset \mathcal{W}_3 \Sigma_k
+%	\subset \dots $$
 %	that is the other one we need in $tc$ definition.
 
 \end{definition}
@@ -279,7 +333,7 @@ Moreover $tc$ is compatible with orderings: the first occurrences of $i$ and $j$
 This concludes the proof.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{cor-comparing}
 	The map $tc_{n}:Sur_{n}(k)^{D}\rightarrow \mathcal{W}_{n}\Sigma_{k}$ is a weak equivalence.
 \end{corollary}
 
@@ -300,14 +354,38 @@ so we have a commutative diagram
 	are weak equivalences, and so the bottom map is a weak equivalence.
 
 \end{proof}
+We remark that $tc$ is compatible 
+with the equivalences in propositions \ref{sur-real} and \ref{be-real} 
+since they are proved to be equivalences by a similar method.
 
-Let  $F_k(\R^{d})$ be the ordered configuration space of $k$-tuples of points in  $\R^{d}$.
 
-\begin{proposition}
-The geometric realizations satisfy
-$$|Sur_d(k)| \simeq |W_d(k)|  \simeq F_k(\R^{d})$$
-\end{proposition}
+%Let  $F_k(\R^{d})$ be the ordered configuration %space of $k$-tuples of points in  $\R^{d}$.
 
-\begin{proof}
-The configuration space is homotopy equivalent to the homotopy colimit of contractible spaces along the same poset as above, as shown by McClure and Smith \cite{MS}. %this is originally Berger's criterion..
-\end{proof}
+%\begin{proposition}
+%The geometric realizations satisfy
+%$$|Sur_d(k)| \simeq |W_d(k)|  \simeq F_k(\R^{d})$$
+%\end{proposition}
+
+%\begin{proof}
+%The configuration space is homotopy equivalent to %the homotopy colimit of contractible spaces along %the same poset as above, as shown by McClure and %Smith \cite{MS}. %this is originally Berger's %criterion..
+%\end{proof}
+
+\subsection{Counting  generators}
+
+We stress that the number of generators in $\chi_d(k)$, corresponding to non-degenerate surjections,
+is much smaller than the corresponding number of generators in $BE_d(k)$.
+We give some examples.
+Let us consider the generating polynomial functions counting the generators
+$$PB_d^k(x) = \sum_i rank(BE_d(k)_i) x^i $$ $$P\chi_d^k(x)=
+\sum_i rank(\chi_d(k)_i) x^i$$
+Then for example
+\begin{align*}
+& PB_2^4(x)=24(1+23x+104x^2+196x^3+184x^4+86x^5+16x^6)\\
+& P\chi_2^4(x)=24(1+6x+10x^2+5x^3) \\
+& \\
+& PB_3^3(x) = 6(1+5x+25x^2+60x^3+70x^4+38x^5+8x^6 ) \\
+&  P\chi_3^3(x)= 6(1+3x+7x^2+9x^3+6x^4+x^5)
+\end{align*}
+Therefore the multisimplicial approach using $\chi$ is much more efficient than the simplicial
+approach using $BE$, when performing computations as in \cite{formality}.
+
