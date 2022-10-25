@@ -1,6 +1,44 @@
 % !TEX root = ../msimplicial.tex
 
-\section{Introduction} \label{s:introduction} \todo{@everyone: to be updated.}
+
+\section{Introduction} \label{s:introduction}
+
+The normalized cochain complex of a simplicial set is equipped with the classical Alexander--Whitney cup product which has several explicit natural extensions to an $E_\infty$-algebra \cite{mcclure2003multivariable, berger2004combinatorial, medina2020prop1} a structure encoding commutativity and associativity up to coherent homotopies.
+The importance of $E_\infty$-algebras is highlighted by a result of Mandell \cite{mandell2006homotopy_type} stating that finite type nilpotent spaces are weakly equivalent if and only if their singular cochains are quasi-isomorphic as $E_\infty$-algebras.
+Our first goal is to define an explicit natural $E_\infty$-algebra structure on the normalized cochains of multisimplicial sets, which are generalizations of both simplicial and cubical sets and are useful for concrete computations since they can model spaces using fewer cells.
+
+Multisimplicial sets are contravariant functors from products of the simplex category $\simplex$ to $\Set$.
+Explicitly, for any positive integer $k$ the category $\mSet{k}$ of $k$-fold multisimplicial sets is the presheaf category $\Fun((\simplex^\op)^{\times k}, \Set)$.
+There is a notion of geometric realization of a multisimplicial set, a CW complex with a cell $e_x$ for each non-degenerate multisimplex with a characteristic map from a product of geometric simplexes
+\[
+\gmsimplex{n_1}{n_k}.
+\]
+Said geometric realization induces a functor which, together with the singular $k$-fold multisimplicial functor, define a Quillen equivalence between a model category structure on $\mSet{k}$ and the usual category of topological spaces.
+We are interested in algebraically model homotopy types, for which we consider the composition of the geometric realization and the functor of cellular chains.
+This composition defines the functor of normalized chains $\chains$.
+In \cref{ss:e-infty extension} we define a lift of its linear dual, the functor of normalized cochains, to the category of $E_\infty$-algebras.
+As an application of this construction we describe in \cref{ss:cup coproducts} explicit generalizations of the cup-$i$ products defining Steenrod operations at all primes.
+
+The restriction to the diagonal $\simplex^\op \subset (\simplex^\op)^{\times k}$ of any $k$-fold multisimplicial set $X$ defines a simplicial set $X^\diag$.
+Quillen proved in \cite{Quillen}\todo{paolo:where is this? Could yo fill in the reference, please?} that there is a natural homeomorphism of realizations $\bars{X} \cong \bars{X^\diag}$.
+Under this homeomorphism the cells of $\bars{X^\diag}$ arise from those of $\bars{X}$ through subdivision, a procedure described algebraically by the Eilenberg--Zilber quasi-isomorphism
+\[
+\EZ \colon \chains(X) \to \chains(X^\diag).
+\]
+The functor induced by the diagonal restriction has a right adjoint $\radj^{(k)}$ making the categories of $k$-fold multisimplicial and simplicial sets Quillen equivalent.
+Furthermore, there is a natural inclusion
+\[
+\In \colon \chains(Y) \to \chains(\radj^{(k)} Y)
+\]
+which is also a quasi-isomorphism.
+The linear dual of $\EZ$ is an algebra quasi-isomorphism, but it does not respect the $E_\infty$-algebra structure, whereas the linear dual of $\In$ is an $E_\infty$-algebra quasi-isomorphism.
+Using the second statement we prove the following in \cref{ss:singular}.
+
+\begin{corollary*}
+	For any topological space $\fZ$, the linear map from its singular simplicial chains to its singular $k$-fold multisimplicial chains given by precomposing a continuous map $(\gsimplex^n \to \fZ)$ with the projection $(\gsimplex^n \times \gmsimplex{0}{0} \xra{\pi_1} \gsimplex^n)$ induces on cochains a natural quasi-isomorphism of $E_\infty$-algebras.
+\end{corollary*}
+
+\section{Introduction old}
 
 The normalized cochain complex $N^*(K)$ of a simplicial set $K$ is equipped with the classical Alexander-Whitney cup product that makes into a differential graded algebra.
 Our first goal is to extend this product to the case of multisimplicial sets.
