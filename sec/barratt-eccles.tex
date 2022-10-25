@@ -77,36 +77,6 @@ $$tc(122333112)=(123,231,312)$$
 %$$BE_d(k):=N(\mathcal{W}_d \Sigma_k)$$ so that the %operads $BE_d$
 %form a filtration of $BE$.
 
-% FILTRATION FOR SURJ
-
-\begin{definition}[Filtration of the surjection multisimplicial set $Sur$]
-	Fix a surjection $f\in Sur(k)_{i_{1},\dots,i_{k}}$.
-	For any pair $(i,j)$ with $i< j$, let $f_{ij}$ be the subsequence of $f(1) \dots f(i_1+\dots+i_k+k)$ obtained omitting all the occurrences of elements different from $i$ and $j$.
-	%		For example, let $31231 \in Sur(3)_{2,1,2}$, we have $(31231)_{12}=121$, $(31231)_{23}=323$ and $(31231)_{13}=3131$.
-	The surjection $f$ belongs to $Sur_{(\mu,\sigma)}(k)\subseteq Sur(k)$ if for any pair $(i,j)$ with $i< j$, either in the sequence $f_{ij}$ $i$ and $j$ alternate strictly less than $\mu_{ij}$ times,
-	%		, that is the amount of times that the order of $i$ and $j$ change ,
-	or $i$ and $j$ alternate in the sequence $f_{ij}$  exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
-	Notice that \begin{equation*}
-		\label{def}
-		Sur_{n}(k)=\bigcup_{\max_{i<j}(\mu_{ij})< n} Sur_{(\mu,\sigma)}(k)
-	\end{equation*}
-	%		\\
-	%		\\
-	%		Returning to the example above we have $\mu_{12}(31231)=1$, $\mu_{23}(31231)=1$ and $\mu_{13}(31231)=2$ so that $31231\in Sur_{(\mu,\sigma)}(3)_{2,1,2}$
-	%		\begin{itemize}
-		%		\item if $\mu_{12}>1$, $\mu_{23}>1$ and $\mu_{13}>2$ and any $\sigma\in \Sigma_{3}$;
-		%		\item if some $\mu_{ij}=\mu(f)_{ij}$ and the first occurences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
-		%		\end{itemize}
-	%	    In our example we obtain that, by equation \ref{def},
-	%	    $31231\in Sur_{3}(k)_{2,1,2}$
-	%	    \\
-	%	    \\
-	% We have obtained the filtration $$Sur_1(k) \subset Sur_2(k)  \subset Sur_3(k)  \subset \dots $$
-	% that induces the filtration of the correspondent diagonal simplici%al set
-	%	    $$Sur_1(k)^{D} \subset Sur_2(k)^{D}  \subset Sur_3(k)^{D}  \subset\dots $$
-
-\end{definition}
-
 \begin{definition}[Filtration of the Barratt-Eccles simplicial set $\mathcal{W}\Sigma_k$]
 	Fix an element  $w\in (\mathcal{W}\Sigma_k)_{d}$, $w=(w_{1},\dots , w_{d})$ with $w_{h}\in \Sigma_k$.
 	For any pair $(i,j)$ with $i< j$, denote $w_{ij}=(w_{1,ij},\dots , w_{d,ij})$ where $w_{h,ij}$ is the subsequence of $w_{h}$ obtained omitting all the occurrences of elements different from $i$ and $j$.
