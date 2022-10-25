@@ -1,3 +1,42 @@
+\section{Introduction old}
+
+The normalized cochain complex $N^*(K)$ of a simplicial set $K$ is equipped with the classical Alexander-Whitney cup product that makes into a differential graded algebra.
+Our first goal is to extend this product to the case of multisimplicial sets.
+Let us consider a $k$-fold simplicial set $X$, that is a contravariant functor from $(\Delta)^k$ to the category of sets.
+The restriction to the diagonal $\Delta \subset (\Delta)^k$ defines a simplicial set $X^D$.
+There is a notion of geometric realization $|X|$ of a $k$-fold simplicial set $X$, that is a CW complex with a cell $e_x$ for each non-degenerate multisimplex $x$, with a characteristic map from a product of simplexes $$\Delta_{i_1} \times \dots \times \Delta_{i_k} \to e_x$$ This extends the classical case where the characteristic map has a single simplex as domain.
+Quillen proved in \cite{Quillen} that there is a natural homeomorphism of realizations $|X| \cong |X^D|$.
+Under this homeomorphism the cells of $|X^D|$ arise from those of $|X|$ by subdividing $k$-fold products of simplexes into simplexes.
+This procedure is described combinatorially by the Eilenberg-Zilber quasi-isomorphism
+$$EZ:N_*(X) \to N_*(X^D)$$
+
+%that induces a quasi-isomorphism on normalized chains
+%$N_*(X) \to N_*(X^D)$ after quotienting out degenerate %chains.
+% As in the classical simplicial case, the projection $C_*(X) \to N_*(X)$ onto normalized chains
+%is a quasi-isomorphism.
+
+\medskip
+
+We prove in Theorem \ref{algebra} %quale?
+that the cochain complex $N^*(X)$ is equipped with a differential graded algebra structure.
+The product is the natural extension to the multisimplicial case of the cup product defined by the Alexander-Whitney formula, by
+evaluating cochains on front and rear faces in all multisimplicial directions.
+%formula?
+We prove in section \ref{ultima} that the dual Eilenberg-Zilber map
+$$EZ^*:N^*(X^D) \to N^*(X)$$ %provato dove?
+is a quasi-isomorphism of differential graded algebras, where the source is equipped with the classical cup product.
+We extend the previous construction to an $E_\infty$ structure on multisimplicial cochains using the approach defined by the first author in \cite{anibal}.
+In this case $EZ$ does not respect the $E_\infty$-structures, but there is a natural quasi-isomorphism in the opposite direction that does preserve them.
+\paolo{anibal elaborates on Cartan-Serre?}
+
+Our result is very useful for computations, since multisimplicial models of spaces have a significantly smaller number of non-degenerate cells then their simplicial models.
+So $N^*(X)$ is much smaller than $N^*(X^D)$, but it contains the same information up to homotopy, allowing for example to calculate explicitly homology operations like Massey products, and the Steenrod algebra action.
+As an example we consider a family of multisimplicial sets $Sur(k)$ defined by McClure and Smith, see \cite{MS}, modelling euclidean configuration spaces.
+The proof by the third author of the non-formality of the cochain algebra of planar configuration spaces in \cite{formality} used the Barratt-Eccles simplicial model and the classical cup product.
+Our new product on the multisimplicial McClure-Smith models makes the computation much simpler and faster, paving the way for an extension to higher dimensions.
+%per esempio dire i numeri..
+
+
 \subsection{Shuffles and the fundamental simplex} \label{ss:shuffles and fundamental simplex}
 
 Let $n = n_1+\dots+n_k$.

@@ -1,11 +1,10 @@
 % !TEX root = ../msimplicial.tex
 
-
 \section{Introduction} \label{s:introduction}
 
 The normalized cochain complex of a simplicial set is equipped with the classical Alexander--Whitney cup product which has several explicit natural extensions to an $E_\infty$-algebra \cite{mcclure2003multivariable, berger2004combinatorial, medina2020prop1} a structure encoding commutativity and associativity up to coherent homotopies.
 The importance of $E_\infty$-algebras is highlighted by a result of Mandell \cite{mandell2006homotopy_type} stating that finite type nilpotent spaces are weakly equivalent if and only if their singular cochains are quasi-isomorphic as $E_\infty$-algebras.
-Our first goal is to define an explicit natural $E_\infty$-algebra structure on the normalized cochains of multisimplicial sets, which are generalizations of both simplicial and cubical sets and are useful for concrete computations since they can model spaces using fewer cells.
+Our first goal is to define an explicit natural $E_\infty$-algebra structure on the normalized cochains of multisimplicial sets, which are generalizations of both simplicial and cubical sets; and are useful for concrete computations since they can model spaces using fewer cells.
 
 Multisimplicial sets are contravariant functors from products of the simplex category $\simplex$ to $\Set$.
 Explicitly, for any positive integer $k$ the category $\mSet{k}$ of $k$-fold multisimplicial sets is the presheaf category $\Fun((\simplex^\op)^{\times k}, \Set)$.
@@ -31,49 +30,36 @@ Furthermore, there is a natural inclusion
 \In \colon \chains(Y) \to \chains(\radj^{(k)} Y)
 \]
 which is also a quasi-isomorphism.
-The linear dual of $\EZ$ is an algebra quasi-isomorphism, but it does not respect the $E_\infty$-algebra structure, whereas the linear dual of $\In$ is an $E_\infty$-algebra quasi-isomorphism.
-Using the second statement we prove the following in \cref{ss:singular}.
+The linear dual of $\EZ$ is an algebra quasi-isomorphism, but it does not respect the $E_\infty$-algebra structure, whereas, as proven in \cref{ss:inclusion}, the linear dual of $\In$ is an $E_\infty$-algebra quasi-isomorphism.
+We use the latter to to prove in \cref{ss:singular} that, for any topological space $\fZ$, the linear map from its singular simplicial chains to its singular $k$-fold multisimplicial chains given by precomposing a continuous map $(\gsimplex^n \to \fZ)$ with the projection $(\gsimplex^n \times \gmsimplex{0}{0} \xra{\pi_1} \gsimplex^n)$ induces on cochains a natural quasi-isomorphism of $E_\infty$-algebras.
 
-\begin{corollary*}
-	For any topological space $\fZ$, the linear map from its singular simplicial chains to its singular $k$-fold multisimplicial chains given by precomposing a continuous map $(\gsimplex^n \to \fZ)$ with the projection $(\gsimplex^n \times \gmsimplex{0}{0} \xra{\pi_1} \gsimplex^n)$ induces on cochains a natural quasi-isomorphism of $E_\infty$-algebras.
-\end{corollary*}
+%Using the second statement we prove the following in \cref{ss:singular}.
 
-\section{Introduction old}
+%\begin{corollary*}
+%	For any topological space $\fZ$, the linear map from its singular simplicial chains to its singular $k$-fold multisimplicial chains given by precomposing a continuous map $(\gsimplex^n \to \fZ)$ with the projection $(\gsimplex^n \times \gmsimplex{0}{0} \xra{\pi_1} \gsimplex^n)$ induces on cochains a natural quasi-isomorphism of $E_\infty$-algebras.
+%\end{corollary*}
 
-The normalized cochain complex $N^*(K)$ of a simplicial set $K$ is equipped with the classical Alexander-Whitney cup product that makes into a differential graded algebra.
-Our first goal is to extend this product to the case of multisimplicial sets.
-Let us consider a $k$-fold simplicial set $X$, that is a contravariant functor from $(\Delta)^k$ to the category of sets.
-The restriction to the diagonal $\Delta \subset (\Delta)^k$ defines a simplicial set $X^D$.
-There is a notion of geometric realization $|X|$ of a $k$-fold simplicial set $X$, that is a CW complex with a cell $e_x$ for each non-degenerate multisimplex $x$, with a characteristic map from a product of simplexes $$\Delta_{i_1} \times \dots \times \Delta_{i_k} \to e_x$$ This extends the classical case where the characteristic map has a single simplex as domain.
-Quillen proved in \cite{Quillen} that there is a natural homeomorphism of realizations $|X| \cong |X^D|$.
-Under this homeomorphism the cells of $|X^D|$ arise from those of $|X|$ by subdividing $k$-fold products of simplexes into simplexes.
-This procedure is described combinatorially by the Eilenberg-Zilber quasi-isomorphism
-$$EZ:N_*(X) \to N_*(X^D)$$
+Our motivation for studying multisimplicial algebraic models of homotopy types comes from the observation that, in some cases of interest, such models have a smaller number of generators compared to simplicial or cubical ones.
+We illustrate this point using McClure--Smith's \cite{mcclure2003multivariable} equivariant algebraic model of the configuration space $Con(r,d)$ of $r$ ordered distinct points in $\R^d$, which we recognize as resulting from applying the functor of normalized chains to an $r$-fold multisimplicial set $Sur(r,d)$.
+McClure--Smith also considered an operad structure on these, but we do not focus on it.
+With respect to the $E_\infty$-algebra structures described above (\cref{ss:e-infty extension}), we construct in \cref{ss:multisimplicial model} an explicit zig-zag of $E_\infty$-algebra quasi-isomorphism from the normalized cochains of $Sur(r,d)$ to the singular (simplicial) cochains of $Con(r,d)$.
 
-%that induces a quasi-isomorphism on normalized chains
-%$N_*(X) \to N_*(X^D)$ after quotienting out degenerate %chains.
-% As in the classical simplicial case, the projection $C_*(X) \to N_*(X)$ onto normalized chains
-%is a quasi-isomorphism.
+There is also a simplicial model $W(r,d)$ studied by Berger--Fresse \cite{berger2004combinatorial}.
+We construct a factorization of the table completion quasi-isomorphism of these authors as
+\[
+\mathrm{TC} \colon
+\chains(Sur(r,d))
+\xra{\EZ}
+\chains(Sur(r,d)^\diag)
+\xra{\chains(\mathrm{tc})}
+\chains(W(r,d)),
+\]
+where the second map is induced from an explicit simplicial map.
+Since $\EZ$ is only a coalgebra map, this direct map does not preserve the $E_\infty$-structure, but we construct a zig-zag of quasi-isomorphism of $E_\infty$-coalgebras between them.
 
-\medskip
-
-We prove in Theorem \ref{algebra} %quale?
-that the cochain complex $N^*(X)$ is equipped with a differential graded algebra structure.
-The product is the natural extension to the multisimplicial case of the cup product defined by the Alexander-Whitney formula, by
-evaluating cochains on front and rear faces in all multisimplicial directions.
-%formula?
-We prove in section \ref{ultima} that the dual Eilenberg-Zilber map
-$$EZ^*:N^*(X^D) \to N^*(X)$$ %provato dove?
- is a quasi-isomorphism of differential graded algebras, where the source is equipped with the classical cup product.
-We extend the previous construction to an $E_\infty$ structure on multisimplicial cochains using the approach defined by the first author in \cite{anibal}.
-In this case $EZ$ does not respect the $E_\infty$-structures, but there is a natural quasi-isomorphism in the opposite direction that does preserve them.
-\paolo{anibal elaborates on Cartan-Serre?}
-
-Our result is very useful for computations, since multisimplicial models of spaces have a significantly smaller number of non-degenerate cells then their simplicial models.
-So $N^*(X)$ is much smaller than $N^*(X^D)$, but it contains the same information up to homotopy, allowing for example to calculate explicitly homology operations like Massey products, and the Steenrod algebra action.
-As an example we consider a family of multisimplicial sets $Sur(k)$ defined by McClure and Smith, see \cite{MS}, modelling euclidean configuration spaces.
-The proof by the third author of the non-formality of the cochain algebra of planar configuration spaces in \cite{formality} used the Barratt-Eccles simplicial model and the classical cup product.
-Our new product on the multisimplicial McClure-Smith models makes the computation much simpler and faster, paving the way for an extension to higher dimensions.
+The proof by the third author of the non-formality of the cochain algebra of planar configuration spaces in \cite{formality} used part of the $E_\infty$-algebra structure on $\cochains(W(r,d))$.
+This chain complex has many more generators than $\cochains(Sur(r,d))$.
+Our $E_\infty$-algebra structure on $\cochains(Sur(r,d))$ makes the computation much simpler and faster, paving the way for an extension to higher dimensions.
 %per esempio dire i numeri..
 
 \medskip
