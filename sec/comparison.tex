@@ -1,10 +1,10 @@
 % !TEX root = ../msimplicial.tex
 
-\section{Simplicial comparison}
+\section{Simplicial comparison} \label{s:comparison}
 
-We will use $\sSet$ to denote the category of $1$-fold multisimplicial sets $\mSet{1}$ referring to its objects as simplicial sets as usual.
+We will use $\sSet$ to denote the category of $1$-fold multisimplicial sets $\mSet{1}$ referring to its objects and morphisms as simplicial sets and simplicial morphisms as usual.
 
-\subsection{Diagonal simplicial set} \label{ss:diagonal simplicial set}
+\subsection{Diagonal simplicial set} \label{ss:diagonal}
 
 For any $k \in \N$, the diagonal
 \[
@@ -37,9 +37,9 @@ The functor $(-)^\diag \colon \mSet{k} \to \sSet$ admits a right adjoint $\radj 
 \sSet\big( \simplex^{m_1} \times \dots \times \simplex^{m_k}, \, Y \big).
 \]
 These functors define a Quillen equivalence.
-A proof of this fact can be given \cite[Proposition~1.6.8]{maltsiniotis2005grothendieck}.
+A proof of this fact can be given using \cite[Proposition~1.6.8]{maltsiniotis2005grothendieck}.
 
-\subsection{Eilenberg--Zilber map}
+\subsection{Eilenberg--Zilber map} \label{ss:eilenber-zilber}
 
 Recall that an \textit{$(n_1,\dots,n_k)$-shuffle} $\sigma$ is a permutation in $\sym_n$ satisfying
 \begin{gather*}
@@ -84,9 +84,9 @@ each $j \in \set{1,\dots,n}$ there is exactly one $\ell \in \set{1,\dots,k}$ suc
 
 Since the traditional Eilenberg--Zilber map preserves counital coalgebra structures we have the following.
 
-\begin{lemma}
+\begin{theorem*}
 	For every multisimplicial set $X$ the map $\EZ \colon \chains(X) \to \chains(X^\diag)$ is a quasi-isomorphism of counital coalgebras.
-\end{lemma}
+\end{theorem*}
 
 %\begin{proof}
 %	Consider an $(n_1,\dots,n_k)$-multisimplex $x$ with characteristic map
@@ -97,13 +97,13 @@ Since the traditional Eilenberg--Zilber map preserves counital coalgebra structu
 %\end{proof}
 
 We remark that the Eilenberg--Zilber map is not a morphisms of $E_\infty$-coalgebras.
-For example, as shown in \cite[\S5.4]{medina2021cube_einfty}
+For example, as shown in \cite[\S5.4]{medina2021cube_einfty}, we have
 \[
 \Delta_1 \circ \EZ\big([0,1] \ot [0,1]\big) \neq
 \EZ \, \circ \, \Delta_1\big([0,1] \ot [0,1]\big).
 \]
 
-\subsection{Canonical inclusion}
+\subsection{Canonical inclusion} \label{ss:inclusion}
 
 Let $Y$ be a simplicial set and $n$ an integer.
 Consider the function $Y_n \to \cU Y_{n,0,\dots,0}$ sending a simplex with characteristic map $\zeta \colon \simplex^n \to Y$ to the composition
@@ -116,9 +116,9 @@ These functions induce a chain map
 \]
 and we have the following.
 
-\begin{lemma*}
+\begin{theorem*}
 	The canonical inclusion $\In \colon \chains(Y) \to \chains(\cU Y)$ is a quasi-isomorphism of $E_\infty$-coalgebras for any simplicial set $Y$.
-\end{lemma*}
+\end{theorem*}
 
 \begin{proof}
 	The structure preserving properties of this map are immediate.
@@ -142,7 +142,7 @@ and we have the following.
 
 \subsection{Singular chains} \label{ss:singular}
 
-\begin{lemma*}
+\begin{theorem*}
 	Let $\fZ$ be a topological space.
 	The chain map
 	\[
@@ -153,11 +153,11 @@ and we have the following.
 	\gsimplex^n \times \gmsimplex{0}{0} \xra{\pi_1} \gsimplex^n,
 	\]
 	is a quasi-isomorphism of $E_\infty$-coalgebras.
-\end{lemma*}
+\end{theorem*}
 
 \begin{proof}
 	This map factors as the composition of two quasi-isomorphism of $E_\infty$-coalgebras.
-	The first is $\In \colon \rS^{(1)}(\fZ) \to \chains(\cU^{(k)} \Sing^{(1)}(\fZ))$, which was studied in the previous lemma.
+	The first is $\In \colon \rS^{(1)}(\fZ) \to \chains(\cU^{(k)} \Sing^{(1)}(\fZ))$, which was studied in \cref{ss:inclusion}.
 	The second is induced from a multisimplicial isomorphism
 	\[
 	\cU^{(k)} \Sing^{(1)}(\fZ) \to \Sing^{(k)}(\fZ)
