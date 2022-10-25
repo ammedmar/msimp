@@ -4,41 +4,44 @@
 %We study an important example that will help us to understand how to prove our main
 %theorem.
 
-In this section we introduce and compare multisimplicial and  simplicial  models of euclidean configuration spaces,
-related respectively to the surjection operad by McClure-Smith and the Barratt-Eccles operad.
+%In this section we introduce and compare multisimplicial and  simplicial  models of euclidean configuration spaces,
+%related respectively to the surjection operad by McClure-Smith and the Barratt-Eccles operad.
 
-We are interested in the homotopy type of individual configuration spaces. Let $F_k(\R^{d})$ denote the configuration space of $k$-tuples of pairwise disjoint vectors in $\R^{d}$. This space is equipped with a free action of the symmetric group $\Sigma_k$  of permutations of $\{1,\dots,k\}$ swapping elements of a $k$-tuple.
-
+We are interested in the homotopy type of individual euclidean configuration spaces.
+Let $F_k(\R^{d})$ denote the configuration space of $k$-tuples of pairwise disjoint vectors in $\R^{d}$.
+This space is equipped with a free action of the symmetric group $\sym_k$  of permutations of $\{1,\dots,k\}$ swapping elements of a $k$-tuple.
 
 \subsection{Surjection complexes}
-We define a family of multisimplicial sets  
+
+We define a family of multisimplicial sets
 $Sur(k)$ due essentially to McClure and Smith \cite{MS}.
-These have an increasing filtration by multisimplicial subsets 
-$Sur_d(k)$ such that the geometric realization 
+These have an increasing filtration by multisimplicial subsets
+$Sur_d(k)$ such that the geometric realization
 $\bars{Sur_d(k)}$ is homotopy equivalent to the configuration space
 $F_k(\R^d)$.
-
 
 %Also the geometric realizations
 %$$\mathcal{F}(k)=\bars{Sur(k)}$$ appear in the work by %McClure-Smith \cite{MS}, as explained in the appendix of %\cite{Deligne}.
 
 \begin{definition}
-Let $Sur(k)$  be the $k$-fold multisimplicial set that has
-as $(i_1,\dots,i_k)$-multisimplexes
-the surjective maps $$f:\{1,\dots,i_1+\dots+i_k+k\} \to  \{1,\dots,k\}$$ such that
-the cardinality of $f^{-1}(l)$ is $i_l$, for $l=1,\dots,k$. We represent such maps by the sequence
-$$f(1) \dots f(i_1+\dots+i_k+k)$$
-The face map
-$d^l_j$ removes the $(j+1)$-th occurrence of $l$ in a sequence, and the degeneracy map
-$s^l_j$ doubles the $(j+1)$-th occurrence of $l$ in a sequence.
-So for example
-\begin{align*}d^2_0(12321)=1321 \\ d^2_1(12321)=1231 \\ s^1_0(121)=1121
-\end{align*}
-Degenerate multisimplices are exactly the sequences containing two equal adjacent terms.
+	Let $Sur(k)$  be the $k$-fold multisimplicial set that has
+	as $(i_1,\dots,i_k)$-multisimplexes
+	the surjective maps $$f:\{1,\dots,i_1+\dots+i_k+k\} \to  \{1,\dots,k\}$$ such that
+	the cardinality of $f^{-1}(l)$ is $i_l$, for $l=1,\dots,k$.
+	We represent such maps by the sequence
+	$$f(1) \dots f(i_1+\dots+i_k+k)$$
+	The face map
+	$d^l_j$ removes the $(j+1)$-th occurrence of $l$ in a sequence, and the degeneracy map
+	$s^l_j$ doubles the $(j+1)$-th occurrence of $l$ in a sequence.
+	So for example
+	\begin{align*}
+		d^2_0(12321)=1321 \\ d^2_1(12321)=1231 \\ s^1_0(121)=1121
+	\end{align*}
+	Degenerate multisimplices are exactly the sequences containing two equal adjacent terms.
 
-The front  (resp. back) $(i_1,\dots,i_k)$-face of a sequence is the subsequence containing only the first (resp. last)
-$(i_l+1)$-values of $l$, for each
-$l=1,\dots,k$.
+	The front  (resp. back) $(i_1,\dots,i_k)$-face of a sequence is the subsequence containing only the first (resp. last)
+	$(i_l+1)$-values of $l$, for each
+	$l=1,\dots,k$.
 \end{definition}
 
 The $k$-fold multisimplicial set $Sur(k)$ is filtered
@@ -48,24 +51,22 @@ $$Sur_0(k) \subset Sur_1(k) \subset Sur_2(k)  \subset \dots \subset Sur(k)$$
 
 A surjection belongs to $Sur_d(k)$
 if any ordered subsequence with two distinct alternating values has length at most $d+1$.
-For example $x=12132 \in Sur_3(3)$ but $x \notin Sur_2(3)$ because the subsequence $1212$ has length 4. 
+For example $x=12132 \in Sur_3(3)$ but $x \notin Sur_2(3)$ because the subsequence $1212$ has length 4.
 
-The symmetric group $\Sigma_k$ acts on $Sur(k)$ and the action preserves the filtration. 
+The symmetric group $\Sigma_k$ acts on $Sur(k)$ and the action preserves the filtration.
 
 \begin{proposition} \label{sur-real}
-There is a $\Sigma_k$-equivariant homotopy equivalence 
-$\bars{Sur_d(k)} \simeq F_k(\R^d)$
+	There is a $\Sigma_k$-equivariant homotopy equivalence
+	$\bars{Sur_d(k)} \simeq F_k(\R^d)$
 \end{proposition}
 
 \begin{proof}
-The geometric realization $\bars{Sur_d(k)}$ appears in section 13 of \cite{MS} where it is denoted $Z_0^k$. 
-McClure and Smith define for each $d$ a topological operads $\mathcal{D}_d$ such that $\mathcal{D}_d(k)$ is $\Sigma_k$-homeomorphic to $\bars{Sur_d(k)} \times Tot(\Delta^*)$, where $Tot(\Delta^*)$ is  contractible and equipped with trivial $\Sigma_k$-action. This is explained in the appendix of \cite{cyclic} where the realization is constructed as a CW complex and denoted $\mathcal{F}_d(k)$. 
-McClure and Smith proceed to constructing a zig-zag of weak equivalences of operads between $\mathcal{D}_d$ and the little $d$-cubes operad
-$\mathcal{C}_d$, that in particular gives a levelwise $\Sigma_k$-equivariant equivalence $\mathcal{D}_d(k) \simeq \mathcal{C}_d(k)$ for each $k$. It is well known that $\mathcal{C}_d(k)$ is $\Sigma_k$-equivariantly homotopy equivalent to $F_k(\R^d)$ and this concludes the proof.
+	The geometric realization $\bars{Sur_d(k)}$ appears in section 13 of \cite{MS} where it is denoted $Z_0^k$.
+	McClure and Smith define for each $d$ a topological operads $\mathcal{D}_d$ such that $\mathcal{D}_d(k)$ is $\Sigma_k$-homeomorphic to $\bars{Sur_d(k)} \times Tot(\Delta^*)$, where $Tot(\Delta^*)$ is  contractible and equipped with trivial $\Sigma_k$-action.
+	This is explained in the appendix of \cite{cyclic} where the realization is constructed as a CW complex and denoted $\mathcal{F}_d(k)$.
+	McClure and Smith proceed to constructing a zig-zag of weak equivalences of operads between $\mathcal{D}_d$ and the little $d$-cubes operad
+	$\mathcal{C}_d$, that in particular gives a levelwise $\Sigma_k$-equivariant equivalence $\mathcal{D}_d(k) \simeq \mathcal{C}_d(k)$ for each $k$. It is well known that $\mathcal{C}_d(k)$ is $\Sigma_k$-equivariantly homotopy equivalent to $F_k(\R^d)$ and this concludes the proof.
 \end{proof}
-
-
-
 
 The (normalized) chain complexes
 of $Sur(k)$  $$\chi(k):=N(Sur(k))$$
@@ -74,90 +75,93 @@ were considered by McClure and Smith
 who constructed an operad structure
 on the collections of these complexes, the {\it surjection operad} $\chi$.
 
-
 The collection of chain complexes
 $$\chi_d(k):=N(Sur_d(k))$$
 gives a filtration of the surjection operad by suboperads
-
 $$\chi_0 \subset \chi_1 \subset \chi_2 \subset  \dots \subset \chi$$
 
 \begin{proposition}\label{sur-model}
-$\chi_d(k)$ and $S^{(1)}{F_k(\R^d)}$ are $\Sigma_k$-equivariantly quasi-isomorphic $E_\infty$-coalgebras 
+	$\chi_d(k)$ and $S^{(1)}{F_k(\R^d)}$ are $\Sigma_k$-equivariantly quasi-isomorphic $E_\infty$-coalgebras
 \end{proposition}
-\begin{proof}
-The $\Sigma_k$-equivariant homotopy equivalence of proposition \ref{sur-real} induces a $\Sigma_k$-equivariant  quasi-isomorphism of $E_{\infty}$-coalgebras  
-$$S^{(k)}(\bars{Sur_d(k)}) \simeq S^{(k)}(F_k(\R^d))$$.   The weak equivalence %say that it is Quillen adjunction
-$Sur_d(k) \to Sing^{(k)}(\bars{Sur_d(k)})$ induces on the chain level a $\Sigma_k$-equivariant  quasi-isomorphism of 
-$E_\infty$-coalgebras
-between $\chi_d(k)$
-and $S^{(k)}(\bars{Sur_d(k)})$. Finally the map of lemma \ref{} gives a $\Sigma_k$-equivariant quasi-isomorphism $S^{(1)}(F_k(\R^d)) \to S^{(k)}(F_k(\R^d))$ of $E_\infty$-coalgebras.
-\end{proof}
 
+\begin{proof}
+	The $\Sigma_k$-equivariant homotopy equivalence of proposition \ref{sur-real} induces a $\Sigma_k$-equivariant  quasi-isomorphism of $E_{\infty}$-coalgebras
+	$$S^{(k)}(\bars{Sur_d(k)}) \simeq S^{(k)}(F_k(\R^d))$$.
+	The weak equivalence %say that it is Quillen adjunction
+	$Sur_d(k) \to Sing^{(k)}(\bars{Sur_d(k)})$ induces on the chain level a $\Sigma_k$-equivariant  quasi-isomorphism of
+	$E_\infty$-coalgebras
+	between $\chi_d(k)$
+	and $S^{(k)}(\bars{Sur_d(k)})$.
+	Finally the map of lemma \ref{} gives a $\Sigma_k$-equivariant quasi-isomorphism $S^{(1)}(F_k(\R^d)) \to S^{(k)}(F_k(\R^d))$ of $E_\infty$-coalgebras.
+\end{proof}
 
 \subsection{Barratt-Eccles complexes}
 
-We recall that the Barratt-Eccles simplicial sets $\mathcal{W}\Sigma_k$ is defined levelwise by
-$\mathcal({W}\Sigma_k)_i=(\Sigma_k)^{i+1}$. The face $d_{j}$ removes the $(j+1)$-st permutation, and the degeneracy $s_j$ doubles the $(j+1)$-st permutation. There is an operad structure on the collection $\mathcal{W} \Sigma_k$. 
+We recall that the Barratt-Eccles simplicial sets $\mathcal{W}\Sigma_k$ is defined levelwise by $\mathcal({W}\Sigma_k)_i=(\Sigma_k)^{i+1}$.
+The face $d_{j}$ removes the $(j+1)$-st permutation, and the degeneracy $s_j$ doubles the $(j+1)$-st permutation.
+There is an operad structure on the collection $\mathcal{W} \Sigma_k$.
 
 There is a filtration of the $W \Sigma_k$ by simplicial subsets
-$W_d \Sigma_k$. Let us write elements of $\Sigma_k$ as a string containing all numbers from $1$ to $k$. Then 
-$(w_0,\dots,w_i) \in W_d \Sigma_k$ if for any pair of indices their order of appearance in a string swaps at most $d-1$ times, as we proceed from $w_0$ to $w_i$. for example $y=(123,213,312) \in 
-\mathcal{W}_3 \Sigma_3$ but $y \notin \mathcal{W}_2 \Sigma_3$
+$W_d \Sigma_k$.
+Let us write elements of $\Sigma_k$ as a string containing all numbers from $1$ to $k$.
+Then $(w_0,\dots,w_i) \in W_d \Sigma_k$ if for any pair of indices their order of appearance in a string swaps at most $d-1$ times, as we proceed from $w_0$ to $w_i$.
+for example $y=(123,213,312) \in \mathcal{W}_3 \Sigma_3$ but $y \notin \mathcal{W}_2 \Sigma_3$
 because the position of $1$ and $2$ swaps two times.
 
-The symmetric group $\Sigma_k$ acts on 
+The symmetric group $\Sigma_k$ acts on
 $\mathcal{W} \Sigma_k$ by diagonal action and the action preserves the filtration.
-
 
 The following is well known, see for example \cite{BF}
 \begin{proposition} \ref{be-real}
-The geometric realization $\bars{\mathcal{W}_d \Sigma_k}$ is $\Sigma_k$-equivariantly homotopy equivalent to $F_d(\R^k)$.
+	The geometric realization $\bars{\mathcal{W}_d \Sigma_k}$ is $\Sigma_k$-equivariantly homotopy equivalent to $F_d(\R^k)$.
 \end{proposition}
 
-
 The (normalized) chain complex of $\mathcal{W}_d\Sigma_k$ is called the Barratt-Eccles chain complex $$BE_d(k):=N(\mathcal{W}_d\Sigma_k)$$
-the collection of these complexes forms the Barratt-Eccles operad $BE_d$. \cite{BF}
-There is a filtration 
+the collection of these complexes forms the Barratt-Eccles operad $BE_d$.
+\cite{BF}
+There is a filtration
 $$BE_0 \subset BE_1 \subset BE_2 \dots \subset BE$$
 
 Similarly as for proposition \ref{sur-model} we have the following.
+
 \begin{proposition}
-There is a  $\Sigma_k$-equivariant quasi-isomorphism
-of $E_\infty$-coalgebras between $BE_d(k)$ and
-$S^{(1)}(F_k(\R^d))$.
+	There is a  $\Sigma_k$-equivariant quasi-isomorphism
+	of $E_\infty$-coalgebras between $BE_d(k)$ and
+	$S^{(1)}(F_k(\R^d))$.
 \end{proposition}
 
 \begin{proof} \label{be-model}
-The required quasi-isomorphism follows from proposition \ref{be-real} and the equivariant quasi-isomorphism $BE_d(k) \simeq S^{(1)}(|W_d\Sigma_k|)$.  %counit of quillen adjunction
+	The required quasi-isomorphism follows from proposition \ref{be-real} and the equivariant quasi-isomorphism $BE_d(k) \simeq S^{(1)}(|W_d\Sigma_k|)$. %counit of quillen adjunction
 \end{proof}
-
 
 \subsection{A comparison morphism}
 
-In this section we construct an explicit combinatorial map between the surjection complex and the Barratt-Eccles complex, that respects filtrations, inducing weak equivalences of subcomplexes. Furthermore it upgrades a map previously defined on the chain level by Berger and Fresse: they constructed in \cite{BFsmall}
-  an operad map $TR:BE \to \chi$ preserving the filtrations and a collection of $\Sigma_k$-equivariant
+In this section we construct an explicit combinatorial map between the surjection complex and the Barratt-Eccles complex, that respects filtrations, inducing weak equivalences of subcomplexes.
+Furthermore it upgrades a map previously defined on the chain level by Berger and Fresse: they constructed in \cite{BFsmall}
+an operad map $TR:BE \to \chi$ preserving the filtrations and a collection of $\Sigma_k$-equivariant
 chain maps $TC(k):\chi(k) \to BE(k)$ preserving filtrations
-that are right inverses of $TR(k)$ but do not form an operad map. We warn the reader that neither $TR$ nor $TC$ preserve the $E_\infty$-coalgebra structure, but 
+that are right inverses of $TR(k)$ but do not form an operad map.
+We warn the reader that neither $TR$ nor $TC$ preserve the $E_\infty$-coalgebra structure, but
 $TC$ preserves the $E_1$-coalgebra structure.
 
 We claim that $TC$ is induced by a map of simplicial sets
 $$tc: Sur(k)^D \to \mathcal{W}\Sigma_k$$ that we define.
 \begin{definition}
-Let $s$ be an $i$-simplex  of the diagonal $Sur(k)^D$, i.e. a sequence containing any value in $\{1,\dots,k\}$ exactly $i+1$ times.
-Then $tc(s):=(\sigma_0,\dots,\sigma_i)$ is a sequence of permutations where $\sigma_j$ is the subsequence of $s$ containing the $(j+1)$-st occurrence of each value in $\{1,\dots,k\}$.
- \end{definition}
+	Let $s$ be an $i$-simplex  of the diagonal $Sur(k)^D$, i.e. a sequence containing any value in $\{1,\dots,k\}$ exactly $i+1$ times.
+	Then $tc(s):=(\sigma_0,\dots,\sigma_i)$ is a sequence of permutations where $\sigma_j$ is the subsequence of $s$ containing the $(j+1)$-st occurrence of each value in $\{1,\dots,k\}$.
+\end{definition}
 
- For example
- $$tc(122333112)=(123,231,312)$$
+For example
+$$tc(122333112)=(123,231,312)$$
 
 \begin{proposition}
-The homomorphism $TC:\chi(k) \to BE(k)$ by Berger-Fresse satisfies
-$$TC=N(tc) \circ \ez$$ where $\ez:N(Sur(k)) \to 
-N(Sur(k)^D)$ is the Eilenberg-Zilber map.
+	The homomorphism $TC:\chi(k) \to BE(k)$ by Berger-Fresse satisfies
+	$$TC=N(tc) \circ \ez$$ where $\ez:N(Sur(k)) \to
+	N(Sur(k)^D)$ is the Eilenberg-Zilber map.
 \end{proposition}
 
 \begin{proof}
-By inspection of the definition in \cite{BFsmall}. %more? signs? which convention?
+	By inspection of the definition in \cite{BFsmall}.%more? signs? which convention?
 \end{proof}
 
 %Also $\mathcal{W}$ is filtered \cite{BFsmall}, i.e.
@@ -166,36 +170,32 @@ By inspection of the definition in \cite{BFsmall}. %more? signs? which conventio
 %$\mathcal{W}\Sigma_k={\rm colim}_d %\mathcal{W}_d\Sigma_k$, that form a filtration by %operads
 %$$\mathcal{W}_1 \subset \mathcal{W}_2 \subset \dots %\mathcal{W}$$
 
-
 %The normalized chain functor defines
 %$$BE_d(k):=N(\mathcal{W}_d \Sigma_k)$$ so that the %operads $BE_d$
 %form a filtration of $BE$.
-
 
 \subsection{Filtrations by complete graphs}
 In this section we refine the filtrations of McClure-Smith and Barratt-Eccles in order to show that $tc$ induces equivariant weak equivalence on the filtation terms.
 
 \begin{definition}[Complete graphs]
-		A \textit{complete graph} on $k$ vertices is
-		a pair $(\mu,\sigma)$, where $\mu$ is a collection of non-negative integers $\mu_{ij}\in\mathbb{N}$, $1 \leq i < j \leq k$
-  and $\sigma$ is an ordering of
-  $\{1,\dots,k\}$.
-  We can draw a graph with $k$ vertices and with an oriented edge between any two vertices $i,j$
-  labelled by $\mu_{ij}$, such that the orientation of the edges respect the ordering.
-  For example the figure represents a complete graph on 4 vertices with ordering $\sigma=(1432)$
+	A \textit{complete graph} on $k$ vertices is
+	a pair $(\mu,\sigma)$, where $\mu$ is a collection of non-negative integers $\mu_{ij}\in\mathbb{N}$, $1 \leq i < j \leq k$
+	and $\sigma$ is an ordering of
+	$\{1,\dots,k\}$.
+	We can draw a graph with $k$ vertices and with an oriented edge between any two vertices $i,j$
+	labelled by $\mu_{ij}$, such that the orientation of the edges respect the ordering.
+	For example the figure represents a complete graph on 4 vertices with ordering $\sigma=(1432)$
+	\begin{equation*}
+		\begin{tikzcd}
+			\ & 2 & \  \\
+			1 \arrow[ur,"2"] \arrow[rr] \arrow[dr,"3"']& \arrow[r,"1"] \arrow[u,"2"] & 3 \arrow[ul,"1"']  \\
+			\ & 4 \arrow[ur,"4"'] \arrow[uu] & \
+		\end{tikzcd}
+	\end{equation*}
+	Let us denote the set of complete graphs with $k$ vertices as $\mathcal{CG}(k)$.
 
-
-\begin{equation*}
-	\begin{tikzcd}
-		\ & 2 & \  \\
-		1 \arrow[ur,"2"] \arrow[rr] \arrow[dr,"3"']& \arrow[r,"1"] \arrow[u,"2"] & 3 \arrow[ul,"1"']  \\
-		\ & 4 \arrow[ur,"4"'] \arrow[uu] & \
-	\end{tikzcd}
-\end{equation*}
-Let us denote the set of complete graphs with $k$ vertices as $\mathcal{CG}(k)$.
-
-We write $\sigma_{ij}$ for the restriction of the ordering $\sigma$ to the set $\{i,j\}$.
-	\end{definition}
+	We write $\sigma_{ij}$ for the restriction of the ordering $\sigma$ to the set $\{i,j\}$.
+\end{definition}
 
 \begin{definition}[Complete graphs form a poset]
 	$\mathcal{CG}(k)$ has a poset structure as follow:
@@ -205,145 +205,144 @@ We write $\sigma_{ij}$ for the restriction of the ordering $\sigma$ to the set $
 	for each pair $\left\lbrace i,j\right\rbrace \subset\left\lbrace 1,\dots,k  \right\rbrace $.
 \end{definition}
 
+\begin{definition}[Filtration of the surjection multisimplicial set $Sur$]
+	Fix a surjection $f\in Sur(k)_{i_{1},\dots,i_{k}}$.
+	For any pair $(i,j)$ with $i< j$, let $f_{ij}$ be the subsequence of $f(1) \dots f(i_1+\dots+i_k+k)$ obtained omitting all the occurrences of elements different from $i$ and $j$.
+	%		For example, let $31231 \in Sur(3)_{2,1,2}$, we have $(31231)_{12}=121$, $(31231)_{23}=323$ and $(31231)_{13}=3131$.
+	The surjection $f$ belongs to $Sur_{(\mu,\sigma)}(k)\subseteq Sur(k)$ if for any pair $(i,j)$ with $i< j$, either in the sequence $f_{ij}$ $i$ and $j$ alternate strictly less than $\mu_{ij}$ times,
+	%		, that is the amount of times that the order of $i$ and $j$ change ,
+	or $i$ and $j$ alternate in the sequence $f_{ij}$  exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
+	Notice that \begin{equation*}
+		\label{def}
+		Sur_{n}(k)=\bigcup_{\max_{i<j}(\mu_{ij})< n} Sur_{(\mu,\sigma)}(k)
+	\end{equation*}
+	%		\\
+	%		\\
+	%		Returning to the example above we have $\mu_{12}(31231)=1$, $\mu_{23}(31231)=1$ and $\mu_{13}(31231)=2$ so that $31231\in Sur_{(\mu,\sigma)}(3)_{2,1,2}$
+	%		\begin{itemize}
+		%		\item if $\mu_{12}>1$, $\mu_{23}>1$ and $\mu_{13}>2$ and any $\sigma\in \Sigma_{3}$;
+		%		\item if some $\mu_{ij}=\mu(f)_{ij}$ and the first occurences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
+		%		\end{itemize}
+	%	    In our example we obtain that, by equation \ref{def},
+	%	    $31231\in Sur_{3}(k)_{2,1,2}$
+	%	    \\
+	%	    \\
+	% We have obtained the filtration $$Sur_1(k) \subset Sur_2(k)  \subset Sur_3(k)  \subset \dots $$
+	% that induces the filtration of the correspondent diagonal simplici%al set
+	%	    $$Sur_1(k)^{D} \subset Sur_2(k)^{D}  \subset Sur_3(k)^{D}  \subset\dots $$
 
-	\begin{definition}[Filtration of the surjection multisimplicial set $Sur$]
-		Fix a surjection $f\in Sur(k)_{i_{1},\dots,i_{k}}$. For any pair $(i,j)$ with $i< j$, let $f_{ij}$ be the subsequence of $f(1) \dots f(i_1+\dots+i_k+k)$ obtained omitting all the occurrences of elements different from $i$ and $j$.
-%		For example, let $31231 \in Sur(3)_{2,1,2}$, we have $(31231)_{12}=121$, $(31231)_{23}=323$ and $(31231)_{13}=3131$.
-		The surjection $f$ belongs to $Sur_{(\mu,\sigma)}(k)\subseteq Sur(k)$ if for any pair $(i,j)$ with $i< j$, either in the sequence $f_{ij}$ $i$ and $j$ alternate strictly less than $\mu_{ij}$ times,
-%		, that is the amount of times that the order of $i$ and $j$ change ,
-		 or $i$ and $j$ alternate in the sequence $f_{ij}$  exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$. Notice that \begin{equation*}
-		 	\label{def}
-		 	Sur_{n}(k)=\bigcup_{\max_{i<j}(\mu_{ij})< n} Sur_{(\mu,\sigma)}(k)
-		 \end{equation*}
-%		\\
-%		\\
-%		Returning to the example above we have $\mu_{12}(31231)=1$, $\mu_{23}(31231)=1$ and $\mu_{13}(31231)=2$ so that $31231\in Sur_{(\mu,\sigma)}(3)_{2,1,2}$
-%		\begin{itemize}
-%		\item if $\mu_{12}>1$, $\mu_{23}>1$ and $\mu_{13}>2$ and any $\sigma\in \Sigma_{3}$;
-%		\item if some $\mu_{ij}=\mu(f)_{ij}$ and the first occurences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
-%		\end{itemize}
-%	    In our example we obtain that, by equation \ref{def},
-%	    $31231\in Sur_{3}(k)_{2,1,2}$
-%	    \\
-%	    \\
-	   % We have obtained the filtration $$Sur_1(k) \subset Sur_2(k)  \subset Sur_3(k)  \subset \dots $$
-	   % that induces the filtration of the correspondent diagonal simplici%al set
-%	    $$Sur_1(k)^{D} \subset Sur_2(k)^{D}  \subset Sur_3(k)^{D}  \subset\dots $$
+\end{definition}
 
-	\end{definition}
-
-	\begin{definition}[Filtration of the Barratt-Eccles simplicial set $\mathcal{W}\Sigma_k$]
-	Fix an element  $w\in (\mathcal{W}\Sigma_k)_{d}$, $w=(w_{1},\dots , w_{d})$ with $w_{h}\in \Sigma_k$. For any pair $(i,j)$ with $i< j$, denote $w_{ij}=(w_{1,ij},\dots , w_{d,ij})$ where $w_{h,ij}$ is the subsequence of $w_{h}$ obtained omitting all the occurrences of elements different from $i$ and $j$.
-%	For example, let $(123,231,312) \in (\mathcal{W}\Sigma_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
+\begin{definition}[Filtration of the Barratt-Eccles simplicial set $\mathcal{W}\Sigma_k$]
+	Fix an element  $w\in (\mathcal{W}\Sigma_k)_{d}$, $w=(w_{1},\dots , w_{d})$ with $w_{h}\in \Sigma_k$.
+	For any pair $(i,j)$ with $i< j$, denote $w_{ij}=(w_{1,ij},\dots , w_{d,ij})$ where $w_{h,ij}$ is the subsequence of $w_{h}$ obtained omitting all the occurrences of elements different from $i$ and $j$.
+	%	For example, let $(123,231,312) \in (\mathcal{W}\Sigma_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
 	The element $w$ belongs to $\mathcal{W}_{(\mu,\sigma)}\Sigma_k\subseteq \mathcal{W}\Sigma_k$ if for all pairs $(i,j)$, $i< j$ either along the sequence $w_{ij}$ $i$ and $j$ swap less than $\mu_{ij}$ times,
-%	, that is, as before,  the amount of times that the order of $i$ and $j$ change ,
-	 or they swap exactly $\mu_{ij}$ times and the first permutation $w_{1,ij}$ is equal to $\sigma_{ij}$. Notice that
-	  \begin{equation*}
-	 	\label{def}
-	 	\mathcal{W}_{n}\Sigma_k=\bigcup_{\max_{i<j} (\mu_{ij})< n} \mathcal{W}_{(\mu,\sigma)}\Sigma_{k}
-	 \end{equation*}
+	%	, that is, as before,  the amount of times that the order of $i$ and $j$ change ,
+	or they swap exactly $\mu_{ij}$ times and the first permutation $w_{1,ij}$ is equal to $\sigma_{ij}$.
+	Notice that
+	\begin{equation*}
+		\label{def}
+		\mathcal{W}_{n}\Sigma_k=\bigcup_{\max_{i<j} (\mu_{ij})< n} \mathcal{W}_{(\mu,\sigma)}\Sigma_{k}
+	\end{equation*}
 	\\
 	\\
-%	Returning to the example above we have $\mu_{12}(123,231,312)=2$, $\mu_{23}(123,231,312)=1$ and $\mu_{13}(123,231,312)=1$ so that $(123,231,312)\in (\mathcal{W}_{(\mu,\sigma)}\Sigma_3)_{3}$
-%	\begin{itemize}
-%		\item if $\mu_{12}>2$, $\mu_{23}>1$ and $\mu_{13}>1$ and any $\sigma\in \Sigma_{3}$;
-%		\item if some $\mu_{ij}=\mu_{ij}(w)$ and the first permutation of $w$ is equal to $\sigma_{ij}$.
-%	\end{itemize}
-%	In our example we obtain that, by equation \ref{def},
-%	$(123,231,312)\in (\mathcal{W}_{3}\Sigma_3)_{3}$
-%	\\
-%	\\
-%	We have obtained the filtration $$\mathcal{W}_1\Sigma_k \subset \mathcal{W}_2 \Sigma_k
-%	\subset \mathcal{W}_3 \Sigma_k
-%	\subset \dots $$
-%	that is the other one we need in $tc$ definition.
-
+	%	Returning to the example above we have $\mu_{12}(123,231,312)=2$, $\mu_{23}(123,231,312)=1$ and $\mu_{13}(123,231,312)=1$ so that $(123,231,312)\in (\mathcal{W}_{(\mu,\sigma)}\Sigma_3)_{3}$
+	%	\begin{itemize}
+		%		\item if $\mu_{12}>2$, $\mu_{23}>1$ and $\mu_{13}>1$ and any $\sigma\in \Sigma_{3}$;
+		%		\item if some $\mu_{ij}=\mu_{ij}(w)$ and the first permutation of $w$ is equal to $\sigma_{ij}$.
+		%	\end{itemize}
+	%	In our example we obtain that, by equation \ref{def},
+	%	$(123,231,312)\in (\mathcal{W}_{3}\Sigma_3)_{3}$
+	%	\\
+	%	\\
+	%	We have obtained the filtration $$\mathcal{W}_1\Sigma_k \subset \mathcal{W}_2 \Sigma_k
+	%	\subset \mathcal{W}_3 \Sigma_k
+	%	\subset \dots $$
+	%	that is the other one we need in $tc$ definition.
 \end{definition}
 
 % In both cases, to see even the role of permutations we'll use always pairs $(\mu,\sigma)$ with $\mu$ exactly the collection of variation numbers obtained from the initial element so that the permutation is uniquely determined, and $(\mu,\sigma)$ is minimal in the poset.
 % \\
 % In our examples
 % \begin{itemize}
-% 	\item $31231\in Sur_{(\mu,\sigma)}(3)_{2,1,2} \subseteq Sur_{3}(3)_{2,1,2}$ with $(\mu_{12},\mu_{13},\mu_{23})=(1,2,1)$ and $\sigma=(312)$
-% 	\item $(123,231,312)\in (\mathcal{W}_{(\mu,\sigma)}\Sigma_3)_{3} \subset (\mathcal{W}_{3}\Sigma_3)_{3}$ with $(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$ and $\sigma=(123)$
-% \end{itemize}
+	% 	\item $31231\in Sur_{(\mu,\sigma)}(3)_{2,1,2} \subseteq Sur_{3}(3)_{2,1,2}$ with $(\mu_{12},\mu_{13},\mu_{23})=(1,2,1)$ and $\sigma=(312)$
+	% 	\item $(123,231,312)\in (\mathcal{W}_{(\mu,\sigma)}\Sigma_3)_{3} \subset (\mathcal{W}_{3}\Sigma_3)_{3}$ with $(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$ and $\sigma=(123)$
+	% \end{itemize}
 %	We observe that the simplicial map $tc$ respects the filtration, sending
 %	$Sur_d(k)^D$ to $\mathcal{W}_d\Sigma_k$
 %	\\
 %	\begin{example}
-%	We are givine some example of the compatibility of $tc$ to visualize why it works in general.
-%	Let $122333112 \in Sur(3)^{D} $
-%	\begin{itemize}
-%		\item $(122333112)_{12}=122112\rightarrow \mu_{12}=2$
-%		\item $(122333112)_{13}=133311\rightarrow \mu_{13}=1$
-%		\item $(122333112)_{23}=223332\rightarrow \mu_{23}=1$
-%	\end{itemize}
-%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
-%and the first occurrences of $1,2,3$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $122333112 \in Sur_{((2,1,1),(123))}(3)^{D}$ $\Rightarrow$ $122333112 \in Sur_{3}(3)^{D}$.
-%Now applying $tc$ we obtain $tc(122333112)=(123,231,312)\in (\mathcal{W}\Sigma_3)_{3} $
-%\begin{itemize}
-%\item $(123,231,312)_{12}=(12,21,12)\rightarrow \mu_{12}=2$
-%\item $(123,231,312)_{13}=(13,31,31)\rightarrow \mu_{13}=1$
-%\item $(123,231,312)_{23}=(23,23,32)\rightarrow \mu_{23}=1$
-%\end{itemize}
-%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
-%and the first permutation in $(123,231,312)$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $(123,231,312) \in (\mathcal{W}_{((2,1,1),(123))}\Sigma_{3})_{3}$ $\Rightarrow$ $(123,231,312) \in (\mathcal{W}_{3}\Sigma_{3})_{3}$.
-%
-%
-%
-%	\end{example}
+	%	We are givine some example of the compatibility of $tc$ to visualize why it works in general.
+	%	Let $122333112 \in Sur(3)^{D} $
+	%	\begin{itemize}
+		%		\item $(122333112)_{12}=122112\rightarrow \mu_{12}=2$
+		%		\item $(122333112)_{13}=133311\rightarrow \mu_{13}=1$
+		%		\item $(122333112)_{23}=223332\rightarrow \mu_{23}=1$
+		%	\end{itemize}
+	%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
+	%and the first occurrences of $1,2,3$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $122333112 \in Sur_{((2,1,1),(123))}(3)^{D}$ $\Rightarrow$ $122333112 \in Sur_{3}(3)^{D}$.
+	%Now applying $tc$ we obtain $tc(122333112)=(123,231,312)\in (\mathcal{W}\Sigma_3)_{3} $
+	%\begin{itemize}
+	%\item $(123,231,312)_{12}=(12,21,12)\rightarrow \mu_{12}=2$
+	%\item $(123,231,312)_{13}=(13,31,31)\rightarrow \mu_{13}=1$
+	%\item $(123,231,312)_{23}=(23,23,32)\rightarrow \mu_{23}=1$
+	%\end{itemize}
+	%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
+	%and the first permutation in $(123,231,312)$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $(123,231,312) \in (\mathcal{W}_{((2,1,1),(123))}\Sigma_{3})_{3}$ $\Rightarrow$ $(123,231,312) \in (\mathcal{W}_{3}\Sigma_{3})_{3}$.
+	%
+	%
+	%
+	%	\end{example}
 
 \begin{lemma}[Compatibility of $tc$]
 	We have that the map $tc:Sur(k)^{D}\rightarrow \mathcal{W}\Sigma_{k}$ is compatible with the filtrations, in the sense that
 	$$tc(Sur_{(\mu,\sigma)}(k)^{D})\subseteq \mathcal{W}_{(\mu,\sigma)}\Sigma_{k}$$
-and in particular
+	and in particular
 	$$tc(Sur_{n}(k)^{D})\subseteq \mathcal{W}_{n}\Sigma_{k}$$
-
-
-
 \end{lemma}
+
 \begin{proof}
-Let  $f\in Sur(k)^{D}$ be an $m$-simplex and denote
-$$tc(f)=w=(w_{1},\dots,w_{m+1})\in (\mathcal{W}\Sigma_{k})_{m+1}$$
-Suppose that in $f_{ij}$ $i$ and $j$ alternate $\mu_{ij}$ times, and in $w_{ij}$ $i$ and $j$ alternate  $\mu_{ij}'$ times. We will prove that
-$\mu_{ij}' \leq \mu_{ij}$.
+	Let  $f\in Sur(k)^{D}$ be an $m$-simplex and denote
+	$$tc(f)=w=(w_{1},\dots,w_{m+1})\in (\mathcal{W}\Sigma_{k})_{m+1}$$
+	Suppose that in $f_{ij}$ $i$ and $j$ alternate $\mu_{ij}$ times, and in $w_{ij}$ $i$ and $j$ alternate  $\mu_{ij}'$ times.
+	We will prove that
+	$\mu_{ij}' \leq \mu_{ij}$.
 
-Suppose without loss of generality that $i$ occurs before $j$ in $f_{ij}$, that starts with $i$ repeated $h$ times, followed by $j$ repeated $l$ times, and
-then by $i$ again (or terminating). If the sequence terminates then $h=l=k$ and $\mu_{ij}=\mu_{ij}'=0$.
-For $h <l$
-let $\bar{f}_{ij}$ be the subsequence of $f_{ij}$
-obtained taking out the first $h$ values of $i$ and of $j$.
-Let $\bar{\mu}_{ij}$ be the number of variations of $i$ and $j$ in $\bar{f}_{ij}$
-and $\bar{\mu}'_{ij}$ the number of variations of $i$ and $j$ in $tc(\bar{f}_{ij})$.
+	Suppose without loss of generality that $i$ occurs before $j$ in $f_{ij}$, that starts with $i$ repeated $h$ times, followed by $j$ repeated $l$ times, and
+	then by $i$ again (or terminating).
+	If the sequence terminates then $h=l=k$ and $\mu_{ij}=\mu_{ij}'=0$.
+	For $h <l$
+	let $\bar{f}_{ij}$ be the subsequence of $f_{ij}$
+	obtained taking out the first $h$ values of $i$ and of $j$.
+	Let $\bar{\mu}_{ij}$ be the number of variations of $i$ and $j$ in $\bar{f}_{ij}$
+	and $\bar{\mu}'_{ij}$ the number of variations of $i$ and $j$ in $tc(\bar{f}_{ij})$.
 
-Then $\bar{f}_{ij}$
-starts with $j$,
-$\mu_{i,j}=1+\bar{\mu}_{ij}$,
-and $\mu'_{ij}=1+\bar{\mu}'_{ij}$.
+	Then $\bar{f}_{ij}$
+	starts with $j$,
+	$\mu_{i,j}=1+\bar{\mu}_{ij}$,
+	and $\mu'_{ij}=1+\bar{\mu}'_{ij}$.
 
-If $h \geq l$ and $l<k$
-let $\bar{f}_{ij}$ be the subsequence of $f_{ij}$ obtained taking out the first $l$ values of $i$ and $j$.
-Then $\bar{f}_{ij}$
-starts with $i$,
-$\mu_{i,j}=1+\bar{\mu}_{ij}$,
-and $\mu'_{ij}=\bar{\mu}'_{ij}$.
-By induction on the length of sequences we obtain that
- $\mu_{ij}'\le \mu_{ij}$.\\
-Moreover $tc$ is compatible with orderings: the first occurrences of $i$ and $j$ form the ordering $w_{1,ij}$ that is the first permutation of $tc(f_{ij})$.
-This concludes the proof.
+	If $h \geq l$ and $l<k$
+	let $\bar{f}_{ij}$ be the subsequence of $f_{ij}$ obtained taking out the first $l$ values of $i$ and $j$.
+	Then $\bar{f}_{ij}$
+	starts with $i$,
+	$\mu_{i,j}=1+\bar{\mu}_{ij}$,
+	and $\mu'_{ij}=\bar{\mu}'_{ij}$.
+	By induction on the length of sequences we obtain that
+	$\mu_{ij}'\le \mu_{ij}$.\\
+	Moreover $tc$ is compatible with orderings: the first occurrences of $i$ and $j$ form the ordering $w_{1,ij}$ that is the first permutation of $tc(f_{ij})$.
+	This concludes the proof.
 \end{proof}
 
-\begin{corollary}\label{cor-comparing}
+\begin{corollary} \label{cor-comparing}
 	The map $tc_{n}:Sur_{n}(k)^{D}\rightarrow \mathcal{W}_{n}\Sigma_{k}$ is a weak equivalence.
 \end{corollary}
 
-
-
 \begin{proof}
-We can express source and target as colimits of contractible %ok?
-simplicial sets along the poset of complete graphs,
-so we have a commutative diagram
-
+	We can express source and target as colimits of contractible %ok?
+	simplicial sets along the poset of complete graphs,
+	so we have a commutative diagram
 	\begin{equation*}
 		\begin{tikzcd}
 			hocolim_{(\mu,\sigma)}Sur_{(\mu,\sigma)}(k)^{D} \arrow[r] \arrow[d]& hocolim_{(\mu,\sigma)}\mathcal{W}_{(\mu,\sigma)}\Sigma_{k} \arrow[d] \\
@@ -352,11 +351,8 @@ so we have a commutative diagram
 	\end{equation*}
 	Where the vertical and top arrows
 	are weak equivalences, and so the bottom map is a weak equivalence.
-
 \end{proof}
-We remark that $tc$ is compatible 
-with the equivalences in propositions \ref{sur-real} and \ref{be-real} 
-since they are proved to be equivalences by a similar method.
+We remark that $tc$ is compatible with the equivalences in propositions \ref{sur-real} and \ref{be-real} since they are proved to be equivalences by a similar method.
 
 
 %Let  $F_k(\R^{d})$ be the ordered configuration %space of $k$-tuples of points in  $\R^{d}$.
@@ -380,11 +376,11 @@ $$PB_d^k(x) = \sum_i rank(BE_d(k)_i) x^i $$ $$P\chi_d^k(x)=
 \sum_i rank(\chi_d(k)_i) x^i$$
 Then for example
 \begin{align*}
-& PB_2^4(x)=24(1+23x+104x^2+196x^3+184x^4+86x^5+16x^6)\\
-& P\chi_2^4(x)=24(1+6x+10x^2+5x^3) \\
-& \\
-& PB_3^3(x) = 6(1+5x+25x^2+60x^3+70x^4+38x^5+8x^6 ) \\
-&  P\chi_3^3(x)= 6(1+3x+7x^2+9x^3+6x^4+x^5)
+	& PB_2^4(x)=24(1+23x+104x^2+196x^3+184x^4+86x^5+16x^6)\\
+	& P\chi_2^4(x)=24(1+6x+10x^2+5x^3) \\
+	& \\
+	& PB_3^3(x) = 6(1+5x+25x^2+60x^3+70x^4+38x^5+8x^6 ) \\
+	&  P\chi_3^3(x)= 6(1+3x+7x^2+9x^3+6x^4+x^5)
 \end{align*}
 Therefore the multisimplicial approach using $\chi$ is much more efficient than the simplicial
 approach using $BE$, when performing computations as in \cite{formality}.
