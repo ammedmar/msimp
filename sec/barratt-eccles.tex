@@ -1,0 +1,241 @@
+\subsection{Simplicial model}
+
+We recall that the Barratt-Eccles simplicial sets $\mathcal{W}\Sigma_k$ is defined levelwise by $\mathcal({W}\Sigma_k)_i=(\Sigma_k)^{i+1}$.
+The face $d_{j}$ removes the $(j+1)$-st permutation, and the degeneracy $s_j$ doubles the $(j+1)$-st permutation.
+There is an operad structure on the collection $\mathcal{W} \Sigma_k$.
+
+There is a filtration of the $W \Sigma_k$ by simplicial subsets
+$W_d \Sigma_k$.
+Let us write elements of $\Sigma_k$ as a string containing all numbers from $1$ to $k$.
+Then $(w_0,\dots,w_i) \in W_d \Sigma_k$ if for any pair of indices their order of appearance in a string swaps at most $d-1$ times, as we proceed from $w_0$ to $w_i$.
+for example $y=(123,213,312) \in \mathcal{W}_3 \Sigma_3$ but $y \notin \mathcal{W}_2 \Sigma_3$
+because the position of $1$ and $2$ swaps two times.
+
+The symmetric group $\Sigma_k$ acts on
+$\mathcal{W} \Sigma_k$ by diagonal action and the action preserves the filtration.
+
+The following is well known, see for example \cite{BF}
+\begin{proposition} \ref{be-real}
+	The geometric realization $\bars{\mathcal{W}_d \Sigma_k}$ is $\Sigma_k$-equivariantly homotopy equivalent to $F_d(\R^k)$.
+\end{proposition}
+
+The (normalized) chain complex of $\mathcal{W}_d\Sigma_k$ is called the Barratt-Eccles chain complex $$BE_d(k):=N(\mathcal{W}_d\Sigma_k)$$
+the collection of these complexes forms the Barratt-Eccles operad $BE_d$.
+\cite{BF}
+There is a filtration
+$$BE_0 \subset BE_1 \subset BE_2 \dots \subset BE$$
+
+Similarly as for proposition \ref{sur-model} we have the following.
+
+\begin{proposition}
+	There is a  $\Sigma_k$-equivariant quasi-isomorphism
+	of $E_\infty$-coalgebras between $BE_d(k)$ and
+	$S^{(1)}(F_k(\R^d))$.
+\end{proposition}
+
+\begin{proof} \label{be-model}
+	The required quasi-isomorphism follows from proposition \ref{be-real} and the equivariant quasi-isomorphism $BE_d(k) \simeq S^{(1)}(|W_d\Sigma_k|)$. %counit of quillen adjunction
+\end{proof}
+
+\subsection{A comparison morphism}
+
+In this section we construct an explicit combinatorial map between the surjection complex and the Barratt-Eccles complex, that respects filtrations, inducing weak equivalences of subcomplexes.
+Furthermore it upgrades a map previously defined on the chain level by Berger and Fresse: they constructed in \cite{BFsmall}
+an operad map $TR:BE \to \chi$ preserving the filtrations and a collection of $\Sigma_k$-equivariant
+chain maps $TC(k):\chi(k) \to BE(k)$ preserving filtrations
+that are right inverses of $TR(k)$ but do not form an operad map.
+We warn the reader that neither $TR$ nor $TC$ preserve the $E_\infty$-coalgebra structure, but
+$TC$ preserves the $E_1$-coalgebra structure.
+
+We claim that $TC$ is induced by a map of simplicial sets
+$$tc: Sur(k)^D \to \mathcal{W}\Sigma_k$$ that we define.
+\begin{definition}
+	Let $s$ be an $i$-simplex  of the diagonal $Sur(k)^D$, i.e. a sequence containing any value in $\{1,\dots,k\}$ exactly $i+1$ times.
+	Then $tc(s):=(\sigma_0,\dots,\sigma_i)$ is a sequence of permutations where $\sigma_j$ is the subsequence of $s$ containing the $(j+1)$-st occurrence of each value in $\{1,\dots,k\}$.
+\end{definition}
+
+For example
+$$tc(122333112)=(123,231,312)$$
+
+\begin{proposition}
+	The homomorphism $TC:\chi(k) \to BE(k)$ by Berger-Fresse satisfies
+	$$TC=N(tc) \circ \ez$$ where $\ez:N(Sur(k)) \to
+	N(Sur(k)^D)$ is the Eilenberg-Zilber map.
+\end{proposition}
+
+\begin{proof}
+	By inspection of the definition in \cite{BFsmall}.%more? signs? which convention?
+\end{proof}
+
+%Also $\mathcal{W}$ is filtered \cite{BFsmall}, i.e.
+%there is a family of nested simplicial sets %$$\mathcal{W}_1\Sigma_k \subset \mathcal{W}_2 %\Sigma_k
+% \subset \dots $$ such that
+%$\mathcal{W}\Sigma_k={\rm colim}_d %\mathcal{W}_d\Sigma_k$, that form a filtration by %operads
+%$$\mathcal{W}_1 \subset \mathcal{W}_2 \subset \dots %\mathcal{W}$$
+
+%The normalized chain functor defines
+%$$BE_d(k):=N(\mathcal{W}_d \Sigma_k)$$ so that the %operads $BE_d$
+%form a filtration of $BE$.
+
+% FILTRATION FOR SURJ
+
+\begin{definition}[Filtration of the surjection multisimplicial set $Sur$]
+	Fix a surjection $f\in Sur(k)_{i_{1},\dots,i_{k}}$.
+	For any pair $(i,j)$ with $i< j$, let $f_{ij}$ be the subsequence of $f(1) \dots f(i_1+\dots+i_k+k)$ obtained omitting all the occurrences of elements different from $i$ and $j$.
+	%		For example, let $31231 \in Sur(3)_{2,1,2}$, we have $(31231)_{12}=121$, $(31231)_{23}=323$ and $(31231)_{13}=3131$.
+	The surjection $f$ belongs to $Sur_{(\mu,\sigma)}(k)\subseteq Sur(k)$ if for any pair $(i,j)$ with $i< j$, either in the sequence $f_{ij}$ $i$ and $j$ alternate strictly less than $\mu_{ij}$ times,
+	%		, that is the amount of times that the order of $i$ and $j$ change ,
+	or $i$ and $j$ alternate in the sequence $f_{ij}$  exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
+	Notice that \begin{equation*}
+		\label{def}
+		Sur_{n}(k)=\bigcup_{\max_{i<j}(\mu_{ij})< n} Sur_{(\mu,\sigma)}(k)
+	\end{equation*}
+	%		\\
+	%		\\
+	%		Returning to the example above we have $\mu_{12}(31231)=1$, $\mu_{23}(31231)=1$ and $\mu_{13}(31231)=2$ so that $31231\in Sur_{(\mu,\sigma)}(3)_{2,1,2}$
+	%		\begin{itemize}
+		%		\item if $\mu_{12}>1$, $\mu_{23}>1$ and $\mu_{13}>2$ and any $\sigma\in \Sigma_{3}$;
+		%		\item if some $\mu_{ij}=\mu(f)_{ij}$ and the first occurences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
+		%		\end{itemize}
+	%	    In our example we obtain that, by equation \ref{def},
+	%	    $31231\in Sur_{3}(k)_{2,1,2}$
+	%	    \\
+	%	    \\
+	% We have obtained the filtration $$Sur_1(k) \subset Sur_2(k)  \subset Sur_3(k)  \subset \dots $$
+	% that induces the filtration of the correspondent diagonal simplici%al set
+	%	    $$Sur_1(k)^{D} \subset Sur_2(k)^{D}  \subset Sur_3(k)^{D}  \subset\dots $$
+
+\end{definition}
+
+\begin{definition}[Filtration of the Barratt-Eccles simplicial set $\mathcal{W}\Sigma_k$]
+	Fix an element  $w\in (\mathcal{W}\Sigma_k)_{d}$, $w=(w_{1},\dots , w_{d})$ with $w_{h}\in \Sigma_k$.
+	For any pair $(i,j)$ with $i< j$, denote $w_{ij}=(w_{1,ij},\dots , w_{d,ij})$ where $w_{h,ij}$ is the subsequence of $w_{h}$ obtained omitting all the occurrences of elements different from $i$ and $j$.
+	%	For example, let $(123,231,312) \in (\mathcal{W}\Sigma_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
+	The element $w$ belongs to $\mathcal{W}_{(\mu,\sigma)}\Sigma_k\subseteq \mathcal{W}\Sigma_k$ if for all pairs $(i,j)$, $i< j$ either along the sequence $w_{ij}$ $i$ and $j$ swap less than $\mu_{ij}$ times,
+	%	, that is, as before,  the amount of times that the order of $i$ and $j$ change ,
+	or they swap exactly $\mu_{ij}$ times and the first permutation $w_{1,ij}$ is equal to $\sigma_{ij}$.
+	Notice that
+	\begin{equation*}
+		\label{def}
+		\mathcal{W}_{n}\Sigma_k=\bigcup_{\max_{i<j} (\mu_{ij})< n} \mathcal{W}_{(\mu,\sigma)}\Sigma_{k}
+	\end{equation*}
+	\\
+	\\
+	%	Returning to the example above we have $\mu_{12}(123,231,312)=2$, $\mu_{23}(123,231,312)=1$ and $\mu_{13}(123,231,312)=1$ so that $(123,231,312)\in (\mathcal{W}_{(\mu,\sigma)}\Sigma_3)_{3}$
+	%	\begin{itemize}
+		%		\item if $\mu_{12}>2$, $\mu_{23}>1$ and $\mu_{13}>1$ and any $\sigma\in \Sigma_{3}$;
+		%		\item if some $\mu_{ij}=\mu_{ij}(w)$ and the first permutation of $w$ is equal to $\sigma_{ij}$.
+		%	\end{itemize}
+	%	In our example we obtain that, by equation \ref{def},
+	%	$(123,231,312)\in (\mathcal{W}_{3}\Sigma_3)_{3}$
+	%	\\
+	%	\\
+	%	We have obtained the filtration $$\mathcal{W}_1\Sigma_k \subset \mathcal{W}_2 \Sigma_k
+	%	\subset \mathcal{W}_3 \Sigma_k
+	%	\subset \dots $$
+	%	that is the other one we need in $tc$ definition.
+\end{definition}
+
+% In both cases, to see even the role of permutations we'll use always pairs $(\mu,\sigma)$ with $\mu$ exactly the collection of variation numbers obtained from the initial element so that the permutation is uniquely determined, and $(\mu,\sigma)$ is minimal in the poset.
+% \\
+% In our examples
+% \begin{itemize}
+	% 	\item $31231\in Sur_{(\mu,\sigma)}(3)_{2,1,2} \subseteq Sur_{3}(3)_{2,1,2}$ with $(\mu_{12},\mu_{13},\mu_{23})=(1,2,1)$ and $\sigma=(312)$
+	% 	\item $(123,231,312)\in (\mathcal{W}_{(\mu,\sigma)}\Sigma_3)_{3} \subset (\mathcal{W}_{3}\Sigma_3)_{3}$ with $(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$ and $\sigma=(123)$
+	% \end{itemize}
+%	We observe that the simplicial map $tc$ respects the filtration, sending
+%	$Sur_d(k)^D$ to $\mathcal{W}_d\Sigma_k$
+%	\\
+%	\begin{example}
+	%	We are givine some example of the compatibility of $tc$ to visualize why it works in general.
+	%	Let $122333112 \in Sur(3)^{D} $
+	%	\begin{itemize}
+		%		\item $(122333112)_{12}=122112\rightarrow \mu_{12}=2$
+		%		\item $(122333112)_{13}=133311\rightarrow \mu_{13}=1$
+		%		\item $(122333112)_{23}=223332\rightarrow \mu_{23}=1$
+		%	\end{itemize}
+	%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
+	%and the first occurrences of $1,2,3$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $122333112 \in Sur_{((2,1,1),(123))}(3)^{D}$ $\Rightarrow$ $122333112 \in Sur_{3}(3)^{D}$.
+	%Now applying $tc$ we obtain $tc(122333112)=(123,231,312)\in (\mathcal{W}\Sigma_3)_{3} $
+	%\begin{itemize}
+	%\item $(123,231,312)_{12}=(12,21,12)\rightarrow \mu_{12}=2$
+	%\item $(123,231,312)_{13}=(13,31,31)\rightarrow \mu_{13}=1$
+	%\item $(123,231,312)_{23}=(23,23,32)\rightarrow \mu_{23}=1$
+	%\end{itemize}
+	%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
+	%and the first permutation in $(123,231,312)$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $(123,231,312) \in (\mathcal{W}_{((2,1,1),(123))}\Sigma_{3})_{3}$ $\Rightarrow$ $(123,231,312) \in (\mathcal{W}_{3}\Sigma_{3})_{3}$.
+	%
+	%
+	%
+	%	\end{example}
+
+\begin{lemma}[Compatibility of $tc$]
+	We have that the map $tc:Sur(k)^{D}\rightarrow \mathcal{W}\Sigma_{k}$ is compatible with the filtrations, in the sense that
+	$$tc(Sur_{(\mu,\sigma)}(k)^{D})\subseteq \mathcal{W}_{(\mu,\sigma)}\Sigma_{k}$$
+	and in particular
+	$$tc(Sur_{n}(k)^{D})\subseteq \mathcal{W}_{n}\Sigma_{k}$$
+\end{lemma}
+
+\begin{proof}
+	Let  $f\in Sur(k)^{D}$ be an $m$-simplex and denote
+	$$tc(f)=w=(w_{1},\dots,w_{m+1})\in (\mathcal{W}\Sigma_{k})_{m+1}$$
+	Suppose that in $f_{ij}$ $i$ and $j$ alternate $\mu_{ij}$ times, and in $w_{ij}$ $i$ and $j$ alternate  $\mu_{ij}'$ times.
+	We will prove that
+	$\mu_{ij}' \leq \mu_{ij}$.
+
+	Suppose without loss of generality that $i$ occurs before $j$ in $f_{ij}$, that starts with $i$ repeated $h$ times, followed by $j$ repeated $l$ times, and
+	then by $i$ again (or terminating).
+	If the sequence terminates then $h=l=k$ and $\mu_{ij}=\mu_{ij}'=0$.
+	For $h <l$
+	let $\bar{f}_{ij}$ be the subsequence of $f_{ij}$
+	obtained taking out the first $h$ values of $i$ and of $j$.
+	Let $\bar{\mu}_{ij}$ be the number of variations of $i$ and $j$ in $\bar{f}_{ij}$
+	and $\bar{\mu}'_{ij}$ the number of variations of $i$ and $j$ in $tc(\bar{f}_{ij})$.
+
+	Then $\bar{f}_{ij}$
+	starts with $j$,
+	$\mu_{i,j}=1+\bar{\mu}_{ij}$,
+	and $\mu'_{ij}=1+\bar{\mu}'_{ij}$.
+
+	If $h \geq l$ and $l<k$
+	let $\bar{f}_{ij}$ be the subsequence of $f_{ij}$ obtained taking out the first $l$ values of $i$ and $j$.
+	Then $\bar{f}_{ij}$
+	starts with $i$,
+	$\mu_{i,j}=1+\bar{\mu}_{ij}$,
+	and $\mu'_{ij}=\bar{\mu}'_{ij}$.
+	By induction on the length of sequences we obtain that
+	$\mu_{ij}'\le \mu_{ij}$.\\
+	Moreover $tc$ is compatible with orderings: the first occurrences of $i$ and $j$ form the ordering $w_{1,ij}$ that is the first permutation of $tc(f_{ij})$.
+	This concludes the proof.
+\end{proof}
+
+\begin{corollary} \label{cor-comparing}
+	The map $tc_{n}:Sur_{n}(k)^{D}\rightarrow \mathcal{W}_{n}\Sigma_{k}$ is a weak equivalence.
+\end{corollary}
+
+\begin{proof}
+	We can express source and target as colimits of contractible %ok?
+	simplicial sets along the poset of complete graphs,
+	so we have a commutative diagram
+	\begin{equation*}
+		\begin{tikzcd}
+			hocolim_{(\mu,\sigma)}Sur_{(\mu,\sigma)}(k)^{D} \arrow[r] \arrow[d]& hocolim_{(\mu,\sigma)}\mathcal{W}_{(\mu,\sigma)}\Sigma_{k} \arrow[d] \\
+			Sur_{n}(k)^{D}\arrow[r] & \mathcal{W}_{n}\Sigma_{k}&
+		\end{tikzcd}
+	\end{equation*}
+	Where the vertical and top arrows
+	are weak equivalences, and so the bottom map is a weak equivalence.
+\end{proof}
+We remark that $tc$ is compatible with the equivalences in propositions \ref{sur-real} and \ref{be-real} since they are proved to be equivalences by a similar method.
+
+
+%Let  $F_k(\R^{d})$ be the ordered configuration %space of $k$-tuples of points in  $\R^{d}$.
+
+%\begin{proposition}
+%The geometric realizations satisfy
+%$$|Sur_d(k)| \simeq |W_d(k)|  \simeq F_k(\R^{d})$$
+%\end{proposition}
+
+%\begin{proof}
+%The configuration space is homotopy equivalent to %the homotopy colimit of contractible spaces along %the same poset as above, as shown by McClure and %Smith \cite{MS}. %this is originally Berger's %criterion..
+%\end{proof}
