@@ -1,112 +1,76 @@
 \subsection{Multisimplicial model} \label{ss:multisimplicial model}
 
-We define a family of multisimplicial sets $Sur(k)$ due essentially to McClure and Smith \cite{MS}.
-These have an increasing filtration by multisimplicial subsets $Sur_d(k)$ such that the geometric realization $\bars{Sur_d(k)}$ is homotopy equivalent to the configuration space
-$F_k(\R^d)$.
+We define for each positive integer $k$ a family of multisimplicial sets $\sur(k)$ equipped with a complete graph filtration
+\[
+\sur(k,0) \subset \sur(k,1) \subset \sur(k,2) \subset \dotsb
+\]
+which, by applying to it the functor of chains, recovers the algebraic models of configuration spaces developed by McClure--Smith \cite{mcclure2003multivariable}.
 
-%Also the geometric realizations
-%$$\mathcal{F}(k)=\bars{Sur(k)}$$ appear in the work by %McClure-Smith \cite{MS}, as explained in the appendix of %\cite{Deligne}.
+Also the geometric realizations $\mathcal{F}(k) = \bars{\sur(k)}$ appear in the work by McClure-Smith \cite{MS}, as explained in the appendix of \cite{Deligne}.
+\todo{@paolo: this sentence appears cryptic to me. Can you say what you mean? Maybe in the previous sentence we can say not algebraic models but ``space'' level.}
 
-\begin{definition}
-	Let $Sur(k)$ be the $k$-fold multisimplicial set that has
-	as $(i_1,\dots,i_k)$-multisimplices
-	the surjective maps
-	$$f:\{1,\dots,i_1+\dots+i_k+k\} \to \{1,\dots,k\}$$
-	such that the cardinality of $f^{-1}(l)$ is $i_l$, for $l=1,\dots,k$.
-	We represent such maps by the sequence
-	$$f(1) \dots f(i_1+\dots+i_k+k)$$
-	The face map
-	$d^l_j$ removes the $(j+1)$-th occurrence of $l$ in a sequence, and the degeneracy map
-	$s^l_j$ doubles the $(j+1)$-th occurrence of $l$ in a sequence.
-	So for example
-	\begin{align*}
-		d^2_0(12321)=1321 \\ d^2_1(12321)=1231 \\ s^1_0(121)=1121
-	\end{align*}
-	Degenerate multisimplices are exactly the sequences containing two equal adjacent terms.
+Let $\sur(k)$ be the $k$-fold multisimplicial set that has as $(m_1,\dots,m_k)$-multisimplices
+the surjective maps
+\[
+f \colon \set{1,\dots,m+k} \to \set{1,\dots,k}
+\]
+where $m = m_1+\dots+m_k$ satisfying that the cardinality of $f^{-1}(\ell)$ is $m_\ell$ for each $\ell \in \set{1,\dots,k}$.
+We represent this multisimplex by the sequence $f(1) \dotsm f(m+k)$.
+The face and degeneracy maps $d^\ell_j$ and $s^\ell_j$ act on it by respectively removing and doubling the $(j+1)^\th$ occurrence of $\ell$ in the sequence.
+For example,
+\begin{align*}
+	d^2_0(12321)&=1321, & s^1_0(121)&=1121, \\
+	d^2_1(12321)&=1231, & s^1_1(121)&=1211.
+\end{align*}
+Degenerate multisimplices are exactly the sequences containing two equal adjacent terms.
+A surjection belongs to $\sur(k,d)$ if any ordered subsequence with two distinct alternating values has length at most $d+1$.
+For example, $x = 12132 \in \sur_3(3)$ but $x \notin \sur_2(3)$ because the subsequence $1212$ has length 4.
+This is a complete graph filtration since...
+\todo{@paolo: verify the conditions of complete graph filtration to get the (now commented out) proposition below}
+The symmetric group $\Sigma_k$ acts on $\sur(k)$ by post-composition and the action preserves the filtration.
 
-	The front (resp. back) $(i_1,\dots,i_k)$-face of a sequence is the subsequence containing only the first (resp. last)
-	$(i_l+1)$-values of $l$, for each
-	$l=1,\dots,k$.
-\end{definition}
+%\begin{proposition} \label{sur-real}
+%	There is a $\Sigma_k$-equivariant homotopy equivalence
+%	$\bars{\sur_d(k)} \simeq F_k(\R^d)$
+%\end{proposition}
+%
+%\begin{proof}
+%	The geometric realization $\bars{\sur_d(k)}$ appears in section 13 of \cite{MS} where it is denoted $Z_0^k$.
+%	McClure and Smith define for each $d$ a topological operads $\mathcal{D}_d$ such that $\mathcal{D}_d(k)$ is $\Sigma_k$-homeomorphic to $\bars{\sur_d(k)} \times Tot(\Delta^*)$, where $Tot(\Delta^*)$ is contractible and equipped with trivial $\Sigma_k$-action.
+%	This is explained in the appendix of \cite{cyclic} where the realization is constructed as a CW complex and denoted $\mathcal{F}_d(k)$.
+%	McClure and Smith proceed to constructing a zig-zag of weak equivalences of operads between $\mathcal{D}_d$ and the little $d$-cubes operad
+%	$\mathcal{C}_d$, that in particular gives a levelwise $\Sigma_k$-equivariant equivalence $\mathcal{D}_d(k) \simeq \mathcal{C}_d(k)$ for each $k$. It is well known that $\mathcal{C}_d(k)$ is $\Sigma_k$-equivariantly homotopy equivalent to $F_k(\R^d)$ and this concludes the proof.
+%\end{proof}
 
-The $k$-fold multisimplicial set $Sur(k)$ is filtered
-by a nested family of $k$-fold multisimplicial subsets
-$$Sur_0(k) \subset Sur_1(k) \subset Sur_2(k) \subset \dots \subset Sur(k)$$
-% such that $Sur(k) = {\rm colim}_n Sur_n(k)$.
 
-A surjection belongs to $Sur_d(k)$
-if any ordered subsequence with two distinct alternating values has length at most $d+1$.
-For example $x=12132 \in Sur_3(3)$ but $x \notin Sur_2(3)$ because the subsequence $1212$ has length 4.
+%The functor of chains applied to these multisimplicial sets induces chain complex $\chi(k,d) \defeq \chains(\sur(k,d))$ with a filtration
+%\[
+%\chi(k,0) \subset \chi(k,0) \subset \chi(k,2) \subset \dotsb,
+%\]
+%which were considered by McClure and Smith \cite{MS}, %actually other paper
+%who constructed an operad structure on the collections of these complexes, the {\it surjection operad} $\chi$.
+%gives a filtration of the surjection operad by suboperads
+%$$\chi_0 \subset \chi_1 \subset \chi_2 \subset \dots \subset \chi$$
 
-The symmetric group $\Sigma_k$ acts on $Sur(k)$ and the action preserves the filtration.
+\begin{theorem*}
+	For any configuration space $\con(r,d)$ the maps in the following zig-zag are $\sym_r$-equivariant quasi-isomorphisms of $E_\infty$-coalgebras, or more precisely of $\UM$-coalgebras:
+	\[
+	\schains\con(r,d) \leftarrow \schains \cgr(r,d) \to \schains\bars{\sur(r,d)} \to \schains^{(r)}\bars{\sur(r,d)} \leftarrow \chains(\sur(r,d))
+	\]
 
-\todo{@paolo: I don't this there is a single map as the statement below suggest. I would replace this proposition by an use of the general machine to be developed in the previous \S}
-
-\begin{proposition} \label{sur-real}
-	There is a $\Sigma_k$-equivariant homotopy equivalence
-	$\bars{Sur_d(k)} \simeq F_k(\R^d)$
-\end{proposition}
-
-\begin{proof}
-	The geometric realization $\bars{Sur_d(k)}$ appears in section 13 of \cite{MS} where it is denoted $Z_0^k$.
-	McClure and Smith define for each $d$ a topological operads $\mathcal{D}_d$ such that $\mathcal{D}_d(k)$ is $\Sigma_k$-homeomorphic to $\bars{Sur_d(k)} \times Tot(\Delta^*)$, where $Tot(\Delta^*)$ is contractible and equipped with trivial $\Sigma_k$-action.
-	This is explained in the appendix of \cite{cyclic} where the realization is constructed as a CW complex and denoted $\mathcal{F}_d(k)$.
-	McClure and Smith proceed to constructing a zig-zag of weak equivalences of operads between $\mathcal{D}_d$ and the little $d$-cubes operad
-	$\mathcal{C}_d$, that in particular gives a levelwise $\Sigma_k$-equivariant equivalence $\mathcal{D}_d(k) \simeq \mathcal{C}_d(k)$ for each $k$. It is well known that $\mathcal{C}_d(k)$ is $\Sigma_k$-equivariantly homotopy equivalent to $F_k(\R^d)$ and this concludes the proof.
-\end{proof}
-
-The (normalized) chain complexes of $Sur(k)$ $$\chi(k):=N(Sur(k))$$
-were considered by McClure and Smith \cite{MS}, %actually other paper
-who constructed an operad structure on the collections of these complexes, the {\it surjection operad} $\chi$.
-
-The collection of chain complexes
-$$\chi_d(k):=N(Sur_d(k))$$
-gives a filtration of the surjection operad by suboperads
-$$\chi_0 \subset \chi_1 \subset \chi_2 \subset \dots \subset \chi$$
+\end{theorem*}
 
 \begin{proposition} \label{sur-model}
-	$\chi_d(k)$ and $S^{(1)}{F_k(\R^d)}$ are $\Sigma_k$-equivariantly quasi-isomorphic $E_\infty$-coalgebras
+	$\chi_d(k)$ and $\rS{F_k(\R^d)}$ are $\Sigma_k$-equivariantly quasi-isomorphic $E_\infty$-coalgebras
 \end{proposition}
 
 \begin{proof}
 	The $\Sigma_k$-equivariant homotopy equivalence of proposition \ref{sur-real} induces a $\Sigma_k$-equivariant quasi-isomorphism of $E_{\infty}$-coalgebras
-	$$S^{(k)}(\bars{Sur_d(k)}) \simeq S^{(k)}(F_k(\R^d))$$.
+	$$S^{(k)}(\bars{\sur_d(k)}) \simeq S^{(k)}(F_k(\R^d))$$.
 	The weak equivalence %say that it is Quillen adjunction
-	$Sur_d(k) \to Sing^{(k)}(\bars{Sur_d(k)})$ induces on the chain level a $\Sigma_k$-equivariant quasi-isomorphism of
+	$\sur_d(k) \to Sing^{(k)}(\bars{\sur_d(k)})$ induces on the chain level a $\Sigma_k$-equivariant quasi-isomorphism of
 	$E_\infty$-coalgebras
 	between $\chi_d(k)$
-	and $S^{(k)}(\bars{Sur_d(k)})$.
+	and $S^{(k)}(\bars{\sur_d(k)})$.
 	Finally the map of lemma \ref{} gives a $\Sigma_k$-equivariant quasi-isomorphism $S^{(1)}(F_k(\R^d)) \to S^{(k)}(F_k(\R^d))$ of $E_\infty$-coalgebras.
 \end{proof}
-
-% FILTRATION FOR SURJ
-
-\begin{definition}[Filtration of the surjection multisimplicial set $Sur$]
-	Fix a surjection $f\in Sur(k)_{i_{1},\dots,i_{k}}$.
-	For any pair $(i,j)$ with $i< j$, let $f_{ij}$ be the subsequence of $f(1) \dots f(i_1+\dots+i_k+k)$ obtained omitting all the occurrences of elements different from $i$ and $j$.
-	%		For example, let $31231 \in Sur(3)_{2,1,2}$, we have $(31231)_{12}=121$, $(31231)_{23}=323$ and $(31231)_{13}=3131$.
-	The surjection $f$ belongs to $Sur_{(\mu,\sigma)}(k)\subseteq Sur(k)$ if for any pair $(i,j)$ with $i< j$, either in the sequence $f_{ij}$ $i$ and $j$ alternate strictly less than $\mu_{ij}$ times,
-	%		, that is the amount of times that the order of $i$ and $j$ change ,
-	or $i$ and $j$ alternate in the sequence $f_{ij}$  exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
-	Notice that \begin{equation*}
-		\label{def}
-		Sur_{n}(k)=\bigcup_{\max_{i<j}(\mu_{ij})< n} Sur_{(\mu,\sigma)}(k)
-	\end{equation*}
-	%		\\
-	%		\\
-	%		Returning to the example above we have $\mu_{12}(31231)=1$, $\mu_{23}(31231)=1$ and $\mu_{13}(31231)=2$ so that $31231\in Sur_{(\mu,\sigma)}(3)_{2,1,2}$
-	%		\begin{itemize}
-		%		\item if $\mu_{12}>1$, $\mu_{23}>1$ and $\mu_{13}>2$ and any $\sigma\in \Sigma_{3}$;
-		%		\item if some $\mu_{ij}=\mu(f)_{ij}$ and the first occurences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
-		%		\end{itemize}
-	%	    In our example we obtain that, by equation \ref{def},
-	%	    $31231\in Sur_{3}(k)_{2,1,2}$
-	%	    \\
-	%	    \\
-	% We have obtained the filtration $$Sur_1(k) \subset Sur_2(k)  \subset Sur_3(k)  \subset \dots $$
-	% that induces the filtration of the correspondent diagonal simplici%al set
-	%	    $$Sur_1(k)^{D} \subset Sur_2(k)^{D}  \subset Sur_3(k)^{D}  \subset\dots $$
-
-\end{definition}
-
-\anibal{ADD COMPARISON AS E-INFTY ALGEBRAS.}

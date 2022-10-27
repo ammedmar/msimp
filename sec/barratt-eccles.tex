@@ -48,9 +48,9 @@ We warn the reader that neither $TR$ nor $TC$ preserve the $E_\infty$-coalgebra 
 $TC$ preserves the $E_1$-coalgebra structure.
 
 We claim that $TC$ is induced by a map of simplicial sets
-$$tc: Sur(k)^D \to \mathcal{W}\Sigma_k$$ that we define.
+$$tc: \sur(k)^D \to \mathcal{W}\Sigma_k$$ that we define.
 \begin{definition}
-	Let $s$ be an $i$-simplex  of the diagonal $Sur(k)^D$, i.e. a sequence containing any value in $\{1,\dots,k\}$ exactly $i+1$ times.
+	Let $s$ be an $i$-simplex  of the diagonal $\sur(k)^D$, i.e. a sequence containing any value in $\{1,\dots,k\}$ exactly $i+1$ times.
 	Then $tc(s):=(\sigma_0,\dots,\sigma_i)$ is a sequence of permutations where $\sigma_j$ is the subsequence of $s$ containing the $(j+1)$-st occurrence of each value in $\{1,\dots,k\}$.
 \end{definition}
 
@@ -59,8 +59,8 @@ $$tc(122333112)=(123,231,312)$$
 
 \begin{proposition}
 	The homomorphism $TC:\chi(k) \to BE(k)$ by Berger-Fresse satisfies
-	$$TC=N(tc) \circ \ez$$ where $\ez:N(Sur(k)) \to
-	N(Sur(k)^D)$ is the Eilenberg-Zilber map.
+	$$TC=N(tc) \circ \ez$$ where $\ez:N(\sur(k)) \to
+	N(\sur(k)^D)$ is the Eilenberg-Zilber map.
 \end{proposition}
 
 \begin{proof}
@@ -110,22 +110,22 @@ $$tc(122333112)=(123,231,312)$$
 % \\
 % In our examples
 % \begin{itemize}
-	% 	\item $31231\in Sur_{(\mu,\sigma)}(3)_{2,1,2} \subseteq Sur_{3}(3)_{2,1,2}$ with $(\mu_{12},\mu_{13},\mu_{23})=(1,2,1)$ and $\sigma=(312)$
+	% 	\item $31231\in \sur_{(\mu,\sigma)}(3)_{2,1,2} \subseteq \sur_{3}(3)_{2,1,2}$ with $(\mu_{12},\mu_{13},\mu_{23})=(1,2,1)$ and $\sigma=(312)$
 	% 	\item $(123,231,312)\in (\mathcal{W}_{(\mu,\sigma)}\Sigma_3)_{3} \subset (\mathcal{W}_{3}\Sigma_3)_{3}$ with $(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$ and $\sigma=(123)$
 	% \end{itemize}
 %	We observe that the simplicial map $tc$ respects the filtration, sending
-%	$Sur_d(k)^D$ to $\mathcal{W}_d\Sigma_k$
+%	$\sur_d(k)^D$ to $\mathcal{W}_d\Sigma_k$
 %	\\
 %	\begin{example}
 	%	We are givine some example of the compatibility of $tc$ to visualize why it works in general.
-	%	Let $122333112 \in Sur(3)^{D} $
+	%	Let $122333112 \in \sur(3)^{D} $
 	%	\begin{itemize}
 		%		\item $(122333112)_{12}=122112\rightarrow \mu_{12}=2$
 		%		\item $(122333112)_{13}=133311\rightarrow \mu_{13}=1$
 		%		\item $(122333112)_{23}=223332\rightarrow \mu_{23}=1$
 		%	\end{itemize}
 	%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
-	%and the first occurrences of $1,2,3$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $122333112 \in Sur_{((2,1,1),(123))}(3)^{D}$ $\Rightarrow$ $122333112 \in Sur_{3}(3)^{D}$.
+	%and the first occurrences of $1,2,3$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $122333112 \in \sur_{((2,1,1),(123))}(3)^{D}$ $\Rightarrow$ $122333112 \in \sur_{3}(3)^{D}$.
 	%Now applying $tc$ we obtain $tc(122333112)=(123,231,312)\in (\mathcal{W}\Sigma_3)_{3} $
 	%\begin{itemize}
 	%\item $(123,231,312)_{12}=(12,21,12)\rightarrow \mu_{12}=2$
@@ -140,14 +140,14 @@ $$tc(122333112)=(123,231,312)$$
 	%	\end{example}
 
 \begin{lemma}[Compatibility of $tc$]
-	We have that the map $tc:Sur(k)^{D}\rightarrow \mathcal{W}\Sigma_{k}$ is compatible with the filtrations, in the sense that
-	$$tc(Sur_{(\mu,\sigma)}(k)^{D})\subseteq \mathcal{W}_{(\mu,\sigma)}\Sigma_{k}$$
+	We have that the map $tc:\sur(k)^{D}\rightarrow \mathcal{W}\Sigma_{k}$ is compatible with the filtrations, in the sense that
+	$$tc(\sur_{(\mu,\sigma)}(k)^{D})\subseteq \mathcal{W}_{(\mu,\sigma)}\Sigma_{k}$$
 	and in particular
-	$$tc(Sur_{n}(k)^{D})\subseteq \mathcal{W}_{n}\Sigma_{k}$$
+	$$tc(\sur_{n}(k)^{D})\subseteq \mathcal{W}_{n}\Sigma_{k}$$
 \end{lemma}
 
 \begin{proof}
-	Let  $f\in Sur(k)^{D}$ be an $m$-simplex and denote
+	Let  $f\in \sur(k)^{D}$ be an $m$-simplex and denote
 	$$tc(f)=w=(w_{1},\dots,w_{m+1})\in (\mathcal{W}\Sigma_{k})_{m+1}$$
 	Suppose that in $f_{ij}$ $i$ and $j$ alternate $\mu_{ij}$ times, and in $w_{ij}$ $i$ and $j$ alternate  $\mu_{ij}'$ times.
 	We will prove that
@@ -180,7 +180,7 @@ $$tc(122333112)=(123,231,312)$$
 \end{proof}
 
 \begin{corollary} \label{cor-comparing}
-	The map $tc_{n}:Sur_{n}(k)^{D}\rightarrow \mathcal{W}_{n}\Sigma_{k}$ is a weak equivalence.
+	The map $tc_{n}:\sur_{n}(k)^{D}\rightarrow \mathcal{W}_{n}\Sigma_{k}$ is a weak equivalence.
 \end{corollary}
 
 \begin{proof}
@@ -189,8 +189,8 @@ $$tc(122333112)=(123,231,312)$$
 	so we have a commutative diagram
 	\begin{equation*}
 		\begin{tikzcd}
-			hocolim_{(\mu,\sigma)}Sur_{(\mu,\sigma)}(k)^{D} \arrow[r] \arrow[d]& hocolim_{(\mu,\sigma)}\mathcal{W}_{(\mu,\sigma)}\Sigma_{k} \arrow[d] \\
-			Sur_{n}(k)^{D}\arrow[r] & \mathcal{W}_{n}\Sigma_{k}&
+			hocolim_{(\mu,\sigma)}\sur_{(\mu,\sigma)}(k)^{D} \arrow[r] \arrow[d]& hocolim_{(\mu,\sigma)}\mathcal{W}_{(\mu,\sigma)}\Sigma_{k} \arrow[d] \\
+			\sur_{n}(k)^{D}\arrow[r] & \mathcal{W}_{n}\Sigma_{k}&
 		\end{tikzcd}
 	\end{equation*}
 	Where the vertical and top arrows
@@ -203,7 +203,7 @@ We remark that $tc$ is compatible with the equivalences in propositions \ref{sur
 
 %\begin{proposition}
 %The geometric realizations satisfy
-%$$|Sur_d(k)| \simeq |W_d(k)|  \simeq F_k(\R^{d})$$
+%$$|\sur_d(k)| \simeq |W_d(k)|  \simeq F_k(\R^{d})$$
 %\end{proposition}
 
 %\begin{proof}
