@@ -4,11 +4,10 @@
 
 The cochain complex of a simplicial set is equipped with the classical Alexander--Whitney cup product which has several explicit extensions to a natural $E_\infty$-algebra \cite{mcclure2003multivariable, berger2004combinatorial, medina2020prop1} -- a structure encoding commutativity and associativity up to coherent homotopies.
 The importance of $E_\infty$-algebras is highlighted by a result of Mandell \cite{mandell2006homotopy_type} stating that finite type nilpotent spaces are weakly equivalent if and only if their singular cochains are quasi-isomorphic as $E_\infty$-algebras.
-Our first goal is to explicitly define a natural $E_\infty$-algebra structure on the cochains of multisimplicial sets.
-These are generalizations of both simplicial and cubical sets which are useful for concrete computations since they can model spaces using fewer cells.
-For example, the proof by the third named author of the non-formality of the cochain algebra of planar configuration spaces \cite{formality} used part of the $E_\infty$-algebra structure on the cochain complex of a simplicial model which, as we will review, has many more generators than the cochain complex of a multisimplicial model.
-Our $E_\infty$-algebra structure on this cochain complex makes the computation much simpler and faster, paving the way for an extension to higher dimensions.
-\todo{@paolo: is this E-infty claim OK?}
+Our first goal is to define explicitly a natural product together with an $E_\infty$-algebra extension on the cochains of multisimplicial sets.
+These are generalizations of both simplicial and cubical sets which are useful for concrete computations since they can model homotopy types using fewer cells.
+For example, the proof by the third named author of the non-formality of the cochain algebra of planar configuration spaces \cite{formality} used a simplicial model and the Alexander--Whitney product on its cochains.
+The use of a multisimplicial model and the product defined here makes the computation much simpler and faster, paving the way for an extension of this result to higher dimensions.
 
 Multisimplicial sets are contravariant functors from products of the simplex category $\simplex$ to $\Set$.
 Explicitly, for any positive integer $k$ the category $\mSet{k}$ of $k$-fold multisimplicial sets is the presheaf category $\Fun((\simplex^\op)^{\times k}, \Set)$.
@@ -36,12 +35,12 @@ Furthermore, there is a natural inclusion
 \]
 which is also a quasi-isomorphism.
 The linear dual of $\EZ$ is an algebra quasi-isomorphism, but it does not respect the $E_\infty$-algebra structure, whereas, as proven in \cref{ss:inclusion}, the linear dual of $\In$ is an $E_\infty$-algebra quasi-isomorphism.
-We use the latter to to prove in \cref{ss:singular} that, for any topological space $\fZ$, the linear map from its singular simplicial chains to its singular $k$-fold multisimplicial chains, given by precomposing a continuous map $(\gsimplex^n \to \fZ)$ with the projection $(\gsimplex^n \times \gmsimplex{0}{0} \xra{\pi_1} \gsimplex^n)$, induces on cochains a natural quasi-isomorphism of $E_\infty$-algebras.
+We use the latter to prove in \cref{ss:singular} that, for any topological space $\fZ$, the linear map from its singular simplicial chains to its singular $k$-fold multisimplicial chains, given by precomposing a continuous map $(\gsimplex^n \to \fZ)$ with the projection $(\gsimplex^n \times \gmsimplex{0}{0} \xra{\pi_1} \gsimplex^n)$, induces on cochains a natural quasi-isomorphism of $E_\infty$-algebras.
 
-As an application of our contribution we study some constructions in the theory of configuration spaces which we now review.
+We use these contribution to study the following construction in the theory of configuration spaces.
 McClure--Smith \cite{mcclure2003multivariable} introduced an equivariant algebraic model of the singular simplicial chains of the configuration space $\con(r,d)$ of $r$ ordered distinct points in $\R^d$, which we recognize as resulting from applying the functor of chains to an $r$-fold multisimplicial set $\sur(r,d)$.\footnote{McClure--Smith also considered an operad structure on these, but we do not focus on it.}
 More specifically, they showed these have the same quasi-isomorphism type.
-Our second contribution, presented in \cref{ss:multisimplicial model}, is the explicit construction of a zig-zag of $E_\infty$-coalgebra quasi-isomorphisms between them.
+Our second main contribution, presented in \cref{ss:multisimplicial model}, is the explicit construction of a zig-zag of $E_\infty$-coalgebra quasi-isomorphisms between them.
 
 There is also a simplicial model $W(r,d)$ of $\con(r,d)$ studied by Berger--Fresse \cite{berger2004combinatorial}, which they related to the multisimplicial model via a quasi-isomorphism termed table completion map.
 We construct a factorization of the table completion map as
