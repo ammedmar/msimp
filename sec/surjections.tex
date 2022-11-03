@@ -52,25 +52,41 @@ The symmetric group $\Sigma_k$ acts on $\sur(k)$ by post-composition and the act
 %gives a filtration of the surjection operad by suboperads
 %$$\chi_0 \subset \chi_1 \subset \chi_2 \subset \dots \subset \chi$$
 
+Applying the functor of singular chains to the zig-zag of homotopy equivalences induced from the complete graph filtrations on $\con(r)$ and $\bars{\sur(r)}$ gives a zig-zag of equivariant quasi-isomorphisms of $\UM$-coalgebras:
+\[
+\schains\con(r,d) \leftarrow \schains \cgr(r,d) \to \schains\bars{\sur(r,d)}.
+\]
+The comparison map of \cref{ss:inclusion}
+\[
+\schains\bars{\sur(r,d)} \to \schains^{(r)}\bars{\sur(r,d)}
+\]
+is another such map.
+Applying the functor of chains to the unit of the Quillen equivalence between $k$-fold multisimplicial sets and topological spaces gives yet another equivariant quasi-isomorphisms of $\UM$-coalgebras:
+\[
+\schains^{(r)}\bars{\sur(r,d)} \leftarrow \chains\sur(r,d).
+\]
+Combining these maps together yields the following result.
 \begin{theorem*}
-	For any configuration space $\con(r,d)$ the maps in the following zig-zag are $\sym_r$-equivariant quasi-isomorphisms of $E_\infty$-coalgebras, or more precisely of $\UM$-coalgebras:
-	\[
-	\schains\con(r,d) \leftarrow \schains \cgr(r,d) \to \schains\bars{\sur(r,d)} \to \schains^{(r)}\bars{\sur(r,d)} \leftarrow \chains(\sur(r,d))
-	\]
-
+	The singular chains of a configuration space and the chains on the its multisimplicial model are related by an explicit zig-zag of equivariant quasi-isomorphism of $E_\infty$-coalgebras.
 \end{theorem*}
+%\begin{theorem*}
+%	More specifically, each of the following maps is an $\sym_r$-equivariant quasi-isomorphism of $\UM$-coalgebras:
+%	\[
+%	\schains\con(r,d) \leftarrow \schains \cgr(r,d) \to \schains\bars{\sur(r,d)} \to \schains^{(r)}\bars{\sur(r,d)} \leftarrow \chains\sur(r,d).
+%	\]
+%\end{theorem*}
 
-\begin{proposition} \label{sur-model}
-	$\chi_d(k)$ and $\rS{F_k(\R^d)}$ are $\Sigma_k$-equivariantly quasi-isomorphic $E_\infty$-coalgebras
-\end{proposition}
-
-\begin{proof}
-	The $\Sigma_k$-equivariant homotopy equivalence of proposition \ref{sur-real} induces a $\Sigma_k$-equivariant quasi-isomorphism of $E_{\infty}$-coalgebras
-	$$S^{(k)}(\bars{\sur_d(k)}) \simeq S^{(k)}(F_k(\R^d))$$.
-	The weak equivalence %say that it is Quillen adjunction
-	$\sur_d(k) \to Sing^{(k)}(\bars{\sur_d(k)})$ induces on the chain level a $\Sigma_k$-equivariant quasi-isomorphism of
-	$E_\infty$-coalgebras
-	between $\chi_d(k)$
-	and $S^{(k)}(\bars{\sur_d(k)})$.
-	Finally the map of lemma \ref{} gives a $\Sigma_k$-equivariant quasi-isomorphism $S^{(1)}(F_k(\R^d)) \to S^{(k)}(F_k(\R^d))$ of $E_\infty$-coalgebras.
-\end{proof}
+%\begin{proposition} \label{sur-model}
+%	$\chi_d(k)$ and $\rS{F_k(\R^d)}$ are $\Sigma_k$-equivariantly quasi-isomorphic $E_\infty$-coalgebras
+%\end{proposition}
+%
+%\begin{proof}
+%	The $\Sigma_k$-equivariant homotopy equivalence of proposition \ref{sur-real} induces a $\Sigma_k$-equivariant quasi-isomorphism of $E_{\infty}$-coalgebras
+%	$$S^{(k)}(\bars{\sur_d(k)}) \simeq S^{(k)}(F_k(\R^d))$$.
+%	The weak equivalence %say that it is Quillen adjunction
+%	$\sur_d(k) \to Sing^{(k)}(\bars{\sur_d(k)})$ induces on the chain level a $\Sigma_k$-equivariant quasi-isomorphism of
+%	$E_\infty$-coalgebras
+%	between $\chi_d(k)$
+%	and $S^{(k)}(\bars{\sur_d(k)})$.
+%	Finally the map of lemma \ref{} gives a $\Sigma_k$-equivariant quasi-isomorphism $S^{(1)}(F_k(\R^d)) \to S^{(k)}(F_k(\R^d))$ of $E_\infty$-coalgebras.
+%\end{proof}
