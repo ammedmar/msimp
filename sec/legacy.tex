@@ -1,34 +1,114 @@
-FILTRATION FOR SURJ
+BARRATT PROPOSITION
 
-These have an increasing filtration by multisimplicial subsets $\sur_d(k)$ such that the geometric realization $\bars{\sur_d(k)}$ is homotopy equivalent to the configuration space
-$F_k(\R^d)$.
+%\begin{proposition}
+%	The homomorphism $TC:\chi(k) \to BE(k)$ by Berger-Fresse satisfies
+%	$$TC=N(tc) \circ \ez$$ where $\ez:N(\sur(k)) \to
+%	N(\sur(k)^D)$ is the Eilenberg-Zilber map.
+%\end{proposition}
+%
+%\begin{proof}
+%	By inspection of the definition in \cite{BFsmall}.%more? signs? which convention?
+%\end{proof}
 
-\begin{definition}[Filtration of the surjection multisimplicial set $Sur$]
-	Fix a surjection $f\in \sur(k)_{i_{1},\dots,i_{k}}$.
-	For any pair $(i,j)$ with $i< j$, let $f_{ij}$ be the subsequence of $f(1) \dots f(i_1+\dots+i_k+k)$ obtained omitting all the occurrences of elements different from $i$ and $j$.
-	%		For example, let $31231 \in \sur(3)_{2,1,2}$, we have $(31231)_{12}=121$, $(31231)_{23}=323$ and $(31231)_{13}=3131$.
-	The surjection $f$ belongs to $\sur_{(\mu,\sigma)}(k)\subseteq \sur(k)$ if for any pair $(i,j)$ with $i< j$, either in the sequence $f_{ij}$ $i$ and $j$ alternate strictly less than $\mu_{ij}$ times,
-	%		, that is the amount of times that the order of $i$ and $j$ change ,
-	or $i$ and $j$ alternate in the sequence $f_{ij}$  exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
+%Also $\cW$ is filtered \cite{BFsmall}, i.e.
+%there is a family of nested simplicial sets %$$\cW_1\sym_k \subset \cW_2 %\sym_k
+% \subset \dots $$ such that
+%$\cW\sym_k={\rm colim}_d %\cW_d\sym_k$, that form a filtration by %operads
+%$$\cW_1 \subset \cW_2 \subset \dots %\cW$$
+
+%The normalized chain functor defines
+%$$BE_d(k):=N(\cW_d \sym_k)$$ so that the %operads $BE_d$
+%form a filtration of $BE$.
+
+Barratt Eccles filtration
+
+\begin{definition}[Filtration of the Barratt--Eccles simplicial set $\cW\sym_k$]
+	Fix an element $w\in (\cW\sym_k)_{d}$, $w=(w_{1},\dots , w_{d})$ with $w_{h}\in \sym_k$.
+	For any pair $(i,j)$ with $i< j$, denote $w_{ij}=(w_{1,ij},\dots , w_{d,ij})$ where $w_{h,ij}$ is the subsequence of $w_{h}$ obtained omitting all the occurrences of elements different from $i$ and $j$.
+	%	For example, let $(123,231,312) \in (\cW\sym_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
+	The element $w$ belongs to $\cW_{(\mu,\sigma)}\sym_k\subseteq \cW\sym_k$ if for all pairs $(i,j)$, $i< j$ either along the sequence $w_{ij}$ $i$ and $j$ swap less than $\mu_{ij}$ times,
+	%	, that is, as before, the amount of times that the order of $i$ and $j$ change ,
+	or they swap exactly $\mu_{ij}$ times and the first permutation $w_{1,ij}$ is equal to $\sigma_{ij}$.
 	Notice that
 	\begin{equation*}
-		\sur_{n}(k)=\bigcup_{\max_{i<j}(\mu_{ij})< n} \sur_{(\mu,\sigma)}(k)
+		\label{def}
+		\cW_{n}\sym_k=\bigcup_{\max_{i<j} (\mu_{ij})< n} \cW_{(\mu,\sigma)}\sym_{k}
 	\end{equation*}
-	%		\\
-	%		\\
-	%		Returning to the example above we have $\mu_{12}(31231)=1$, $\mu_{23}(31231)=1$ and $\mu_{13}(31231)=2$ so that $31231\in \sur_{(\mu,\sigma)}(3)_{2,1,2}$
-	%		\begin{itemize}
-		%		\item if $\mu_{12}>1$, $\mu_{23}>1$ and $\mu_{13}>2$ and any $\sigma\in \Sigma_{3}$;
-		%		\item if some $\mu_{ij}=\mu(f)_{ij}$ and the first occurences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
-		%		\end{itemize}
-	%	    In our example we obtain that, by equation \ref{def},
-	%	    $31231\in \sur_{3}(k)_{2,1,2}$
-	%	    \\
-	%	    \\
-	% We have obtained the filtration $$\sur_1(k) \subset \sur_2(k)  \subset \sur_3(k)  \subset \dots $$
-	% that induces the filtration of the correspondent diagonal simplici%al set
-	%	    $$\sur_1(k)^{D} \subset \sur_2(k)^{D}  \subset \sur_3(k)^{D}  \subset\dots $$
+	\\
+	\\
+	%	Returning to the example above we have $\mu_{12}(123,231,312)=2$, $\mu_{23}(123,231,312)=1$ and $\mu_{13}(123,231,312)=1$ so that $(123,231,312)\in (\cW_{(\mu,\sigma)}\sym_3)_{3}$
+	%	\begin{itemize}
+		%		\item if $\mu_{12}>2$, $\mu_{23}>1$ and $\mu_{13}>1$ and any $\sigma\in \sym_{3}$;
+		%		\item if some $\mu_{ij}=\mu_{ij}(w)$ and the first permutation of $w$ is equal to $\sigma_{ij}$.
+		%	\end{itemize}
+	%	In our example we obtain that, by equation \ref{def},
+	%	$(123,231,312)\in (\cW_{3}\sym_3)_{3}$
+	%	\\
+	%	\\
+	%	We have obtained the filtration $$\cW_1\sym_k \subset \cW_2 \sym_k
+	%	\subset \cW_3 \sym_k
+	%	\subset \dots $$
+	%	that is the other one we need in $tc$ definition.
 \end{definition}
+
+% In both cases, to see even the role of permutations we'll use always pairs $(\mu,\sigma)$ with $\mu$ exactly the collection of variation numbers obtained from the initial element so that the permutation is uniquely determined, and $(\mu,\sigma)$ is minimal in the poset.
+% \\
+% In our examples
+% \begin{itemize}
+	% 	\item $31231\in \sur_{(\mu,\sigma)}(3)_{2,1,2} \subseteq \sur_{3}(3)_{2,1,2}$ with $(\mu_{12},\mu_{13},\mu_{23})=(1,2,1)$ and $\sigma=(312)$
+	% 	\item $(123,231,312)\in (\cW_{(\mu,\sigma)}\sym_3)_{3} \subset (\cW_{3}\sym_3)_{3}$ with $(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$ and $\sigma=(123)$
+	% \end{itemize}
+%	We observe that the simplicial map $tc$ respects the filtration, sending
+%	$\sur_d(k)^D$ to $\cW_d\sym_k$
+%	\\
+%	\begin{example}
+	%	We are givine some example of the compatibility of $tc$ to visualize why it works in general.
+	%	Let $122333112 \in \sur(3)^{D} $
+	%	\begin{itemize}
+		%		\item $(122333112)_{12}=122112\rightarrow \mu_{12}=2$
+		%		\item $(122333112)_{13}=133311\rightarrow \mu_{13}=1$
+		%		\item $(122333112)_{23}=223332\rightarrow \mu_{23}=1$
+		%	\end{itemize}
+	%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
+	%and the first occurrences of $1,2,3$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $122333112 \in \sur_{((2,1,1),(123))}(3)^{D}$ $\Rightarrow$ $122333112 \in \sur_{3}(3)^{D}$.
+	%Now applying $tc$ we obtain $tc(122333112)=(123,231,312)\in (\cW\sym_3)_{3} $
+	%\begin{itemize}
+	%\item $(123,231,312)_{12}=(12,21,12)\rightarrow \mu_{12}=2$
+	%\item $(123,231,312)_{13}=(13,31,31)\rightarrow \mu_{13}=1$
+	%\item $(123,231,312)_{23}=(23,23,32)\rightarrow \mu_{23}=1$
+	%\end{itemize}
+	%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
+	%and the first permutation in $(123,231,312)$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $(123,231,312) \in (\cW_{((2,1,1),(123))}\sym_{3})_{3}$ $\Rightarrow$ $(123,231,312) \in (\cW_{3}\sym_{3})_{3}$.
+	%
+	%
+	%
+	%	\end{example}
+
+OLD BARRATT-ECCLES
+
+%The following is well known, see for example \cite{BF}
+%\begin{proposition} \ref{be-real}
+%	The geometric realization $\bars{\cW_d \sym_k}$ is $\sym_k$-equivariantly homotopy equivalent to $F_d(\R^k)$.
+%\end{proposition}
+
+%The (normalized) chain complex of $\cW_d\sym_k$ is called the Barratt--Eccles chain complex $$BE_d(k):=N(\cW_d\sym_k)$$
+%the collection of these complexes forms the Barratt--Eccles operad $BE_d$.
+%\cite{BF}
+%There is a filtration
+%$$BE_0 \subset BE_1 \subset BE_2 \dots \subset BE$$
+%
+%Similarly as for proposition \ref{sur-model} we have the following.
+%
+%\begin{proposition}
+%	There is a  $\sym_k$-equivariant quasi-isomorphism
+%	of $E_\infty$-coalgebras between $BE_d(k)$ and
+%	$S(F_k(\R^d))$.
+%\end{proposition}
+%
+%\begin{proof} \label{be-model}
+%	The required quasi-isomorphism follows from proposition \ref{be-real} and the equivariant quasi-isomorphism $BE_d(k) \simeq S(|W_d\sym_k|)$. %counit of quillen adjunction
+%\end{proof}
+
 
 \section{Introduction old}
 
@@ -64,7 +144,7 @@ In this case $EZ$ does not respect the $E_\infty$-structures, but there is a nat
 Our result is very useful for computations, since multisimplicial models of spaces have a significantly smaller number of non-degenerate cells then their simplicial models.
 So $N^*(X)$ is much smaller than $N^*(X^D)$, but it contains the same information up to homotopy, allowing for example to calculate explicitly homology operations like Massey products, and the Steenrod algebra action.
 As an example we consider a family of multisimplicial sets $Sur(k)$ defined by McClure and Smith, see \cite{MS}, modelling euclidean configuration spaces.
-The proof by the third author of the non-formality of the cochain algebra of planar configuration spaces in \cite{formality} used the Barratt-Eccles simplicial model and the classical cup product.
+The proof by the third author of the non-formality of the cochain algebra of planar configuration spaces in \cite{formality} used the Barratt--Eccles simplicial model and the classical cup product.
 Our new product on the multisimplicial McClure-Smith models makes the computation much simpler and faster, paving the way for an extension to higher dimensions.
 %per esempio dire i numeri..
 
