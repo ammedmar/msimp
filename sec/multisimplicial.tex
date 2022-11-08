@@ -1,8 +1,8 @@
 % !TEX root = ../msimplicial.tex
 
-\section{Multisimplicial algebraic topology} \label{s:multisimplicial}
+\section{Multisimplicial algebraic topology}\label{s:multisimplicial}
 
-\subsection{Multisimplicial sets} \label{ss:multisimplicial sets}
+\subsection{Multisimplicial sets}\label{ss:multisimplicial sets}
 
 Let us consider an arbitrary positive integer~$k$.
 The \textit{$k$-fold multisimplex category} $\simplex^{\times k}$ is the $k$-fold Cartesian product of the simplex category $\simplex$.
@@ -43,7 +43,7 @@ An element of $X_{m_1,\dots,m_k}$ is called
 $(m_1,\dots,m_k)$-\textit{multisimplex}.
 A multisimplex is \textit{degenerate} if it is in the image of a degeneracy map.
 
-\subsection{Geometric realization} \label{ss:geometric realization}
+\subsection{Geometric realization}\label{ss:geometric realization}
 
 We will use the following model of the topological simplex:
 \[
@@ -101,7 +101,7 @@ defined on a topological space $\fZ$, as usual, by the expression
 
 These define a Quillen equivalence. \todo{@anyone: a reference to the bisimplicial Quillen equivalence proof would be good}
 
-\subsection{Algebraic realization} \label{ss:algebraic realization}
+\subsection{Algebraic realization}\label{ss:algebraic realization}
 
 The functor of \textit{chains}
 \[
@@ -127,7 +127,7 @@ d(x) = \sum_{j=1}^k \sum_{\ell_j=1}^{n_j}
 
 For any topological space $\fZ$ the complex of chains of $\Sing^{(k)}(\fZ)$ is denoted $\rS^{(k)}(\fZ)$ and referred to as the $k$-\textit{fold singular chains} of $\fZ$.
 
-\subsection{Coalgebra structure} \label{ss:coalgebra}
+\subsection{Coalgebra structure}\label{ss:coalgebra}
 
 A \textit{counital coalgebra} structure on a chain complex $C$ is a pair of chain maps $\copr \colon C \to C \ot C$ and $\aug \colon C \to \k$ satisfying
 \[
@@ -144,6 +144,7 @@ For each $n \in \N$, the complex $\chains(\simplex^n)$ is naturally equipped wit
 	\begin{cases} 1 & \text{ if } q = 0, \\ 0 & \text{ if } q>0. \end{cases}
 \end{split}
 \]
+We will refer to it as the \textit{Alexander--Whitney structure}.
 
 The tensor product of two counital coalgebras $C$ and $C'$ is one too with structure maps given by:
 \begin{gather*}
@@ -180,7 +181,7 @@ X(B_{i_1}, \dots, B_{i_k})(x) \in X_{i_1,\dots,i_k}
 \]
 with $B_{i_j} \colon [i_j] \to [n_j]$ defined by $B_j(h) = h+m_j-i_j$.
 
-\subsection{\pdfEinfty-extension} \label{ss:e-infty extension}
+\subsection{\pdfEinfty-extension}\label{ss:e-infty extension}
 
 An \textit{$\cM$-bialgebra} structure on a counital coalgebra $(C, \copr, \aug)$ is a degree $1$ linear map $\pr \colon C \ot C \to C$ satisfying
 %whose boundary is $(\aug \ot \, \id) - (\id \ot \aug)$, i.e.,
@@ -203,7 +204,7 @@ For any integer $n$, the \textit{join product} $\ast \colon \chains(\simplex^n)^
 where $\pi$ is the permutation that orders the vertices.
 It is an algebraic version of the usual join of faces in a simplex.
 %, as illustrated in \cref{f:join of faces}.
-It is proven in \cite{medina2020prop1} that for any integer $n$ the counital coalgebra $\chains(\simplex^n)$ forms with the join product a natural $\cM$-bialgebra and, consequently, a natural $E_\infty$-coalgebra.
+It is proven in \cite{medina2020prop1} that for any integer $n$ the Alexander--Whitney counital coalgebra $\chains(\simplex^n)$ together with the join product forms a natural $\cM$-bialgebra and, consequently, a natural $E_\infty$-coalgebra.
 
 %\begin{figure}
 %	\input{aux/join}
@@ -226,7 +227,7 @@ Explicitly, \todo{@anibal: finish this}
 We remark that, since the category of $\cM$-bialgebras is not cocomplete, we do not necessarily have an $\cM$-bialgebra structure on $\chains(X)$ for a general multisimplicial set $X$.
 An example for which such structure does not exist is given by one such $X$ whose geometric realization consists of just two points.
 
-\subsection{Steenrod cup-$(p,i)$ coproducts} \label{ss:cup coproducts}
+\subsection{Steenrod cup-$(p,i)$ coproducts}\label{ss:cup coproducts}
 
 In \cite{steenrod1947products}, Steenrod introduced natural operations on the mod~2 cohomology of spaces, the celebrated \textit{Steenrod squares}
 \[
@@ -236,7 +237,7 @@ In \cite{steenrod1947products}, Steenrod introduced natural operations on the mo
 \end{tikzcd}
 \]
 via an explicit construction of natural linear maps $\Delta_i \colon \chains(X) \to \chains(X) \ot \chains(X)$ for any simplicial set $X$, satisfying up to signs the following homological relations
-\begin{equation} \label{e:cupi homological relations}
+\begin{equation}\label{e:cupi homological relations}
 	\bd \circ \, \Delta_i + \Delta_i \circ \bd =
 	(1 + T) \Delta_{i-1},
 \end{equation}
@@ -249,7 +250,7 @@ These so-called \textit{cup-$i$ coproducts} appear to be fundamental.
 %The formulas used by these authors are similar to those introduced in \cite{medina2023fast_sq} for the simplicial case, a dual yet equivalent version of Steenrod's original.
 A description of cup-$i$ coproducts for multisimplicial sets can be deduced from our $E_\infty$-structure:
 %We first present it in a recursive form
-\begin{equation} \label{e:recursive cup-i}
+\begin{equation}\label{e:recursive cup-i}
 	\begin{split}
 		& \Delta_0 = \Delta, \\
 		& \Delta_i =
