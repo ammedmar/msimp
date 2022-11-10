@@ -1,23 +1,22 @@
 \subsection{Simplicial model}\label{ss:simplicial model}
 
-We now study another $E_\infty$-model of configuration space coming from a simplicial set $\cW\sym(r)$ with complete graph filtration
+We now study another $E_\infty$-model of configuration space coming from a simplicial set $\BE(r)$ with complete graph filtration
 \[
-\cW\sym(r,0) \subset \cW\sym(r,1) \subset \cW\sym(r,2) \subset \dotsb . \todo{@everyone: cite the original article introducing the BE model.}
+\BE(r,1) \subset \BE(r,2) \subset \dotsb \,.
 \]
-%$\cW\sym(r,d)$.
-%We will compare it to the multisimplicial model described above by factoring the table reduction morphism of Berger--Fresse \cite{berger2004combinatorial}.
-The $n$-simplices of $\cW\sym(r)$ are tuples of $n+1$ elements of the symmetric group $\sym_r$.
+The $n$-simplices of $\BE(r)$ are tuples of $n+1$ elements of the symmetric group $\sym_r$.
 Its face and degeneracy maps are defined by removing and doubling elements respectively.
 There is an operad structure on these simplicial sets, but we do not consider it here.
-The complete graph filtration of $\cW\sym(r)$ by simplicial subsets $\cW\sym_r(r,d)$ is given as follows.
-Let us write an element of $\sigma \in \sym_r$ as $\sigma(1) \sigma(2) \dots \sigma(r)$.
-Then $(\sigma_0,\dots,\sigma_m) \in \cW\sym(r,d)$ if for distinct $i,j \in \set{1,\dots,r}$ their order of appearance in $\sigma_\ell$ swaps at most $d-1$ times as $\ell$ increases from $0$ to $m$.
-For example $w = (123,213,312) \in \cW\sym(3,3)$ but $w \notin \cW\sym(3,2)$ because the position of $1$ and $2$ swaps two times.
-The symmetric group $\sym_r$ acts on $\cW\sym(r)$ by diagonal left multiplication and the action preserves the filtration.
+The complete graph filtration of $\BE(r)$ by simplicial subsets $\BE_r(r,d)$ is given as follows.
+\todo{@paolo: this should be connected to the section on graph filtrations.}
+Let us write an element of $\sigma \in \sym_r$ as $\sigma(1)\sigma(2) \dots \sigma(r)$.
+Then $(\sigma_0,\dots,\sigma_m) \in \BE(r,d)$ if for distinct $i,j \in \set{1,\dots,r}$ their order of appearance in $\sigma_\ell$ swaps at most $d-1$ times as $\ell$ increases from $0$ to $m$.
+For example $w = (123,213,312) \in \BE(3,3)$ but $w \notin \BE(3,2)$ because the position of $1$ and $2$ swaps two times.
+The symmetric group $\sym_r$ acts on $\BE(r)$ by diagonal left multiplication and the action preserves the filtration.
 
 Similarly to the construction of an explicit zig-zag of equivariant quasi-isomorphisms of $E_\infty$-coalgebras constructed for the chains of the multisimplicial model (\cref{ss:surjection model}) we have the following zig-zag of such maps
 \[
-\schains\con(r,d) \leftarrow \schains \cgr(r,d) \to \schains\bars{\cW\sym(r,d)} \leftarrow \chains \cW\sym(r,d).
+\schains\con(r,d) \leftarrow \schains \cgr(r,d) \to \schains\bars{\BE(r,d)} \leftarrow \chains \BE(r,d).
 \]
 Combining these two constructions we have the following.
 \begin{theorem*}
@@ -27,18 +26,12 @@ Combining these two constructions we have the following.
 \subsection{Table completion}\label{ss:table completion}
 
 It is desirable to have a direct equivariant quasi-isomorphism between these algebraic models.
-%, which from now on will be denote by
-%\[
-%\cX(r,d) \defeq \chains\sur(r,d)
-%\quad \text{and} \quad
-%\cE(r,d) \defeq \chains\cW\sym(r,d).
-%\]
 Two filtration preserving quasi-isomorphisms were constructed by Berger--Fresse
 \todo{@everyone: Are this indeed filtration preserving?}
 \[
-\TR \colon \chains\cW\sym(r) \to \chains\sur(r)
+\TR \colon \chains\BE(r) \to \chains\sur(r)
 \quad \text{and} \quad
-\TC \colon \chains\sur(r) \to \chains \cW\sym(r).
+\TC \colon \chains\sur(r) \to \chains \BE(r).
 \]
 %\[
 %\TR \colon \cE(r) \to \cX(r)
@@ -49,12 +42,13 @@ The first one, introduced in \cite[1$\cdot$3]{berger2004combinatorial}, is not a
 We will focus on the second one which was introduced in \cite{berger2002prismatic} and termed \textit{table completion}.
 We will construct a factorization
 \[
-\TC \colon \chains\sur(r) \xra{\EZ} \chains\sur(r)^\diag \xra{\chains(\tc)} \chains \cW\sym(r),
+\TC \colon \chains\sur(r) \xra{\EZ} \chains\sur(r)^\diag \xra{\chains(\tc)} \chains \BE(r),
 \]
 where the second map is induced from a simplicial one defined below.
 This factorization proves that $\TC$ is a coalgebra map since both factors are.
 We warn the reader that, since $\EZ$ does not respect the $E_\infty$-coalgebra structure,
 neither does $\TC$.
+\todo{@andrea: add a simple example proving this claim, please}
 
 %In this section we construct an explicit combinatorial map between the surjection complex and the Barratt--Eccles complex, that respects filtrations, inducing weak equivalences of subcomplexes.
 %Furthermore it upgrades a map previously defined on the chain level by Berger and Fresse: they constructed in \cite{BFsmall}
@@ -65,7 +59,7 @@ neither does $\TC$.
 %$TC$ preserves the $E_1$-coalgebra structure.
 %
 %We claim that $TC$ is induced by a map of simplicial sets
-%$$tc: \sur(k)^D \to \cW\sym_k$$ that we define.
+%$$tc: \sur(k)^D \to \BE_k$$ that we define.
 
 %\begin{definition*}
 %	Let $s$ be an $i$-simplex of the diagonal $\sur(k)^D$, i.e. a sequence containing any value in $\{1,\dots,k\}$ exactly $i+1$ times.
@@ -85,11 +79,11 @@ For example, we have
 The diagonal simplicial set $\sur(r)^\diag$ has an induced complete graph filtration given by \todo{@andrea}, and we have the following.
 
 \begin{theorem}
-	The simplicial map $\tc \colon \sur(r)^\diag \to \cW\sym(r)$ is a filtration preserving weak equivalence.
+	The simplicial map $\tc \colon \sur(r)^\diag \to \BE(r)$ is a filtration preserving weak equivalence.
 \end{theorem}
 
 %\begin{lemma}[Compatibility of $tc$]
-%	We have that the map $tc:\sur(k)^{D}\rightarrow \cW\sym_{k}$ is compatible with the filtrations, in the sense that
+%	We have that the map $tc:\sur(k)^{D}\rightarrow \BE_{k}$ is compatible with the filtrations, in the sense that
 %	$$tc(\sur_{(\mu,\sigma)}(k)^{D})\subseteq \cW_{(\mu,\sigma)}\sym_{k}$$
 %	and in particular
 %	$$tc(\sur_{n}(k)^{D})\subseteq \cW_{n}\sym_{k}$$
@@ -97,7 +91,7 @@ The diagonal simplicial set $\sur(r)^\diag$ has an induced complete graph filtra
 
 \begin{proof}
 	Let $f\in \sur(k)^{D}$ be an $m$-simplex and denote
-	$$tc(f)=w=(w_{1},\dots,w_{m+1})\in (\cW\sym_{k})_{m+1}$$
+	$$tc(f)=w=(w_{1},\dots,w_{m+1})\in (\BE_{k})_{m+1}$$
 	Suppose that in $f_{ij}$ $i$ and $j$ alternate $\mu_{ij}$ times, and in $w_{ij}$ $i$ and $j$ alternate $\mu_{ij}'$ times.
 	We will prove that
 	$\mu_{ij}' \leq \mu_{ij}$.
@@ -159,7 +153,7 @@ We remark that $\tc$ is compatible with the equivalences in propositions \ref{su
 %\end{proposition}
 
 %\begin{proof}
-%The configuration space is homotopy equivalent to %the homotopy colimit of contractible spaces along %the same poset as above, as shown by McClure and %Smith \cite{MS}. %this is originally Berger's %criterion..
+%The configuration space is homotopy equivalent to %the homotopy colimit of contractible spaces along %the same poset as above, as shown by McClure and %Smith \cite{mcclure2003multivariable}. %this is originally Berger's %criterion..
 %\end{proof}
 
 % In both cases, to see even the role of permutations we'll use always pairs $(\mu,\sigma)$ with $\mu$ exactly the collection of variation numbers obtained from the initial element so that the permutation is uniquely determined, and $(\mu,\sigma)$ is minimal in the poset.
@@ -182,7 +176,7 @@ We remark that $\tc$ is compatible with the equivalences in propositions \ref{su
 		%	\end{itemize}
 	%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
 	%and the first occurrences of $1,2,3$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $122333112 \in \sur_{((2,1,1),(123))}(3)^{D}$ $\Rightarrow$ $122333112 \in \sur_{3}(3)^{D}$.
-	%Now applying $tc$ we obtain $tc(122333112)=(123,231,312)\in (\cW\sym_3)_{3} $
+	%Now applying $tc$ we obtain $tc(122333112)=(123,231,312)\in (\BE_3)_{3} $
 	%\begin{itemize}
 	%\item $(123,231,312)_{12}=(12,21,12)\rightarrow \mu_{12}=2$
 	%\item $(123,231,312)_{13}=(13,31,31)\rightarrow \mu_{13}=1$
