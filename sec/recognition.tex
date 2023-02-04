@@ -1,28 +1,19 @@
 \subsection{Recognition of configuration spaces}\label{ss:recognition}
-\todo{@paolo: please write this subsection.}
 
-\anibal{
-	This subsection needs to be rewritten.
-	It should say what a complete graph filtration is.
-	It should cite as a proposition that any space with one is equipped with an explicit (in terms of the filtration) weak-equivalence to the realization of the complete graph poset.
-	It should also hint or describe the complete graph filtration on configuration space.
-	The presentation here and the examples for the Surjection and Barratt--Eccles complexes should be made compatible with each other, then moved to their respective subsections.
-	Please use $\con(r,d)$ for the configurations space of $r$-points in $\R^d$.
-}
 
-Let $F_k(\R^{d})$ denote the configuration space of $k$-tuples of pairwise disjoint vectors in $\R^{d}$.
-This space is equipped with a free action of the symmetric group $\sym_k$ of permutations of $\{1,\dots,k\}$ swapping elements of a $k$-tuple.
+
+Let $\con{r}(\R^{d})$ denote the configuration space of $r$-tuples of pairwise disjoint vectors in $\R^{d}$.
+This space is equipped with a free action of the symmetric group $\Sigma_r$ of permutations of $\{1,\dots,r\}$ swapping elements of a $r$-tuple.
 
 %In this section we refine the filtrations of McClure-Smith and Barratt--Eccles in order to show that $tc$ induces equivariant weak equivalence on the filtation terms.
 
 \begin{definition}[Complete graphs]
-	A \textit{complete graph} on $k$ vertices is
-	a pair $(\mu,\sigma)$, where $\mu$ is a collection of non-negative integers $\mu_{ij}\in\mathbb{N}$, $1 \leq i < j \leq k$
+	A \textit{complete graph} on $r$ vertices is a pair $(\mu,\sigma)$, where $\mu$ is a collection of non-negative integers $\mu_{ij}\in\mathbb{N}$, $1 \leq i < j \leq r$
 	and $\sigma$ is an ordering of
-	$\{1,\dots,k\}$.
-	We can draw a graph with $k$ vertices and with an oriented edge between any two vertices $i,j$
-	labeled by $\mu_{ij}$, such that the orientation of the edges respect the ordering.
-	For example the figure represents a complete graph on 4 vertices with ordering $\sigma=(1432)$
+	$\{1,\dots,r\}$. Graphically $(\mu,\sigma)$ is a simple directed graph in which every couple of vertices $i,j$ is labeled with $\mu_{ij}$ and oriented consistently with the ordering.
+	Let us denote the set of complete graphs with $r$ vertices as $\mathcal{CG}(r)$ and with $\mathcal{CG}_{n}(r)$ the collection of those graphs with $\max_{i<j}(\mu_{ij})< n$. We write $\sigma_{ij}$ for the restriction of the ordering $\sigma$ to the set $\{i,j\}$.
+\end{definition}
+	For example, the following figure represents a complete graph on 4 vertices with ordering $\sigma=(1432)$ and $\mu=(\mu_{12},\mu_{13},\mu_{14},\mu_{23},\mu_{24},\mu_{34})=(2,1,3,1,2,4)$.
 	\begin{equation*}
 		\begin{tikzcd}
 			\ & 2 & \  \\
@@ -30,71 +21,41 @@ This space is equipped with a free action of the symmetric group $\sym_k$ of per
 			\ & 4 \arrow[ur,"4"'] \arrow[uu] & \
 		\end{tikzcd}
 	\end{equation*}
-	Let us denote the set of complete graphs with $k$ vertices as $\mathcal{CG}(k)$.
-
-	We write $\sigma_{ij}$ for the restriction of the ordering $\sigma$ to the set $\{i,j\}$.
-\end{definition}
+	
 
 \begin{definition}[Complete graphs form a poset]
 	$\mathcal{CG}(k)$ has a poset structure as follow:
 	\begin{equation*}
 		(\mu,\sigma)\le (\nu,\tau) \ \ \text{ if and only if } \ \ (\mu_{ij}<\nu_{ij}) \ \ \text{ or } \ \ (\mu_{ij},\sigma_{ij})= (\nu_{ij},\tau_{ij})
 	\end{equation*}
-	for each pair $\left\lbrace i,j\right\rbrace \subset\left\lbrace 1,\dots,k  \right\rbrace $.
+	for each pair $\left\lbrace i,j\right\rbrace \subset\left\lbrace 1,\dots,k  \right\rbrace $. This poset structure descends naturally to $\mathcal{CG}_{n}(k)$.
 \end{definition}
+We recall a definition due to Berger \cite{berger1997confspacemodel}, compare also \cite{beuckelmann2021master}.
+\begin{definition}
+For a given poset $A$, a cellular $A$-decomposition of a topological space $X$ is a family of subspaces $X_a \subseteq X$ indexed by $a \in A$ such that
+\begin{itemize}
+    \item if $a \leq b$ then $X_a \subseteq X_b$;
+\item $\bigcup_{a \in A} X_a = X$;
+\item $X_a$ is contractible for each $a$;
+\item the inclusion $\bigcup_{a<b} X_a \subset X_b$ is a closed cofibration.
+\end{itemize}
+\end{definition} 
 
-\begin{definition}[Filtration of the surjection multisimplicial set $Sur$]
-	Fix a surjection $f\in \sur(k)_{i_{1},\dots,i_{k}}$.
-	For any pair $(i,j)$ with $i< j$, let $f_{ij}$ be the subsequence of $f(1) \dots f(i_1+\dots+i_k+k)$ obtained omitting all the occurrences of elements different from $i$ and $j$.
-	%		For example, let $31231 \in \sur(3)_{2,1,2}$, we have $(31231)_{12}=121$, $(31231)_{23}=323$ and $(31231)_{13}=3131$.
-	The surjection $f$ belongs to $\sur_{(\mu,\sigma)}(k)\subseteq \sur(k)$ if for any pair $(i,j)$ with $i< j$, either in the sequence $f_{ij}$ $i$ and $j$ alternate strictly less than $\mu_{ij}$ times,
-	%		, that is the amount of times that the order of $i$ and $j$ change ,
-	or $i$ and $j$ alternate in the sequence $f_{ij}$  exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
-	Notice that
-	\begin{equation*}
-		\sur_{n}(k)=\bigcup_{\max_{i<j}(\mu_{ij})< n} \sur_{(\mu,\sigma)}(k)
-	\end{equation*}
-	%		\\
-	%		\\
-	%		Returning to the example above we have $\mu_{12}(31231)=1$, $\mu_{23}(31231)=1$ and $\mu_{13}(31231)=2$ so that $31231\in \sur_{(\mu,\sigma)}(3)_{2,1,2}$
-	%		\begin{itemize}
-		%		\item if $\mu_{12}>1$, $\mu_{23}>1$ and $\mu_{13}>2$ and any $\sigma\in \Sigma_{3}$;
-		%		\item if some $\mu_{ij}=\mu(f)_{ij}$ and the first occurences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
-		%		\end{itemize}
-	%	    In our example we obtain that, by equation \ref{def},
-	%	    $31231\in \sur_{3}(k)_{2,1,2}$
-	%	    \\
-	%	    \\
-	% We have obtained the filtration $$\sur_1(k) \subset \sur_2(k)  \subset \sur_3(k)  \subset \dots $$
-	% that induces the filtration of the correspondent diagonal simplici%al set
-	%	    $$\sur_1(k)^{D} \subset \sur_2(k)^{D}  \subset \sur_3(k)^{D}  \subset\dots $$
-\end{definition}
+\begin{proposition}
+If a topological space $X$ admits a \textit{cellular $A$-decomposition} induced by a poset $A$, then there is a homotopy equivalence between $X$ and the geometric realization of $A$. 
+\end{proposition}
 
-\begin{definition}[Filtration of the Barratt--Eccles simplicial set $\BE_k$]
-	Fix an element $w \in (\BE_k)_{d}$, $w=(w_{1},\dots , w_{d})$ with $w_{h}\in \sym_k$.
-	For any pair $(i,j)$ with $i< j$, denote $w_{ij}=(w_{1,ij},\dots , w_{d,ij})$ where $w_{h,ij}$ is the subsequence of $w_{h}$ obtained omitting all the occurrences of elements different from $i$ and $j$.
-	%	For example, let $(123,231,312) \in (\BE_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
-	The element $w$ belongs to $\cW_{(\mu,\sigma)}\sym_k\subseteq \BE_k$ if for all pairs $(i,j)$, $i< j$ either along the sequence $w_{ij}$ $i$ and $j$ swap less than $\mu_{ij}$ times,
-	%	, that is, as before, the amount of times that the order of $i$ and $j$ change ,
-	or they swap exactly $\mu_{ij}$ times and the first permutation $w_{1,ij}$ is equal to $\sigma_{ij}$.
-	Notice that
-	\begin{equation*}
-		\label{def}
-		\cW_{n}\sym_k=\bigcup_{\max_{i<j} (\mu_{ij})< n} \cW_{(\mu,\sigma)}\sym_{k}
-	\end{equation*}
-	\\
-	\\
-	%	Returning to the example above we have $\mu_{12}(123,231,312)=2$, $\mu_{23}(123,231,312)=1$ and $\mu_{13}(123,231,312)=1$ so that $(123,231,312)\in (\cW_{(\mu,\sigma)}\sym_3)_{3}$
-	%	\begin{itemize}
-		%		\item if $\mu_{12}>2$, $\mu_{23}>1$ and $\mu_{13}>1$ and any $\sigma\in \sym_{3}$;
-		%		\item if some $\mu_{ij}=\mu_{ij}(w)$ and the first permutation of $w$ is equal to $\sigma_{ij}$.
-		%	\end{itemize}
-	%	In our example we obtain that, by equation \ref{def},
-	%	$(123,231,312)\in (\cW_{3}\sym_3)_{3}$
-	%	\\
-	%	\\
-	%	We have obtained the filtration $$\cW_1\sym_k \subset \cW_2 \sym_k
-	%	\subset \cW_3 \sym_k
-	%	\subset \dots $$
-	%	that is the other one we need in $tc$ definition.
-\end{definition}
+The case of interest for us is the following.
+
+\begin{theorem} (Berger,\cite[\S1.13]{berger1997confspacemodel})
+If a space has a cellular $\mathcal{CG}_d(r)$-decomposition then it is homotopy equivalent to 
+the configuration space 
+$\con{r}(\R^{d})$.
+\end{theorem}
+
+We warn the reader that configuration spaces themselves do not admit a cellular decomposition with respect to graph complete posets, but with respect to some extended versions of these posets, as explained in \cite{beuckelmann2021master}.
+
+%Unfortunately, Euclidean configuration spaces do not admit a cellular $\mathcal{CG}$-decomposition. However, it is still possible to give a combinatorial model for these spaces using Smith-filtration from \cite{smith1989filtration}, in the context of simplicial sets, or equivalently using Surjection-filtration, in the context of multisimplicial sets.
+
+
+

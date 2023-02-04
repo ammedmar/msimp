@@ -31,17 +31,17 @@ It is straightforward to verify that
 \]
 as simplicial sets.
 
-The functor $(-)^\diag \colon \mSet{k} \to \sSet$ admits a right adjoint $\radj \colon \sSet \to \mSet{k}$, defined, as usual, by the expression
+The functor $(-)^\diag \colon \mSet{k} \to \sSet$ admits a right adjoint $\mathcal{N}^{(k)} \colon \sSet \to \mSet{k}$, defined, as usual, by the expression
 \[
-\radj(Y)_{m_1,\dots,m_k} =
-\sSet\big( \simplex^{m_1} \times \dots \times \simplex^{m_k}, \, Y \big).
+\mathcal{N}^{(k)}(Y)_{m_1,\dots,m_k} =
+\sSet\big( \simplex^{m_1} \times \dots \times \simplex^{m_k}, \, Y \big)
 \]
 These functors define a Quillen equivalence.
-A proof of this fact can be given using \cite[Proposition~1.6.8]{maltsiniotis2005grothendieck}.
+A proof of this fact can be given using \cite[Proposition~1.6.8]{maltsiniotis2005grothendieck} or adapting that in \cite[Proposition~1.2]{moerdijk1989bisimplicialsets}.
 
 \subsection{Eilenberg--Zilber map}\label{ss:eilenber-zilber}
 
-Recall that an \textit{$(n_1,\dots,n_k)$-shuffle} $\sigma$ is a permutation in $\sym_n$ satisfying
+Recall that an \textit{$(n_1,\dots,n_k)$-shuffle} $\sigma$ is a permutation in $\Sigma_n$ satisfying
 \begin{gather*}
 	\sigma(1) < \dots < \sigma(n_1), \\
 	\sigma(n_1+1) < \dots < \sigma(n_1+n_2), \\
@@ -49,8 +49,8 @@ Recall that an \textit{$(n_1,\dots,n_k)$-shuffle} $\sigma$ is a permutation in $
 	\sigma(n-n_k-1) < \dots < \sigma(n),
 \end{gather*}
 where $n = n_1+\dots+n_k$.
-We denote the set of such permutations by $\sh_{n_1,\dots,n_k}$.
-For any $\sigma \in \sh_{n_1,\dots,n_k}$ the inclusion
+We denote the set of such permutations by $\Sh(n_1,\dots,n_k)$.
+For any $\sigma \in \Sh(n_1,\dots,n_k)$ the inclusion
 \[
 \gi_\sigma \colon \gsimplex^n \to \gmsimplex{n_1}{n_k}
 \]
@@ -59,7 +59,7 @@ is defined by the assignment
 (x_1,\dots,x_n) \mapsto (x_{\sigma^{-1}(1)}, \dots, x_{\sigma^{-1}(n)}).
 \]
 If $e$ is the identity permutation, we denote $\gi_{e}$ simply as $\mathfrak{i}$.
-The set $\set{\gi_\sigma \mid \sigma \in \sh_{n_1,\dots,n_k}}$ defines a triangulation of $\gmsimplex{n_1}{n_k}$ making it isomorphic, in the category cellular spaces, to the geometric realization of the simplicial set $\msimplex{n_1}{n_k}$.
+The set $\set{\gi_\sigma \mid \sigma \in \Sh(n_1,\dots,n_k)}$ defines a triangulation of $\gmsimplex{n_1}{n_k}$ making it isomorphic, in the category cellular spaces, to the geometric realization of the simplicial set $\msimplex{n_1}{n_k}$.
 Using this identification, the identity map induces a cellular map
 \[
 \ez \colon \gmsimplex{n_1}{n_k} \to \bars[\big]{\msimplex{n_1}{n_k}},
@@ -72,21 +72,21 @@ agrees, under the natural identifications, with the traditional Eilenberg--Zilbe
 
 For a multisimplicial set $X$, the induced chain map $\EZ \colon \chains(X) \to \chains(X^\diag)$ is explicitly given on an $(n_1,\dots,n_k)$-multisimplex $x$ by
 \[
-\EZ(x) \ = \sum_{\qquad \crampedclap{\sigma \in \sh_{n_1,\dots,n_k}}} \sign(\sigma) \, X(\sigma_1 ,\dots, \sigma_k)(x)
+\EZ(x) \ = \sum_{\qquad \crampedclap{\sigma \in \Sh(n_1,\dots,n_k)}} \sign(\sigma) \, X(\sigma_1 ,\dots, \sigma_k)(x)
 \]
 %\[
 %\EZ \big( [n_1] \times\dots\times [n_k] \big) =
 %\sum_{\sigma \in \sh_{n_1,\dots,n_k}} \sign(\sigma) \, \sigma_1 \times\dots\times \sigma_k
 %\]
-where, for $\ell \in \set{1,\dots,k}$, the morphisms $\sigma_\ell \colon [n] \to [n_\ell]$ are defined by the following property: For
+where, for $\ell \in \set{1,\dots,k}$, the morphisms $\sigma_\ell \colon [n] \to [n_\ell]$ are defined by the following property: for
 each $j \in \set{1,\dots,n}$ there is exactly one $\ell \in \set{1,\dots,k}$ such that $\sigma_\ell(j+1) = \sigma_\ell(j)+1$ and $\sigma_i(j+1) = \sigma_i(j)$ for all $i \neq \ell$.
-\todo{@andrea: this is off, unfortunately. Could you please fix it?}
+
 
 Since the traditional Eilenberg--Zilber map preserves counital coalgebra structures we have the following.
 
-\begin{theorem*}
+\begin{theorem}
 	For every multisimplicial set $X$ the map $\EZ \colon \chains(X) \to \chains(X^\diag)$ is a quasi-isomorphism of counital coalgebras.
-\end{theorem*}
+\end{theorem}
 
 %\begin{proof}
 %	Consider an $(n_1,\dots,n_k)$-multisimplex $x$ with characteristic map
@@ -100,33 +100,33 @@ We remark that the Eilenberg--Zilber map is not a morphisms of $E_\infty$-coalge
 For example, as shown in \cite[\S5.4]{medina2022cube_einfty}, we have
 \[
 \Delta_1 \circ \EZ\big([0,1] \ot [0,1]\big) \neq
-\EZ \, \circ \, \Delta_1\big([0,1] \ot [0,1]\big).
+\EZ ^{\otimes 2}\, \circ \, \Delta_1\big([0,1] \ot [0,1]\big).
 \]
 
 \subsection{Canonical inclusion}\label{ss:inclusion}
 
 Let $Y$ be a simplicial set and $n$ an integer.
-Consider the function $Y_n \to \cU Y_{n,0,\dots,0}$ sending a simplex with characteristic map $\zeta \colon \simplex^n \to Y$ to the composition
+Consider the function $Y_n \to \cN^{(-)} Y_{n,0,\dots,0}$ sending a simplex with characteristic map $\zeta \colon \simplex^n \to Y$ to the composition
 \[
 \simplex^n \times \msimplex{0}{0} \xra{\pi_1} \simplex^n \xra{\zeta_y} Y.
 \]
 These functions induce a chain map
 \[
-\In \colon \chains(Y) \to \chains(\cU Y)
+\In \colon \chains(Y) \to \chains(\cN^{(*)} Y)
 \]
 and we have the following.
 
-\begin{theorem*}
-	The canonical inclusion $\In \colon \chains(Y) \to \chains(\cU Y)$ is a quasi-isomorphism of $E_\infty$-coalgebras for any simplicial set $Y$.
-\end{theorem*}
+\begin{theorem}
+	The canonical inclusion $\In \colon \chains(Y) \to \chains(\cN^{(*)} Y)$ is a quasi-isomorphism of $E_\infty$-coalgebras for any simplicial set $Y$.
+\end{theorem}
 
 \begin{proof}
 	The structure preserving properties of this map are immediate.
 	It remains to be shown that it induces a homology isomorphism.
 	Consider the composition of quasi-isomorphisms
 	\[
-	\chains(\cU Y) \xra{\EZ}
-	\chains\big((\cU Y)^\diag\big) \to
+	\chains(\cN^{(*)} Y) \xra{\EZ}
+	\chains\big((\cN^{(*)} Y)^\diag\big) \to
 	\chains(Y)
 	\]
 	where the second map is induced by the counit of the adjunction.
@@ -142,7 +142,7 @@ and we have the following.
 
 \subsection{Singular chains}\label{ss:singular}
 
-\begin{theorem*}
+\begin{theorem}
 	Let $\fZ$ be a topological space.
 	The chain map
 	\[
@@ -153,14 +153,14 @@ and we have the following.
 	\gsimplex^n \times \gmsimplex{0}{0} \xra{\pi_1} \gsimplex^n,
 	\]
 	is a quasi-isomorphism of $E_\infty$-coalgebras.
-\end{theorem*}
+\end{theorem}
 
 \begin{proof}
 	This map factors as the composition of two quasi-isomorphism of $E_\infty$-coalgebras.
-	The first is $\In \colon \rS(\fZ) \to \chains(\cU^{(k)} \Sing(\fZ))$, which was studied in \cref{ss:inclusion}.
+	The first is $\In \colon \rS(\fZ) \to \chains(\cN^{(k)} \Sing(\fZ))$, which was studied in \cref{ss:inclusion}.
 	The second is induced from a multisimplicial isomorphism
 	\[
-	\cU^{(k)} \Sing(\fZ) \to \Sing^{(k)}(\fZ)
+	\cN^{(k)} \Sing(\fZ) \to \Sing^{(k)}(\fZ)
 	\]
 	defined as follows.
 	Using the adjunction of \cref{ss:geometric realization}, any simplicial map $\msimplex{n_1}{n_k} \to \Sing(\fZ)$ corresponds canonically to a continuous map $\bars{\msimplex{n_1}{n_k}} \to \fZ$, which precomposing with $\ez$ gives a continuous map $\gmsimplex{n_1}{n_k} \to \fZ$.

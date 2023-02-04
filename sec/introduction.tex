@@ -6,13 +6,13 @@ The cochain complex of a simplicial set is equipped with the classical Alexander
 The importance of $E_\infty$-algebras is highlighted by a result of Mandell \cite{mandell2006homotopy_type} stating that finite type nilpotent spaces are weakly equivalent if and only if their singular cochains are quasi-isomorphic as $E_\infty$-algebras.
 Our first goal is to define explicitly a natural product together with an $E_\infty$-algebra extension on the cochains of multisimplicial sets.
 These are generalizations of both simplicial and cubical sets which are useful for concrete computations since they can model homotopy types using fewer cells.
-For example, the proof by the third named author of the non-formality of the cochain algebra of planar configuration spaces \cite{formality} used a simplicial model and the Alexander--Whitney product on its cochains.
+For example, the proof by the third named author of the non-formality of the cochain algebra of planar configuration spaces \cite{salvatore2020planarnonformality} used a simplicial model and the Alexander--Whitney product on its cochains.
 The use of a multisimplicial model and the product defined here makes the necessary computations much simpler and faster, paving the way for an extension of this result to higher dimensions.
 
 Multisimplicial sets are contravariant functors from products of the simplex category $\simplex$ to $\Set$.
 Explicitly, for any positive integer $k$ the category $\mSet{k}$ of $k$-fold multisimplicial sets is the presheaf category $\Fun((\simplex^\op)^{\times k}, \Set)$.
 There is a notion of geometric realization for multisimplicial sets, which results in a CW complex having, for each non-degenerate multisimplex, a cell modeled on a product of geometric simplices $\gmsimplex{n_1}{n_k}$.
-This and the corresponding singular functor define a Quillen equivalence between a model category structure on $\mSet{k}$ and the usual category of topological spaces.
+%This and the corresponding singular functor define a Quillen equivalence between a model category structure on $\mSet{k}$ and the usual category of topological spaces.
 We are interested in modeling homotopy types algebraically, for which we consider the composition of the geometric realization and the functor of cellular chains $\gchains$.
 This composition defines $\chains \colon \mSet{k} \to \Ch$, the functor of (normalized) chains.
 In \cref{ss:e-infty extension} we define a lift of $\chains$ to the category of $E_\infty$-coalgebras, and, consequently, a lift of the functor of cochains to the category of $E_\infty$-algebras.
@@ -20,7 +20,7 @@ We do so using the finitely presented $E_\infty$-prop introduced in \cite{medina
 Specifically, using the isomorphism
 \[
 \gchains(\gmsimplex{n_1}{n_k}) \cong
-\gchains(\gsimplex^{n_1}) \ot\dotsb\ot \gchains(\gsimplex^{n_n}),
+\gchains(\gsimplex^{n_1}) \ot\dotsb\ot \gchains(\gsimplex^{n_k}),
 \]
 we extend the image of the prop generators constructed in \cite{medina2020prop1} from the chains of standard simplices to those of standard multisimplices.
 These generators are the Alexander--Whitney coproduct, the augmentation map, and an algebraic version of the join product.
@@ -29,17 +29,17 @@ As an application, we describe in \cref{ss:cup coproducts} explicit generalizati
 
 Let us now focus on the relationship between multisimplicial and simplicial theories.
 The restriction to the image of the diagonal inclusion $\simplex^\op \to (\simplex^\op)^{\times k}$ of any $k$-fold multisimplicial set $X$ defines its associated diagonal simplicial set $X^\diag$.
-There is a natural homeomorphism of realizations $\bars{X} \cong \bars{X^\diag}$.
-%Quillen proved in \cite{Quillen}
-\todo{@paolo @andrea: where is this? Could you fill in the reference, please?}
+There is a natural homeomorphism of realizations $\bars{X} \cong \bars{X^\diag}$ 
+\cite{Quillen}.
+%\todo{@paolo @andrea: where is this? Could you fill in the reference, please?}
 Under this homeomorphism the cells of $\bars{X^\diag}$ arise from those of $\bars{X}$ through subdivision, a procedure described algebraically by the Eilenberg--Zilber quasi-isomorphism
 \[
 \EZ \colon \chains(X) \to \chains(X^\diag).
 \]
-The functor induced by the diagonal restriction has a right adjoint $\radj^{(k)}$ making the categories of $k$-fold multisimplicial and simplicial sets equivalent in Quillen's sense.
+The functor induced by the diagonal restriction has a right adjoint $\mathcal{N}^{(k)}$, the multisimplicial nerve of a simplicial set, making the categories of $k$-fold multisimplicial and simplicial sets equivalent in Quillen's sense.
 Furthermore, there is a natural inclusion
 \[
-\In \colon \chains(Y) \to \chains(\radj^{(k)} Y)
+\In \colon \chains(Y) \to \chains(\mathcal{N}^{(k)} Y)
 \]
 which is also a quasi-isomorphism.
 On one hand, the $\EZ$ map preserves the counital coalgebra structure, but it does not respect the higher $E_\infty$-structure.
@@ -48,36 +48,36 @@ We use this fact to prove in \cref{ss:singular} that, for any topological space 
 
 In the second part of the paper, we use these constructions to study a multisimplicial model of the canonical filtration
 \[
-\con(r,1) \subseteq \con(r,2) \subseteq \dotsb
+\con{r}(\R) \subseteq \con{r}(\R^2) \subseteq \dotsb 
 \]
-of the space $\con(r)$ of $r$ distinct ordered points in $\R^\infty \defeq \colim (\R^1 \subseteq \R^2 \subseteq \dotsb)$.
-Concretely, for any integer $r$, McClure and Smith \cite{mcclure2003multivariable} introduced a chain complex $\cX(r)$ of $\Z[\sym_r]$-modules with a filtration
+of the space $\con{r}(\R^{\infty})$ of $r$ distinct ordered points in $\R^\infty \defeq \colim (\R^1 \subseteq \R^2 \subseteq \dotsb)$.
+Concretely, for any integer $r$, McClure and Smith \cite{mcclure2003multivariable} introduced a chain complex $\cX(r)$ of $\Z[\Sigma_r]$-modules with a filtration
 \[
-\cX(r,1) \subseteq \cX(r,2) \subseteq \dotsb \,,
+\cX_{1}(r) \subseteq \cX_{2}(r) \subseteq \dotsb \,,
 \]
-and showed that $\cX(r)$ is connected to the singular chains of $\con(r)$ via a zig-zag of filtration preserving $\sym_r$-equivariant quasi-isomorphisms.
+and showed that $\cX(r)$ is connected to the singular chains of $\con{r}(\R^{\infty})$ via a zig-zag of filtration preserving $\Sigma_r$-equivariant quasi-isomorphisms.
 Presumably it was observed by both McClure--Smith and Berger--Fresse that $\cX(r)$ can be interpreted as the chains of an $r$-fold multisimplicial set $\sur(r)$, which we introduce in \cref{ss:surjection model} with a filtration
 \[
-\sur(r,1) \subseteq \sur(r,2) \subseteq \dotsb \,,
+\sur_{1}(r) \subseteq \sur_{2}(r) \subseteq \dotsb \,,
 \]
-so that $\chains\sur(r,d) \cong \cX(r,d)$.
-There is an operad structure on $\set{\cX(r,d)}_{r \geq 1}$ for each $d \geq 1$, but we do not focus on it since it is not induced from one at the multisimplicial level.
-By the constructions in \cref{s:multisimplicial} the complex $\chains\sur(r)$ is equipped with an $E_\infty$-coalgebra structure, which we connect to the singular chains of $\con(r)$ via an explicit zig-zag of filtration preserving $\sym_r$-equivariant quasi-isomorphisms of $E_\infty$-coalgebras.
+so that $\chains\sur_{d}(r) \cong \cX_{d}(r)$.
+There is an operad structure on $\set{\cX_{d}(r)}_{r \geq 1}$ for each $d \geq 1$, but we do not focus on it since it is not induced from one at the multisimplicial level.
+By the constructions in \cref{s:multisimplicial} the complex $\chains\sur(r)$ is equipped with an $E_\infty$-coalgebra structure, which we connect to the singular chains of $\con{r}(\R^{\infty})$ via an explicit zig-zag of filtration preserving $\Sigma_r$-equivariant quasi-isomorphisms of $E_\infty$-coalgebras.
 
-In a similar way, Berger and Fresse \cite{berger2004combinatorial} studied a chain complex $\cE(r)$ of $\Z[\sym_r]$-modules with a filtration
+In a similar way, Berger and Fresse \cite{berger2004combinatorial} studied a chain complex $\cE(r)$ of $\Z[\Sigma_r]$-modules with a filtration
 \[
-\cE(r,1) \subseteq \cE(r,2) \subseteq \dotsb \,.
+\cE_{1}(r) \subseteq \cE_{2}(r) \subseteq \dotsb \,.
 \]
 This complex comes from the chains on a simplicial set introduced by Barratt and Eccles \cite{barrat1974operad} and equipped with a filtration
 \[
-\BE(r,1) \subseteq \BE(r,2) \subseteq \dotsb
+\BE_{1}(r) \subseteq \BE_{2}(r) \subseteq \dotsb
 \]
-introduced by Smith \cite{smith1989filtration}.\footnote{As before we disregard the operadic structure on $\set{\BE(r,d)}_{r \geq 1}$.}
-Since $\cE(r)$ is induced from a simplicial set, it is endowed with an $E_\infty$-coalgebra structure, and it is not hard to see that the zig-zag of filtration preserving $\sym_r$-equivariant quasi-isomorphisms used to compare it to the singular chains of $\con(r)$ respects this higher structure.
-Consequently, $\cX(r)$ and $\cB(r)$ can be related by an explicit zig-zag of such maps.
+introduced by Smith \cite{smith1989filtration}.\footnote{As before we disregard the operadic structure on $\set{\BE_{d}(r)}_{r \geq 1}$.}
+Since $\cE(r)$ is induced from a simplicial set, it is endowed with an $E_\infty$-coalgebra structure, and it is not hard to see that the zig-zag of filtration preserving $\Sigma_r$-equivariant quasi-isomorphisms used to compare it to the singular chains of $\con{r}(\R^{\infty})$ respects this higher structure.
+Consequently, $\cX(r)$ and $\cE(r)$ can be related by an explicit zig-zag of such maps.
 
 It is desirable to have a direct map between the multisimplicial and simplicial models.
-Berger--Fresse constructed two such filtration preserving $\sym_r$-equivariant quasi-isomorphisms
+Berger--Fresse constructed two such filtration preserving $\Sigma_r$-equivariant quasi-isomorphisms
 \[
 \TR \colon \chains\BE(r) \to \chains\sur(r)
 \quad \text{and} \quad
@@ -89,6 +89,6 @@ Our contribution, presented in \cref{ss:table completion}, is the construction o
 \[
 \TC \colon \chains\sur(r) \xra{\EZ} \chains\sur(r)^\diag \xra{\chains(\tc)} \chains \BE(r),
 \]
-where the second map is induced from a filtration preserving $\sym_r$-equivariant weak-equivalence of simplicial sets.
+where the second map is induced from a filtration preserving $\Sigma_r$-equivariant weak-equivalence of simplicial sets.
 We therefore prove that $\TC$ is a coalgebra map since $\EZ$ is one.
 Considering that $\EZ$ does not preserve the higher $E_\infty$-structure it is not surprising that $\TC$ does not either.

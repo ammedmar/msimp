@@ -1,33 +1,69 @@
 \subsection{Simplicial model}\label{ss:simplicial model}
 
-We now study another $E_\infty$-model of configuration space coming from a simplicial set $\BE(r)$ with complete graph filtration
+%Then we compare this model 
+We consider now another $E_\infty$-model of  configuration space coming from a simplicial set $\BE(r)$, equipped with a complete graph filtration
 \[
-\BE(r,1) \subset \BE(r,2) \subset \dotsb \,.
+\BE_{1}(r) \subset \BE_{2}(r) \subset \dotsb \,.
 \]
-The $n$-simplices of $\BE(r)$ are tuples of $n+1$ elements of the symmetric group $\sym_r$.
+
+
+The $n$-simplices of $\BE(r)$ are tuples of $n+1$ elements of the symmetric group $\Sigma_r$.
 Its face and degeneracy maps are defined by removing and doubling elements respectively.
 There is an operad structure on these simplicial sets, but we do not consider it here.
-The complete graph filtration of $\BE(r)$ by simplicial subsets $\BE_r(r,d)$ is given as follows.
-\todo{@paolo: this should be connected to the section on graph filtrations.}
-Let us write an element of $\sigma \in \sym_r$ as $\sigma(1)\sigma(2) \dots \sigma(r)$.
-Then $(\sigma_0,\dots,\sigma_m) \in \BE(r,d)$ if for distinct $i,j \in \set{1,\dots,r}$ their order of appearance in $\sigma_\ell$ swaps at most $d-1$ times as $\ell$ increases from $0$ to $m$.
-For example $w = (123,213,312) \in \BE(3,3)$ but $w \notin \BE(3,2)$ because the position of $1$ and $2$ swaps two times.
-The symmetric group $\sym_r$ acts on $\BE(r)$ by diagonal left multiplication and the action preserves the filtration.
+The complete graph filtration of $\BE(r)$ by simplicial subsets $\BE_n(r)$ is given as follows.
+
+\begin{definition}[Filtration of the Barratt--Eccles simplicial set $\BE(r)$]
+	Fix an element $w \in \BE(r)_{d}$, $w=(w_{1},\dots , w_{d})$ with $w_{h}\in \Sigma_r$.
+ 	For any pair $(i,j)$ with $i< j$, denote $w_{ij}=(w_{1,ij},\dots , w_{d,ij})$ where $w_{h,ij}$ is the subsequence of $w_{h}$ obtained omitting all the occurrences of elements different from $i$ and $j$.
+	%	For example, let $(123,231,312) \in (\BE_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
+	The element $w$ belongs to $\BE_{(\mu,\sigma)}(r)\subseteq \BE(r)$ if for all pairs $(i,j)$, $i< j$ either along the sequence $w_{ij}$ $i$ and $j$ swap less than $\mu_{ij}$ times,
+	%	, that is, as before, the amount of times that the order of $i$ and $j$ change ,
+	or they swap exactly $\mu_{ij}$ times and the first permutation $w_{1,ij}$ is equal to $\sigma_{ij}$.
+	Notice that
+	\begin{equation*}
+		\label{def}
+		\BE_{n}(r)=\bigcup_{\max_{i<j} (\mu_{ij})< n} \BE_{(\mu,\sigma)}(r)
+	\end{equation*}
+	%	Returning to the example above we have $\mu_{12}(123,231,312)=2$, $\mu_{23}(123,231,312)=1$ and $\mu_{13}(123,231,312)=1$ so that $(123,231,312)\in (\cW_{(\mu,\sigma)}\sym_3)_{3}$
+	%	\begin{itemize}
+		%		\item if $\mu_{12}>2$, $\mu_{23}>1$ and $\mu_{13}>1$ and any $\sigma\in \sym_{3}$;
+		%		\item if some $\mu_{ij}=\mu_{ij}(w)$ and the first permutation of $w$ is equal to $\sigma_{ij}$.
+		%	\end{itemize}
+	%	In our example we obtain that, by equation \ref{def},
+	%	$(123,231,312)\in (\cW_{3}\sym_3)_{3}$
+	%	\\
+	%	\\
+	%	We have obtained the filtration $$\cW_1\sym_k \subset \cW_2 \sym_k
+	%	\subset \cW_3 \sym_k
+	%	\subset \dots $$
+	%	that is the other one we need in $tc$ definition.
+\end{definition}
+
+It has been proven in \cite{kashiwabara1993confcomplex} that $\con{r}(\R^d)$ is homotopy equivalent to $\bars{\BE_{d}(r)} $. 
+The filtration of the Barratt-Eccles simplicial set induces naturally a filtration of the normalized chain complex $\cE(r):=\chains \BE(r)$
+\[
+\cE_{1}(r) \subset \cE_{2}(r) \subset \dotsb \,.
+\]
+The complex $\cE(r)$ is known as Barratt-Eccles chain complex.
+
+Let us write an element of $\sigma \in \Sigma_r$ as $\sigma(1)\sigma(2) \dots \sigma(r)$.
+Then $(\sigma_0,\dots,\sigma_m) \in \BE_{d}(r)$ if for distinct $i,j \in \set{1,\dots,r}$ their order of appearance in $\sigma_\ell$ swaps at most $d-1$ times as $\ell$ increases from $0$ to $m$.
+For example $w = (123,213,312) \in \BE_{3}(3)$ but $w \notin \BE_{2}(3)$ because the position of $1$ and $2$ swaps two times.
+The symmetric group $\Sigma_r$ acts on $\BE(r)$ by diagonal left multiplication and the action preserves the filtration.
 
 Similarly to the construction of an explicit zig-zag of equivariant quasi-isomorphisms of $E_\infty$-coalgebras constructed for the chains of the multisimplicial model (\cref{ss:surjection model}) we have the following zig-zag of such maps
 \[
-\schains\con(r,d) \leftarrow \schains \cgr(r,d) \to \schains\bars{\BE(r,d)} \leftarrow \chains \BE(r,d).
+\schains\con{r}(\R^d) \leftarrow \schains \bars{\mathcal{N}(\mathcal{CG}_{d}(r))} \to \schains\bars{\BE_{d}(r)} \leftarrow \chains \BE_{d}(r) = \cE_d(r).
 \]
 Combining these two constructions we have the following.
-\begin{theorem*}
+\begin{theorem}
 	The chains on the simplicial and multisimplicial models of a configuration space are related by an explicit zig-zag of equivariant quasi-isomorphism of $E_\infty$-coalgebras.
-\end{theorem*}
+\end{theorem}
 
 \subsection{Table completion}\label{ss:table completion}
 
 It is desirable to have a direct equivariant quasi-isomorphism between these algebraic models.
 Two filtration preserving quasi-isomorphisms were constructed by Berger--Fresse
-\todo{@everyone: Are this indeed filtration preserving?}
 \[
 \TR \colon \chains\BE(r) \to \chains\sur(r)
 \quad \text{and} \quad
@@ -48,7 +84,11 @@ where the second map is induced from a simplicial one defined below.
 This factorization proves that $\TC$ is a coalgebra map since both factors are.
 We warn the reader that, since $\EZ$ does not respect the $E_\infty$-coalgebra structure,
 neither does $\TC$.
-\todo{@andrea: add a simple example proving this claim, please}
+For example, using calculations from \cite{medina2022cube_einfty} and \cite{berger2002prismatic}, we have
+\[
+\Delta_1 \circ TC\big(12312) \neq
+\TC ^{\otimes 2}\, \circ \, \Delta_1\big(12312\big).
+\]
 
 %In this section we construct an explicit combinatorial map between the surjection complex and the Barratt--Eccles complex, that respects filtrations, inducing weak equivalences of subcomplexes.
 %Furthermore it upgrades a map previously defined on the chain level by Berger and Fresse: they constructed in \cite{BFsmall}
@@ -76,10 +116,10 @@ For example, we have
 \[
 \tc(122333112) = (123,231,312).
 \]
-The diagonal simplicial set $\sur(r)^\diag$ has an induced complete graph filtration given by \todo{@andrea}, and we have the following.
+The diagonal simplicial set $\sur(r)^\diag$ has an induced complete graph filtration given by restriction of definition \ref{surfiltration}, and we have the following.
 
 \begin{theorem}
-	The simplicial map $\tc \colon \sur(r)^\diag \to \BE(r)$ is a filtration preserving weak equivalence.
+	The simplicial map $\tc \colon \sur(r)^\diag \to \BE(r)$ is a filtration preserving weak equivalence. Moreover it induces weak equivalences $$\tc_{n} \colon \sur_{n}(r)^{D}\rightarrow \BE_{n}(r)$$
 \end{theorem}
 
 %\begin{lemma}[Compatibility of $tc$]
@@ -90,8 +130,8 @@ The diagonal simplicial set $\sur(r)^\diag$ has an induced complete graph filtra
 %\end{lemma}
 
 \begin{proof}
-	Let $f\in \sur(k)^{D}$ be an $m$-simplex and denote
-	$$tc(f)=w=(w_{1},\dots,w_{m+1})\in (\BE_{k})_{m+1}$$
+	Let $f\in \sur(r)^{D}$ be an $m$-simplex and denote
+	$$tc(f)=w=(w_{1},\dots,w_{m+1})\in \chains\BE(r)_{m+1}$$
 	Suppose that in $f_{ij}$ $i$ and $j$ alternate $\mu_{ij}$ times, and in $w_{ij}$ $i$ and $j$ alternate $\mu_{ij}'$ times.
 	We will prove that
 	$\mu_{ij}' \leq \mu_{ij}$.
@@ -110,7 +150,7 @@ The diagonal simplicial set $\sur(r)^\diag$ has an induced complete graph filtra
 	$\mu_{i,j}=1+\bar{\mu}_{ij}$,
 	and $\mu'_{ij}=1+\bar{\mu}'_{ij}$.
 
-	If $h \geq l$ and $l<k$
+	If $h \geq l$ and $l<r$
 	let $\bar{f}_{ij}$ be the subsequence of $f_{ij}$ obtained taking out the first $l$ values of $i$ and $j$.
 	Then $\bar{f}_{ij}$
 	starts with $i$,
@@ -119,30 +159,23 @@ The diagonal simplicial set $\sur(r)^\diag$ has an induced complete graph filtra
 	By induction on the length of sequences we obtain that
 	$\mu_{ij}'\le \mu_{ij}$.\\
 	Moreover $tc$ is compatible with orderings: the first occurrences of $i$ and $j$ form the ordering $w_{1,ij}$ that is the first permutation of $tc(f_{ij})$.
-	This concludes the proof.
-\end{proof}
+	This concludes the proof of the first assertion.
 
-\begin{corollary}\label{cor-comparing}
-	The map $\tc_{n} \colon \sur_{n}(k)^{D}\rightarrow \cW_{n}\sym_{k}$ is a weak equivalence.
-	\todo{@andrea: this statement has been absorbed to the previous one. Please merge the proofs}
-\end{corollary}
-
-\begin{proof}
-	We can express source and target as colimits of contractible %ok?
+Regarding the maps $\tc_{n} \colon \sur_{n}(r)^{D}\rightarrow \BE_{n}(r)$ we can express source and target as colimits of contractible %ok?
 	simplicial sets along the poset of complete graphs,
 	so we have a commutative diagram
 	\begin{equation*}
-		\begin{tikzcd}
-			hocolim_{(\mu,\sigma)}\sur_{(\mu,\sigma)}(k)^{D} \arrow[r] \arrow[d]& hocolim_{(\mu,\sigma)}\cW_{(\mu,\sigma)}\sym_{k} \arrow[d] \\
-			\sur_{n}(k)^{D}\arrow[r] & \cW_{n}\sym_{k}&
+		\begin{tikzcd}			hocolim_{(\mu,\sigma)}\sur_{(\mu,\sigma)}(r)^{D} \arrow[r] \arrow[d]& hocolim_{(\mu,\sigma)}\BE_{(\mu,\sigma)}(r) \arrow[d] \\
+			\sur_{n}(r)^{D}\arrow[r] & \BE_{n}(r)&
 		\end{tikzcd}
 	\end{equation*}
 	Where the vertical and top arrows
 	are weak equivalences, and so the bottom map is a weak equivalence.
 \end{proof}
-
-We remark that $\tc$ is compatible with the equivalences in propositions \ref{sur-real} and \ref{be-real} since they are proved to be equivalences by a similar method.
-\todo{@andrea @paolo: what does this mean?}
+As a consequence of $tc$ definition and by the above theorem one can easily verify:
+\begin{proposition}
+    The homomorphism $TC$ by Berger-Fresse satisfies $$TC=\chains(tc)\circ EZ $$
+\end{proposition}
 
 
 %Let $F_k(\R^{d})$ be the ordered configuration %space of $k$-tuples of points in $\R^{d}$.

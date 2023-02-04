@@ -65,7 +65,7 @@ differential graded algebra.
 Our primary goal is to extend this product to the case of multisimplicial sets.  Let us consider a $k$-fold simplicial set $X$, that is a contravariant functor from $(\Delta)^k$ to the category of sets. The restriction to the diagonal  $\Delta \subset (\Delta)^k$ defines a simplicial set $X^D$. There is a notion 
 of geometric realization $|X|$ of a $k$-fold simplicial set $X$, that is a CW complex with a cell $e_x$ for each non-degenerate multisimplex $x$, with a characteristic map from a product of simplexes  $$\Delta_{i_1} \times \dots \times \Delta_{i_k} \to e_x$$ This extends the classical case where the characteristic map has a single simplex as domain. 
 Quillen proved in 
-\cite{Quillen} that there is  a natural homeomorphism of realizations $|X| \cong |X^D|$. Under this homeomorphism the cells of $|X^D|$ arise from those
+\cite{Quillen} that there is  a natural homeomorphism of realizations $|X| \cong |X^D|$. Under this homeomorphism, the cells of $|X^D|$ arise from those
 of $|X|$ by subdividing $k$-fold products of simplexes into simplexes. This procedure is described combinatorially by the Eilenberg-Zilber quasi-isomorphism $$EZ:C_*(X) \to C_*(X^D)$$ that induces a quasi-isomorphism on normalized chains 
 %meglio N invece di C_N
 $N_*(X) \to N_*(X^D)$ after quotienting out degenerate chains.
@@ -82,12 +82,12 @@ is a quasi-isomorphism.
    that the dual Eilenberg-Zilber map
  $$EZ^*:C^*(X^D) \to C^*(X)$$ %provato dove?
   is a quasi-isomorphism of differential graded algebras, where the source is equipped with the classical cup product.  
- Furthermore the Eilenberg-Zilber map restricts to a quasi-isomorphism $$N^*(X^D) \to N^*(X)$$ of sub-algebras of normalized cochains.   
- Our result is very useful for computations, since multisimplicial models of spaces have a signficantly smaller number of non-degenerate cells then their simplicial models.
+ Furthermore, the Eilenberg-Zilber map restricts to a quasi-isomorphism $$N^*(X^D) \to N^*(X)$$ of sub-algebras of normalized cochains.   
+ Our result is very useful for computations since multisimplicial models of spaces have a significantly smaller number of non-degenerate cells then their simplicial models.
 So $N^*(X)$ is much smaller than $N^*(X^D)$, but it contains the same information up to homotopy, 
 allowing for example 
 to calculate Massey products, and to detect its formality. 
-As an example we consider a family of multisimplicial sets $Sur(k)$ defined  by McClure and Smith, see \cite{MS},  modelling euclidean configuration spaces.
+As an example we consider a family of multisimplicial sets $Sur(k)$ defined  by McClure and Smith, see \cite{MS},  modeling euclidean configuration spaces.
 %the surjection operad chain complex $\chi(k)$ he normalized chain complex of a $k$-fold simplicial set for any $k$. %The sub-operad $\Chi_2$ is also known as cactus operad.
 The proof by the second author of the non-formality of the cochain algebra of planar configuration spaces in \cite{formality}  used the Barratt-Eccles simplicial model and the classical cup product.
 Our new product on the multisimplicial McClure-Smith models makes the computation much simpler and faster, paving the way for an extension to higher dimensions. 
@@ -107,7 +107,7 @@ The results of this paper appeared first in the B.Sc. thesis of the first author
 
 \section{Normalized complexes of multisimplicial modules}
 %troppi normalizzati
-We always consider modules over a commutative ring $R$ that will be usually be dropped from the notation. 
+We always consider modules over a commutative ring $R$ that will usually be dropped from the notation. 
 
 \begin{definition}	
 Let $X$ be a simplicial module, i.e. a contravariant functor from $\Delta$ to the category of $R$-modules.
@@ -128,7 +128,7 @@ The face map
 $$d_i^j:X_{i_1,\dots,i_j,\dots,i_k} \to X_{i_1,\dots,i_j-1,\dots,i_k}$$ in direction $j$ for $1 \leq j \leq k$
 and $0 \leq i_j \leq j$, is the image via $X$ of $(id,\dots,id, \delta_{i_j},id, \dots,id)$. The degeneracy map $$s^l_i:X_{j_1,\dots,j_l, \dots,j_k} \to X_{j_1,\dots,j_l+1,\dots,j_k}$$ in direction $l$ is the image via $X$ of $(id, \dots,id,\sigma_i,id,\dots,id)$.
 \end{definition}
- Clearly faces and/or degeneracies in different directions commute with each other.
+ Clearly, faces and/or degeneracies in different directions commute with each other.
 
 
 
@@ -153,7 +153,7 @@ by the formula
 \end{definition}
 
 
-As usual the cochain complex $C^*(X)$ of a (multi)simplicial module $X$ is the linear dual of $C_*(X)$.  
+As usual, the cochain complex $C^*(X)$ of a (multi)simplicial module $X$ is the linear dual of $C_*(X)$.  
 A standard example of multisimplicial $R$-module is $X=RK$, with $K$ multisimplicial set, and $X_{i_1,\dots,i_k}$ the free $R$-module
 on $K_{i_1,\dots,i_k}$.
 
