@@ -1,19 +1,18 @@
 \subsection{Simplicial model}\label{ss:simplicial model}
 
-%Then we compare this model 
+%Then we compare this model
 We consider now another $E_\infty$-model of  configuration space coming from a simplicial set $\BE(r)$, equipped with a complete graph filtration
 \[
 \BE_{1}(r) \subset \BE_{2}(r) \subset \dotsb \,.
 \]
 
-
-The $n$-simplices of $\BE(r)$ are tuples of $n+1$ elements of the symmetric group $\Sigma_r$.
+The $n$-simplices of $\BE(r)$ are tuples of $n+1$ elements of the symmetric group $\sym_r$.
 Its face and degeneracy maps are defined by removing and doubling elements respectively.
 There is an operad structure on these simplicial sets, but we do not consider it here.
 The complete graph filtration of $\BE(r)$ by simplicial subsets $\BE_n(r)$ is given as follows.
 
 \begin{definition}[Filtration of the Barratt--Eccles simplicial set $\BE(r)$]
-	Fix an element $w \in \BE(r)_{d}$, $w=(w_{1},\dots , w_{d})$ with $w_{h}\in \Sigma_r$.
+	Fix an element $w \in \BE(r)_{d}$, $w=(w_{1},\dots , w_{d})$ with $w_{h}\in \sym_r$.
  	For any pair $(i,j)$ with $i< j$, denote $w_{ij}=(w_{1,ij},\dots , w_{d,ij})$ where $w_{h,ij}$ is the subsequence of $w_{h}$ obtained omitting all the occurrences of elements different from $i$ and $j$.
 	%	For example, let $(123,231,312) \in (\BE_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
 	The element $w$ belongs to $\BE_{(\mu,\sigma)}(r)\subseteq \BE(r)$ if for all pairs $(i,j)$, $i< j$ either along the sequence $w_{ij}$ $i$ and $j$ swap less than $\mu_{ij}$ times,
@@ -39,21 +38,21 @@ The complete graph filtration of $\BE(r)$ by simplicial subsets $\BE_n(r)$ is gi
 	%	that is the other one we need in $tc$ definition.
 \end{definition}
 
-It has been proven in \cite{kashiwabara1993confcomplex} that $\con{r}(\R^d)$ is homotopy equivalent to $\bars{\BE_{d}(r)} $. 
+It has been proven in \cite{kashiwabara1993confcomplex} that $\con{r}(\R^d)$ is homotopy equivalent to $\bars{\BE_{d}(r)} $.
 The filtration of the Barratt-Eccles simplicial set induces naturally a filtration of the normalized chain complex $\cE(r):=\chains \BE(r)$
 \[
 \cE_{1}(r) \subset \cE_{2}(r) \subset \dotsb \,.
 \]
 The complex $\cE(r)$ is known as Barratt-Eccles chain complex.
 
-Let us write an element of $\sigma \in \Sigma_r$ as $\sigma(1)\sigma(2) \dots \sigma(r)$.
+Let us write an element of $\sigma \in \sym_r$ as $\sigma(1)\sigma(2) \dots \sigma(r)$.
 Then $(\sigma_0,\dots,\sigma_m) \in \BE_{d}(r)$ if for distinct $i,j \in \set{1,\dots,r}$ their order of appearance in $\sigma_\ell$ swaps at most $d-1$ times as $\ell$ increases from $0$ to $m$.
 For example $w = (123,213,312) \in \BE_{3}(3)$ but $w \notin \BE_{2}(3)$ because the position of $1$ and $2$ swaps two times.
-The symmetric group $\Sigma_r$ acts on $\BE(r)$ by diagonal left multiplication and the action preserves the filtration.
+The symmetric group $\sym_r$ acts on $\BE(r)$ by diagonal left multiplication and the action preserves the filtration.
 
 Similarly to the construction of an explicit zig-zag of equivariant quasi-isomorphisms of $E_\infty$-coalgebras constructed for the chains of the multisimplicial model (\cref{ss:surjection model}) we have the following zig-zag of such maps
 \[
-\schains\con{r}(\R^d) \leftarrow \schains \bars{\mathcal{N}(\mathcal{CG}_{d}(r))} \to \schains\bars{\BE_{d}(r)} \leftarrow \chains \BE_{d}(r) = \cE_d(r).
+\schains\con{r}(\R^d) \leftarrow \schains \bars{\mathcal{N}(\CG_{d}(r))} \to \schains\bars{\BE_{d}(r)} \leftarrow \chains \BE_{d}(r) = \cE_d(r).
 \]
 Combining these two constructions we have the following.
 \begin{theorem}
@@ -161,7 +160,7 @@ The diagonal simplicial set $\sur(r)^\diag$ has an induced complete graph filtra
 	Moreover $tc$ is compatible with orderings: the first occurrences of $i$ and $j$ form the ordering $w_{1,ij}$ that is the first permutation of $tc(f_{ij})$.
 	This concludes the proof of the first assertion.
 
-Regarding the maps $\tc_{n} \colon \sur_{n}(r)^{D}\rightarrow \BE_{n}(r)$ we can express source and target as colimits of contractible %ok?
+	Regarding the maps $\tc_{n} \colon \sur_{n}(r)^{D}\rightarrow \BE_{n}(r)$ we can express source and target as colimits of contractible %ok?
 	simplicial sets along the poset of complete graphs,
 	so we have a commutative diagram
 	\begin{equation*}
@@ -176,7 +175,6 @@ As a consequence of $tc$ definition and by the above theorem one can easily veri
 \begin{proposition}
     The homomorphism $TC$ by Berger-Fresse satisfies $$TC=\chains(tc)\circ EZ $$
 \end{proposition}
-
 
 %Let $F_k(\R^{d})$ be the ordered configuration %space of $k$-tuples of points in $\R^{d}$.
 

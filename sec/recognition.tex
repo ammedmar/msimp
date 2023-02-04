@@ -1,19 +1,29 @@
 \subsection{Recognition of configuration spaces}\label{ss:recognition}
 
-
-
 Let $\con{r}(\R^{d})$ denote the configuration space of $r$-tuples of pairwise disjoint vectors in $\R^{d}$.
-This space is equipped with a free action of the symmetric group $\Sigma_r$ of permutations of $\{1,\dots,r\}$ swapping elements of a $r$-tuple.
+This space is equipped with a free action of the symmetric group $\sym_r$ of permutations of $\{1,\dots,r\}$ swapping elements of a $r$-tuple.
 
-%In this section we refine the filtrations of McClure-Smith and Barratt--Eccles in order to show that $tc$ induces equivariant weak equivalence on the filtation terms.
-
-\begin{definition}[Complete graphs]
+\begin{definition}[Complete graph]
 	A \textit{complete graph} on $r$ vertices is a pair $(\mu,\sigma)$, where $\mu$ is a collection of non-negative integers $\mu_{ij}\in\mathbb{N}$, $1 \leq i < j \leq r$
-	and $\sigma$ is an ordering of
-	$\{1,\dots,r\}$. Graphically $(\mu,\sigma)$ is a simple directed graph in which every couple of vertices $i,j$ is labeled with $\mu_{ij}$ and oriented consistently with the ordering.
-	Let us denote the set of complete graphs with $r$ vertices as $\mathcal{CG}(r)$ and with $\mathcal{CG}_{n}(r)$ the collection of those graphs with $\max_{i<j}(\mu_{ij})< n$. We write $\sigma_{ij}$ for the restriction of the ordering $\sigma$ to the set $\{i,j\}$.
+	and $\sigma$ is an ordering of $\{1,\dots,r\}$.
+	We write $\sigma_{ij}$ for the restriction of the ordering $\sigma$ to the set $\{i,j\}$.
+	Graphically $(\mu,\sigma)$ is a simple directed graph in which every couple of vertices $i,j$ is labeled with $\mu_{ij}$ and oriented consistently with $\sigma_{ij}$.
+	Let us denote the set of complete graphs with $r$ vertices by $\CG(r)$ equipped with the poset structure
+	\begin{equation*}
+		(\mu,\sigma)\le (\nu,\tau) \ \ \text{ if and only if } \ \
+		(\mu_{ij}<\nu_{ij}) \ \ \text{ or } \ \
+		(\mu_{ij},\sigma_{ij})= (\nu_{ij},\tau_{ij})
+	\end{equation*}
+	for each pair $i<j$.
+	It is equipped with a filtration by subposets
+	\[
+	\CG_1(r) \subset \CG_2(r) \subset \dotsb
+	\]
+	where $\CG_n(r)$ consists of those graphs with $\max(\mu_{ij})< n$.
 \end{definition}
-	For example, the following figure represents a complete graph on 4 vertices with ordering $\sigma=(1432)$ and $\mu=(\mu_{12},\mu_{13},\mu_{14},\mu_{23},\mu_{24},\mu_{34})=(2,1,3,1,2,4)$.
+
+\begin{figure}
+	\centering
 	\begin{equation*}
 		\begin{tikzcd}
 			\ & 2 & \  \\
@@ -21,41 +31,35 @@ This space is equipped with a free action of the symmetric group $\Sigma_r$ of p
 			\ & 4 \arrow[ur,"4"'] \arrow[uu] & \
 		\end{tikzcd}
 	\end{equation*}
-	
+	\caption{A complete graph on 4 vertices with ordering $\sigma=(1432)$ and $\mu=(\mu_{12},\mu_{13},\mu_{14},\mu_{23},\mu_{24},\mu_{34})=(2,1,3,1,2,4)$.}
+	\label{f:complete graph}
+\end{figure}
 
-\begin{definition}[Complete graphs form a poset]
-	$\mathcal{CG}(k)$ has a poset structure as follow:
-	\begin{equation*}
-		(\mu,\sigma)\le (\nu,\tau) \ \ \text{ if and only if } \ \ (\mu_{ij}<\nu_{ij}) \ \ \text{ or } \ \ (\mu_{ij},\sigma_{ij})= (\nu_{ij},\tau_{ij})
-	\end{equation*}
-	for each pair $\left\lbrace i,j\right\rbrace \subset\left\lbrace 1,\dots,k  \right\rbrace $. This poset structure descends naturally to $\mathcal{CG}_{n}(k)$.
-\end{definition}
-We recall a definition due to Berger \cite{berger1997confspacemodel}, compare also \cite{beuckelmann2021master}.
 \begin{definition}
-For a given poset $A$, a cellular $A$-decomposition of a topological space $X$ is a family of subspaces $X_a \subseteq X$ indexed by $a \in A$ such that
-\begin{itemize}
-    \item if $a \leq b$ then $X_a \subseteq X_b$;
-\item $\bigcup_{a \in A} X_a = X$;
-\item $X_a$ is contractible for each $a$;
-\item the inclusion $\bigcup_{a<b} X_a \subset X_b$ is a closed cofibration.
-\end{itemize}
-\end{definition} 
+	For a given poset $A$, a cellular $A$-decomposition of a topological space $X$ is a family of subspaces $X_a \subseteq X$ indexed by $a \in A$ such that:
+	\begin{itemize}
+		\item $a \leq b$ implies $X_a \subseteq X_b$;
+		\item $\bigcup_{a \in A} X_a = X$;
+		\item $X_a$ is contractible for each $a$;
+		\item $\bigcup_{a<b} X_a \subset X_b$ is a closed cofibration.
+	\end{itemize}
+\end{definition}
 
 \begin{proposition}
-If a topological space $X$ admits a \textit{cellular $A$-decomposition} induced by a poset $A$, then there is a homotopy equivalence between $X$ and the geometric realization of $A$. 
+	If a topological space $X$ admits a \textit{cellular $A$-decomposition}, then there is a homotopy equivalence between $X$ and the geometric realization of $A$.
+	\todo{@andrea,@paolo: We need a reference for this proposition. Is this Quillen's theorem A? I am also happy with saying something like:  well know result of McCord ’66 and Quillen ’73 ... Also, I think this statement should be of the form: then the natural map ??? is a homotopy equivalence.}
 \end{proposition}
 
 The case of interest for us is the following.
 
-\begin{theorem} (Berger,\cite[\S1.13]{berger1997confspacemodel})
-If a space has a cellular $\mathcal{CG}_d(r)$-decomposition then it is homotopy equivalent to 
-the configuration space 
-$\con{r}(\R^{d})$.
-\end{theorem}
+\begin{proposition}[{\cite[\S1.13]{berger1997confspacemodel}}]\label{p:berger}
+	If a space has a cellular $\CG_d(r)$-decomposition then it is homotopy equivalent to
+	the configuration space
+	$\con{r}(\R^{d})$.
+\end{proposition}
 
-We warn the reader that configuration spaces themselves do not admit a cellular decomposition with respect to graph complete posets, but with respect to some extended versions of these posets, as explained in \cite{beuckelmann2021master}.
-
-%Unfortunately, Euclidean configuration spaces do not admit a cellular $\mathcal{CG}$-decomposition. However, it is still possible to give a combinatorial model for these spaces using Smith-filtration from \cite{smith1989filtration}, in the context of simplicial sets, or equivalently using Surjection-filtration, in the context of multisimplicial sets.
-
-
-
+We warn the reader that configuration spaces themselves do not admit a cellular decomposition with respect to graph complete posets, but they do so with respect to some extended versions of these posets \cite{beuckelmann2021master}.
+\begin{equation}\label{eq:extended complete graph map}
+	...
+\end{equation}
+\todo{@andrea,@paolo: We therefore have natural homotopy equivalences ??? for each r and d.}

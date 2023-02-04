@@ -29,7 +29,7 @@ As an application, we describe in \cref{ss:cup coproducts} explicit generalizati
 
 Let us now focus on the relationship between multisimplicial and simplicial theories.
 The restriction to the image of the diagonal inclusion $\simplex^\op \to (\simplex^\op)^{\times k}$ of any $k$-fold multisimplicial set $X$ defines its associated diagonal simplicial set $X^\diag$.
-There is a natural homeomorphism of realizations $\bars{X} \cong \bars{X^\diag}$ 
+There is a natural homeomorphism of realizations $\bars{X} \cong \bars{X^\diag}$
 \cite{Quillen}.
 %\todo{@paolo @andrea: where is this? Could you fill in the reference, please?}
 Under this homeomorphism the cells of $\bars{X^\diag}$ arise from those of $\bars{X}$ through subdivision, a procedure described algebraically by the Eilenberg--Zilber quasi-isomorphism
@@ -48,23 +48,23 @@ We use this fact to prove in \cref{ss:singular} that, for any topological space 
 
 In the second part of the paper, we use these constructions to study a multisimplicial model of the canonical filtration
 \[
-\con{r}(\R) \subseteq \con{r}(\R^2) \subseteq \dotsb 
+\con{r}(\R) \subseteq \con{r}(\R^2) \subseteq \dotsb
 \]
 of the space $\con{r}(\R^{\infty})$ of $r$ distinct ordered points in $\R^\infty \defeq \colim (\R^1 \subseteq \R^2 \subseteq \dotsb)$.
-Concretely, for any integer $r$, McClure and Smith \cite{mcclure2003multivariable} introduced a chain complex $\cX(r)$ of $\Z[\Sigma_r]$-modules with a filtration
+Concretely, for any integer $r$, McClure and Smith \cite{mcclure2003multivariable} introduced a chain complex $\cX(r)$ of $\Z[\sym_r]$-modules with a filtration
 \[
 \cX_{1}(r) \subseteq \cX_{2}(r) \subseteq \dotsb \,,
 \]
-and showed that $\cX(r)$ is connected to the singular chains of $\con{r}(\R^{\infty})$ via a zig-zag of filtration preserving $\Sigma_r$-equivariant quasi-isomorphisms.
+and showed that $\cX(r)$ is connected to the singular chains of $\con{r}(\R^{\infty})$ via a zig-zag of filtration preserving $\sym_r$-equivariant quasi-isomorphisms.
 Presumably it was observed by both McClure--Smith and Berger--Fresse that $\cX(r)$ can be interpreted as the chains of an $r$-fold multisimplicial set $\sur(r)$, which we introduce in \cref{ss:surjection model} with a filtration
 \[
 \sur_{1}(r) \subseteq \sur_{2}(r) \subseteq \dotsb \,,
 \]
 so that $\chains\sur_{d}(r) \cong \cX_{d}(r)$.
 There is an operad structure on $\set{\cX_{d}(r)}_{r \geq 1}$ for each $d \geq 1$, but we do not focus on it since it is not induced from one at the multisimplicial level.
-By the constructions in \cref{s:multisimplicial} the complex $\chains\sur(r)$ is equipped with an $E_\infty$-coalgebra structure, which we connect to the singular chains of $\con{r}(\R^{\infty})$ via an explicit zig-zag of filtration preserving $\Sigma_r$-equivariant quasi-isomorphisms of $E_\infty$-coalgebras.
+By the constructions in \cref{s:multisimplicial} the complex $\chains\sur(r)$ is equipped with an $E_\infty$-coalgebra structure, which we connect to the singular chains of $\con{r}(\R^{\infty})$ via an explicit zig-zag of filtration preserving $\sym_r$-equivariant quasi-isomorphisms of $E_\infty$-coalgebras.
 
-In a similar way, Berger and Fresse \cite{berger2004combinatorial} studied a chain complex $\cE(r)$ of $\Z[\Sigma_r]$-modules with a filtration
+In a similar way, Berger and Fresse \cite{berger2004combinatorial} studied a chain complex $\cE(r)$ of $\Z[\sym_r]$-modules with a filtration
 \[
 \cE_{1}(r) \subseteq \cE_{2}(r) \subseteq \dotsb \,.
 \]
@@ -72,12 +72,13 @@ This complex comes from the chains on a simplicial set introduced by Barratt and
 \[
 \BE_{1}(r) \subseteq \BE_{2}(r) \subseteq \dotsb
 \]
-introduced by Smith \cite{smith1989filtration}.\footnote{As before we disregard the operadic structure on $\set{\BE_{d}(r)}_{r \geq 1}$.}
-Since $\cE(r)$ is induced from a simplicial set, it is endowed with an $E_\infty$-coalgebra structure, and it is not hard to see that the zig-zag of filtration preserving $\Sigma_r$-equivariant quasi-isomorphisms used to compare it to the singular chains of $\con{r}(\R^{\infty})$ respects this higher structure.
+introduced by Smith \cite{smith1989filtration}.
+(As before we disregard the operadic structure.)
+Since $\cE(r)$ is induced from a simplicial set, it is endowed with an $E_\infty$-coalgebra structure, and it is not hard to see that the zig-zag of filtration preserving $\sym_r$-equivariant quasi-isomorphisms used to compare it to the singular chains of $\con{r}(\R^{\infty})$ respects this higher structure.
 Consequently, $\cX(r)$ and $\cE(r)$ can be related by an explicit zig-zag of such maps.
 
 It is desirable to have a direct map between the multisimplicial and simplicial models.
-Berger--Fresse constructed two such filtration preserving $\Sigma_r$-equivariant quasi-isomorphisms
+Berger--Fresse constructed two such filtration preserving $\sym_r$-equivariant quasi-isomorphisms
 \[
 \TR \colon \chains\BE(r) \to \chains\sur(r)
 \quad \text{and} \quad
@@ -89,6 +90,6 @@ Our contribution, presented in \cref{ss:table completion}, is the construction o
 \[
 \TC \colon \chains\sur(r) \xra{\EZ} \chains\sur(r)^\diag \xra{\chains(\tc)} \chains \BE(r),
 \]
-where the second map is induced from a filtration preserving $\Sigma_r$-equivariant weak-equivalence of simplicial sets.
+where the second map is induced from a filtration preserving $\sym_r$-equivariant weak-equivalence of simplicial sets.
 We therefore prove that $\TC$ is a coalgebra map since $\EZ$ is one.
 Considering that $\EZ$ does not preserve the higher $E_\infty$-structure it is not surprising that $\TC$ does not either.
