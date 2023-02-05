@@ -25,8 +25,8 @@ equipped with a cellular $\CG_d(r)$-decomposition.
 For $i<j$ and $\sigma$ in $\sym_r$ let $\sigma_{ij}$ be the associated permutation in $\sym_2$.
 %An element $(w_1,\dots w_n) \in \BE(r)$ and $i<j$, let $w_{ij} = (w_{1,ij}, \dots, w_{d,ij})$ with $w_{\ell,ij}$ the subsequence of $w_\ell$ obtained by omitting all the occurrences of elements different from $i$ and $j$.
 %	For example, let $(123,231,312) \in (\BE_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
-The element $(w_1,\dots w_n)$ in $\BE(r)$ belongs to $\BE_{(\mu,\sigma)}(r)$ if for all $i<j$ the cardinality of $\set{w_{\ell,ij} \neq w_{\ell+1,ij}}$ is either less than $\mu_{ij}$ or equal to it and $w_{1,ij} = \sigma_{ij}$.
-Therefore, $(w_1,\dots w_n) \in \BE_{d}(r)$ if the cardinality associated to each $i<j$ is at most $d$.
+The element $(w_1,\dots w_n)$ in $\BE(r)$ belongs to $\BE_{(\mu,\sigma)}(r)$ if for all $i<j$ the cardinality of $\set{w_{\ell,ij} \neq w_{\ell+1,ij}}$ is either less than $\mu_{ij}$ or equal to it and $(w_1)_{ij} = \sigma_{ij}$.
+Therefore, $(w_1,\dots w_n)$ is in $\BE_{d}(r)$ iff the cardinality associated to each $i<j$ is at most $d$.
 %For example $w = (123,213,312) \in \BE_{3}(3)$ but $w \notin \BE_{2}(3)$ because the position of $1$ and $2$ swaps two times.
 We notice that the action of $\sym_r$ preserves the filtration.
 
@@ -63,11 +63,11 @@ We will construct a factorization
 \]
 where the second map is induced from a simplicial one defined below.
 This factorization proves that $\TC$ is a coalgebra map since both factors are.
-We warn the reader that, since $\EZ$ does not respect the $E_\infty$-coalgebra structure,
+We warn the reader that since $\EZ$ does not respect the $E_\infty$-coalgebra structure,
 neither does $\TC$.
 For example, using calculations from \cite{medina2022cube_einfty} and \cite{berger2002prismatic}, we have
 \[
-\Delta_1 \circ TC\big(12312) \neq
+\Delta_1 \circ \TC\big(12312) \neq
 \TC ^{\otimes 2}\, \circ \, \Delta_1\big(12312\big).
 \]
 
@@ -97,18 +97,24 @@ For example, we have
 \[
 \tc(122333112) = (123,231,312).
 \]
-The diagonal simplicial set $\sur(r)^\diag$ has an induced complete graph filtration given by restriction of definition \ref{surfiltration}, and we have the following.
+It can be directly verified that the homomorphism $\TC$ by Berger--Fresse satisfies
+\[
+\TC = \chains(\tc) \circ \EZ.\todo{@paolo@andrea: I move this, please make sure I did not break something, thanks.}
+\]
+
+The diagonal simplicial set $\sur(r)^\diag$ has an induced complete graph filtration
+\[
+\sur_1(r)^\diag \subset \sur_2(r)^\diag \subset \dotsb
+\]
+and we have the following.
 
 \begin{theorem}
-	The simplicial map $\tc \colon \sur(r)^\diag \to \BE(r)$ is a filtration preserving weak equivalence. Moreover it induces weak equivalences $$\tc_{n} \colon \sur_{n}(r)^{D}\rightarrow \BE_{n}(r)$$
+	The simplicial map $\tc \colon \sur(r)^\diag \to \BE(r)$ is filtration preserving and induces a weak equivalence
+	\[
+	\tc_{n} \colon \sur_d(r)^{D} \to \BE_d(r)
+	\]
+	for every $d$.
 \end{theorem}
-
-%\begin{lemma}[Compatibility of $tc$]
-%	We have that the map $tc:\sur(k)^{D}\rightarrow \BE_{k}$ is compatible with the filtrations, in the sense that
-%	$$tc(\sur_{(\mu,\sigma)}(k)^{D})\subseteq \cW_{(\mu,\sigma)}\sym_{k}$$
-%	and in particular
-%	$$tc(\sur_{n}(k)^{D})\subseteq \cW_{n}\sym_{k}$$
-%\end{lemma}
 
 \begin{proof}
 	Let $f\in \sur(r)^{D}$ be an $m$-simplex and denote
@@ -139,67 +145,19 @@ The diagonal simplicial set $\sur(r)^\diag$ has an induced complete graph filtra
 	and $\mu'_{ij}=\bar{\mu}'_{ij}$.
 	By induction on the length of sequences we obtain that
 	$\mu_{ij}'\le \mu_{ij}$.\\
-	Moreover $tc$ is compatible with orderings: the first occurrences of $i$ and $j$ form the ordering $w_{1,ij}$ that is the first permutation of $tc(f_{ij})$.
+	Moreover $\tc$ is compatible with orderings: the first occurrences of $i$ and $j$ form the ordering $w_{1,ij}$ that is the first permutation of $tc(f_{ij})$.
 	This concludes the proof of the first assertion.
 
 	Regarding the maps $\tc_{n} \colon \sur_{n}(r)^{D}\rightarrow \BE_{n}(r)$ we can express source and target as colimits of contractible %ok?
 	simplicial sets along the poset of complete graphs,
 	so we have a commutative diagram
 	\begin{equation*}
-		\begin{tikzcd}			hocolim_{(\mu,\sigma)}\sur_{(\mu,\sigma)}(r)^{D} \arrow[r] \arrow[d]& hocolim_{(\mu,\sigma)}\BE_{(\mu,\sigma)}(r) \arrow[d] \\
-			\sur_{n}(r)^{D}\arrow[r] & \BE_{n}(r)&
+		\begin{tikzcd}
+			hocolim_{(\mu,\sigma)}\sur_{(\mu,\sigma)}(r)^{D} \arrow[r] \arrow[d] & hocolim_{(\mu,\sigma)}\BE_{(\mu,\sigma)}(r) \arrow[d] \\
+			\sur_{n}(r)^{D}\arrow[r] & \BE_{n}(r) &
 		\end{tikzcd}
 	\end{equation*}
 	Where the vertical and top arrows
 	are weak equivalences, and so the bottom map is a weak equivalence.
+	\todo{@paolo@andrea: This proof is in my opinion way too long for what it is. I suggest boiling it down to a the key elements using steps like "it can be checked that".}
 \end{proof}
-
-As a consequence of $tc$ definition and by the above theorem one can easily verify:
-
-\begin{proposition}
-	The homomorphism $TC$ by Berger-Fresse satisfies $$TC=\chains(tc)\circ EZ $$
-\end{proposition}
-
-%Let $F_k(\R^{d})$ be the ordered configuration %space of $k$-tuples of points in $\R^{d}$.
-
-%\begin{proposition}
-%The geometric realizations satisfy
-%$$|\sur_d(k)| \simeq |W_d(k)| \simeq F_k(\R^{d})$$
-%\end{proposition}
-
-%\begin{proof}
-%The configuration space is homotopy equivalent to %the homotopy colimit of contractible spaces along %the same poset as above, as shown by McClure and %Smith \cite{mcclure2003multivariable}. %this is originally Berger's %criterion..
-%\end{proof}
-
-% In both cases, to see even the role of permutations we'll use always pairs $(\mu,\sigma)$ with $\mu$ exactly the collection of variation numbers obtained from the initial element so that the permutation is uniquely determined, and $(\mu,\sigma)$ is minimal in the poset.
-% \\
-% In our examples
-% \begin{itemize}
-	% 	\item $31231\in \sur_{(\mu,\sigma)}(3)_{2,1,2} \subseteq \sur_{3}(3)_{2,1,2}$ with $(\mu_{12},\mu_{13},\mu_{23})=(1,2,1)$ and $\sigma=(312)$
-	% 	\item $(123,231,312)\in (\cW_{(\mu,\sigma)}\sym_3)_{3} \subset (\cW_{3}\sym_3)_{3}$ with $(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$ and $\sigma=(123)$
-	% \end{itemize}
-%	We observe that the simplicial map $tc$ respects the filtration, sending
-%	$\sur_d(k)^D$ to $\cW_d\sym_k$
-%	\\
-%	\begin{example}
-	%	We are givine some example of the compatibility of $tc$ to visualize why it works in general.
-	%	Let $122333112 \in \sur(3)^{D} $
-	%	\begin{itemize}
-		%		\item $(122333112)_{12}=122112\rightarrow \mu_{12}=2$
-		%		\item $(122333112)_{13}=133311\rightarrow \mu_{13}=1$
-		%		\item $(122333112)_{23}=223332\rightarrow \mu_{23}=1$
-		%	\end{itemize}
-	%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
-	%and the first occurrences of $1,2,3$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $122333112 \in \sur_{((2,1,1),(123))}(3)^{D}$ $\Rightarrow$ $122333112 \in \sur_{3}(3)^{D}$.
-	%Now applying $tc$ we obtain $tc(122333112)=(123,231,312)\in (\BE_3)_{3} $
-	%\begin{itemize}
-	%\item $(123,231,312)_{12}=(12,21,12)\rightarrow \mu_{12}=2$
-	%\item $(123,231,312)_{13}=(13,31,31)\rightarrow \mu_{13}=1$
-	%\item $(123,231,312)_{23}=(23,23,32)\rightarrow \mu_{23}=1$
-	%\end{itemize}
-	%So $\mu=(\mu_{12},\mu_{13},\mu_{23})=(2,1,1)$
-	%and the first permutation in $(123,231,312)$ give us the permutation $\sigma=(123)$ $\Rightarrow$ $(123,231,312) \in (\cW_{((2,1,1),(123))}\sym_{3})_{3}$ $\Rightarrow$ $(123,231,312) \in (\cW_{3}\sym_{3})_{3}$.
-	%
-	%
-	%
-	%	\end{example}
