@@ -1,13 +1,13 @@
 \subsection{Recognition of configuration spaces}\label{ss:recognition}
 
-Let $\con{r}(\R^{d})$ denote the configuration space of $r$-tuples of pairwise disjoint vectors in $\R^{d}$.
+Let $\conf{r}{d}$ denote the configuration space of $r$-tuples of pairwise disjoint vectors in $\R^{d}$.
 This space is equipped with a free action of the symmetric group $\sym_r$ of permutations of $\{1,\dots,r\}$ swapping elements of a $r$-tuple.
 
-\begin{definition}[Complete graph]
-	A \textit{complete graph} on $r$ vertices is a pair $(\mu,\sigma)$, where $\mu$ is a collection of non-negative integers $\mu_{ij}\in\mathbb{N}$, $1 \leq i < j \leq r$
-	and $\sigma$ is an ordering of $\{1,\dots,r\}$.
+\begin{definition}
+	A \textit{complete graph} on $r$ vertices is a pair $(\mu,\sigma)$ with $\mu$ a collection of non-negative integers $\mu_{ij}$ for all $1 \leq i < j \leq r$, and $\sigma$ is an ordering of $\{1,\dots,r\}$.
 	We write $\sigma_{ij}$ for the restriction of the ordering $\sigma$ to the set $\{i,j\}$.
-	Graphically $(\mu,\sigma)$ is a simple directed graph in which every couple of vertices $i,j$ is labeled with $\mu_{ij}$ and oriented consistently with $\sigma_{ij}$.
+	Graphically $(\mu,\sigma)$ is a simple directed graph in the edge corresponding to $i<j$ directed according to $\sigma_{ij}$ and labeled by $\mu_{ij}$.
+	Please consult \cref{f:complete graph} for a example.
 	Let us denote the set of complete graphs with $r$ vertices by $\CG(r)$ equipped with the poset structure
 	\begin{equation*}
 		(\mu,\sigma)\le (\nu,\tau) \ \ \text{ if and only if } \ \
@@ -26,8 +26,8 @@ This space is equipped with a free action of the symmetric group $\sym_r$ of per
 	\centering
 	\begin{equation*}
 		\begin{tikzcd}
-			\ & 2 & \  \\
-			1 \arrow[ur,"2"] \arrow[rr] \arrow[dr,"3"']& \arrow[r,"1"] \arrow[u,"2"] & 3 \arrow[ul,"1"']  \\
+			\ & 2 & \ \\
+			1 \arrow[ur,"2"] \arrow[rr] \arrow[dr,"3"']& \arrow[r,"1"] \arrow[u,"2"] & 3 \arrow[ul,"1"'] \\
 			\ & 4 \arrow[ur,"4"'] \arrow[uu] & \
 		\end{tikzcd}
 	\end{equation*}
@@ -47,7 +47,7 @@ This space is equipped with a free action of the symmetric group $\sym_r$ of per
 
 \begin{proposition}
 	If a topological space $X$ admits a \textit{cellular $A$-decomposition}, then there is a homotopy equivalence between $X$ and the geometric realization of $A$.
-	\todo{@andrea,@paolo: We need a reference for this proposition. Is this Quillen's theorem A? I am also happy with saying something like:  well know result of McCord ’66 and Quillen ’73 ... Also, I think this statement should be of the form: then the natural map ??? is a homotopy equivalence.}
+	\todo{@andrea,@paolo: We need a reference for this proposition. Is this Quillen's theorem A? I am also happy with saying something like: well know result of McCord ’66 and Quillen ’73 ... Also, I think this statement should be of the form: then the natural map ??? is a homotopy equivalence.}
 \end{proposition}
 
 The case of interest for us is the following.
@@ -55,7 +55,7 @@ The case of interest for us is the following.
 \begin{proposition}[{\cite[\S1.13]{berger1997confspacemodel}}]\label{p:berger}
 	If a space has a cellular $\CG_d(r)$-decomposition then it is homotopy equivalent to
 	the configuration space
-	$\con{r}(\R^{d})$.
+	$\conf{r}{d}$.
 \end{proposition}
 
 We warn the reader that configuration spaces themselves do not admit a cellular decomposition with respect to graph complete posets, but they do so with respect to some extended versions of these posets \cite{beuckelmann2021master}.

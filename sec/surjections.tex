@@ -23,54 +23,37 @@ The face and degeneracy maps $\face^\ell_j$ and $\dege^\ell_j$ act on it by resp
 %	d^2_1(12321)&=1231, & s^1_1(121)&=1211.
 %\end{align*}
 %Degenerate multisimplices are exactly the sequences containing two equal adjacent terms.
-Next we define a $\CG(r)$-decomposition on the geometric realization of $\sur(r)$, which induces a filtration
+Next we define a cellular $\CG(r)$-decomposition on the geometric realization of $\sur(r)$, which induces a filtration
 \[
-\sur_1(r) \subset \sur_2(r) \subset \dotsb
+\bars{\sur_1(r)} \subset \bars{\sur_2(r)} \subset \dotsb
 \]
 with each
 \[
-\sur_d(r) = \bigcup_{\CG_d(r)} \sur_{(\mu,\sigma)}(r)
+\bars{\sur_d(r)} = \, \bigcup_{\mathclap{\CG_d(r)}} \, \bars{\sur_{(\mu,\sigma)}(r)}
 \]
 equipped with a cellular $\CG_d(r)$-decomposition.
 For $i<j$, let $f_{ij}$ be the subsequence of $f(1) \dotsm f(m+r)$ obtained by omitting all occurrences of elements different from $i$ and $j$.
 %For example, let $31231 \in \sur(3)_{2,1,2}$, we have $(31231)_{12}=121$, $(31231)_{23}=323$ and $(31231)_{13}=3131$.
-The surjection $f$ belongs to $\sur_{(\mu,\sigma)}(r) \subseteq \sur(r)$ if for each $i<j$, either $i$ and $j$ alternate strictly less than $\mu_{ij}$ times in the sequence $f_{ij}$, or they do so exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
-Therefore, $f \in \sur_{d}(r)$ if the alternation number of each $f_{ij}$ is at most $d+1$, and we notice that
+The surjection $f$ belongs to $\sur_{(\mu,\sigma)}(r) \subset \sur(r)$ if for each $i<j$, either $i$ and $j$ alternate strictly less than $\mu_{ij}$ times in the sequence $f_{ij}$, or they do so exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
+Therefore, $f \in \sur_{d}(r)$ if the alternation number of each $f_{ij}$ is at most $d+1$.
+We notice that
 %For example, $x = 12132 \in \sur_3(3)$ but $x \notin \sur_2(3)$ because the subsequence $1212$ has length 4.
 the action of $\sym_r$ on $\sur(r)$ preserves the filtration.
 
-Applying the functor of singular chains to the induced zig-zag of equivariant homotopy equivalences gives a zig-zag of equivariant quasi-isomorphisms of $\UM$-coalgebras:
+Applying the functor of singular chains to the induced zig-zag of equivariant homotopy equivalences coming from \cref{p:berger} gives
 \[
-\schains\con{r}(\R^d) \leftarrow \schains\bars{\CG_{d}(r)} \to \schains\bars{\sur_{d}(r)}.
+\schains\conf{r}{d} \leftarrow
+\schains\bars{\CG_{d}(r)} \to
+\schains\bars{\sur_{d}(r)},
 \]
-This zig-zag extends to the right with equivariant quasi-isomorphisms of $\UM$-coalgebras
+a zig-zag of equivariant quasi-isomorphisms of $\UM$-coalgebras, which extends to the right with maps of the same kind
 \[
-\schains\bars{\sur_{d}(r)}= \schains \bars{\sur_{d}(r)^{D}} \to \chains(\sur_{d}(r)^D) \to \chains(\mathcal{N}^{(*)}(\sur_{d}(r)^D)) \leftarrow N\sur_{d}(r)
+\schains\bars{\sur_{d}(r)} \cong
+\schains \bars{\sur_{d}(r)^{D}} \to
+\chains(\sur_{d}(r)^D) \to
+\chains(\cN^{(r)}(\sur_{d}(r)^D)) \leftarrow
+\chains\sur_{d}(r)
 \]
-given respectively from the left by the homeomorphism between multisimplicial set and diagonal simplicial set realizations, the unit of the Quillen equivalence between simplicial sets and topological spaces, the comparison map of \cref{ss:inclusion} and the unit of the Quillen equivalence between multisimplicial sets and simplicial sets.
-Combining these zig-zag together yields the following.
+given respectively from the left by the homeomorphism between multisimplicial set and diagonal simplicial set realizations, the unit of the Quillen equivalence between simplicial sets and topological spaces, the comparison map of \cref{ss:inclusion}, and the unit of the Quillen equivalence between multisimplicial sets and simplicial sets.
 
-\begin{theorem}
-	The singular chains of a configuration space and the chains of its multisimplicial model are related by an explicit zig-zag of equivariant quasi-isomorphism of $E_\infty$-coalgebras.
-\end{theorem}
-%\begin{theorem*}
-%	More specifically, each of the following maps is an $\sym_r$-equivariant quasi-isomorphism of $\UM$-coalgebras:
-%	\[
-%	\schains\con(r,d) \leftarrow \schains \cgr(r,d) \to \schains\bars{\sur(r,d)} \to \schains^{(r)}\bars{\sur(r,d)} \leftarrow \chains\sur(r,d).
-%	\]
-%\end{theorem*}
-
-%\begin{proposition}\label{sur-model}
-%	$\chi_d(k)$ and $\rS{F_k(\R^d)}$ are $\sym_k$-equivariantly quasi-isomorphic $E_\infty$-coalgebras
-%\end{proposition}
-%
-%\begin{proof}
-%	The $\sym_k$-equivariant homotopy equivalence of proposition \ref{sur-real} induces a $\sym_k$-equivariant quasi-isomorphism of $E_{\infty}$-coalgebras
-%	$$S^{(k)}(\bars{\sur_d(k)}) \simeq S^{(k)}(F_k(\R^d))$$.
-%	The weak equivalence %say that it is Quillen adjunction
-%	$\sur_d(k) \to Sing^{(k)}(\bars{\sur_d(k)})$ induces on the chain level a $\sym_k$-equivariant quasi-isomorphism of
-%	$E_\infty$-coalgebras
-%	between $\chi_d(k)$
-%	and $S^{(k)}(\bars{\sur_d(k)})$.
-%	Finally the map of lemma \ref{} gives a $\sym_k$-equivariant quasi-isomorphism $S(F_k(\R^d)) \to S^{(k)}(F_k(\R^d))$ of $E_\infty$-coalgebras.
-%\end{proof}
+As announced in the introduction, this construction relates the singular chains of a configuration space and the chains of its multisimplicial model through an explicit zig-zag of equivariant quasi-isomorphism of $E_\infty$-coalgebras.

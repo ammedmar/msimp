@@ -1,63 +1,45 @@
 \subsection{Simplicial model}\label{ss:simplicial model}
 
-%Then we compare this model
-We consider now another $E_\infty$-model of  configuration space coming from a simplicial set $\BE(r)$, equipped with a complete graph filtration
-\[
-\BE_{1}(r) \subset \BE_{2}(r) \subset \dotsb \,.
-\]
+We now consider another $E_\infty$-model of $\conf{r}{d}$, this one coming from a simplicial set.
+
+%equipped with a filtration
+%\[
+%\BE_{1}(r) \subset \BE_{2}(r) \subset \dotsb \,.
+%\]
+%coming from a cellular $\CG(r)$-decomposition.
 
 The $n$-simplices of $\BE(r)$ are tuples of $n+1$ elements of the symmetric group $\sym_r$.
 Its face and degeneracy maps are defined by removing and doubling elements respectively.
 There is an operad structure on these simplicial sets, but we do not consider it here.
-The complete graph filtration of $\BE(r)$ by simplicial subsets $\BE_n(r)$ is given as follows.
-
-\begin{definition}[Filtration of the Barratt--Eccles simplicial set $\BE(r)$]
-	Fix an element $w \in \BE(r)_{d}$, $w=(w_{1},\dots , w_{d})$ with $w_{h}\in \sym_r$.
- 	For any pair $(i,j)$ with $i< j$, denote $w_{ij}=(w_{1,ij},\dots , w_{d,ij})$ where $w_{h,ij}$ is the subsequence of $w_{h}$ obtained omitting all the occurrences of elements different from $i$ and $j$.
-	%	For example, let $(123,231,312) \in (\BE_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
-	The element $w$ belongs to $\BE_{(\mu,\sigma)}(r)\subseteq \BE(r)$ if for all pairs $(i,j)$, $i< j$ either along the sequence $w_{ij}$ $i$ and $j$ swap less than $\mu_{ij}$ times,
-	%	, that is, as before, the amount of times that the order of $i$ and $j$ change ,
-	or they swap exactly $\mu_{ij}$ times and the first permutation $w_{1,ij}$ is equal to $\sigma_{ij}$.
-	Notice that
-	\begin{equation*}
-		\label{def}
-		\BE_{n}(r)=\bigcup_{\max_{i<j} (\mu_{ij})< n} \BE_{(\mu,\sigma)}(r)
-	\end{equation*}
-	%	Returning to the example above we have $\mu_{12}(123,231,312)=2$, $\mu_{23}(123,231,312)=1$ and $\mu_{13}(123,231,312)=1$ so that $(123,231,312)\in (\cW_{(\mu,\sigma)}\sym_3)_{3}$
-	%	\begin{itemize}
-		%		\item if $\mu_{12}>2$, $\mu_{23}>1$ and $\mu_{13}>1$ and any $\sigma\in \sym_{3}$;
-		%		\item if some $\mu_{ij}=\mu_{ij}(w)$ and the first permutation of $w$ is equal to $\sigma_{ij}$.
-		%	\end{itemize}
-	%	In our example we obtain that, by equation \ref{def},
-	%	$(123,231,312)\in (\cW_{3}\sym_3)_{3}$
-	%	\\
-	%	\\
-	%	We have obtained the filtration $$\cW_1\sym_k \subset \cW_2 \sym_k
-	%	\subset \cW_3 \sym_k
-	%	\subset \dots $$
-	%	that is the other one we need in $tc$ definition.
-\end{definition}
-
-It has been proven in \cite{kashiwabara1993confcomplex} that $\con{r}(\R^d)$ is homotopy equivalent to $\bars{\BE_{d}(r)} $.
-The filtration of the Barratt-Eccles simplicial set induces naturally a filtration of the normalized chain complex $\cE(r):=\chains \BE(r)$
+Next we define a cellular $\CG(r)$-decomposition on the geometric realization of $\BE(r)$, which induces a filtration
 \[
-\cE_{1}(r) \subset \cE_{2}(r) \subset \dotsb \,.
+\bars{\BE_1(r)} \subset \bars{\BE_2(r)} \subset \dotsb
 \]
-The complex $\cE(r)$ is known as Barratt-Eccles chain complex.
-
-Let us write an element of $\sigma \in \sym_r$ as $\sigma(1)\sigma(2) \dots \sigma(r)$.
-Then $(\sigma_0,\dots,\sigma_m) \in \BE_{d}(r)$ if for distinct $i,j \in \set{1,\dots,r}$ their order of appearance in $\sigma_\ell$ swaps at most $d-1$ times as $\ell$ increases from $0$ to $m$.
-For example $w = (123,213,312) \in \BE_{3}(3)$ but $w \notin \BE_{2}(3)$ because the position of $1$ and $2$ swaps two times.
-The symmetric group $\sym_r$ acts on $\BE(r)$ by diagonal left multiplication and the action preserves the filtration.
-
-Similarly to the construction of an explicit zig-zag of equivariant quasi-isomorphisms of $E_\infty$-coalgebras constructed for the chains of the multisimplicial model (\cref{ss:surjection model}) we have the following zig-zag of such maps
+with each
 \[
-\schains\con{r}(\R^d) \leftarrow \schains \bars{\mathcal{N}(\CG_{d}(r))} \to \schains\bars{\BE_{d}(r)} \leftarrow \chains \BE_{d}(r) = \cE_d(r).
+\bars{\BE_d(r)} = \,
+\bigcup_{\mathclap{\CG_d(r)}} \,
+\bars{\BE_{(\mu,\sigma)}(r)}
 \]
-Combining these two constructions we have the following.
-\begin{theorem}
-	The chains on the simplicial and multisimplicial models of a configuration space are related by an explicit zig-zag of equivariant quasi-isomorphism of $E_\infty$-coalgebras.
-\end{theorem}
+equipped with a cellular $\CG_d(r)$-decomposition.
+For $i<j$ and $\sigma$ in $\sym_r$ let $\sigma_{ij}$ be the associated permutation in $\sym_2$.
+%An element $(w_1,\dots w_n) \in \BE(r)$ and $i<j$, let $w_{ij} = (w_{1,ij}, \dots, w_{d,ij})$ with $w_{\ell,ij}$ the subsequence of $w_\ell$ obtained by omitting all the occurrences of elements different from $i$ and $j$.
+%	For example, let $(123,231,312) \in (\BE_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
+The element $(w_1,\dots w_n)$ in $\BE(r)$ belongs to $\BE_{(\mu,\sigma)}(r)$ if for all $i<j$ the cardinality of $\set{w_{\ell,ij} \neq w_{\ell+1,ij}}$ is either less than $\mu_{ij}$ or equal to it and $w_{1,ij} = \sigma_{ij}$.
+Therefore, $(w_1,\dots w_n) \in \BE_{d}(r)$ if the cardinality associated to each $i<j$ is at most $d$.
+%For example $w = (123,213,312) \in \BE_{3}(3)$ but $w \notin \BE_{2}(3)$ because the position of $1$ and $2$ swaps two times.
+We notice that the action of $\sym_r$ preserves the filtration.
+
+Applying the functor of singular chains to the induced zig-zag of equivariant homotopy equivalences coming from \cref{p:berger} gives
+\begin{equation}\label{eq:simplicial zig-zag}
+	\schains\conf{r}{d} \leftarrow
+	\schains\bars{\CG_d(r)} \to
+	\schains\bars{\BE_d(r)} \to
+	\chains \BE_d(r),
+\end{equation}
+a zig-zag of equivariant quasi-isomorphisms of $\UM$-coalgebras, where the last arrow is induced from the unit of the Quillen equivalence between simplicial sets and topological spaces.\todo{@paolo: I think it is good to reference this "It has been proven in \cite{kashiwabara1993confcomplex} that $\conf{r}{d}$ is homotopy equivalent to $\bars{\BE_{d}(r)}$.", but something like "a different proof of the homotopy equivalence .... is given ..." could help to make this more of a self-contained sentence.}
+
+Combining \eqref{eq:simplicial zig-zag} with the zig-zag from the previous subsection relates the chains on the simplicial and multisimplicial models of a configuration space through an explicit zig-zag of equivariant quasi-isomorphism of $E_\infty$-coalgebras.
 
 \subsection{Table completion}\label{ss:table completion}
 
@@ -171,9 +153,11 @@ The diagonal simplicial set $\sur(r)^\diag$ has an induced complete graph filtra
 	Where the vertical and top arrows
 	are weak equivalences, and so the bottom map is a weak equivalence.
 \end{proof}
+
 As a consequence of $tc$ definition and by the above theorem one can easily verify:
+
 \begin{proposition}
-    The homomorphism $TC$ by Berger-Fresse satisfies $$TC=\chains(tc)\circ EZ $$
+	The homomorphism $TC$ by Berger-Fresse satisfies $$TC=\chains(tc)\circ EZ $$
 \end{proposition}
 
 %Let $F_k(\R^{d})$ be the ordered configuration %space of $k$-tuples of points in $\R^{d}$.
