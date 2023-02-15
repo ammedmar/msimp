@@ -1,6 +1,6 @@
 \subsection{Simplicial model}\label{ss:simplicial model}
 
-We now consider another $E_\infty$-model of $\conf{r}{d}$, this one coming from a simplicial set.
+We now consider another $E_\infty$-model of $\conf{r}{d}$, this one coming from a simplicial set $\BE(r)$, known as the Barratt-Eccles simplicial set.
 
 %equipped with a filtration
 %\[
@@ -11,7 +11,7 @@ We now consider another $E_\infty$-model of $\conf{r}{d}$, this one coming from 
 The $n$-simplices of $\BE(r)$ are tuples of $n+1$ elements of the symmetric group $\sym_r$.
 Its face and degeneracy maps are defined by removing and doubling elements respectively.
 There is an operad structure on these simplicial sets, but we do not consider it here.
-Next we define a cellular $\CG(r)$-decomposition on the geometric realization of $\BE(r)$, which induces a filtration
+Next we define $\CG(r)$-filtration of $\BE(r)$ inducing naturally a cellular $\CG(r)$-decomposition on its geometric realization, giving a filtration
 \[
 \bars{\BE_1(r)} \subset \bars{\BE_2(r)} \subset \dotsb
 \]
@@ -25,26 +25,35 @@ equipped with a cellular $\CG_d(r)$-decomposition.
 For $i<j$ and $\sigma$ in $\sym_r$ let $\sigma_{ij}$ be the associated permutation in $\sym_2$.
 %An element $(w_1,\dots w_n) \in \BE(r)$ and $i<j$, let $w_{ij} = (w_{1,ij}, \dots, w_{d,ij})$ with $w_{\ell,ij}$ the subsequence of $w_\ell$ obtained by omitting all the occurrences of elements different from $i$ and $j$.
 %	For example, let $(123,231,312) \in (\BE_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
-The element $(w_1,\dots w_n)$ in $\BE(r)$ belongs to $\BE_{(\mu,\sigma)}(r)$ if for all $i<j$ the cardinality of $\set{w_{\ell,ij} \neq w_{\ell+1,ij}}$ is either less than $\mu_{ij}$ or equal to it and $(w_1)_{ij} = \sigma_{ij}$.
-Therefore, $(w_1,\dots w_n)$ is in $\BE_{d}(r)$ iff the cardinality associated to each $i<j$ is at most $d$.
+The element $(w_1,\dots w_n)$ in $\BE(r)_{n}$ belongs to $\BE_{(\mu,\sigma)}(r)$ if for all $i<j$ the cardinality of $\set{w_{\ell,ij} \neq w_{\ell+1,ij}}$ is either less than $\mu_{ij}$ or equal to it and $(w_1)_{ij} = \sigma_{ij}$.
+Therefore, $(w_1,\dots w_n)$ is in $\BE_{d}(r)$ iff the cardinality associated to each $i<j$ is less than $d$.
 %For example $w = (123,213,312) \in \BE_{3}(3)$ but $w \notin \BE_{2}(3)$ because the position of $1$ and $2$ swaps two times.
-We notice that the action of $\sym_r$ preserves the filtration.
+We notice that the left action of $\sym_r$ preserves the filtration. It has been proven in \cite{kashiwabara1993confcomplex}, differently from \cref{p:berger} by \cite{berger1997confspacemodel} that $\conf{r}{d}$ is homotopy equivalent to $\bars{\BE_{d}(r)} $.
+The above $\CG(r)$-filtration of the Barratt-Eccles simplicial set induces naturally also a filtration of the normalized chain complex $\cE(r):=\chains \BE(r)$
+\[
+\cE_{1}(r) \subset \cE_{2}(r) \subset \dotsb \,.
+\]
+The complex $\cE(r)$ is known as Barratt-Eccles chain complex.
 
 Applying the functor of singular chains to the induced zig-zag of equivariant homotopy equivalences coming from \cref{p:berger} gives
 \begin{equation}\label{eq:simplicial zig-zag}
 	\schains\conf{r}{d} \leftarrow
 	\schains\bars{\CG_d(r)} \to
 	\schains\bars{\BE_d(r)} \to
-	\chains \BE_d(r),
+	\chains \BE_d(r)= \cE_d(r),
 \end{equation}
-a zig-zag of equivariant quasi-isomorphisms of $\UM$-coalgebras, where the last arrow is induced from the unit of the Quillen equivalence between simplicial sets and topological spaces.\todo{@paolo: I think it is good to reference this "It has been proven in \cite{kashiwabara1993confcomplex} that $\conf{r}{d}$ is homotopy equivalent to $\bars{\BE_{d}(r)}$.", but something like "a different proof of the homotopy equivalence .... is given ..." could help to make this more of a self-contained sentence.}
 
-Combining \eqref{eq:simplicial zig-zag} with the zig-zag from the previous subsection relates the chains on the simplicial and multisimplicial models of a configuration space through an explicit zig-zag of equivariant quasi-isomorphism of $E_\infty$-coalgebras.
+a zig-zag of equivariant quasi-isomorphisms of $\UM$-coalgebras, where the last arrow is induced from the unit of the Quillen equivalence between simplicial sets and topological spaces.
+
+Combining \eqref{eq:simplicial zig-zag} with the zig-zag from the previous subsection we have the following.
+\begin{theorem}
+	The chains on the simplicial and multisimplicial models of a configuration space are related by an explicit zig-zag of equivariant quasi-isomorphism of $E_\infty$-coalgebras.
+\end{theorem}
 
 \subsection{Table completion}\label{ss:table completion}
 
 It is desirable to have a direct equivariant quasi-isomorphism between these algebraic models.
-Two filtration preserving quasi-isomorphisms were constructed by Berger--Fresse
+Two filtration-preserving quasi-isomorphisms were constructed by Berger--Fresse
 \[
 \TR \colon \chains\BE(r) \to \chains\sur(r)
 \quad \text{and} \quad
@@ -99,7 +108,7 @@ For example, we have
 \]
 It can be directly verified that the homomorphism $\TC$ by Berger--Fresse satisfies
 \[
-\TC = \chains(\tc) \circ \EZ.\todo{@paolo@andrea: I move this, please make sure I did not break something, thanks.}
+\TC = \chains(\tc) \circ \EZ.
 \]
 
 The diagonal simplicial set $\sur(r)^\diag$ has an induced complete graph filtration
@@ -159,5 +168,7 @@ and we have the following.
 	\end{equation*}
 	Where the vertical and top arrows
 	are weak equivalences, and so the bottom map is a weak equivalence.
-	\todo{@paolo@andrea: This proof is in my opinion way too long for what it is. I suggest boiling it down to a the key elements using steps like "it can be checked that".}
+	\todo{@paolo@andrea: This proof is in my opinion way too long for what it is. I suggest boiling it down to a the key elements using steps like "it can be checked that". 
+ 
+ @anibal: Actually it is just a summary of the proof I wrote}
 \end{proof}

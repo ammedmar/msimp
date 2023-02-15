@@ -7,7 +7,7 @@ This space is equipped with a free action of the symmetric group $\sym_r$ of per
 	A \textit{complete graph} on $r$ vertices is a pair $(\mu,\sigma)$ with $\mu$ a collection of non-negative integers $\mu_{ij}$ for all $1 \leq i < j \leq r$, and $\sigma$ is an ordering of $\{1,\dots,r\}$.
 	We write $\sigma_{ij}$ for the restriction of the ordering $\sigma$ to the set $\{i,j\}$.
 	Graphically $(\mu,\sigma)$ is a simple directed graph in the edge corresponding to $i<j$ directed according to $\sigma_{ij}$ and labeled by $\mu_{ij}$.
-	Please consult \cref{f:complete graph} for a example.
+	Please consult \cref{f:complete graph} for an example.
 	Let us denote the set of complete graphs with $r$ vertices by $\CG(r)$ equipped with the poset structure
 	\begin{equation*}
 		(\mu,\sigma)\le (\nu,\tau) \ \ \text{ if and only if } \ \
@@ -45,9 +45,8 @@ This space is equipped with a free action of the symmetric group $\sym_r$ of per
 	\end{itemize}
 \end{definition}
 
-\begin{proposition}
-	If a topological space $X$ admits a \textit{cellular $A$-decomposition}, then there is a homotopy equivalence between $X$ and the geometric realization of $A$.
-	\todo{@andrea,@paolo: We need a reference for this proposition. Is this Quillen's theorem A? I am also happy with saying something like: well know result of McCord ’66 and Quillen ’73 ... Also, I think this statement should be of the form: then the natural map ??? is a homotopy equivalence.}
+\begin{proposition}[{\cite[\S1.7]{berger1997confspacemodel}}]
+	If a topological space $X$ admits a \textit{cellular $A$-decomposition}, then there is a natural homotopy equivalence between $X$ and the geometric realization of $A$.
 \end{proposition}
 
 The case of interest for us is the following.
@@ -58,8 +57,8 @@ The case of interest for us is the following.
 	$\conf{r}{d}$.
 \end{proposition}
 
-We warn the reader that configuration spaces themselves do not admit a cellular decomposition with respect to graph complete posets, but they do so with respect to some extended versions of these posets \cite{beuckelmann2021master}.
+We warn the reader that configuration spaces themselves do not admit a cellular decomposition with respect to graph complete posets, but they do so with respect to some extended versions of these posets \cite{beuckelmann2021master}, whose geometric realization retains the same homotopy type.
 \begin{equation}\label{eq:extended complete graph map}
 	...
 \end{equation}
-\todo{@andrea,@paolo: We therefore have natural homotopy equivalences ??? for each r and d.}
+\todo{@andrea,@paolo: We therefore have natural homotopy equivalences ??? for each r and d. @anibal what do you mean to add here?}
