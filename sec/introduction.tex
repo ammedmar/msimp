@@ -2,17 +2,18 @@
 
 \section{Introduction}\label{s:introduction}
 
-The cochain complex of a simplicial set is equipped with the classical Alexander--Whitney product, which has several explicit extensions to an $E_\infty$-algebra \cite{mcclure2003multivariable, berger2004combinatorial, medina2020prop1} -- a structure encoding commutativity and associativity up to coherent homotopies.
-The importance of $E_\infty$-algebras is highlighted by a result of Mandell \cite{mandell2006homotopy_type} stating that finite type nilpotent spaces are weakly equivalent if and only if their singular cochains are quasi-isomorphic as $E_\infty$-algebras.
-Our first goal is to define explicitly a natural product together with an $E_\infty$-algebra extension on the cochains of multisimplicial sets.
+The cochain complex of a simplicial set is equipped with the classical Alexander--Whitney product defining the ring structure in cohomology.
+This cochain level structure has several explicit extensions to an $E_\infty$-algebra \cite{mcclure2003multivariable, berger2004combinatorial, medina2020prop1} encoding commutativity and associativity up to coherent homotopies.
+The importance of $E_\infty$-algebras in homotopy theory is well known.
+For example, Mandell showed that finite type nilpotent spaces are weakly equivalent if and only if their singular cochains are quasi-isomorphic as $E_\infty$-algebras \cite{mandell2006homotopy_type}.
+Our first objective is to define a natural product together with an $E_\infty$-algebra extension on the cochains of multisimplicial sets \cite{gugenheim1957supercomplexes}.
 These are generalizations of both simplicial and cubical sets which are useful for concrete computations since they can model homotopy types using fewer cells.
-For example, the proof by the third named author of the non-formality of the cochain algebra of planar configuration spaces \cite{salvatore2020planarnonformality} used a simplicial model and the Alexander--Whitney product on its cochains.
-The use of a multisimplicial model and the product defined here makes the necessary computations much simpler and faster, paving the way for an extension of this result to higher dimensions.
+For example, the proof of the non-formality of the cochain algebra of planar configuration spaces \cite{salvatore2020planarnonformality} used a simplicial model and the Alexander--Whitney product on its cochains.
+By using a multisimplicial model and the product defined here, these computations become simpler and faster, paving the way for extending this result to higher dimensions.
 
 Multisimplicial sets are contravariant functors from products of the simplex category $\simplex$ to $\Set$.
 Explicitly, for any positive integer $k$ the category $\mSet{k}$ of $k$-fold multisimplicial sets is the presheaf category $\Fun((\simplex^\op)^{\times k}, \Set)$.
 There is a notion of geometric realization for multisimplicial sets, which results in a CW complex having, for each non-degenerate multisimplex, a cell modeled on a product of geometric simplices $\gmsimplex{n_1}{n_k}$.
-%This and the corresponding singular functor define a Quillen equivalence between a model category structure on $\mSet{k}$ and the usual category of topological spaces.
 We are interested in modeling homotopy types algebraically, for which we consider the composition of the geometric realization and the functor of cellular chains $\gchains$.
 This composition defines $\chains \colon \mSet{k} \to \Ch$, the functor of (normalized) chains.
 In \cref{ss:e-infty extension} we define a lift of $\chains$ to the category of $E_\infty$-coalgebras, and, consequently, a lift of the functor of cochains to the category of $E_\infty$-algebras.
@@ -25,7 +26,7 @@ Specifically, using the isomorphism
 we extend the image of the prop generators constructed in \cite{medina2020prop1} from the chains of standard simplices to those of standard multisimplices.
 These generators are the Alexander--Whitney coproduct, the augmentation map, and an algebraic version of the join product.
 The resulting $E_\infty$-coalgebra structure generalizes those defined in \cite{mcclure2003multivariable, berger2004combinatorial, medina2020prop1} for simplicial chains and in \cite{medina2022cube_einfty} for cubical chains.
-As an application, we describe in \cref{ss:cup coproducts} explicit generalizations of the cup-$i$ coproducts for multisimplicial chains defining Steenrod operations at all primes.
+As an application, we describe in \cref{ss:cup coproducts} explicit generalizations of Steenrod's cup-$i$ coproducts for multisimplicial chains.
 
 Let us now focus on the relationship between multisimplicial and simplicial theories.
 The restriction to the image of the diagonal inclusion $\simplex^\op \to (\simplex^\op)^{\times k}$ of any $k$-fold multisimplicial set $X$ defines its associated diagonal simplicial set $X^\diag$.
@@ -49,15 +50,15 @@ In the second part of the paper, we use these constructions to study a multisimp
 \[
 \conf{r}{1} \subseteq \conf{r}{2} \subseteq \dotsb
 \]
-of the space $\conf{r}{\infty}$ of $r$ distinct ordered points in $\R^\infty \defeq \colim (\R^1 \subseteq \R^2 \subseteq \dotsb)$.
+of the space $\conf{r}{\infty}$ of $r$ distinct ordered points in $\R^\infty = \colim (\R^1 \subseteq \R^2 \subseteq \dotsb)$.
 Concretely, for any integer $r$, McClure and Smith \cite{mcclure2003multivariable} introduced a chain complex $\cX(r)$ of $\Z[\sym_r]$-modules with a filtration
 \[
-\cX_{1}(r) \subseteq \cX_{2}(r) \subseteq \dotsb \,,
+\cX_{1}(r) \subseteq \cX_{2}(r) \subseteq \dotsb
 \]
 and showed that $\cX(r)$ is connected to the singular chains of $\conf{r}{\infty}$ via a zig-zag of filtration preserving $\sym_r$-equivariant quasi-isomorphisms.
 Presumably it was observed by both McClure--Smith and Berger--Fresse that $\cX(r)$ can be interpreted as the chains of an $r$-fold multisimplicial set $\sur(r)$, which we introduce in \cref{ss:surjection model} with a filtration
 \[
-\sur_{1}(r) \subseteq \sur_{2}(r) \subseteq \dotsb \,,
+\sur_{1}(r) \subseteq \sur_{2}(r) \subseteq \dotsb
 \]
 so that $\chains\sur_{d}(r) \cong \cX_{d}(r)$.
 There is an operad structure on $\set{\cX_{d}(r)}_{r \geq 1}$ for each $d \geq 1$, but we do not focus on it since it is not induced from one at the multisimplicial level.
@@ -67,11 +68,11 @@ In a similar way, Berger and Fresse \cite{berger2004combinatorial} studied a cha
 \[
 \cE_{1}(r) \subseteq \cE_{2}(r) \subseteq \dotsb \,.
 \]
-This complex comes from the chains on a simplicial set introduced by Barratt and Eccles \cite{barrat1974operad} and equipped with a filtration
+This complex comes from the chains on a simplicial set introduced by Barratt and Eccles \cite{barrat1974operad} equipped with a filtration
 \[
 \BE_{1}(r) \subseteq \BE_{2}(r) \subseteq \dotsb
 \]
-introduced by Smith \cite{smith1989filtration}.
+due to Smith \cite{smith1989filtration}.
 (As before we disregard the operadic structure.)
 Since $\cE(r)$ is induced from a simplicial set, it is endowed with an $E_\infty$-coalgebra structure, and it is not hard to see that the zig-zag of filtration preserving $\sym_r$-equivariant quasi-isomorphisms used to compare it to the singular chains of $\conf{r}{\infty}$ respects this higher structure.
 Consequently, $\cX(r)$ and $\cE(r)$ can be related by an explicit zig-zag of such maps.
@@ -90,5 +91,5 @@ Our contribution, presented in \cref{ss:table completion}, is the construction o
 \TC \colon \chains\sur(r) \xra{\EZ} \chains\sur(r)^\diag \xra{\chains(\tc)} \chains \BE(r),
 \]
 where the second map is induced from a filtration preserving $\sym_r$-equivariant weak-equivalence of simplicial sets.
-We, therefore, prove that $\TC$ is a coalgebra map since $\EZ$ is one.
+Therefore, we prove that $\TC$ is a coalgebra map since $\EZ$ is one.
 Considering that $\EZ$ does not preserve the higher $E_\infty$-structure it is not surprising that $\TC$ does not either.

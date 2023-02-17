@@ -1,0 +1,92 @@
+\subsection{Table completion}\label{ss:table completion}
+
+It is desirable to have a direct equivariant quasi-isomorphism between these algebraic models.
+Two filtration preserving quasi-isomorphisms were constructed by Berger--Fresse
+\[
+\TR \colon \chains\BE(r) \to \chains\sur(r)
+\quad \text{and} \quad
+\TC \colon \chains\sur(r) \to \chains \BE(r).
+\]
+The first one, introduced in \cite[1$\cdot$3]{berger2004combinatorial}, is not a coalgebra map, as the reader familiar with its definition can easily verify.
+We will focus on the second one which was introduced in \cite{berger2002prismatic} and termed \textit{table completion}.
+We will construct a factorization
+\[
+\TC \colon \chains\sur(r) \xra{\EZ} \chains\sur(r)^\diag \xra{\chains(\tc)} \chains \BE(r),
+\]
+where the second map is induced from a simplicial one defined below.
+This factorization proves that $\TC$ is a coalgebra map since both factors are.
+We warn the reader that since $\EZ$ does not respect the $E_\infty$-coalgebra structure,
+neither does $\TC$.
+For example, using calculations from \cite{medina2022cube_einfty} and \cite{berger2002prismatic}, we have
+\[
+\Delta_1 \circ \TC\big(12312) \neq \TC^{\otimes 2} \circ \, \Delta_1 \big(12312\big).
+\]
+
+Let us give a more explicit description of the simplicial set $\sur(r)^\diag$.
+Its $n$-simplices are represented by maps
+\[
+f \colon \set{1,\dots,rm + r} \to \set{1,\dots,r},
+\]
+satisfying that the cardinality of $f^{-1}(\ell)$ is $m+1$ for each $\ell \in \set{1,\dots,r}$.
+We represented this simplex by the sequence $f(1) \dotsb f(rm+1)$.
+The $i^\th$ face and degeneracy maps act on it respectively by removing or doubling the $i^\th$ occurrence of each $\ell \in \set{1,\dots,r}$ in $f(1) \dotsb f(rm+r)$.
+
+Next we define a $\CG(r)$-filtration
+\[
+\sur_1(r)^\diag \subset \sur_2(r)^\diag \subset \dotsb
+\]
+on $\sur(r)^\diag$.
+For $i<j$, let $f_{ij}$ be the subsequence of $f(1) \dotsm f(rm+r)$ obtained by omitting all occurrences of elements different from $i$ and $j$.
+The simplex $f$ has complexity $d$ or less if
+%there is $(\mu,\sigma) \in \CG_d(r)$ such that for each $i<j$, either $i$ and $j$ alternate strictly less than $\mu_{ij}$ times in the sequence $f_{ij}$, or they do so exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
+%Therefore, $f \in \sur_{d}(r)$ if
+the alternation number of each $f_{ij}$ is less than $d+1$, i.e., if the non-degenerate dimension of $f_{ij}$ in $\sur(2)^\diag$ is $d$ or less for each $i<j$.
+We notice that the action of $\sym_r$ on $\sur(r)^\diag$ preserves this $\CG(r)$-filtration.
+Since the complexity of an element is unchanged by degeneracy maps, it can easily be seen that $\EZ \colon \chains\sur(r) \to \chains\sur(r)^\diag$ preserves $\CG(r)$-filtrations.
+
+Let us now define the simplicial map $\tc$.
+For $f$ as above, let
+\[
+\tc(f) = (\sigma_0,\dots,\sigma_m)
+\]
+with $\sigma_j$ represented by the subsequence of $f$ containing the $(j+1)^{\mathrm{st}}$ occurrence of each $\ell \in \{1,\dots,r\}$.
+For example, we have
+\[
+\tc(122333112) = (123,231,312).
+\]
+It can be directly checked that the homomorphism $\TC$ by Berger--Fresse satisfies
+\[
+\TC = \chains(\tc) \circ \EZ.
+\]
+To verify that $\tc$ preserves $\CG(r)$-filtrations let us first notice that $\tc(f)_{ij} = \tc(f_{ij})$, so without loss of generality we can assume $r=2$.
+For non-degenerate simplices we verify that the complexity is preserved by $\tc$ via a simple inspection of
+\[
+\tc(1212\dots12) = (12,12,\dots,12),
+\qquad
+\tc(2121\dots21) = (21,21,\dots,21).
+\]
+For degenerate simplices we use the fact that $\tc$ is a simplicial map and that degeneracy maps leave complexity unchanged.
+
+\begin{theorem}
+	The simplicial map $\tc \colon \sur(r)^\diag \to \BE(r)$ induces a weak equivalence
+	\[
+	\tc_d \colon \sur_d(r)^\diag \to \BE_d(r)
+	\]
+	for every $r,d \in \N$.
+\end{theorem}
+
+\anibal{Fix this proof}
+
+\begin{proof}
+	Regarding the maps $\tc_{n} \colon \sur_{n}(r)^\diag \to \BE_{n}(r)$ we can express source and target as colimits of contractible %ok?
+	simplicial sets along the poset of complete graphs,
+	so we have a commutative diagram
+	\begin{equation*}
+		\begin{tikzcd}
+			hocolim_{(\mu,\sigma)}\sur(r)_{(\mu,\sigma)}^\diag \arrow[r] \arrow[d] & hocolim_{(\mu,\sigma)}\BE_{(\mu,\sigma)}(r) \arrow[d] \\
+			\sur_{n}(r)^\diag\arrow[r] & \BE_{n}(r) &
+		\end{tikzcd}
+	\end{equation*}
+	Where the vertical and top arrows
+	are weak equivalences, and so the bottom map is a weak equivalence.
+\end{proof}

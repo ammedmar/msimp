@@ -36,29 +36,45 @@ This space is equipped with a free action of the symmetric group $\sym_r$ of per
 \end{figure}
 
 \begin{definition}
-	For a given poset $A$, a cellular $A$-decomposition of a topological space $X$ is a family of subspaces $X_a \subseteq X$ indexed by $a \in A$ such that:
+	For a given poset $A$, a cellular $A$-decomposition of a topological space $\fX$ is a family of subspaces $\set{\fX_a}_A$ such that:
 	\begin{itemize}
-		\item $a \leq b$ implies $X_a \subseteq X_b$;
-		\item $\bigcup_{a \in A} X_a = X$;
-		\item $X_a$ is contractible for each $a$;
-		\item $\bigcup_{a<b} X_a \subset X_b$ is a closed cofibration.
+		\item $a \leq b$ implies $\fX_a \subseteq \fX_b$;
+		\item $\colim_{a \in A} \fX_a = \fX$;
+		\item $\fX_a$ is contractible for each $a$;
+		\item $\bigcup_{a<b} \fX_a \subset \fX_b$ is a closed cofibration.
 	\end{itemize}
 \end{definition}
 
-\begin{proposition}[{\cite[\S1.7]{berger1997confspacemodel}}]
-	If a topological space $X$ admits a \textit{cellular $A$-decomposition}, then there is a natural homotopy equivalence between $X$ and the geometric realization of $A$.
+The relevance of this notion is the following well known fact, a proof of which can be found in \cite[\S1.7]{berger1997confspacemodel}.
+
+\begin{proposition}
+	If a topological space $\fX$ admits a \textit{cellular $A$-decomposition}, then the natural map
+	\[
+	\fX = \colim_A \fX_a \to \hocolim_A \fX_a \to \bars{A}
+	\]
+	is a cellular homotopy equivalence.
 \end{proposition}
 
 The case of interest for us is the following.
 
 \begin{proposition}[{\cite[\S1.13]{berger1997confspacemodel}}]\label{p:berger}
 	If a space has a cellular $\CG_d(r)$-decomposition then it is homotopy equivalent to
-	the configuration space
-	$\conf{r}{d}$.
+	the configuration space $\conf{r}{d}$.
 \end{proposition}
 
-We warn the reader that configuration spaces themselves do not admit a cellular decomposition with respect to graph complete posets, but they do so with respect to some extended versions of these posets \cite{beuckelmann2021master}, whose geometric realization retains the same homotopy type.
+We warn the reader that configuration spaces themselves do not admit a cellular decomposition with respect to graph complete posets, but they do so with respect to some extended versions of these posets \cite{beuckelmann2021master}, whose geometric realization retains the same homotopy type.\todo{@andrea,@paolo: In what direction does the map go?}
+We therefore have an explicit homotopy equivalence
 \begin{equation}\label{eq:extended complete graph map}
-	...
+	\conf{r}{d} \to \bars{\CG_d(r)} \leftarrow \fX
 \end{equation}
-\todo{@andrea,@paolo: We therefore have natural homotopy equivalences ??? for each r and d. @anibal what do you mean to add here?}
+for any $\fX$ with a cellular $\CG_d(r)$-decomposition.
+
+\begin{definition}
+	Let $X$ be a multisimplicial (or simplicial) set.
+	A $\CG(r)$-filtration
+	\[
+	X_1 \subset X_2 \subset \dotsb
+	\]
+	of $X$ is a filtration equipped with compatible cellular $\CG(r)$-decompositions of $\bars{X_d}$ for each $d \in \N$.
+	We will refer to $\min\set{d \mid x \in X_n}$ as the complexity of $x$.
+\end{definition}

@@ -1,59 +1,49 @@
 \subsection{Multisimplicial model}\label{ss:surjection model}
 
-We define for each positive integer $r$ a family of multisimplicial sets $\sur(r)$ equipped with a complete graph filtration
+We define for each positive integer $r$ a multisimplicial sets $\sur(r)$ equipped with a $\CG(r)$-filtration
 \[
- \sur_{1}(r) \subset \sur_{2}(r) \subset \dotsb
+\sur_{1}(r) \subset \sur_{2}(r) \subset \dotsb
 \]
-which, by applying to it the functor of chains, recovers the algebraic models of configuration spaces developed by McClure--Smith \cite{mcluresmith2004geomodel}.
+which, by applying the functor of chains to it, recovers the algebraic models
+\[
+\chi_1(r) \subset \chi_2(r) \subset \dotsb
+\]
+of configuration spaces developed by McClure--Smith \cite{mcluresmith2004geomodel}.
 
-The geometric realizations $\bars{\sur(r)}$ were studied as topological spaces, named $Y^{r}_{0}$, in the work of McClure--Smith \cite{mcclure2003multivariable}. The homeomorphism between those spaces and $\bars{\sur(r)}$ is described explicitly in the appendix of \cite{salvatore2009deligne}. 
+Spaces $Y_0^r$ homeomorphic to $\bars{\sur(r)}$ were studied as a topological space in the work of McClure--Smith \cite{mcclure2003multivariable}.
+The homeomorphism between $Y_0^r$ and $\bars{\sur(r)}$ is described explicitly in the appendix of \cite{salvatore2009deligne}.
 
-
-Let $\sur(r)$ be the $k$-fold multisimplicial set that has as $(m_1,\dots,m_r)$-multisimplices
-the surjective maps
+Let $\sur(r)$ be the $k$-fold multisimplicial set that has as $(m_1,\dots,m_r)$-multisimplices the surjective maps
 \[
 f \colon \set{1,\dots,m+r} \to \set{1,\dots,r},
 \]
 where $m = m_1+\dots+m_r$, satisfying that the cardinality of $f^{-1}(\ell)$ is $m_\ell$ for each $\ell \in \set{1,\dots,r}$.
 We represent this multisimplex by the sequence $f(1) \dotsm f(m+r)$.
 The face and degeneracy maps $\face^\ell_j$ and $\dege^\ell_j$ act on it by respectively removing and doubling the $(j+1)^\th$ occurrence of $\ell$ in the sequence.
-%For example,
-%\begin{align*}
-%	d^2_0(12321)&=1321, & s^1_0(121)&=1121, \\
-%	d^2_1(12321)&=1231, & s^1_1(121)&=1211.
-%\end{align*}
-%Degenerate multisimplices are exactly the sequences containing two equal adjacent terms.
-Next we define a $\CG(r)$-filtration of $\sur(r)$ inducing naturally a cellular $\CG(r)$-decomposition on its geometric realization, giving a filtration
-\[
-\bars{\sur_1(r)} \subset \bars{\sur_2(r)} \subset \dotsb
-\]
-with each
-\[
-\bars{\sur_d(r)} = \, \bigcup_{\mathclap{\CG_d(r)}} \, \bars{\sur_{(\mu,\sigma)}(r)}
-\]
-equipped with a cellular $\CG_d(r)$-decomposition.
-For $i<j$, let $f_{ij}$ be the subsequence of $f(1) \dotsm f(m+r)$ obtained by omitting all occurrences of elements different from $i$ and $j$.
-%For example, let $31231 \in \sur(3)_{2,1,2}$, we have $(31231)_{12}=121$, $(31231)_{23}=323$ and $(31231)_{13}=3131$.
-The surjection $f$ belongs to $\sur_{(\mu,\sigma)}(r) \subset \sur(r)$ if for each $i<j$, either $i$ and $j$ alternate strictly less than $\mu_{ij}$ times in the sequence $f_{ij}$, or they do so exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
-Therefore, $f \in \sur_{d}(r)$ if the alternation number of each $f_{ij}$ is less than $d+1$.
-We notice that
-%For example, $x = 12132 \in \sur_3(3)$ but $x \notin \sur_2(3)$ because the subsequence $1212$ has length 4.
-the action of $\sym_r$ on $\sur(r)$ preserves the filtration. The above $\CG(r)$-filtration of the surjection multisimplicial set induces naturally also a filtration of the normalized chain complex $\chi_d(r):=\chains \sur(r)$
-\[
-\chi_1(r) \subset \chi_2(r) \subset \dotsb \,.
-\]
 
-Applying the functor of singular chains to the induced zig-zag of equivariant homotopy equivalences coming from \cref{p:berger} gives
+Next we define a $\CG(r)$-filtration on $\sur(r)$.
+%inducing naturally a cellular $\CG(r)$-decomposition on its geometric realization, giving a filtration
+%\[
+%\bars{\sur_1(r)} \subset \bars{\sur_2(r)} \subset \dotsb
+%\]
+%with each
+%\[
+%\bars{\sur_d(r)} = \, \bigcup_{\mathclap{\CG_d(r)}} \, \bars{\sur_{(\mu,\sigma)}(r)}
+%\]
+%equipped with a cellular $\CG_d(r)$-decomposition.
+For $i<j$, let $f_{ij}$ be the subsequence of $f(1) \dotsm f(m+r)$ obtained by omitting all occurrences of elements different from $i$ and $j$.
+The surjection $f$ has complexity $d$ or less if
+%there is $(\mu,\sigma) \in \CG_d(r)$ such that for each $i<j$, either $i$ and $j$ alternate strictly less than $\mu_{ij}$ times in the sequence $f_{ij}$, or they do so exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
+%Therefore, $f \in \sur_{d}(r)$ if
+the alternation number of each $f_{ij}$ is less than $d+1$, i.e., if the non-degenerate dimension of $f_{ij}$ in $\sur(2)$ is $d$ or less for each $i<j$.
+We notice that the action of $\sym_r$ on $\sur(r)$ preserves this $\CG(r)$-filtration.
+
+Applying the functor of singular chains to \cref{eq:extended complete graph map} gives
 \[
 \schains\conf{r}{d} \leftarrow
 \schains\bars{\CG_{d}(r)} \to
 \schains\bars{\sur_{d}(r)},
 \]
-
-%\[
-%\schains\con{r}(\R^d) \leftarrow 
-%\schains\bars{\mathcal{N}(P)} \leftarrow \schains \bars{\mathcal{N}(\mathcal{CG}_{d}(r))} \to \schains\bars{\sur_{d}(r)}.
-%\]
 a zig-zag of equivariant quasi-isomorphisms of $\UM$-coalgebras, which extends to the right with maps of the same kind
 \[
 \schains\bars{\sur_{d}(r)} \cong
@@ -64,7 +54,7 @@ a zig-zag of equivariant quasi-isomorphisms of $\UM$-coalgebras, which extends t
 \]
 given respectively from the left by the homeomorphism between multisimplicial set and diagonal simplicial set realizations, the unit of the Quillen equivalence between simplicial sets and topological spaces, the comparison map of \cref{ss:inclusion}, and the unit of the Quillen equivalence between multisimplicial sets and simplicial sets.
 
-As announced in the introduction, this construction relates the singular chains of a configuration space and the chains of its multisimplicial model:
+As announced in the introduction, this construction relates the singular chains of a configuration space and the chains of its multisimplicial model as expressed in the following.
 \begin{theorem}
 	The singular chains of a configuration space and the chains of its multisimplicial model are related by an explicit zig-zag of equivariant quasi-isomorphism of $E_\infty$-coalgebras.
 \end{theorem}
