@@ -1,3 +1,5 @@
+% !TEX root = ../msimp.tex
+
 \subsection{Recognition of configuration spaces}\label{ss:recognition}
 
 Let $\conf{r}{d}$ denote the configuration space of $r$-tuples of pairwise disjoint vectors in $\R^{d}$.
@@ -47,7 +49,7 @@ This space is equipped with a free action of the symmetric group $\sym_r$ of per
 
 The relevance of this notion is the following well known fact, a proof of which can be found in \cite[\S1.7]{berger1997confspacemodel}.
 
-\begin{proposition}
+\begin{proposition}\label{p:cellular poset decomposition}
 	If a topological space $\fX$ admits a \textit{cellular $A$-decomposition}, then the natural map
 	\[
 	\fX = \colim_A \fX_a \to \hocolim_A \fX_a \to \bars{A}
@@ -62,7 +64,7 @@ The case of interest for us is the following.
 	the configuration space $\conf{r}{d}$.
 \end{proposition}
 
-We warn the reader that configuration spaces themselves do not admit a cellular decomposition with respect to graph complete posets, but they do so with respect to some extended versions of these posets \cite{beuckelmann2021master}, whose geometric realization retains the same homotopy type.\todo{@andrea,@paolo: In what direction does the map go?}
+We warn the reader that configuration spaces themselves do not admit a cellular decomposition with respect to graph complete posets, but they do so with respect to some extended versions of these posets \cite{beuckelmann2021master}\todo{I do not find a URL or DOI for this. It would be good if provided.}, whose geometric realization retains the same homotopy type.\todo{@andrea,@paolo: In what direction does the map go? This is important to get the zig-zag below correctly.}
 We therefore have an explicit homotopy equivalence
 \begin{equation}\label{eq:extended complete graph map}
 	\conf{r}{d} \to \bars{\CG_d(r)} \leftarrow \fX

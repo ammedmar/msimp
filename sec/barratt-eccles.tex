@@ -1,3 +1,5 @@
+% !TEX root = ../msimp.tex
+
 \subsection{Simplicial model}\label{ss:simplicial model}
 
 We recall the Barratt--Eccles simplicial set $\BE(r)$ defined for each $r\in\N$ and equipped with a $\CG(r)$-filtration
@@ -15,27 +17,13 @@ Its face and degeneracy maps are defined by removing and doubling elements respe
 There is an operad structure on these simplicial sets, but we do not consider it here.
 
 Next we recall a $\CG(r)$-filtration on $\BE(r)$.
-%of $\BE(r)$ inducing naturally a cellular $\CG(r)$-decomposition on its geometric realization, giving a filtration
-%\[
-%\bars{\BE_1(r)} \subset \bars{\BE_2(r)} \subset \dotsb
-%\]
-%with each
-%\[
-%\bars{\BE_d(r)} = \,
-%\bigcup_{\mathclap{\CG_d(r)}} \,
-%\bars{\BE_{(\mu,\sigma)}(r)}
-%\]
-%equipped with a cellular $\CG_d(r)$-decomposition.
 For $i<j$ and $\sigma$ in $\sym_r$ let $\sigma_{ij}$ be the associated permutation in $\sym_2$.
-The element $w = (w_0,\dots w_n) \in \BE(r)_n$ has complexity $d$ or less if for each $i<j$
-%$\BE_{(\mu,\sigma)}(r)$ if for all $i<j$ the cardinality of $\set{w_{\ell,ij} \neq w_{\ell+1,ij}}$ is either less than $\mu_{ij}$ or equal to it and $(w_1)_{ij} = \sigma_{ij}$.
-%Therefore, $(w_1,\dots w_n)$ is in $\BE_{d}(r)$ iff
-the cardinality of $\set{\ell=1,\dots,n-1 \mid w_{\ell-1,ij} \neq w_{\ell,ij}}$ is less than $d$, i.e., the non-degenerate dimension of $w_{ij}$ in $\BE(2)$ is $d$ or less for all $i<j$.
+The element $w = (w_0,\dots w_n) \in \BE(r)_n$ has complexity $d$ or less if for each $i<j$ the cardinality of $\set{\ell=1,\dots,n-1 \mid w_{\ell-1,ij} \neq w_{\ell,ij}}$ is less than $d$, i.e., the non-degenerate dimension of $w_{ij}$ in $\BE(2)$ is $d$ or less for all $i<j$.
 We notice that the action of $\sym_r$ on $\BE(r)$ preserves this $\CG(r)$-filtration.
 Please consult \cite{smith1989filtration,kashiwabara1993confcomplex,berger1997confspacemodel} for more details.
-%It has also been proven in \cite{kashiwabara1993confcomplex}, in a manner different from that in \cite{berger1997confspacemodel}, that $\conf{r}{d}$ is homotopy equivalent to $\bars{\BE_{d}(r)}$.
+In terms of cellular $\CG(r)$-decompositions, given $(\mu,\sigma) \in \CG(r)$ then $\bars{w} \subset \bars{\sur(r)}_{(\mu,\sigma)}$ if for each $i<j$, the cardinality of $\set{w_{\ell,ij} \neq w_{\ell+1,ij}}$ is either less than $\mu_{ij}$ or equal to it and $(w_1)_{ij} = \sigma_{ij}$.
 
-Applying the functor of singular chains to \cref{eq:extended complete graph map} and using the unit we get a zig-zag of equivariant quasi-isomorphisms of $\UM$-coalgebras
+Applying the functor of singular chains to \cref{eq:extended complete graph map} and using the unit we get a zig-zag of quasi-isomorphisms of $\UM$-coalgebras
 \begin{equation}\label{eq:simplicial zig-zag}
 	\schains\conf{r}{d} \leftarrow
 	\schains\bars{\CG_d(r)} \to
@@ -45,5 +33,5 @@ Applying the functor of singular chains to \cref{eq:extended complete graph map}
 Combining this with the zig-zag constructed in the previous subsection yields the following.
 
 \begin{theorem}
-	The chains on the simplicial and multisimplicial models of a configuration space are related by an explicit zig-zag of equivariant quasi-isomorphism of $E_\infty$-coalgebras.
+	The chains on the simplicial and multisimplicial models of a configuration space are related by an explicit zig-zag of quasi-isomorphism of $E_\infty$-coalgebras.
 \end{theorem}

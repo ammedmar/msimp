@@ -5,43 +5,45 @@
 
 %%%%%%%%%%% Modify the following files if desired
 
+\input{aux/packages}
 \input{aux/commands}
 \addbibresource{aux/bibliography.bib}
-\input{aux/figures}
-\usepackage{todo}
 
 %%%%%%%%%%%
 
 \title[Multisimplicial chains and configuration spaces]{Multisimplicial chains and configuration spaces}
 
-%\author[A. Medina-Mardones]{Anibal M. Medina-Mardones}
-%\address{A.M-M., Max Planck Institute for Mathematics \and University of Notre Dame}
-%\email{\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}}
-%
-%\author[A. Pizzi]{Andrea Pizzi}
-%\address{Dipartimento di Matematica, Universit\`a di Roma Tor Vergata}
-%\email{pizzi@mat.uniroma2.it}
-%
-%\author[P. Salvatore]{Paolo Salvatore}
-%\address{Dipartimento di Matematica, Universit\`a di Roma Tor Vergata}
-%\email{salvator@mat.uniroma2.it}
+\author[Medina-Mardones]{Anibal M. Medina-Mardones}
+\address{A.M-M., LAGA, Universit\'e Sorbonne Paris Nord}
+\email{\href{medina-mardones@math.univ-paris13.fr}{medina-mardones@math.univ-paris13.fr}}
+
+\author[Pizzi]{Andrea Pizzi}
+\address{A.P., Dipartimento di Matematica, Universit\`a di Roma Tor Vergata}
+\email{\href{pizzi@mat.uniroma2.it}{pizzi@mat.uniroma2.it}}
+
+\author[Salvatore]{Paolo Salvatore}
+\address{P.S., Dipartimento di Matematica, Universit\`a di Roma Tor Vergata}
+\email{\href{salvator@mat.uniroma2.it}{salvator@mat.uniroma2.it}}
 
 \date{\today}
-\subjclass[2020]{TBW}
-\keywords{TBW}
+\subjclass[2020]{18N50, 55U15, 18N70, 55R80, 18N40, 18G31}
+% 18N50 - Simplicial sets, simplicial objects
+% 55U15 - Chain complexes in algebraic topology
+% 18N70 - $\infty$-operads and higher algebra
+% 55R80 - Discriminantal varieties and configuration spaces in algebraic topology
+% 18N40 - Homotopical algebra, Quillen model categories, derivators
+% 18G31 - Simplicial modules and Dold-Kan correspondence
+\keywords{Multisimplicial sets, configuration spaces, $E_\infty$-algebras}
 
 \begin{document}
 	\input{sec/abstract}
 	\maketitle
-	\tableofcontents
 	\input{sec/introduction}
 	\input{sec/acknowledgment}
-	\input{sec/preliminaries}
 	\input{sec/multisimplicial}
 	\input{sec/comparison}
 	\input{sec/configuration}
 	\sloppy
 	\printbibliography
 	\todos
-%	\input{sec/legacy}
 \end{document}

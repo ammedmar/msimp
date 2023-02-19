@@ -26,12 +26,12 @@ Specifically, using the isomorphism
 we extend the image of the prop generators constructed in \cite{medina2020prop1} from the chains of standard simplices to those of standard multisimplices.
 These generators are the Alexander--Whitney coproduct, the augmentation map, and an algebraic version of the join product.
 The resulting $E_\infty$-coalgebra structure generalizes those defined in \cite{mcclure2003multivariable, berger2004combinatorial, medina2020prop1} for simplicial chains and in \cite{medina2022cube_einfty} for cubical chains.
-As an application, we describe in \cref{ss:cup coproducts} explicit generalizations of Steenrod's cup-$i$ coproducts for multisimplicial chains.
+As an application, we study the Steenrod construction for multisimplicial chains in \cref{ss:cup coproducts} emphasizing the explicit nature of our construction.
 
 Let us now focus on the relationship between multisimplicial and simplicial theories.
 The restriction to the image of the diagonal inclusion $\simplex^\op \to (\simplex^\op)^{\times k}$ of any $k$-fold multisimplicial set $X$ defines its associated diagonal simplicial set $X^\diag$.
 There is a natural homeomorphism of realizations $\bars{X} \cong \bars{X^\diag}$
-\cite{quillen2010higheralgktheory}.
+\cite{quillen2010higheralgktheory}\todo{I do not find a URL or DOI for this. It would be good if provided.}.
 Under this homeomorphism the cells of $\bars{X^\diag}$ arise from those of $\bars{X}$ through subdivision, a procedure described algebraically by the Eilenberg--Zilber quasi-isomorphism
 \[
 \EZ \colon \chains(X) \to \chains(X^\diag).
@@ -44,7 +44,7 @@ Furthermore, there is a natural inclusion
 which is also a quasi-isomorphism.
 On one hand, the $\EZ$ map preserves the counital coalgebra structure, but it does not respect the higher $E_\infty$-structure.
 On the other, the map $\In$ is an $E_\infty$-coalgebra quasi-isomorphism as proven in \cref{ss:inclusion}.
-We use this fact to prove in \cref{ss:singular} that, for any topological space $\fZ$, the linear map from its singular simplicial chains to its singular $k$-fold multisimplicial chains, given by precomposing a continuous map $(\gsimplex^n \to \fZ)$ with the projection $(\gsimplex^n \times \gmsimplex{0}{0} \xra{\pi_1} \gsimplex^n)$, induces a natural quasi-isomorphism of $E_\infty$-coalgebras.
+We use this fact to prove in \cref{ss:singular} that, for any topological space $\fX$, the linear map from its singular simplicial chains to its singular $k$-fold multisimplicial chains, given by precomposing a continuous map $(\gsimplex^n \to \fX)$ with the projection $(\gsimplex^n \times \gmsimplex{0}{0} \xra{\pi_1} \gsimplex^n)$, induces a natural quasi-isomorphism of $E_\infty$-coalgebras.
 
 In the second part of the paper, we use these constructions to study a multisimplicial model of the canonical filtration
 \[
@@ -92,4 +92,3 @@ Our contribution, presented in \cref{ss:table completion}, is the construction o
 \]
 where the second map is induced from a filtration preserving $\sym_r$-equivariant weak-equivalence of simplicial sets.
 Therefore, we prove that $\TC$ is a coalgebra map since $\EZ$ is one.
-Considering that $\EZ$ does not preserve the higher $E_\infty$-structure it is not surprising that $\TC$ does not either.

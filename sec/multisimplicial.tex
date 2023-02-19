@@ -8,22 +8,19 @@ Let us consider an arbitrary positive integer~$k$.
 The \textit{$k$-fold multisimplex category} $\simplex^{\times k}$ is the $k$-fold Cartesian product of the simplex category $\simplex$.
 The category
 \[
-\mSet{k} \defeq \Fun\big((\simplex^{\times k})^\op, \Set\big)
+\mSet{k} = \Fun\big((\simplex^{\times k})^\op, \Set\big)
 \]
 is referred to as the category of \textit{$k$-fold multisimplicial sets}.
 We remark that $\mSet{1}$ and $\mSet{2}$ are naturally equivalent to the categories of simplicial and bisimplicial sets respectively.
-A representable $k$-fold multisimplicial sets $\yoneda \big([n_1]\times\dots\times[n_k]\big)$ is denoted by $\simplex^{n_1,\dots,n_k}$.
+A representable $k$-fold multisimplicial sets is denoted by $\simplex^{n_1,\dots,n_k}$.
 
 Explicitly, a $k$-fold multisimplicial set $X$ consists of a collection of sets
 \[
-X_{m_1,\dots,m_k} \defeq
-X \big( [m_1] \times\dots\times [m_k] \big)
+X_{m_1,\dots,m_k} = X \big( [m_1] \times\dots\times [m_k] \big)
 \]
 indexed by $k$-tuples of non-negative integers $(m_1,\dots,m_k)$ together with \textit{face maps}
 \[
-\face_i^j \colon
-X_{m_1, \dots, m_j,\dots,m_k} \to
-X_{m_1, \dots, m_j-1, \dots, m_k}
+\face_i^j \colon X_{m_1, \dots, m_j,\dots,m_k} \to X_{m_1, \dots, m_j-1, \dots, m_k}
 \]
 and \textit{degeneracy map}
 \[
@@ -31,12 +28,6 @@ and \textit{degeneracy map}
 \]
 for $1 \leq j \leq k$ and $0 \leq i \leq m_j$ such that, referring to $j$ as the \textit{direction} of these maps, two of them satisfy the simplicial identities when they have the same direction and commute when they do not.
 An element of $X_{m_1,\dots,m_k}$ is called an $(m_1,\dots,m_k)$-\textit{multisimplex} and it is said to be \textit{degenerate} if it is in the image of a degeneracy map.
-
-%and for any object $[m_1]\times\dots\times[m_k]$ in $\simplex^{\times k}$ there are canonical bijection
-%\[
-%\simplex^{n_1,\dots,n_k} \big([m_1]\times\dots\times[m_k]\big) \cong
-%\simplex^{n_1}_{m_1}\times\dots\times\simplex^{n_k}_{m_k}.
-%\]
 
 \subsection{Geometric realization}\label{ss:geometric realization}
 
@@ -66,21 +57,19 @@ The \textit{geometric realization} functor
 \]
 is the Yoneda extension of the functor defined on representable objects by
 \[
-\bars{\simplex^{n_1,\dots,n_k}} \defeq
-\gmsimplex{n_1}{n_k}.
+\bars{\simplex^{n_1,\dots,n_k}} = \gmsimplex{n_1}{n_k}.
 \]
 
 Explicitly, for a $k$-fold multisimplicial set $X$ we have
-\begin{align*}
-	\bars{X} &\cong
-	%	\colim_{\cramped{(\simplex^{n_1,\dots,n_k} \downarrow X})} \, \bars{\simplex^{n_1,\dots,n_k}} \\ &=
-	\coprod \gmsimplex{n_1}{n_k} \times X_{n_1,\dots,n_k} /_\sim
-\end{align*}
+\[
+\bars{X} \cong
+\coprod \gmsimplex{n_1}{n_k} \times X_{n_1,\dots,n_k} \, /_\sim
+\]
 where
 \[
 \begin{split}
-	(V_1, \dots, V_j, \dots, V_k, \face^j_i(x)) &\sim (V_1, \dots, \delta_i(V_j), \dots, V_k, x), \\
-	(V_1, \dots, V_j, \dots, V_k, \dege^j_i(x)) &\sim (V_1, \dots, \sigma_i(V_j), \dots, V_k, x),
+	(\vec{t}_1, \dots, \vec{t}_j, \dots, \vec{t}_k, \face^j_i(x)) &\sim (\vec{t}_1, \dots, \delta_i(\vec{t}_j), \dots, \vec{t}_k, x), \\
+	(\vec{t}_1, \dots, \vec{t}_j, \dots, \vec{t}_k, \dege^j_i(x)) &\sim (\vec{t}_1, \dots, \sigma_i(\vec{t}_j), \dots, \vec{t}_k, x),
 \end{split}
 \]
 which equips $\bars{X}$ with a canonical cellular structure.
@@ -89,10 +78,10 @@ The geometric realization functor has a right adjoint
 \[
 \Sing^{(k)} \colon \Top \to \mSet{k}
 \]
-defined on a topological space $\fZ$, as usual, by the expression
+defined on a topological space $\fX$, as usual, by the expression
 \[
-\Sing^{(k)}(\fZ)_{n_1,\dots,n_k} \defeq
-\Top(\gmsimplex{n_1}{n_k},\fZ).
+\Sing^{(k)}(\fX)_{n_1,\dots,n_k} =
+\Top(\gmsimplex{n_1}{n_k},\fX).
 \]
 
 \subsection{Algebraic realization}\label{ss:algebraic realization}
@@ -103,7 +92,7 @@ The functor of \textit{chains}
 \]
 is the Yoneda extension of the functor defined on representable objects by
 \[
-\chains \big( \simplex^{n_1, \dots, n_k} \big) \defeq
+\chains \big( \simplex^{n_1, \dots, n_k} \big) =
 \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k}).
 \]
 It is naturally isomorphic to the composition of the geometric realization functor and the functor of cellular chains with respect to the canonical cellular structure.
@@ -115,12 +104,7 @@ The differential $\bd \colon \chains(X)_n \to \chains(X)_{n-1}$ is given on one 
 (-1)^{n_{1}+\dots+n_{j-1}+\ell_j} \, \face^j_{\ell_j}(x).
 \]
 
-%\begin{remark*}
-%	If we do not mod out by degenerate multisimplices the same formula defines the functor of \textit{non-normalized chains}.
-%	A slight generalization of the classical normalization theorem by MacLane \cite{MacLane} shows that the natural projection between these is a natural chain homotopy equivalence. \todo{@andrea: please get the missing reference.}
-%\end{remark*}
-
-For any topological space $\fZ$ the complex of chains of $\Sing^{(k)}(\fZ)$ is denoted $\rS^{(k)}(\fZ)$ and referred to as the $k$-\textit{fold singular chains} of $\fZ$.
+For any topological space $\fX$ the chain complex $\chains\Sing^{(k)}(\fX)$ is denoted $\rS^{(k)}(\fX)$ and referred to as the $k$-\textit{fold singular chains} of $\fX$.
 
 \subsection{Coalgebra structure}\label{ss:coalgebra}
 
@@ -129,8 +113,20 @@ A \textit{counital coalgebra} structure on a chain complex $C$ is a pair of chai
 (\id \ot \aug) \circ \copr =
 \id =
 (\aug \ot\, \id) \circ \copr.
-\footnote{We could also have asked for the coassociativity relation and then this notion of counital coalgebra would agree with the categorical notion of comonoid in $\Ch$. The examples of counital coalgebras developed in this work are indeed coassociative.}
 \]
+The tensor product of two counital coalgebras $C$ and $C'$ is itself a counital coalgebra with structure maps given by
+\begin{gather*}
+	C \ot C^\prime \xra{\copr \ot \copr^\prime}
+	(C \ot C) \ot (C^\prime \ot C^\prime) \xra{\tau}
+	(C \ot C^\prime) \ot (C \ot C^\prime), \\
+	C \ot C^\prime \xra{\aug \ot \aug^\prime}
+	\k \ot \k \xra{\cong} \k,
+\end{gather*}
+where $\tau$ transposes the second and third factors.
+
+
+
+
 For each $n \in \N$, the complex $\chains(\simplex^n)$ is naturally equipped with a counital coalgebra structure defined by:
 \[
 \begin{split}
@@ -142,17 +138,12 @@ For each $n \in \N$, the complex $\chains(\simplex^n)$ is naturally equipped wit
 \]
 We will refer to it as the \textit{Alexander--Whitney structure}.
 
-The tensor product of two counital coalgebras $C$ and $C'$ is itself a counital coalgebra with structure maps given by:
-\begin{gather*}
-	C \ot C^\prime \xra{\copr \ot \copr^\prime}
-	(C \ot C) \ot (C^\prime \ot C^\prime) \to
-	(C \ot C^\prime) \ot (C \ot C^\prime), \\
-	C \ot C^\prime \xra{\aug \ot \aug^\prime}
-	\k \ot \k \xra{\cong} \k.
-\end{gather*}
-\anibal{say the maps in word below}
-
-From these constructions we deduce a natural counital coalgebra structure on the chains of representable multisimplicial sets $\chains \big( \simplex^{n_1, \dots, n_k} \big) = \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k})$, and, via a Yoneda extension, one on the chains of general multisimplicial sets.
+Using the tensor product structure, we deduce a natural counital coalgebra structure on the chains of representable multisimplicial sets
+\[
+\chains \big( \simplex^{n_1, \dots, n_k} \big) =
+\chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k})
+\]
+and, via a Yoneda extension, one on the chains of general multisimplicial sets.
 
 Explicitly, for a $k$-fold multisimplicial set $X$ and $(m_1,\dots,m_k)$-multisimplex $x$ let
 \[
@@ -181,7 +172,7 @@ with $B_{i_j} \colon [i_j] \to [n_j]$ defined by $B_j(h) = h+m_j-i_j$.
 
 \subsection{\pdfEinfty-extension}\label{ss:e-infty extension}
 
-An \textit{$\cM$-bialgebra} structure on a counital coalgebra $(C, \copr, \aug)$ is a degree $1$ linear map $\pr \colon C \ot C \to C$ satisfying
+An \textit{$\cM$-bialgebra} is a counital coalgebra $(C, \copr, \aug)$ together with a degree $1$ linear map $\pr \colon C \ot C \to C$ satisfying
 \[
 \bd (c_1 \ast c_2) - \bd c_1 \ast c_2 + (-1)^{\bars{c_1}} c_1 \ast \bd c_2 =
 \aug(c_1) c_2 - \aug(c_2) c_1,
@@ -192,6 +183,14 @@ An \textit{$\cM$-bialgebra} structure on a counital coalgebra $(C, \copr, \aug)$
 for all $c_1, c_2 \in C$.
 As proven in \cite{medina2020prop1}, the collection of all maps $\set{C \to C^{\ot r}}_{r \in \N}$ generated by $\copr$, $\aug$ and $\pr$ make $C$ into an $E_\infty$-coalgebra, that is to say, a coalgebra over certain operad $\UM$ that is a cofibrant resolution of the terminal operad.
 
+As proven in \cite{medina2021cobar}, the counital coalgebra structure on the tensor product of two $\cM$-bialgebras $C$ and $C'$ can be naturally extended to an $\cM$-bialgebra structure using
+\[
+(C \ot C^\prime) \ot (C \ot C^\prime) \xra{\tau}
+C \ot C \ot C^\prime \ot C^\prime
+\xra{\ \aug \ot \, \id \, \ot \, \pr + \pr \ot \, \id \, \ot \,\aug\ }
+C \ot C^\prime.
+\]
+
 For any integer $n$, the \textit{join product} $\ast \colon \chains(\simplex^n)^{\ot 2} \to \chains(\simplex^n)$ is the natural degree~$1$ linear map defined by
 \begin{equation*}
 	\left[v_0, \dots, v_p \right] \pr \left[v_{p+1}, \dots, v_q\right] =
@@ -199,32 +198,41 @@ For any integer $n$, the \textit{join product} $\ast \colon \chains(\simplex^n)^
 		\hfil 0 & \text{ if not}, \end{cases}
 \end{equation*}
 where $\pi$ is the permutation that orders the vertices.
-%It is an algebraic version of the usual join of faces in a simplex.
-%, as illustrated in \cref{f:join of faces}.
 It is proven in \cite{medina2020prop1} that on the chains of representable simplicial sets the Alexander--Whitney structure together with the join product make $\chains(\simplex^n)$ into a natural $\cM$-bialgebra and, consequently, a natural $E_\infty$-coalgebra.
+We mention that this structure is induced by one preset at the level of geometric realizations \cite{medina2021prop2}.
 
-%\begin{figure}
-%	\input{aux/join}
-%	\caption{Geometric representation of the join product of two basis elements. It depicts the identity $\big([0] \pr [1,2]\big) = [0,1,2]$.}
-%	\label{f:join of faces}
-%\end{figure}
-
-The counital coalgebra structure on the tensor product of two $\cM$-bialgebras $C$ and $C'$ can be naturally extended to an $\cM$-bialgebra structure using
+Using the tensor product structure, we deduce a natural $\cM$-bialgebra structure on the chains of representable multisimplicial sets
 \[
-(C \ot C^\prime) \ot (C \ot C^\prime) \to
-C \ot C \ot C^\prime \ot C^\prime
-\xra{\ \aug \ot \, \id \, \ot \, \pr + \pr \ot \, \id \, \ot \,\aug\ }
-C \ot C^\prime
+\chains\big(\simplex^{n_1,\dots,n_k}\big) =
+\chains(\simplex^{n_1}) \ot\dotsb\ot \chains(\simplex^{n_k}),
 \]
-\anibal{say the maps in word below}
+and consequently a natural $E_\infty$-coalgebra structure, which extends along the Yoneda inclusion to the chains on any multisimplicial set $X$.
 
-From these constructions we obtain a natural $\cM$-bialgebra structure, and, consequently a natural $E_\infty$-coalgebra structure, on each $\chains \big( \simplex^{n_1, \dots, n_k} \big) = \chains(\simplex^{n_1}) \ot \dotsb \ot \chains(\simplex^{n_k})$.
-We can then extend these natural $E_\infty$-coalgebras to the chains on any multisimplicial set $X$.
+Explicitly, for two basis elements of $\chains\big(\simplex^{n_1,\dots,n_k}\big)$ we have
+\[
+(x_1 \ot \dotsb \ot x_n) \ast (y_1 \ot \dotsb \ot y_n) =
+\sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i},
+\]
+where, with the convention $x_{<1} = x_{>n} = 1 \in \k$,
+\begin{align*}
+	z_{<i} & = z_1 \ot \dotsb \ot z_{i-1}, \\
+	z_{>i} & = z_{i+1} \ot \dotsb \ot z_n.
+\end{align*}
 
 We remark that since the category of $\cM$-bialgebras is not cocomplete, we do not necessarily have an $\cM$-bialgebra structure on $\chains(X)$ for a general multisimplicial set $X$.
 An example for which such structure does not exist is given by one such $X$ whose geometric realization consists of just two points.
 
-\subsection{Steenrod cup-$(p,i)$ coproducts}\label{ss:cup coproducts}
+\subsection{Cubical theory}\label{ss:cubical}
+
+Since the complex of chains of the $k$-fold multisimplicial set $\msimplex{1}{1}$ is isomorphic to the chains on the standard cubical set $\cube^k$, it is natural to compare the $E_\infty$-coalgebra structure defined here with that presented in \cite{medina2022cube_einfty} for cubical sets.
+As counital coalgebras $\chains(\msimplex{1}{1})$ and $\chains(\cube^k)$ are isomorphic, and, denoting the product of the $\cM$-bialgebra defined there by $\widetilde\ast$, we have
+\[
+x \ \widetilde\ast \ y = (-1)^{\bars{x}} x \ast y
+\]
+under this chain isomorphism.
+The sign convention used here is more natural, used for example to endow Adams' cobar construction with the structure of a monoidal $E_\infty$-coalgebra \cite{medina2021cobar}.
+
+\subsection{Steenrod construction}\label{ss:cup coproducts}
 
 In \cite{steenrod1947products}, Steenrod introduced natural operations on the mod~2 cohomology of spaces, the celebrated \textit{Steenrod squares}
 \[
@@ -234,42 +242,21 @@ In \cite{steenrod1947products}, Steenrod introduced natural operations on the mo
 \end{tikzcd}
 \]
 via an explicit construction of natural linear maps $\Delta_i \colon \chains(X) \to \chains(X) \ot \chains(X)$ for any simplicial set $X$, satisfying up to signs the following homological relations
-\begin{equation}\label{e:cupi homological relations}
-	\bd \circ \, \Delta_i + \Delta_i \circ \bd =
-	(1 + T) \Delta_{i-1},
-\end{equation}
+\[
+\bd \circ \, \Delta_i + \Delta_i \circ \bd = (1 + T) \Delta_{i-1},
+\]
 with the convention $\Delta_{-1} = 0$.
-These so-called \textit{cup-$i$ coproducts} appear to be fundamental.
-%We mention two results supporting this claim.
-%In higher category theory they define the nerve of $n$-categories \cite{medina2020globular} as introduced by Street \cite{street1987orientals}; and, in connection with K- and L-theory, the Ranicki--Weiss assembly \cite{ranicki1990assembly} can be used to show that chain complex valued presheaves over a simplicial complex $X$ can be fully faithfully modeled by comodules over the symmetric coalgebra structure they define on $\chains(X)$ \cite{medina2022assembly}.
+These so-called \textit{cup-$i$ coproducts} appear to be fundamental, as they are axiomatically characterized \cite{medina2022axiomatic} and induce the nerve of strict infinity categories \cite{medina2020globular}.
+A description of cup-$i$ coproducts for multisimplicial sets can be deduced from our $E_\infty$-coalgebra structure.
+It is given recursively by
+\[
+\begin{split}
+	& \Delta_0 = \Delta, \\
+	& \Delta_i =
+	(\ast \ot \id) \circ (23) \circ (\Delta_{i-1} \ot \id) \circ \Delta.
+\end{split}
+\]
 
-%In the cubical case, cup-$i$ coproducts were defined in \cite{kadeishvili1999coproducts} and \cite{pilarczyk2016cubical}.
-%The formulas used by these authors are similar to those introduced in \cite{medina2023fast_sq} for the simplicial case, a dual yet equivalent version of Steenrod's original.
-A description of cup-$i$ coproducts for multisimplicial sets can be deduced from our $E_\infty$-structure:
-%We first present it in a recursive form
-\begin{equation}\label{e:recursive cup-i}
-	\begin{split}
-		& \Delta_0 = \Delta, \\
-		& \Delta_i =
-		(\ast \ot \id) \circ (23) \circ (\Delta_{i-1} \ot \id) \circ \Delta.
-	\end{split}
-\end{equation}
-A closed formula for $\Delta_i$ is presented in \cite[\S4.8]{medina2022cube_einfty} for cubical chains.
-The same formula, appropriately interpreted, holds for multisimplicial chains, which are their generalization.
-
-%It is not known if the cup-$i$ coproducts defined in \cref{e:closed cup-i} agree with those previously constructed, for which a comparison is also missing.
-%This highlights the value of a potential axiomatic characterization of cubical cup-$i$ coproducts as it exists in the simplicial case \cite{medina2022axiomatic}.
-%
-%As already mentioned, cup-$i$ coproducts represent the Steenrod squares at the chain level,
-%which are primary operations in mod~2 cohomology.
-%To obtain secondary cohomology operations one studies the cohomological relations these operations satisfy, for example the Cartan and Adem relations \cite{steenrod1962cohomology}.
-%To do this at the cubical cochain level, as it was done in \cite{medina2020cartan,medina2021adem} for the simplicial case, the operadic viewpoint is important, so our $E_\infty$-structure on cubical cochains invites the construction of cochain representatives for secondary operations in the cubical case.
-
-For $p$ an odd prime, Steenrod also introduced operations on the mod~$p$ cohomology of spaces using the homology of symmetric groups \cite{steenrod1952reduced, steenrod1953cyclic}.
-Using the operadic framework of May \cite{may1970general}, we described in \cite{medina2021may_st}
-%elements in $\UM$ representing
-multicooperations defining Steenrod operations at any prime for certain $E_\infty$-coalgebras.
-In particular, these so-called \textit{cup-$(p,i)$ coproducts} are defined, after the present work, on multisimplicial chains using $\copr$, the permutations of factors, and $\pr$.
-%The aforementioned construction of cubical cup-$(p,i)$ coproducts has been implemented in the open source computer algebra system \href{https://comch.readthedocs.io/en/latest/}{\texttt{ComCH}} \cite{medina2021comch}.
-
-\anibal{Mention comch and the implementation of the Adem and Cartan coboundaries}
+Steenrod also introduced operations on the mod~$p$ cohomology of spaces when $p$ is an odd prime \cite{steenrod1952reduced, steenrod1953cyclic}.
+To define these effectively, generalization of the cup-$i$ coproducts were introduced in \cite{medina2021may_st}.
+After the present work, these so-called \textit{cup-$(p,i)$ coproducts} are defined on multisimplicial chains, and their formulas are explicit enough to be implemented in the computer algebra system \href{https://comch.readthedocs.io/en/latest/}{\texttt{ComCH}} \cite{medina2021comch}, where constructions of Cartan and Adem coboundaries \cite{medina2020cartan,medina2021adem} for multisimplicial sets are also be found.
