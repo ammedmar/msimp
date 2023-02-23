@@ -33,17 +33,14 @@ satisfying that the cardinality of $f^{-1}(\ell)$ is $m+1$ for each $\ell \in \s
 We represented this simplex by the sequence $f(1) \dotsb f(rm+r)$.
 The $i^\th$ face and degeneracy maps act on it respectively by removing or doubling the $i^\th$ occurrence of each $\ell \in \set{1,\dots,r}$ in $f(1) \dotsb f(rm+r)$.
 
-Next we define a $\CG(r)$-filtration
+The $\CG(r)$-filtration of $\sur(r)$
+induces naturally through the diagonal functor a $\CG(r)$-filtration of its diagonal $\sur(r)^\diag$,
 \[
 \sur_1(r)^\diag \subset \sur_2(r)^\diag \subset \dotsb
 \]
-on $\sur(r)^\diag$.
-For $i<j$, let $f_{ij}$ be the subsequence of $f(1) \dotsm f(rm+r)$ obtained by omitting all occurrences of elements different from $i$ and $j$.
-The simplex $f$ has complexity $d$ or less if the alternation number of each $f_{ij}$ is less than $d+1$, i.e., if the non-degenerate dimension of $f_{ij}$ in $\sur(2)^\diag$ is $d$ or less for each $i<j$.
-We notice that the action of $\sym_r$ on $\sur(r)^\diag$ preserves this $\CG(r)$-filtration.
-In terms of cellular $\CG(r)$-decompositions, given $(\mu,\sigma) \in \CG(r)$ then $\bars{f} \subset \bars{\sur(r)^\diag}_{(\mu,\sigma)}$ if for each $i<j$, either $i$ and $j$ alternate strictly less than $\mu_{ij}$ times in the sequence $f_{ij}$, or they do so exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
+Also in terms of cellular $\CG(r)$-decompositions, $\bars{\sur_d(r)^\diag}$ had an induced cellular $\CG_d(r)$-decompositions from those on $\bars{\sur_d(r)}$ by virtue of the homeomorphism $\bars{X} \cong \bars{X^\diag}$ for any multisimplicial set $X$.
 
-Since the complexity of an element is unchanged by degeneracy maps, it can easily be seen that $\EZ \colon \chains\sur(r) \to \chains\sur(r)^\diag$ preserves $\CG(r)$-filtrations.
+Since it can be easily seen that the alternation number of elements of $\sur(r)$ is unchanged by $\EZ \colon \chains\sur(r) \to \chains\sur(r)^\diag$, $\CG(r)$-filtrations are preserved by Eilenberg–Zilber  map.
 
 Let us now define the simplicial map $\tc$.
 For $f$ as above, let

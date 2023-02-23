@@ -6,7 +6,7 @@ We recall the Barratt--Eccles simplicial set $\BE(r)$ defined for each $r\in\N$ 
 \[
 \BE_{1}(r) \subset \BE_{2}(r) \subset \dotsb.
 \]
-Applying the functor of chains provides algebraic models
+which, by applying the functor of chains to it, recovers an algebraic models
 \[
 \cE_{1}(r) \subset \cE_{2}(r) \subset \dotsb
 \]
@@ -16,18 +16,22 @@ The $n$-simplices of $\BE(r)$ are tuples of $n+1$ elements of the symmetric grou
 Its face and degeneracy maps are defined by removing and doubling elements respectively.
 There is an operad structure on these simplicial sets, but we do not consider it here.
 
-Next we recall a $\CG(r)$-filtration on $\BE(r)$.
 For $i<j$ and $\sigma$ in $\sym_r$ let $\sigma_{ij}$ be the associated permutation in $\sym_2$.
-The element $w = (w_0,\dots w_n) \in \BE(r)_n$ has complexity $d$ or less if for each $i<j$ the cardinality of $\set{\ell=1,\dots,n-1 \mid w_{\ell-1,ij} \neq w_{\ell,ij}}$ is less than $d$, i.e., the non-degenerate dimension of $w_{ij}$ in $\BE(2)$ is $d$ or less for all $i<j$.
-We notice that the action of $\sym_r$ on $\BE(r)$ preserves this $\CG(r)$-filtration.
-Please consult \cite{smith1989filtration,kashiwabara1993confcomplex,berger1997confspacemodel} for more details.
-In terms of cellular $\CG(r)$-decompositions, given $(\mu,\sigma) \in \CG(r)$ then $\bars{w} \subset \bars{\sur(r)}_{(\mu,\sigma)}$ if for each $i<j$, the cardinality of $\set{w_{\ell,ij} \neq w_{\ell+1,ij}}$ is either less than $\mu_{ij}$ or equal to it and $(w_1)_{ij} = \sigma_{ij}$.
+%An element $(w_1,\dots w_n) \in \BE(r)$ and $i<j$, let $w_{ij} = (w_{1,ij}, \dots, w_{d,ij})$ with $w_{\ell,ij}$ the subsequence of $w_\ell$ obtained by omitting all the occurrences of elements different from $i$ and $j$.
+%	For example, let $(123,231,312) \in (\BE_3)_{3}$, we have $(123,231,312)_{12}=(12,21,12)$, $(123,231,312)_{23}=(23,23,32)$ and $(123,231,312)_{13}=(13,31,31 )$.
+The element $(w_1,\dots w_n)$ in $\BE(r)_{n}$ belongs to $\BE_{(\mu,\sigma)}(r)$ if for all $i<j$ the cardinality of $\set{w_{\ell,ij} \neq w_{\ell+1,ij}}$ is either less than $\mu_{ij}$ or equal to it and $(w_1)_{ij} = \sigma_{ij}$.
+Therefore, $(w_1,\dots w_n)$ is in $\BE_{d}(r)$ iff the cardinality associated to each $i<j$ is less than $d$.
 
-Applying the functor of singular chains to \cref{eq:extended complete graph map} and using the unit we get a zig-zag of quasi-isomorphisms of $\UM$-coalgebras
+We notice that the action of $\sym_r$ on $\BE(r)$ preserves this $\CG(r)$-filtration.
+Please consult \cite{smith1989filtration,kashiwabara1993confcomplex,berger1997confspacemodel} for more details. In terms of cellular $\CG(r)$-decompositions, applying realization functor to the above $\CG(r)$-filtration results in a cellular $\CG_d(r)$-decomposition of each $\bars{\BE_{d}(r)}$, then we obtain by proposition \ref{p:berger} the homotopy equivalence
+$$\conf{r}{d}\cong \bars{\BE_{d}(r)}.$$
+
+Applying the functor of singular chains gives
+$\schains\conf{r}{d} \to \schains\bars{\BE_{d}(r)}$
+a quasi-isomorphisms of $\UM$-coalgebras and using the unit we get a zig-zag of quasi-isomorphisms of $\UM$-coalgebras
 \begin{equation}\label{eq:simplicial zig-zag}
-	\schains\conf{r}{d} \leftarrow
-	\schains\bars{\CG_d(r)} \to
-	\schains\bars{\BE_d(r)} \to
+	\schains\conf{r}{d} \cong
+	\schains\bars{\BE_d(r)} \leftarrow
 	\chains \BE_d(r)= \cE_d(r).
 \end{equation}
 Combining this with the zig-zag constructed in the previous subsection yields the following.
