@@ -12,7 +12,7 @@ which, by applying the functor of chains to it, recovers the algebraic models
 \]
 of configuration spaces developed by McClure--Smith \cite{mcluresmith2004geomodel}.
 
-Spaces $Y_0^r$ homeomorphic to $\bars{\sur(r)}$ were studied as topological spaces in the work of McClure--Smith \cite{mcclure2003multivariable}.
+Spaces $Y_0^r$ homeomorphic to $\bars{\sur(r)}$ were studied as a topological space in the work of McClure--Smith \cite{mcclure2003multivariable}.
 The homeomorphism between $Y_0^r$ and $\bars{\sur(r)}$ is described explicitly in the appendix of \cite{salvatore2009deligne}.
 
 Let $\sur(r)$ be the $k$-fold multisimplicial set that has as $(m_1,\dots,m_r)$-multisimplices the surjective maps
@@ -23,17 +23,19 @@ where $m = m_1+\dots+m_r$, satisfying that the cardinality of $f^{-1}(\ell)$ is 
 We represent this multisimplex by the sequence $f(1) \dotsm f(m+r)$.
 The face and degeneracy maps $\face^\ell_j$ and $\dege^\ell_j$ act on it by respectively removing and doubling the $(j+1)^\th$ occurrence of $\ell$ in the sequence.
 
+Next we define a $\CG(r)$-filtration on $\sur(r)$.
 For $i<j$, let $f_{ij}$ be the subsequence of $f(1) \dotsm f(m+r)$ obtained by omitting all occurrences of elements different from $i$ and $j$.
-The surjection $f$ belongs to $\sur_{(\mu,\sigma)}(r) \subset \sur(r)$ if for each $i<j$, either $i$ and $j$ alternate strictly less than $\mu_{ij}$ times in the sequence $f_{ij}$, or they do so exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
-Therefore, $f \in \sur_{d}(r)$ if the alternation number of each $f_{ij}$ is less than $d+1$.
-
+The surjection $f$ has complexity $d$ or less if the alternation number of each $f_{ij}$ is less than $d+1$, i.e., if the non-degenerate dimension of $f_{ij}$ in $\sur(2)$ is $d$ or less for each $i<j$.
 We notice that the action of $\sym_r$ on $\sur(r)$ preserves this $\CG(r)$-filtration.
-In terms of cellular $\CG(r)$-decompositions, applying realization functor to the above $\CG(r)$-filtration results in a cellular $\CG_d(r)$-decomposition of each $\bars{\sur_{d}(r)}$, then we obtain by proposition \ref{p:berger} the homotopy equivalence
-$$\conf{r}{d}\cong \bars{\sur_{d}(r)}.$$
+In terms of cellular $\CG(r)$-decompositions, given $(\mu,\sigma) \in \CG(r)$ then $\bars{f} \subset \bars{\sur(r)}_{(\mu,\sigma)}$ if for each $i<j$, either $i$ and $j$ alternate strictly less than $\mu_{ij}$ times in the sequence $f_{ij}$, or they do so exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
 
-Applying the functor of singular chains gives
-$\schains\conf{r}{d} \to \schains\bars{\sur_{d}(r)}$
-a quasi-isomorphisms of $\UM$-coalgebras, which extends to the right with maps of the same kind
+Applying the functor of singular chains to \cref{eq:extended complete graph map} gives
+\[
+\schains\conf{r}{d} \leftarrow
+\schains\bars{\CG_{d}(r)} \to
+\schains\bars{\sur_{d}(r)},
+\]
+a zig-zag of quasi-isomorphisms of $\UM$-coalgebras, which extends to the right with maps of the same kind
 \[
 \schains\bars{\sur_{d}(r)} \cong
 \schains \bars{\sur_{d}(r)^{D}} \to
