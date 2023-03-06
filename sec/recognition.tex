@@ -21,7 +21,7 @@ This space is equipped with a free action of the symmetric group $\sym_r$ of per
 	\[
 	\CG_1(r) \subset \CG_2(r) \subset \dotsb
 	\]
-	where $\CG_n(r)$ consists of those graphs with $\max(\mu_{ij})< n$.
+	where $\CG_n(r)$ consists of those graphs with $\max(\mu_{ij})< n$. This filtration is trivially exhaustive, that is $\colim_{n}\CG_n(r)=\CG(r)$.
 \end{definition}
 
 \begin{figure}
@@ -37,39 +37,37 @@ This space is equipped with a free action of the symmetric group $\sym_r$ of per
 	\label{f:complete graph}
 \end{figure}
 
-\begin{definition}
+\begin{definition}\label{cellulardecomposition}
 	For a given poset $A$, a cellular $A$-decomposition of a topological space $\fX$ is a family of subspaces $\set{\fX_a}_A$ such that:
 	\begin{itemize}
-		\item $a \leq b$ implies $\fX_a \subseteq \fX_b$;
-		\item $\colim_{a \in A} \fX_a = \fX$;
-		\item $\fX_a$ is contractible for each $a$;
-		\item $\bigcup_{a<b} \fX_a \subset \fX_b$ is a closed cofibration.
+		\item [i.] $a \leq b$ implies $\fX_a \subseteq \fX_b$;
+		\item [ii.]$\colim_{a \in A} \fX_a = \fX$;
+		\item [iii.]$\fX_a$ is contractible for each $a$;
+		\item[iv.] $\bigcup_{a<b} \fX_a \subset \fX_b$ is a closed cofibration.
 	\end{itemize}
 \end{definition}
 
-The relevance of this notion is the following well known fact, a proof of which can be found in \cite[\S1.7]{berger1997confspacemodel}.
+The relevance of this notion is the well-known fact that if a topological space $\fX$ admits a \textit{cellular $A$-decomposition}, then the natural maps
+\[
+\fX = \colim_A \fX_a \leftarrow \hocolim_A \fX_a \to \bars{A}
+\]
+are cellular homotopy equivalences.
+Please consult \cite[\S1.7]{berger1997confspacemodel} for a proof.
 
-\begin{proposition}\label{p:cellular poset decomposition}
-	If a topological space $\fX$ admits a \textit{cellular $A$-decomposition}, then the natural map
-	\[
-	\fX = \colim_A \fX_a \to \hocolim_A \fX_a \to \bars{A}
-	\]
-	is a cellular homotopy equivalence.
+Let $\cC_d(r)$ be the space of $r$ little $d$-dimensional cubes, which is equipped with an equivariant homotopy equivalence to $\conf{r}{d}$ picking the center of cubes.
+Brun and others \cite{Brun}\todo{Broken reference and missing citations.} show that $\cC_d(r)$ has a cellular $\CG^\ex_d(r)$-decomposition $\{\cC_a\}$, where $\CG^\ex_d(r)$ is a poset containing the poset $\CG_d(r)$ and the inclusion of posets induces an equivariant homotopy equivalence on realizations.
+Combining these results we have
+
+\begin{proposition}
+	If a space $\fX$ has a cellular $\CG_d(r)$-decomposition, then $\fX$ is equal to $\colim_{\CG_r(d)} \fX_a$ and
+	\begin{equation*}
+		\begin{tikzcd}[column sep=small, row sep=5]
+			\displaystyle \colim_{\CG_r(d)} \fX_a & \arrow[l] \displaystyle \hocolim_{\CG_r(d)} \fX_a \arrow[r] & \bars{\CG_r(d)} \arrow[d] & & \\ & &
+			\bars{\CG^{ex}_r(d)} & \arrow[l] \displaystyle \hocolim_{\CG^\ex_r(d)}\,\cC_\alpha \arrow[r] & \cC_d(r) \arrow[r] & \conf{r}{d}
+		\end{tikzcd}
+	\end{equation*}
+	is a zig-zag of equivarient homotopy equivalences
 \end{proposition}
-
-The case of interest for us is the following.
-
-\begin{proposition}[{\cite[\S1.13]{berger1997confspacemodel}}]\label{p:berger}
-	If a space has a cellular $\CG_d(r)$-decomposition then it is homotopy equivalent to
-	the configuration space $\conf{r}{d}$.
-\end{proposition}
-
-We warn the reader that configuration spaces themselves do not admit a cellular decomposition with respect to graph complete posets, but they do so with respect to some extended versions of these posets \cite{beuckelmann2021master}, whose geometric realization retains the same homotopy type.\todo{@andrea,@paolo: In what direction does the map go? This is important to get the zig-zag below correctly.}
-We therefore have an explicit homotopy equivalence
-\begin{equation}\label{eq:extended complete graph map}
-	\conf{r}{d} \to \bars{\CG_d(r)} \leftarrow \fX
-\end{equation}
-for any $\fX$ with a cellular $\CG_d(r)$-decomposition.
 
 \begin{definition}
 	Let $X$ be a multisimplicial (or simplicial) set.
