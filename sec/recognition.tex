@@ -17,11 +17,11 @@ This space is equipped with a free action of the symmetric group $\sym_r$ of per
 		(\mu_{ij},\sigma_{ij})= (\nu_{ij},\tau_{ij})
 	\end{equation*}
 	for each pair $i<j$.
-	It is equipped with a filtration by subposets
+	It is equipped with an exhaustive filtration by subposets
 	\[
 	\CG_1(r) \subset \CG_2(r) \subset \dotsb
 	\]
-	where $\CG_n(r)$ consists of those graphs with $\max(\mu_{ij})< n$. This filtration is trivially exhaustive, that is $\colim_{n}\CG_n(r)=\CG(r)$.
+	where $\CG_d(r)$ consists of those graphs with $\max(\mu_{ij}) < d$.
 \end{definition}
 
 \begin{figure}
@@ -48,9 +48,9 @@ This space is equipped with a free action of the symmetric group $\sym_r$ of per
 \end{definition}
 
 The relevance of this notion is the well-known fact that if a topological space $\fX$ admits a \textit{cellular $A$-decomposition}, then the natural maps
-\[
-\fX = \colim_A \fX_a \leftarrow \hocolim_A \fX_a \to \bars{A}
-\]
+\begin{equation}\label{e:cellular poset decomposition}
+	\fX = \colim_A \fX_a \leftarrow \hocolim_A \fX_a \to \bars{A}
+\end{equation}
 are cellular homotopy equivalences.
 Please consult \cite[\S1.7]{berger1997confspacemodel} for a proof.
 
@@ -58,23 +58,23 @@ Let $\cC_d(r)$ be the space of $r$ little $d$-dimensional cubes, which is equipp
 Brun and others \cite{Brun}\todo{Broken reference and missing citations.} show that $\cC_d(r)$ has a cellular $\CG^\ex_d(r)$-decomposition $\{\cC_a\}$, where $\CG^\ex_d(r)$ is a poset containing the poset $\CG_d(r)$ and the inclusion of posets induces an equivariant homotopy equivalence on realizations.
 Combining these results we have
 
-\begin{proposition}
-	If a space $\fX$ has a cellular $\CG_d(r)$-decomposition, then $\fX$ is equal to $\colim_{\CG_r(d)} \fX_a$ and
+\begin{proposition}\label{p:zig-zag conf}
+	If a space $\fX$ has a cellular $\CG_d(r)$-decomposition, then $\fX$ is equal to $\colim_{\CG_d(r)} \fX_a$ and
 	\begin{equation*}
 		\begin{tikzcd}[column sep=small, row sep=5]
-			\displaystyle \colim_{\CG_r(d)} \fX_a & \arrow[l] \displaystyle \hocolim_{\CG_r(d)} \fX_a \arrow[r] & \bars{\CG_r(d)} \arrow[d] & & \\ & &
-			\bars{\CG^{ex}_r(d)} & \arrow[l] \displaystyle \hocolim_{\CG^\ex_r(d)}\,\cC_\alpha \arrow[r] & \cC_d(r) \arrow[r] & \conf{r}{d}
+			\displaystyle \colim_{\CG_d(r)} \fX_a & \arrow[l] \displaystyle \hocolim_{\CG_d(r)} \fX_a \arrow[r] & \bars{\CG_d(r)} \arrow[d] & & \\ & &
+			\bars{\CG^\ex_d(r)} & \arrow[l] \displaystyle \hocolim_{\CG^\ex_d(r)}\,\cC_\alpha \arrow[r] & \cC_d(r) \arrow[r] & \conf{r}{d}
 		\end{tikzcd}
 	\end{equation*}
-	is a zig-zag of equivarient homotopy equivalences
+	is a zig-zag of equivariant homotopy equivalences.
 \end{proposition}
 
 \begin{definition}
 	Let $X$ be a multisimplicial (or simplicial) set.
-	A $\CG(r)$-filtration
+	A \textit{$\CG(r)$-filtration}
 	\[
 	X_1 \subset X_2 \subset \dotsb
 	\]
-	of $X$ is a filtration equipped with compatible cellular $\CG(r)$-decompositions of $\bars{X_d}$ for each $d \in \N$.
-	We will refer to $\min\set{d \mid x \in X_n}$ as the complexity of $x$.
+	of $X$ is a filtration equipped with compatible cellular $\CG_d(r)$-decompositions of $\bars{X_d}$ for each $d \in \N$.
+	We will refer to $\min\set{d \mid x \in X_d}$ as the \textit{complexity} of $x$.
 \end{definition}

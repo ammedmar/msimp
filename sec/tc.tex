@@ -69,12 +69,12 @@ For example, we have
 \end{theorem}
 
 \begin{proof}
-	It is clear that $\tc$ is a simplicial map, and verifying its relationship with Berger--Fresse's chain map is straightforward using ???\todo{Any insights here? Maybe exact page to compare to?}
+	It is clear that $\tc$ is a simplicial map, and verifying its relationship with Berger--Fresse's chain map is straightforward using the prism interpretation of a surjection as in \cite[\S2.1]{berger2002prismatic} and explicit combinatorial formula for $TC$ in \cite[\S3.1]{berger2002prismatic}.
 
 	To check that $\tc$ preserves $\CG(r)$-filtrations let us first notice that $\tc(f)_{ij} = \tc(f_{ij})$, so without loss of generality we can assume $r=2$.
 	In this case it is clear that non-degenerate simplices are sent to non-degenerate simplices (of the same dimension), so for these the complexity is preserved.
 	We conclude the same for degenerate simplices using that $\tc$ is a simplicial map and that degeneracy maps leave complexity unchanged.
 
 	For each $(\mu,\sigma) \in \CG_d(r)$, the cell $\bars{\sur^\diag(r)}_{(\mu,\sigma)}$ is mapped to the cell $\bars{\BE(r)}_{(\mu,\sigma)}$ since the order in which $i$ and $j$ first appear in $f_{ij}$ determines the first simplex in $\tc(f)_{ij}$.
-	The final claim then follows from \cref{p:cellular poset decomposition}.
+	The final claim then follows the naturality of \eqref{e:cellular poset decomposition}.
 \end{proof}

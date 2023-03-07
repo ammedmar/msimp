@@ -29,24 +29,15 @@ The surjection $f$ has complexity $d$ or less if the alternation number of each 
 We notice that the action of $\sym_r$ on $\sur(r)$ preserves this $\CG(r)$-filtration.
 In terms of cellular $\CG(r)$-decompositions, given $(\mu,\sigma) \in \CG(r)$ then $\bars{f} \subset \bars{\sur(r)}_{(\mu,\sigma)}$ if for each $i<j$, either $i$ and $j$ alternate strictly less than $\mu_{ij}$ times in the sequence $f_{ij}$, or they do so exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
 
-Applying the functor of singular chains to \cref{eq:extended complete graph map} gives
-\[
-\schains\conf{r}{d} \leftarrow
-\schains\bars{\CG_{d}(r)} \to
-\schains\bars{\sur_{d}(r)},
-\]
-a zig-zag of quasi-isomorphisms of $\UM$-coalgebras, which extends to the right with maps of the same kind
+Applying the functor of singular chains to the zig-zag of \cref{p:zig-zag conf} produces a zig-zag of equivariant quasi-isomorphisms of $\UM$-coalgebras connecting $\schains\bars{\sur_d(r)}$ and $\schains\conf{r}{d}$.
+We can extend it using the following zig-zag of maps of the same kind
 \[
 \schains\bars{\sur_{d}(r)} \cong
-\schains \bars{\sur_{d}(r)^{D}} \to
+\schains\bars{\sur_{d}(r)^{D}} \to
 \chains(\sur_{d}(r)^D) \to
 \chains(\cN^{(r)}(\sur_{d}(r)^D)) \leftarrow
-\chains\sur_{d}(r)
+\chains\sur_{d}(r).
 \]
-given respectively from the left by the homeomorphism between multisimplicial set and diagonal simplicial set realizations, the unit of the Quillen equivalence between simplicial sets and topological spaces, the comparison map of \cref{ss:inclusion}, and the unit of the Quillen equivalence between multisimplicial sets and simplicial sets.
+The first map is induced by the homeomorphism $\bars{\sur_{d}(r)} \cong \bars{\sur_{d}(r)^{D}}$, the second by the unit of the Quillen equivalence between simplicial sets and topological spaces, the third is the comparison map of \cref{ss:inclusion}, and last one is induced by the unit of the Quillen equivalence between multisimplicial sets and simplicial sets.
 
-As announced in the introduction, this construction relates the singular chains of a configuration space and the chains of its multisimplicial model as expressed in the following.
-
-\begin{theorem}
-	The singular chains of a configuration space and the chains of its multisimplicial model are related by an explicit zig-zag of quasi-isomorphism of $E_\infty$-coalgebras.
-\end{theorem}
+As announced in the introduction, this construction relates the chains on the multisimplicial model of configuration space and its singular chains via an explicit zig-zag of equivariant quasi-isomorphisms of $E_\infty$-coalgebras.
