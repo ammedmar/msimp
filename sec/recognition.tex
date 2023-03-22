@@ -12,8 +12,8 @@ This space is equipped with a free action of the symmetric group $\sym_r$ of per
 	Please consult \cref{f:complete graph} for an example.
 	Let us denote the set of complete graphs with $r$ vertices by $\CG(r)$ equipped with the poset structure
 	\begin{equation*}
-		(\mu,\sigma)\le (\nu,\tau) \ \ \text{ if and only if } \ \
-		(\mu_{ij}<\nu_{ij}) \ \ \text{ or } \ \
+		(\mu,\sigma)\le (\nu,\tau) \ \ \iff \ \
+		\forall i,j \ (\mu_{ij}<\nu_{ij}) \ \text{ or } \
 		(\mu_{ij},\sigma_{ij})= (\nu_{ij},\tau_{ij})
 	\end{equation*}
 	for each pair $i<j$.
@@ -41,9 +41,9 @@ This space is equipped with a free action of the symmetric group $\sym_r$ of per
 	For a given poset $A$, a cellular $A$-decomposition of a topological space $\fX$ is a family of subspaces $\set{\fX_a}_{a \in A}$ such that:
 	\begin{itemize}
 		\item [i.] $a \leq b$ implies $\fX_a \subseteq \fX_b$;
-		\item [ii.]$\colim_{a \in A} \fX_a = \fX$;
-		\item [iii.]$\fX_a$ is contractible for each $a$;
-		\item[iv.] $\bigcup_{a<b} \fX_a \subset \fX_b$ is a closed cofibration.
+		\item [ii.] $\colim_{a \in A} \fX_a = \fX$;
+		\item [iii.] $\fX_a$ is contractible for each $a$;
+		\item [iv.] $\bigcup_{a<b} \fX_a \subset \fX_b$ is a closed cofibration.
 	\end{itemize}
 \end{definition}
 
@@ -71,24 +71,17 @@ Combining these results we have
 
 \begin{definition}
 	Let $X$ be a multisimplicial (or simplicial) set.
-	A \textit{$\CG(r)$-filtration}
-	%\[
-	%X_1 \subset X_2 %\subset \dotsb
-%	\]
-	of $X$ is a 
-family of (multi)simplicial subsets $\{X_a\}$ indexed by
-$a \in \CG(r)$ so that
-\begin{enumerate}
-\item $a \leq b$ implies $X_a \subseteq X_b$;
-\item $|X_a|$ is a cellular  $\CG(r)$-decomposition of the realization $|X|$
-\end{enumerate}
-In particular this implies that $X=\colim_{a \in \CG(r)}X_a$.
-Let $X_d:=\colim_{a \in CG_d(r)} X_a$.
-There is a nested sequence
-\[
+	A \textit{$\CG(r)$-filtration} of $X$ is a family of (multi)simplicial subsets $\{X_a\}$ indexed by
+	$a \in \CG(r)$ so that
+	\begin{enumerate}
+		\item $a \leq b$ implies $X_a \subseteq X_b$;
+		\item $|X_a|$ is a cellular $\CG(r)$-decomposition of the realization $|X|$
+	\end{enumerate}
+	In particular this implies that $X=\colim_{a \in \CG(r)}X_a$.
+	Let $X_d = \colim_{a \in CG_d(r)} X_a$.
+	There is a nested sequence
+	\[
 	X_1 \subset X_2 \subset \dotsb
 	\]
-
-% filtration equipped with compatible cellular $\CG_d(r)$-decompositions of $\bars{X_d}$ for each $d \in \N$.
-For a given (multi)simplex $x \in X$	we will refer to $\min\set{d \mid x \in X_d}$ as the \textit{complexity} of $x$.
+	For a given (multi)simplex $x \in X$ we will refer to $\min\set{d \mid x \in X_d}$ as the \textit{complexity} of $x$.
 \end{definition}

@@ -33,15 +33,11 @@ satisfying that the cardinality of $f^{-1}(\ell)$ is $m+1$ for each $\ell \in \s
 We represented this simplex by the sequence $f(1) \dotsb f(rm+r)$.
 The $i^\th$ face and degeneracy maps act on it respectively by removing or doubling the $i^\th$ occurrence of each $\ell \in \set{1,\dots,r}$ in $f(1) \dotsb f(rm+r)$.
 
-The restriction to the diagonal defines a $\CG(r)$-filtration 
-of $\sur(r)^\diag$ and a nested sequence
+The restriction to the diagonal defines a $\CG(r)$-filtration of $\sur(r)^\diag$ and a nested sequence
 \[
 \sur_1(r)^\diag \subset \sur_2(r)^\diag \subset \dotsb
 \]
-on $\sur(r)^\diag$.
-%For $i<j$, let $f_{ij}$ be the subsequence of $f(1) \dotsm f(rm+r)$ obtained by omitting all occurrences of elements different from $i$ and $j$.
-%The simplex $f$ has complexity $d$ or less if the alternation number of each $f_{ij}$ is less than $d+1$, i.e., if the non-degenerate dimension of $f_{ij}$ in $\sur(2)^\diag$ is $d$ or less for each $i<j$.
-that is preserved by the action of $\sym_r$ on $\sur(r)^\diag$.
+on $\sur(r)^\diag$ that is preserved by the action of $\sym_r$ on $\sur(r)^\diag$.
 In terms of cellular $\CG(r)$-decompositions, given $(\mu,\sigma) \in \CG(r)$ then $f \in \sur(r)^\diag_{(\mu,\sigma)}$ if for each $i<j$, either $i$ and $j$ alternate strictly less than $\mu_{ij}$ times in the sequence $f_{ij}$, or they do so exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
 
 Since the complexity of an element is unchanged by degeneracy maps, it can easily be seen that $\EZ \colon \chains\sur(r) \to \chains\sur(r)^\diag$ preserves $\CG(r)$-filtrations.
@@ -76,6 +72,6 @@ For example, we have
 	In this case it is clear that non-degenerate simplices are sent to non-degenerate simplices (of the same dimension), so for these the complexity is preserved.
 	We conclude the same for degenerate simplices using that $\tc$ is a simplicial map and that degeneracy maps leave complexity unchanged.
 
-	For each $(\mu,\sigma) \in \CG_d(r)$,  $\sur^\diag(r)_{(\mu,\sigma)}$ is mapped to $\BE(r)_{(\mu,\sigma)}$ since the order in which $i$ and $j$ first appear in $f_{ij}$ determines the first simplex in $\tc(f)_{ij}$.
+	For each $(\mu,\sigma) \in \CG_d(r)$, $\sur^\diag(r)_{(\mu,\sigma)}$ is mapped to $\BE(r)_{(\mu,\sigma)}$ since the order in which $i$ and $j$ first appear in $f_{ij}$ determines the first simplex in $\tc(f)_{ij}$.
 	The final claim then follows the naturality of \eqref{e:cellular poset decomposition}.
 \end{proof}
