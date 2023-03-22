@@ -2,17 +2,18 @@
 
 \subsection{Multisimplicial model}\label{ss:surjection model}
 
-We define for each positive integer $r$ a multisimplicial sets $\sur(r)$ equipped with a $\CG(r)$-filtration
+We define for each positive integer $r$ a multisimplicial set $\sur(r)$ equipped with a $\CG(r)$-filtration.
+The functor of chains applied to the nested sequence
 \[
 \sur_{1}(r) \subset \sur_{2}(r) \subset \dotsb
 \]
-which, by applying the functor of chains to it, recovers the algebraic models
+ will recover the algebraic models
 \[
 \chi_1(r) \subset \chi_2(r) \subset \dotsb
 \]
 of configuration spaces developed by McClure--Smith \cite{mcluresmith2004geomodel}.
 
-Spaces $Y_0^r$ homeomorphic to $\bars{\sur(r)}$ were studied as a topological space in the work of McClure--Smith \cite{mcclure2003multivariable}.
+Spaces $Y_0^r$ homeomorphic to $\bars{\sur(r)}$ were studied in the work of McClure--Smith \cite{mcclure2003multivariable}.
 The homeomorphism between $Y_0^r$ and $\bars{\sur(r)}$ is described explicitly in the appendix of \cite{salvatore2009deligne}.
 
 Let $\sur(r)$ be the $k$-fold multisimplicial set that has as $(m_1,\dots,m_r)$-multisimplices the surjective maps
@@ -25,10 +26,18 @@ The face and degeneracy maps $\face^\ell_j$ and $\dege^\ell_j$ act on it by resp
 
 Next we define a $\CG(r)$-filtration on $\sur(r)$.
 For $i<j$, let $f_{ij}$ be the subsequence of $f(1) \dotsm f(m+r)$ obtained by omitting all occurrences of elements different from $i$ and $j$.
-The surjection $f$ has complexity $d$ or less if the alternation number of each $f_{ij}$ is less than $d+1$, i.e., if the non-degenerate dimension of $f_{ij}$ in $\sur(2)$ is $d$ or less for each $i<j$.
-We notice that the action of $\sym_r$ on $\sur(r)$ preserves this $\CG(r)$-filtration.
-In terms of cellular $\CG(r)$-decompositions, given $(\mu,\sigma) \in \CG(r)$ then $\bars{f} \subset \bars{\sur(r)}_{(\mu,\sigma)}$ if for each $i<j$, either $i$ and $j$ alternate strictly less than $\mu_{ij}$ times in the sequence $f_{ij}$, or they do so exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
+For $(\mu,\sigma) \in \CG(r)$
+we say that 
+$f \in \sur(r)_{(\mu,\sigma)}$
+ if for each $i<j$, either $i$ and $j$ alternate strictly less than $\mu_{ij}$ times in the sequence $f_{ij}$, or they do so exactly $\mu_{ij}$ times and the ordering formed by the first occurrences of $i$ and $j$ in $f_{ij}$ agrees with $\sigma_{ij}$.
+%reference of proof
 
+The surjection $f$ has complexity $d$ or less if the alternation number of each $f_{ij}$ is less than $d+1$, i.e., if the non-degenerate dimension of $f_{ij}$ in $\sur(2)$ is $d$ or less for each $i<j$.
+We notice that the action of $\sym_r$ on $\sur(r)$ preserves the nested sequence
+$$\sur_1(r) \subset \sur_2(r) \subset \dots$$
+For the proof that $|\sur(r)|$
+has indeed an induced cellular $\CG(r)$-decomposition we refer to 
+Lemma 14.8 in \cite{mcluresmith2004geomodel}.
 Applying the functor of singular chains to the zig-zag of \cref{p:zig-zag conf} produces a zig-zag of equivariant quasi-isomorphisms of $\UM$-coalgebras connecting $\schains\bars{\sur_d(r)}$ and $\schains\conf{r}{d}$.
 We can extend it using the following zig-zag of maps of the same kind
 \[
