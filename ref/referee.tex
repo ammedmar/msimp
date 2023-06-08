@@ -1,0 +1,68 @@
+\documentclass{amsart}
+\input{../aux/style}
+\input{../aux/usualcmds}
+\addbibresource{../aux/usualpapers.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%
+\input{../aux/commands} % add commands here
+\addbibresource{../aux/bibliography.bib} % add references here
+\usepackage{enumitem}
+\setlist{label=\arabic{enumi}.,itemsep=\medskipamount, left=0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%
+\title[Referee reply]{REFEREE REPLY \\ Title}
+
+\newcommand{\ar}{\medskip\noindent\textit{Reply}:\ }
+\renewcommand{\thesection}{\arabic{section}}
+
+\begin{document}
+	\noindent\today
+	\maketitle
+
+	We would like to thank the reviewer for a careful and insightful analysis of our paper, and for the many suggestions improving its presentation.
+	We copy their report for completeness.
+
+	\section{Reviewer's summary}
+
+	I had a look at the revised version of the article.
+	Indeed, the authors have centered it around the surjection operad following my suggestion.
+	They also incorporated insights coming from the third author Medina-Mardones.
+	Nonetheless, I'm still unsatisfied with the presentation because there are only few proofs, though the article is about explicit chain models of configuration spaces.
+
+	To be more precise, the article contains two main results: Theorem 3.2.1 and Theorem 4.4.1.
+
+	Theorem 3.2.1 states that there is a quasi-isomorphism between two naturally existing cellular chain complexes associated with a multisimplicial set X, a prismatic and a simplicial chain complex, denoted respectively $N(X)$ and $N(X^D)$ in the article.
+	The first chain complex associates with each multisimplex the tensor product of the chain complexes of the factor simplices, the second associates with each multisimplex the chain complex of the simplicially subdivided product of the factor simplices.
+	There is a natural Eilenberg-Zilber map $EZ:N(X)->N(X^D)$.
+	We would expect there also to be a quasi-inverse Alexander-Whitney map $AW:N(X^D)->N(X)$ but the authors use another more indirect way to show that EZ is a quasi-isomorphism.
+	The authors also claim (without proof) that EZ is compatible with naturally existing coalgebra structures on both sides.
+
+	Theorem 4.4.1 states (without proof) that Berger-Fresse's table completion chain map $TC:N(Surj)->N(E\Sigma)$ factors in a filtration compatible way through $N(tc):N(Surj^D)->N(E\Sigma)$ where $tc:Surj^D->E\Sigma$ is a most elementary simplicial map.
+	The authors also state (again without proof) that N(tc) induces on the different filtration stages a quasi-isomorphism.
+	It should be noted that compatibility with the filtrations is not enough to show that we get a quasi-isomorphism at each filtration stage.
+
+	We believe that these two theorems ``once provided with explicit proofs" would justify a publication in JHRS.
+	What would even be better is an analogous factorisation of the table reduction map $TR:N(E\Sigma)->N(Surj)$ as a chain map $tw:N(E\Sigma)->N(Surj^D)$ followed by $AW:N(Surj^D)->N(Surj)$.
+	Indeed, the simplicity of N(tc) would suggest that the existence of tw could shed light on the table reduction chain operad map $TR$.
+
+	\section{Replies}
+
+	\subsection{About Theorem 3.2.1}
+
+	There are two points to be address.
+	The first regards the proof of Theorem 3.2.1.
+	We have expanded it showing how it follows from a well known fact, for which we have added a reference in the literature, stating that for any two simplicial sets the map $\EZ \colon \chains(X) \ot \chains(Y) \to \chains(X \times Y)$ is a coalgebra map.
+	In our opinion, Theorem 3.4.1 is the main point of this section, it states that the simplicial and multisimplicial singular chains can be related by an explicit quasi-isomorphisms of $E_\infty$-coalgebras.
+
+	Secondly, as the referee anticipates, there is a chain homotopy inverse to $\EZ$ coming from the Alexander--Whitney map.
+	Unfortunately, it is not a coalgebra map and therefore not useful for the main goal of this section, as stated before.
+	We have explained this in the text better now.
+
+	\subsection{About Theorem 4.4.1}
+
+	\section{Other changes}
+
+	\begin{enumerate}
+		\item
+	\end{enumerate}
+\end{document}

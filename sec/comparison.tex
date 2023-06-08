@@ -66,7 +66,7 @@ Using this identification, the identity map induces a cellular map
 \]
 whose induced chain map
 \[
-\EZ \colon \chains(\simplex^{n_1,\dots,n_k}) \to \chains\big(\msimplex{n_1}{n_k}\big),
+\EZ \colon \chains(\simplex^{n_1,\dots,n_k}) \to \chains\big(\msimplex{n_1}{n_k}\big)
 \]
 agrees, under the natural identifications, with the traditional Eilenberg--Zilber map.
 
@@ -77,12 +77,15 @@ For a multisimplicial set $X$, the induced chain map $\EZ \colon \chains(X) \to 
 where, for $\ell \in \set{1,\dots,k}$, the morphisms $\sigma_\ell \colon [n] \to [n_\ell]$ are defined by the following property: for
 each $j \in \set{1,\dots,n}$ there is exactly one $\ell \in \set{1,\dots,k}$ such that $\sigma_\ell(j+1) = \sigma_\ell(j)+1$ and $\sigma_i(j+1) = \sigma_i(j)$ for all $i \neq \ell$.
 
-
-Since the traditional Eilenberg--Zilber map preserves counital coalgebra structures we have the following.
-
 \begin{theorem}
 	For every multisimplicial set $X$ the map $\EZ \colon \chains(X) \to \chains(X^\diag)$ is a quasi-isomorphism of counital coalgebras.
 \end{theorem}
+
+\begin{proof}
+	The fact that $\EZ$ is quasi-isomorphism follow from it being induced from a subdivision map.
+	To prove it is a coalgebra map, it suffices to assume $X$ is a representable multisimplicial sets $\simplex^{n_1,\dots,n_k}$.
+	In this case $\chains(\simplex^{n_1,\dots,n_k}) = \chains(\simplex^n_1) \ot\dotsb\ot \chains(\simplex^n_k)$, $\chains((\simplex^{n_1,\dots,n_k})^\diag) \cong \chains(\msimplex{n_1}{n_k})$ and $\EZ$ agrees with the usual Eilenberg--Zilber map, which is known to be a coalgebra map \cite[(17.6)]{eilenber1966coalgebras}.
+\end{proof}
 
 We remark that the Eilenberg--Zilber map is not a morphism of $E_\infty$-coalgebras.
 For example, as shown in \cite[\S5.4]{medina2022cube_einfty}, we have
@@ -93,6 +96,9 @@ For example, as shown in \cite[\S5.4]{medina2022cube_einfty}, we have
 
 \subsection{Canonical inclusion}\label{ss:inclusion}
 
+We might consider an analogue of the traditional Alexander--Whitney map, a natural chain homotopy inverse to the usual Eilenberg--Zilber map.
+Unfortunately, this map does not preserve coalgebra structures.
+In this subsection we introduce an alternative map quasi-isomorphism that preserves $E_\infty$-coalgebra structures.
 Let $Y$ be a simplicial set and $n$ an integer.
 Consider the function $Y_n \to \cN^{(k)} Y_{n,0,\dots,0}$ sending a simplex with characteristic map $\zeta \colon \simplex^n \to Y$ to the composition
 \[
