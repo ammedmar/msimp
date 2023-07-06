@@ -124,9 +124,6 @@ The tensor product of two counital coalgebras $C$ and $C'$ is itself a counital 
 \end{gather*}
 where $\tau$ transposes the second and third factors.
 
-
-
-
 For each $n \in \N$, the complex $\chains(\simplex^n)$ is naturally equipped with a counital coalgebra structure defined by:
 \[
 \begin{split}
@@ -194,8 +191,11 @@ C \ot C^\prime.
 For any integer $n$, the \textit{join product} $\ast \colon \chains(\simplex^n)^{\ot 2} \to \chains(\simplex^n)$ is the natural degree~$1$ linear map defined by
 \begin{equation*}
 	\left[v_0, \dots, v_p \right] \pr \left[v_{p+1}, \dots, v_q\right] =
-	\begin{cases} (-1)^{p} \sign(\pi) \left[v_{\pi(0)}, \dots, v_{\pi(q)}\right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
-		\hfil 0 & \text{ if not}, \end{cases}
+	\begin{cases}
+		(-1)^{p} \sign(\pi) \left[v_{\pi(0)}, \dots, v_{\pi(q)}\right] &
+		\text{ if } v_i \neq v_j \text{ for } i \neq j, \\
+		\hfil 0 & \text{ if not},
+	\end{cases}
 \end{equation*}
 where $\pi$ is the permutation that orders the vertices.
 It is proven in \cite{medina2020prop1} that on the chains of representable simplicial sets the Alexander--Whitney structure together with the join product make $\chains(\simplex^n)$ into a natural $\cM$-bialgebra and, consequently, a natural $E_\infty$-coalgebra.
@@ -222,9 +222,9 @@ where, with the convention $x_{<1} = x_{>n} = 1 \in \k$,
 We remark that since the category of $\cM$-bialgebras is not cocomplete, we do not necessarily have an $\cM$-bialgebra structure on $\chains(X)$ for a general multisimplicial set $X$.
 An example for which such structure does not exist is given by one such $X$ whose geometric realization consists of just two points.
 
-\subsection{Cubical theory}\label{ss:cubical}
+\subsection{Cubical comparison}\label{ss:cubical}
 
-Since the complex of chains of the $k$-fold multisimplicial set $\msimplex{1}{1}$ is isomorphic to the chains on the standard cubical set $\cube^k$, it is natural to compare the $E_\infty$-coalgebra structure defined here with that presented in \cite{medina2022cube_einfty} for cubical sets.
+Since the complex of chains of the $k$-fold multisimplicial set $\msimplex{1}{1}$ is isomorphic to the chains on the standard cubical set $\cube^k$, it is natural to compare the $\cM$-bialgebra structure defined here with that presented in \cite{medina2022cube_einfty}, defining an $E_\infty$-structure on cubical chains.
 As counital coalgebras $\chains(\msimplex{1}{1})$ and $\chains(\cube^k)$ are isomorphic, and, denoting the product of the $\cM$-bialgebra defined there by $\widetilde\ast$, we have
 \[
 x \ \widetilde\ast \ y = (-1)^{\bars{x}} x \ast y
@@ -259,4 +259,4 @@ It is given recursively by
 
 Steenrod also introduced operations on the mod~$p$ cohomology of spaces when $p$ is an odd prime \cite{steenrod1952reduced, steenrod1953cyclic}.
 To define these effectively, generalization of the cup-$i$ coproducts were introduced in \cite{medina2021may_st}.
-After the present work, these so-called \textit{cup-$(p,i)$ coproducts} are defined on multisimplicial chains, and their formulas are explicit enough to be implemented in the computer algebra system \href{https://comch.readthedocs.io/en/latest/}{\texttt{ComCH}} \cite{medina2021comch}, where constructions of Cartan and Adem coboundaries \cite{medina2020cartan,medina2021adem,medina2023oddcartan} for multisimplicial sets are also be found.
+After the present work, these so-called \textit{cup-$(p,i)$ coproducts} are defined on multisimplicial chains, and their formulas are explicit enough to be implemented in the computer algebra system \href{https://comch.readthedocs.io/en/latest/}{\texttt{ComCH}} \cite{medina2021comch}, where constructions of Cartan and Adem coboundaries \cite{medina2020cartan,medina2021adem,medina2023oddcartan} for multisimplicial sets can also be found.
