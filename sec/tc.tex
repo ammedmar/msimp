@@ -53,8 +53,9 @@ For example, we have
 \tc(122333112) = (123,231,312).
 \]
 
-For every surjection $f\in \sur(r)_{m_1,\dots,m_r}$, as described in \cite[\S1.2.2]{berger1997confspacemodel}, there is a collection of elements $(k_0 ,\dots , k_{m-1})$, called \textit{caesuras}, where $m=m_1+\dots + m_r$ and $k_j \in \{1,\dots r\}$, $j\in\{0,\dots, m-1\}$. The caesuras are the elements of the sequence representing $f$ which are not the last occurrence of a value $k= 1,\dots, r$. The caesuras of
-$f$ define a collection of morphisms $\pi_\ell \colon [m] \to [m_\ell]$, $\ell\in\{1,\dots,r\}$ such that for $j \in \set{0,\dots,m-1}$,  $\pi_{k_j}(j+1) = \pi_{k_j}(j)+1$ and $\pi_\ell(j+1) = \pi_\ell(j)$ for all $\ell \neq k_j$. We can interpret these morphisms geometrically, as in subsection \ref{ss:eilenber-zilber}. Then the collection $(\pi_1, \dots, \pi_r)$ defines a permutation $\vartheta_f\in \sym_m$ such that $\vartheta_f(j+1)=a_1 +\dots+ a_{k_j -1} + \pi_{k_j}(j+1)$, for $ j\in\{0,\dots, m-1\}$.
+For every surjection $f\in \sur(r)_{m_1,\dots,m_r}$, as described in \cite[\S1.2.2]{berger1997confspacemodel}, there is a collection of elements $(k_0,\dots,k_{m-1})$, called \textit{caesuras}, where $m=m_1+\dots + m_r$ and $k_j \in \{1,\dots r\}$, $j\in\{0,\dots, m-1\}$.
+The caesuras are the elements of the sequence representing $f$ which are not the last occurrence of a value $k= 1,\dots, r$. The caesuras of
+$f$ define a collection of morphisms $\pi_\ell \colon [m] \to [m_\ell]$, $\ell\in\{1,\dots,r\}$ such that for $j \in \set{0,\dots,m-1}$,  $\pi_{k_j}(j+1) = \pi_{k_j}(j)+1$ and $\pi_\ell(j+1) = \pi_\ell(j)$ for all $\ell \neq k_j$. We can interpret these morphisms geometrically, as in \cref{ss:eilenber-zilber}. Then the collection $(\pi_1, \dots, \pi_r)$ defines a permutation $\vartheta_f\in \sym_m$ such that $\vartheta_f(j+1)=a_1 +\dots+ a_{k_j -1} + \pi_{k_j}(j+1)$, for $ j\in\{0,\dots, m-1\}$.
 
 \begin{theorem}\label{thm:tc-decomposition}
 	The simplicial map $\tc \colon \sur(r)^\diag \to \BE(r)$ satisfies
@@ -73,7 +74,7 @@ $(n_1,\dots,n_r)$ such that $0 \leq n_i \leq m_i$,
 for $i=1,\dots,r$. The map $\tau_f$ is determined by
 the requirement that the permutation $\tau_f(n_1,\dots,n_r)$ is the subsequence of $f$ where one picks the $(n_i+1)^{st}$ entry of the value $i$, for each $i=1,\dots,r$.
 
-As seen in subsection \ref{ss:eilenber-zilber}
+As seen in \cref{ss:eilenber-zilber}
 each maximal non-degenerate simplex  $$\sigma\in (\msimplex{m_1 }{m_r})_m $$ is  determined by a
 $(m_1,\dots,m_r)$-shuffle, and equivalently by a sequence $k_i\in \{1,\dots ,r \}$, $i=0,\dots , m-1$.
 The \textit{fundamental simplex} of $f$ is the
@@ -115,8 +116,7 @@ over all maximal non-degenerate simplices of the domain. The sign of each summan
 	Moreover, $tc$ is compatible with orderings: the first occurrences of $i$ and $j$ form the ordering $(w_1)_{ij}$ that is the first permutation of $tc(f_{ij})$.
 	This concludes the proof of filtration compatibility.
 
-	Regarding the maps $\tc_{d} \colon \sur_{d}(r)^{D}\rightarrow \BE(r)_{d}$ we can express source and target as (homotopy) colimits of contractible simplicial sets along the poset of complete graphs,
-	so we have a commutative diagram
+	Regarding the maps $\tc_{d} \colon \sur_{d}(r)^{D}\rightarrow \BE(r)_{d}$ we can express source and target as (homotopy) colimits of contractible simplicial sets along the poset of complete graphs,	so we have a commutative diagram
 	\begin{equation*}
 		\begin{tikzcd}
 			hocolim_{\CG_d(r)}\sur_{(\mu,\sigma)}(r)^{D} \arrow[r] \arrow[d]&
@@ -124,6 +124,7 @@ over all maximal non-degenerate simplices of the domain. The sign of each summan
 			\sur_{d}(r)^{D}\arrow[r] & \BE(r)_{d}&
 		\end{tikzcd}
 	\end{equation*}
-	Where the vertical and top arrows
-	are weak equivalences, and so the bottom map is a weak equivalence.
+	Where the vertical and top arrows are weak equivalences, and so the bottom map is a weak equivalence.
 \end{proof}
+
+We remark that, as informed to us by the referee, the $\tc$ map appears in \cite[Example~3.10(b)]{batanin2009lattice} in the context of the simplicial condensation of the lattice path operad.
